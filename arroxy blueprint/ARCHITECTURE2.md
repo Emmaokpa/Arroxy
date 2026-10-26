@@ -17,7 +17,7 @@ Product repository
 │   ├── Queue / download / probe services
 │   └── Local binaries, files, settings and queue
 │
-├── Web app (based on Arena.ai prototype)
+├── Web app (based on Arena.ai prototype) based on the next ui on the client folder thats our ui template
 │   ├── Prototype-derived UI
 │   ├── Browser AppApi adapter (limited capabilities)
 │   ├── Shared URL classification/contracts where feasible

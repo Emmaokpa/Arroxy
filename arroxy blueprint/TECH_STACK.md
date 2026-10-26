@@ -11,7 +11,7 @@ Audit-time stack:
 - **Package manager/workspaces:** Bun workspaces, with lockfile pinned in the repository.
 - **Desktop shell:** Electron.
 - **Build tooling:** electron-vite and electron-builder.
-- **UI:** React, Tailwind CSS v4, shadcn/ui base-nova components.
+- **UI:** Next js in the client folder, Tailwind CSS v4, shadcn/ui base-nova components.
 - **State:** Zustand.
 - **Validation/contracts:** Zod.
 - **Localization:** i18next with 31 locale catalogs.
