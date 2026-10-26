@@ -39,7 +39,7 @@ const QUALITY_GATES = ['check:static', 'check:shell', 'check:tooling-parity', 'c
 // plus --deny-warnings, which `vp check` cannot take. Type-aware rules resolve
 // ytdlp-errors through its built types, so build it first. README sources are
 // skipped: readme-src is rebuilt by its own rule.
-const STAGED_CHECK = `bash -lc 'set -e; args=(); for f in "$@"; do case "$f" in */readme-src/*|readme-src/*) ;; *) args+=("$f");; esac; done; if [ \${#args[@]} -eq 0 ]; then exit 0; fi; bun run errors:build; vp fmt --no-error-on-unmatched-pattern "\${args[@]}"; vp lint --fix --deny-warnings "\${args[@]}"' --`
+const STAGED_CHECK = `bash -lc 'set -e; args=(); for f in "$@"; do case "$f" in */readme-src/*|readme-src/*|client/*|*/client/*) ;; *) args+=("$f");; esac; done; if [ \${#args[@]} -eq 0 ]; then exit 0; fi; bun run errors:build; vp fmt --no-error-on-unmatched-pattern "\${args[@]}"; vp lint --fix --deny-warnings "\${args[@]}"' --`
 
 export default defineConfig({
 	test: {
@@ -78,6 +78,9 @@ export default defineConfig({
 			'tools/**',
 			'.agents/**',
 			'.claude/**',
+			// The Next.js client under client/ is a separate app with its own
+			// eslint.config.mjs and tsconfig.json; it is linted/formatted by that toolchain.
+			'client/**',
 			'dist/**',
 			'out/**',
 			'output/**',
@@ -108,6 +111,8 @@ export default defineConfig({
 			'.agents/**',
 			'.claude/**',
 			'build/embedded/**',
+			// Separate Next.js app — owns its own eslint.config.mjs / tsconfig.json.
+			'client/**',
 			'tools/oxlint/anti-slop/**',
 			'workers/**/.wrangler/**',
 			'workers/**/src/worker-configuration.d.ts'
