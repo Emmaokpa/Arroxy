@@ -1,1 +1,0 @@
-ERROR: unable to open for writing: [Errno 1] Operation not permitted: '/Users/me/Desktop/clip.mp4.part'

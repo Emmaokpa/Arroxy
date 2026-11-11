@@ -1,1 +1,0 @@
-ERROR: Unable to create directory: [Errno 13] Permission denied: '/srv/media/Locked/Playlist'

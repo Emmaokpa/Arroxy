@@ -1,97 +1,34 @@
-FlickGrab — Third-party software notices
-======================================
+FlickGrab — Third-Party Notices
 
-FlickGrab itself is licensed under the MIT license. The third-party tools
-listed below are used by FlickGrab. Tools 1 and 2 are invoked as separate
-subprocesses; their licenses do not propagate to Arroxy's source code.
-Libraries 3 to 5 are bundled, unmodified, into Arroxy for its optional
-Explore ad blocker.
+This project is MIT licensed (see LICENSE). It depends on the following
+third-party software. Full license texts are included in each package under
+node_modules, and apply to any redistribution of this application.
 
------------------------------------------------------------------------
-1. FFmpeg + FFprobe (https://ffmpeg.org/)
------------------------------------------------------------------------
-License: GNU General Public License version 3 (GPLv3)
+Runtime dependencies
+--------------------
+Next.js            MIT    https://github.com/vercel/next.js
+React              MIT    https://github.com/facebook/react
+React DOM          MIT    https://github.com/facebook/react
+zod                MIT    https://github.com/colinhacks/zod
+Tailwind CSS       MIT    https://github.com/tailwindlabs/tailwindcss
 
-The bundled FFmpeg builds are configured with `--enable-gpl` and include
-GPL-licensed components (libx264, libx265, etc.).
+External programs (not bundled by this repository)
+--------------------------------------------------
+yt-dlp             Unlicense (public domain)
+                   https://github.com/yt-dlp/yt-dlp
+                   Fetched at setup time by `bun run setup:bin`, or supplied via
+                   the YTDLP_PATH environment variable.
 
-Build sources:
-  - Windows + Linux: https://github.com/BtbN/FFmpeg-Builds (gpl-shared variants)
-  - macOS:           https://ffmpeg.martin-riedl.de/
+FFmpeg / FFprobe   LGPL-2.1-or-later or GPL-2.0-or-later, depending on the build
+                   https://ffmpeg.org/legal.html
+                   Optional. Provided by the deployer via PATH or FFMPEG_PATH.
+                   If you redistribute an FFmpeg build with this application,
+                   you are responsible for complying with that build's license,
+                   including corresponding-source requirements for GPL builds.
 
-Corresponding source code is available at:
-  - https://ffmpeg.org/download.html
-  - https://github.com/FFmpeg/FFmpeg
-
-Full GPLv3 license text: https://www.gnu.org/licenses/gpl-3.0.txt
-
------------------------------------------------------------------------
-2. yt-dlp (https://github.com/yt-dlp/yt-dlp)
------------------------------------------------------------------------
-License: The Unlicense (public domain dedication)
-
-yt-dlp is downloaded at runtime from https://github.com/yt-dlp/yt-dlp
-(stable channel) or https://github.com/yt-dlp/yt-dlp-nightly-builds
-(nightly channel). It is not bundled with Arroxy's installer.
-
-Full Unlicense text: https://unlicense.org/
-
------------------------------------------------------------------------
-3. Ghostery adblocker (https://github.com/ghostery/adblocker)
------------------------------------------------------------------------
-License: Mozilla Public License 2.0 (MPL-2.0)
-
-Used by the optional Explore ad blocker, bundled unmodified:
-  - @ghostery/adblocker, @ghostery/adblocker-electron,
-    @ghostery/adblocker-extended-selectors
-  - @ghostery/adblocker-electron-preload and @ghostery/adblocker-content,
-    which ship as a preload script that also runs inside Explore pages
-    while the ad blocker is on
-  - @ghostery/url-parser (https://github.com/ghostery/url-parser)
-
-Source code is available at:
-  - https://github.com/ghostery/adblocker
-  - https://github.com/ghostery/url-parser
-
-Full MPL-2.0 license text: https://mozilla.org/MPL/2.0/
-
------------------------------------------------------------------------
-4. remusao packages (https://github.com/remusao/mono)
------------------------------------------------------------------------
-License: Mozilla Public License 2.0 (MPL-2.0)
-
-Dependencies of the Ghostery adblocker, bundled unmodified:
-@remusao/guess-url-type, @remusao/small, @remusao/smaz,
-@remusao/smaz-compress, @remusao/smaz-decompress, @remusao/trie.
-
-Source code is available at:
-  - https://github.com/remusao/mono
-
-Full MPL-2.0 license text: https://mozilla.org/MPL/2.0/
-
------------------------------------------------------------------------
-5. tldts (https://github.com/remusao/tldts)
------------------------------------------------------------------------
-License: MIT
-
-Dependencies of the Ghostery adblocker, bundled unmodified:
-tldts-experimental and tldts-core.
-
-Copyright (c) 2017 Thomas Parisot, 2018 Rémi Berson
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
-associated documentation files (the "Software"), to deal in the Software without restriction,
-including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,
-and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so,
-subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
- WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
------------------------------------------------------------------------
-Arroxy License (MIT)
------------------------------------------------------------------------
-See LICENSE in the project root.
+Notes
+-----
+- This file lists direct dependencies. Transitive dependency licenses are
+  available in node_modules and must be reviewed before packaging a distributed
+  build.
+- No ad, analytics or telemetry SDK is included.

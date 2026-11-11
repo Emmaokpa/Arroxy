@@ -1,3 +1,0 @@
-vp staged
-
-bun scripts/check-commit-fallout.ts

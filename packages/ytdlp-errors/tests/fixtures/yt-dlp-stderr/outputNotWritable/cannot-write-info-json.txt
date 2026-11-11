@@ -1,1 +1,0 @@
-ERROR: Cannot write video metadata to JSON file /srv/media/Locked/clip.info.json

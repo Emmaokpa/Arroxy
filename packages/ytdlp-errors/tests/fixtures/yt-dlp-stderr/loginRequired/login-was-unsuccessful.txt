@@ -1,3 +1,0 @@
-[some_site] Logging in
-WARNING: [some_site] Unable to log in: server returned 401
-ERROR: [some_site] Login was unsuccessful
