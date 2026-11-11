@@ -9,22 +9,18 @@ Runtime dependencies
 Next.js            MIT    https://github.com/vercel/next.js
 React              MIT    https://github.com/facebook/react
 React DOM          MIT    https://github.com/facebook/react
+Express            MIT    https://github.com/expressjs/express
+cors               MIT    https://github.com/expressjs/cors
+helmet             MIT    https://github.com/helmetjs/helmet
+express-rate-limit MIT    https://github.com/express-rate-limit/express-rate-limit
+tsx                MIT    https://github.com/privatenumber/tsx
 zod                MIT    https://github.com/colinhacks/zod
 Tailwind CSS       MIT    https://github.com/tailwindlabs/tailwindcss
 
-External programs (not bundled by this repository)
---------------------------------------------------
-yt-dlp             Unlicense (public domain)
-                   https://github.com/yt-dlp/yt-dlp
-                   Fetched at setup time by `bun run setup:bin`, or supplied via
-                   the YTDLP_PATH environment variable.
-
-FFmpeg / FFprobe   LGPL-2.1-or-later or GPL-2.0-or-later, depending on the build
-                   https://ffmpeg.org/legal.html
-                   Optional. Provided by the deployer via PATH or FFMPEG_PATH.
-                   If you redistribute an FFmpeg build with this application,
-                   you are responsible for complying with that build's license,
-                   including corresponding-source requirements for GPL builds.
+External programs
+-----------------
+None. This project does not bundle, download or invoke yt-dlp, FFmpeg, FFprobe or
+any other media binary. Metadata is read from public oEmbed endpoints.
 
 Notes
 -----

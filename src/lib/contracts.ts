@@ -1,53 +1,76 @@
 import { z } from "zod";
+import { InspectSourceSchema } from "./sources";
 
-/** Request body for POST /api/analyze. */
-export const AnalyzeRequestSchema = z.object({
-	url: z.string().min(1).max(2048),
+/** Body of `POST /api/inspect`. */
+export const InspectRequestSchema = z.object({
+	url: z.string().trim().min(1, "Paste a link first.").max(2048),
 });
+export type InspectRequest = z.infer<typeof InspectRequestSchema>;
 
-/** A single download option the backend is willing to produce. */
-export const DownloadOptionSchema = z.object({
-	id: z.string().min(1).max(64),
-	kind: z.enum(["video", "audio"]),
-	label: z.string().min(1).max(64),
-	container: z.string().min(1).max(16),
-	filesize: z.number().int().nonnegative().nullable(),
-	note: z.string().max(120).nullable(),
+/** How a source can be downloaded on each surface. */
+export const CAPABILITY_STATES = ["supported", "unsupported", "unverified"] as const;
+export const CapabilityStateSchema = z.enum(CAPABILITY_STATES);
+export type CapabilityState = z.infer<typeof CapabilityStateSchema>;
+
+/**
+ * The plain-language outcome for one inspected link. `downloadInBrowser` is the
+ * only field the UI may use to decide whether to offer a download button.
+ */
+export const VerdictSchema = z.object({
+	downloadInBrowser: z.boolean(),
+	headline: z.string().max(160),
+	detail: z.string().max(700),
 });
-export type DownloadOption = z.infer<typeof DownloadOptionSchema>;
+export type Verdict = z.infer<typeof VerdictSchema>;
 
-/** Response body for POST /api/analyze. */
-export const AnalyzeResponseSchema = z.object({
-	title: z.string().min(1).max(500),
-	uploader: z.string().max(200).nullable(),
-	durationSeconds: z.number().nonnegative().nullable(),
+/** A file the browser can fetch and save itself, without our server. */
+export const DeviceDownloadSchema = z.object({
+	url: z.string().max(2048),
+	filename: z.string().max(200),
+});
+export type DeviceDownload = z.infer<typeof DeviceDownloadSchema>;
+
+/** Response body of `POST /api/inspect`. */
+export const InspectResponseSchema = z.object({
+	/** Canonical form of the pasted link, after short links are expanded. */
+	url: z.string().max(2048),
+	source: InspectSourceSchema,
+	title: z.string().max(500).nullable(),
+	author: z.string().max(200).nullable(),
 	thumbnail: z.string().max(2048).nullable(),
-	sourceUrl: z.string().max(2048),
-	options: z.array(DownloadOptionSchema).max(40),
+	/** Set when we could not read public metadata, and why. */
+	metadataNote: z.string().max(300).nullable(),
+	/** Non-null only when this device can save the file on its own. */
+	deviceDownload: DeviceDownloadSchema.nullable(),
+	verdict: VerdictSchema,
 });
-export type AnalyzeResponse = z.infer<typeof AnalyzeResponseSchema>;
+export type InspectResponse = z.infer<typeof InspectResponseSchema>;
 
-/** Request body for POST /api/download. */
-export const DownloadRequestSchema = z.object({
-	url: z.string().min(1).max(2048),
-	optionId: z.string().min(1).max(64),
+/** One row of `GET /api/capabilities`. */
+export const CapabilitySchema = z.object({
+	source: InspectSourceSchema,
+	label: z.string().max(80),
+	browser: CapabilityStateSchema,
+	reason: z.string().max(500),
 });
+export type Capability = z.infer<typeof CapabilitySchema>;
 
-export const JOB_STATUS = ["queued", "downloading", "completed", "failed"] as const;
-export const JobStatusSchema = z.enum(JOB_STATUS);
-export type JobStatus = z.infer<typeof JobStatusSchema>;
-
-/** Public shape of a download job polled from GET /api/download/[id]. */
-export const DownloadJobSchema = z.object({
-	id: z.string().min(1).max(64),
-	status: JobStatusSchema,
-	progress: z.number().min(0).max(100),
-	filename: z.string().max(500).nullable(),
-	error: z.string().max(500).nullable(),
+/** Response body of `GET /api/capabilities`. */
+export const CapabilitiesResponseSchema = z.object({
+	measuredOn: z.string().max(32),
+	capabilities: z.array(CapabilitySchema).max(20),
 });
-export type DownloadJob = z.infer<typeof DownloadJobSchema>;
+export type CapabilitiesResponse = z.infer<typeof CapabilitiesResponseSchema>;
+
+/** Response body of `GET /api/health`. */
+export const HealthResponseSchema = z.object({
+	ok: z.boolean(),
+	uptimeSeconds: z.number().nonnegative(),
+});
+export type HealthResponse = z.infer<typeof HealthResponseSchema>;
 
 /** Error shape returned by every API route on failure. */
 export const ApiErrorSchema = z.object({
 	error: z.string().max(500),
 });
+export type ApiError = z.infer<typeof ApiErrorSchema>;

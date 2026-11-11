@@ -10,7 +10,6 @@ import {
   HowItWorks,
   PlatformStrip,
   Stats,
-  Trending,
 } from "@/components/Sections";
 
 export default function HomePage() {
@@ -42,20 +41,21 @@ export default function HomePage() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-yellow-300 opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-yellow-300" />
               </span>
-              Free · Unlimited · No sign-up
+              Free · No sign-up · No video on our servers
             </span>
             <h1 className="animate-fade-up mx-auto mt-6 max-w-4xl text-[clamp(2.4rem,6vw,4.6rem)] font-extrabold leading-[1.05] tracking-tight [animation-delay:80ms]">
-              Download videos from{" "}
+              Paste a link. See what{" "}
               <span className="relative whitespace-nowrap text-yellow-300">
-                anywhere
+                your device
                 <svg viewBox="0 0 300 20" className="absolute -bottom-2 left-0 w-full" preserveAspectRatio="none">
                   <path d="M3 15C80 4 220 2 297 12" stroke="currentColor" strokeWidth="5" fill="none" strokeLinecap="round" />
                 </svg>
               </span>
-              , in seconds.
+              {" "}can really save.
             </h1>
             <p className="animate-fade-up mx-auto mt-6 max-w-2xl text-lg text-white/85 sm:text-xl [animation-delay:160ms]">
-              Save YouTube, Instagram & TikTok videos in HD, 4K or MP3. Just paste the link and hit download.
+              FlickGrab reads public metadata, saves direct media links straight to your device, and tells you plainly
+              when YouTube, TikTok or Instagram can&apos;t be fetched by a browser.
             </p>
 
             <div className="animate-fade-up mt-10 [animation-delay:240ms]">
@@ -63,7 +63,7 @@ export default function HomePage() {
             </div>
 
             <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm font-medium text-white/85">
-              {["No watermark", "4K & 60fps", "MP3 320kbps", "Works on all devices"].map((t) => (
+              {["Nothing stored on our servers", "Direct links save on-device", "Honest verdicts", "No account needed"].map((t) => (
                 <span key={t} className="flex items-center gap-1.5">
                   <CheckIcon className="h-4 w-4 text-yellow-300" /> {t}
                 </span>
@@ -80,7 +80,6 @@ export default function HomePage() {
         <Features />
         <HowItWorks />
         <AppPromo />
-        <Trending />
         <Stats />
         <FaqSection />
         <CTA />

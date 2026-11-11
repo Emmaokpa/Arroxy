@@ -1,13 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { AndroidIcon, GlobeIcon, LogoMark, MenuIcon, XIcon } from "./Icons";
+import { LogoMark, MenuIcon, SearchIcon, XIcon } from "./Icons";
 
 const links = [
-  { href: "#downloader", label: "Downloader" },
-  { href: "#features", label: "Features" },
+  { href: "#downloader", label: "Check a link" },
+  { href: "#features", label: "What works" },
   { href: "#how", label: "How it works" },
-  { href: "#trending", label: "Trending" },
+  { href: "#app", label: "App status" },
   { href: "#faq", label: "FAQ" },
 ];
 
@@ -51,22 +51,15 @@ export default function Header() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <button
-            className={`flex items-center gap-1.5 rounded-full px-3 py-2 text-sm font-medium transition ${
-              scrolled ? "text-slate-600 hover:bg-slate-100" : "text-white/85 hover:bg-white/10"
-            }`}
-          >
-            <GlobeIcon className="h-4 w-4" /> EN
-          </button>
           <a
-            href="#app"
+            href="#downloader"
             className={`flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-bold shadow-lg transition hover:-translate-y-0.5 ${
               scrolled
                 ? "bg-gradient-to-r from-brand-500 to-brand-700 text-white shadow-brand-500/30"
                 : "bg-white text-brand-600 shadow-black/10"
             }`}
           >
-            <AndroidIcon className="h-4 w-4" /> Get the App
+            <SearchIcon className="h-4 w-4" /> Check a link
           </a>
         </div>
 
@@ -92,11 +85,11 @@ export default function Header() {
             </a>
           ))}
           <a
-            href="#app"
+            href="#downloader"
             onClick={() => setOpen(false)}
             className="mt-2 flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-brand-500 to-brand-700 px-4 py-3.5 font-bold text-white"
           >
-            <AndroidIcon className="h-5 w-5" /> Get the App
+            <SearchIcon className="h-5 w-5" /> Check a link
           </a>
         </div>
       )}

@@ -4,12 +4,34 @@ import { useState } from "react";
 import { ChevronIcon } from "./Icons";
 
 const faqs = [
-  { q: "Is FlickGrab free to use?", a: "Yes — FlickGrab is 100% free with unlimited downloads. There is no registration, subscription or hidden fee." },
-  { q: "Which platforms are supported?", a: "You can download from YouTube (videos, Shorts and music), Instagram (Reels, posts, IGTV and Stories) and TikTok (videos with or without watermark and original sounds)." },
-  { q: "How do I download TikTok videos without a watermark?", a: "Copy the TikTok video link, paste it into the box at the top of the page and choose the “No Watermark” option. The clean video saves directly to your device." },
-  { q: "Can I convert YouTube videos to MP3?", a: "Absolutely. After analyzing a link, switch to the “MP3 / Audio” tab and pick 128kbps or 320kbps quality." },
-  { q: "Where are my downloaded files saved?", a: "Files are saved to your browser's default downloads folder. On Android they appear in the Downloads app or your gallery; on iPhone check the Files app." },
-  { q: "Is it legal to download videos?", a: "Downloading for personal, offline use is usually fine, but always respect copyright and the platform's terms. Only download content you own or have permission to use." },
+  {
+    q: "Why can't FlickGrab download YouTube in my browser?",
+    a: "Because YouTube makes it impossible, not because we skipped it. Each media URL is signed to the IP address that requested it, the CDN sends no CORS headers, and HD formats arrive as separate video and audio streams that need muxing on the device. A browser can do none of those things, so the only honest option is to say so.",
+  },
+  {
+    q: "What about TikTok and Instagram?",
+    a: "Both need an extraction step to turn a page into a media URL, and that step has to run somewhere. Instagram's public metadata additionally needs a Meta app access token. FlickGrab deliberately keeps no extractor, downloader or video storage on its servers, so these two are identified but not saved here.",
+  },
+  {
+    q: "What does download today, then?",
+    a: "Direct media links — a URL ending in .mp4, .webm, .mp3, .m4a and similar. Your browser fetches the file straight from its host and writes it to your device. Nothing passes through our server, and the host has to allow cross-origin reads for this to work.",
+  },
+  {
+    q: "Is FlickGrab free?",
+    a: "Yes. Checking a link and saving a direct file are free, with no account, no email and no daily limit. The only limit is a fair-use cap of 40 lookups a minute per address.",
+  },
+  {
+    q: "Do you store the links I paste?",
+    a: "No. The API reads public metadata from the source, returns it, and keeps nothing: no database, no accounts, no history. There are no analytics scripts on this page either.",
+  },
+  {
+    q: "Where do saved files go?",
+    a: "Wherever your browser puts downloads. On Android that is usually the Downloads app or your gallery; on iPhone, the Files app; on desktop, your Downloads folder.",
+  },
+  {
+    q: "Is downloading videos legal?",
+    a: "That depends on the content, the platform's terms and your local law. Only download what you own or have permission to use, and treat this page's verdict as a technical answer rather than legal advice.",
+  },
 ];
 
 export default function Faq() {

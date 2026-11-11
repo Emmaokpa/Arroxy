@@ -1,32 +1,28 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
-	AnalyzeResponseSchema,
 	ApiErrorSchema,
-	DownloadJobSchema,
-	type AnalyzeResponse,
-	type DownloadJob,
-	type DownloadOption,
+	InspectResponseSchema,
+	type DeviceDownload,
+	type InspectResponse,
 } from "@/lib/contracts";
-import { classifySource, type SourceId } from "@/lib/sources";
+import type { InspectSource, SourceId } from "@/lib/sources";
 import {
 	DownloadIcon,
 	InstagramIcon,
-	MusicIcon,
 	PasteIcon,
 	PlayIcon,
 	SearchIcon,
+	ShieldIcon,
 	TikTokIcon,
 	VideoIcon,
 	XIcon,
 	YouTubeIcon,
 } from "./Icons";
 
-type Platform = SourceId;
-
 const platforms: {
-	id: Platform;
+	id: SourceId;
 	name: string;
 	Icon: typeof YouTubeIcon;
 	placeholder: string;
@@ -59,31 +55,25 @@ const platforms: {
 	},
 ];
 
-function platformFor(url: string): Platform {
-	return classifySource(url) ?? "youtube";
-}
+/** A small, CC0 file every modern browser is allowed to fetch cross-origin. */
+const SAMPLE_FILE = "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4";
 
-function formatBytes(bytes: number | null): string | null {
-	if (bytes === null || bytes <= 0) return null;
-	const units = ["B", "KB", "MB", "GB"];
-	let value = bytes;
-	let unit = 0;
-	while (value >= 1024 && unit < units.length - 1) {
-		value /= 1024;
-		unit += 1;
-	}
-	return `${value >= 10 || unit === 0 ? Math.round(value) : value.toFixed(1)} ${units[unit]}`;
-}
+/** Browsers have to hold the file in memory before saving it. */
+const MAX_INLINE_BYTES = 512 * 1024 * 1024;
 
-function formatDuration(seconds: number | null): string | null {
-	if (seconds === null || seconds <= 0) return null;
-	const total = Math.round(seconds);
-	const hours = Math.floor(total / 3600);
-	const minutes = Math.floor((total % 3600) / 60);
-	const rest = total % 60;
-	const pad = (n: number) => String(n).padStart(2, "0");
-	return hours > 0 ? `${hours}:${pad(minutes)}:${pad(rest)}` : `${minutes}:${pad(rest)}`;
-}
+const SOURCE_LABELS: Record<InspectSource, string> = {
+	youtube: "YouTube",
+	instagram: "Instagram",
+	tiktok: "TikTok",
+	file: "Direct file",
+};
+
+const SOURCE_ICONS: Record<InspectSource, typeof YouTubeIcon> = {
+	youtube: YouTubeIcon,
+	instagram: InstagramIcon,
+	tiktok: TikTokIcon,
+	file: VideoIcon,
+};
 
 async function readError(response: Response): Promise<string> {
 	try {
@@ -94,21 +84,44 @@ async function readError(response: Response): Promise<string> {
 	}
 }
 
-type QueueItem = DownloadJob & { title: string };
+/**
+ * Fetches a file straight from its host and saves it on this device. The bytes
+ * go from the host to the browser — FlickGrab's server is never involved.
+ */
+async function saveOnDevice(download: DeviceDownload): Promise<void> {
+	const response = await fetch(download.url, { mode: "cors" });
+	if (!response.ok) throw new Error(`The file's host answered with ${response.status}.`);
+
+	const declared = Number(response.headers.get("content-length") ?? "");
+	if (Number.isFinite(declared) && declared > MAX_INLINE_BYTES) {
+		throw new Error("too-large");
+	}
+
+	const blob = await response.blob();
+	const href = URL.createObjectURL(blob);
+	const anchor = document.createElement("a");
+	anchor.href = href;
+	anchor.download = download.filename;
+	anchor.rel = "noopener";
+	document.body.appendChild(anchor);
+	anchor.click();
+	anchor.remove();
+	setTimeout(() => URL.revokeObjectURL(href), 10_000);
+}
 
 export default function Downloader() {
-	const [platform, setPlatform] = useState<Platform>("youtube");
+	const [platform, setPlatform] = useState<SourceId>("youtube");
 	const [url, setUrl] = useState("");
-	const [status, setStatus] = useState<"idle" | "loading" | "done" | "error">("idle");
-	const [analysis, setAnalysis] = useState<AnalyzeResponse | null>(null);
-	const [tab, setTab] = useState<"video" | "audio">("video");
-	const [queue, setQueue] = useState<QueueItem[]>([]);
+	const [status, setStatus] = useState<"idle" | "loading" | "ready" | "error">("idle");
+	const [result, setResult] = useState<InspectResponse | null>(null);
 	const [error, setError] = useState("");
-	const [busyOption, setBusyOption] = useState<string | null>(null);
+	const [saving, setSaving] = useState(false);
+	const [saveMessage, setSaveMessage] = useState("");
+	const [copied, setCopied] = useState(false);
 
-	const current = platforms.find((p) => p.id === platform)!;
+	const current = platforms.find((p) => p.id === platform) ?? platforms[0];
 
-	const analyze = async (value = url) => {
+	const inspect = async (value = url) => {
 		const trimmed = value.trim();
 		if (!trimmed) {
 			setError("Please paste a video link first.");
@@ -116,10 +129,11 @@ export default function Downloader() {
 			return;
 		}
 		setError("");
+		setSaveMessage("");
 		setStatus("loading");
-		setAnalysis(null);
+		setResult(null);
 		try {
-			const response = await fetch("/api/analyze", {
+			const response = await fetch("/api/inspect", {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify({ url: trimmed }),
@@ -129,13 +143,10 @@ export default function Downloader() {
 				setStatus("error");
 				return;
 			}
-			const data = AnalyzeResponseSchema.parse(await response.json());
-			setAnalysis(data);
-			setPlatform(classifySource(trimmed) ?? platform);
-			setTab(data.options.some((option) => option.kind === "video") ? "video" : "audio");
-			setStatus("done");
+			setResult(InspectResponseSchema.parse(await response.json()));
+			setStatus("ready");
 		} catch {
-			setError("Could not reach the server. Is it running?");
+			setError("Could not reach the server. Is the API running?");
 			setStatus("error");
 		}
 	};
@@ -145,74 +156,54 @@ export default function Downloader() {
 			const text = await navigator.clipboard.readText();
 			if (text.trim()) {
 				setUrl(text);
-				await analyze(text);
+				await inspect(text);
 				return;
 			}
 		} catch {
 			/* clipboard permission denied — fall through to the sample */
 		}
 		setUrl(current.sample);
-		await analyze(current.sample);
+		await inspect(current.sample);
 	};
 
-	const startDownload = async (option: DownloadOption) => {
-		if (!analysis) return;
-		setBusyOption(option.id);
-		setError("");
+	const download = async (target: DeviceDownload) => {
+		setSaving(true);
+		setSaveMessage("");
 		try {
-			const response = await fetch("/api/download", {
-				method: "POST",
-				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify({ url: analysis.sourceUrl, optionId: option.id }),
-			});
-			if (!response.ok) {
-				setError(await readError(response));
-				return;
-			}
-			const job = DownloadJobSchema.parse(await response.json());
-			setQueue((items) => [{ ...job, title: analysis.title }, ...items]);
-		} catch {
-			setError("Could not start the download. Is the server running?");
+			await saveOnDevice(target);
+			setSaveMessage("Saved to your device.");
+		} catch (caught) {
+			const reason = caught instanceof Error ? caught.message : "";
+			setSaveMessage(
+				reason === "too-large"
+					? "That file is over 512 MB, which a browser cannot hold in memory. Open the link directly to save it."
+					: "Your browser could not read that file. The host may not allow cross-origin downloads.",
+			);
 		} finally {
-			setBusyOption(null);
+			setSaving(false);
 		}
 	};
 
-	const activeIds = queue
-		.filter((job) => job.status === "queued" || job.status === "downloading")
-		.map((job) => job.id)
-		.join(",");
+	const copyLink = async () => {
+		if (!result) return;
+		try {
+			await navigator.clipboard.writeText(result.url);
+			setCopied(true);
+			setTimeout(() => setCopied(false), 2000);
+		} catch {
+			setSaveMessage("Copying needs clipboard permission in this browser.");
+		}
+	};
 
-	useEffect(() => {
-		if (!activeIds) return;
-		const ids = activeIds.split(",");
-		const timer = setInterval(async () => {
-			const updates = await Promise.all(
-				ids.map(async (id) => {
-					try {
-						const response = await fetch(`/api/download/${id}`, { cache: "no-store" });
-						if (!response.ok) return null;
-						return DownloadJobSchema.parse(await response.json());
-					} catch {
-						return null;
-					}
-				}),
-			);
-			setQueue((items) =>
-				items.map((item) => {
-					const update = updates.find((candidate) => candidate?.id === item.id);
-					return update ? { ...item, ...update } : item;
-				}),
-			);
-		}, 1000);
-		return () => clearInterval(timer);
-	}, [activeIds]);
+	const reset = () => {
+		setUrl("");
+		setStatus("idle");
+		setResult(null);
+		setSaveMessage("");
+		setCopied(false);
+	};
 
-	const options = analysis ? analysis.options.filter((option) => option.kind === tab) : [];
-	const tabs = analysis
-		? (["video", "audio"] as const).filter((kind) => analysis.options.some((option) => option.kind === kind))
-		: [];
-	const duration = analysis ? formatDuration(analysis.durationSeconds) : null;
+	const ResultIcon = result ? SOURCE_ICONS[result.source] : YouTubeIcon;
 
 	return (
 		<div id="downloader" className="relative mx-auto w-full max-w-4xl scroll-mt-28">
@@ -240,7 +231,7 @@ export default function Downloader() {
 			<form
 				onSubmit={(e) => {
 					e.preventDefault();
-					void analyze();
+					void inspect();
 				}}
 				className="group relative rounded-[28px] bg-white p-2.5 shadow-[0_30px_80px_-20px_rgba(120,0,0,0.55)] ring-1 ring-black/5"
 			>
@@ -260,11 +251,7 @@ export default function Downloader() {
 						{url ? (
 							<button
 								type="button"
-								onClick={() => {
-									setUrl("");
-									setStatus("idle");
-									setAnalysis(null);
-								}}
+								onClick={reset}
 								className="mr-1 grid h-10 w-10 shrink-0 place-items-center rounded-full text-slate-400 hover:bg-slate-100 hover:text-slate-700"
 								aria-label="Clear"
 							>
@@ -288,11 +275,11 @@ export default function Downloader() {
 						{status === "loading" ? (
 							<>
 								<span className="h-5 w-5 animate-spin rounded-full border-[3px] border-white/40 border-t-white" />
-								Analyzing…
+								Checking…
 							</>
 						) : (
 							<>
-								<DownloadIcon className="h-5 w-5" /> Download
+								<SearchIcon className="h-5 w-5" /> Check link
 							</>
 						)}
 					</button>
@@ -309,15 +296,24 @@ export default function Downloader() {
 							<button
 								onClick={() => {
 									setUrl(p.sample);
-									void analyze(p.sample);
+									void inspect(p.sample);
 								}}
 								className="font-semibold text-white underline decoration-white/40 underline-offset-4 hover:decoration-white"
 							>
 								{p.name}
 							</button>
-							{i < platforms.length - 1 ? " · " : ""}
+							{i < platforms.length - 1 ? " · " : " · "}
 						</span>
 					))}
+					<button
+						onClick={() => {
+							setUrl(SAMPLE_FILE);
+							void inspect(SAMPLE_FILE);
+						}}
+						className="font-semibold text-white underline decoration-white/40 underline-offset-4 hover:decoration-white"
+					>
+						direct file
+					</button>
 				</p>
 			)}
 
@@ -329,163 +325,86 @@ export default function Downloader() {
 							<div className="shimmer h-5 w-4/5 rounded-full" />
 							<div className="shimmer h-5 w-3/5 rounded-full" />
 							<div className="shimmer h-4 w-1/3 rounded-full" />
-							<div className="mt-6 grid grid-cols-2 gap-3">
-								{[0, 1, 2, 3].map((i) => (
-									<div key={i} className="shimmer h-14 rounded-2xl" />
-								))}
-							</div>
+							<div className="mt-6 shimmer h-24 rounded-2xl" />
 						</div>
 					</div>
 				</div>
 			)}
 
 			{/* Result */}
-			{status === "done" && analysis && (
+			{status === "ready" && result && (
 				<div className="animate-fade-up mt-6 overflow-hidden rounded-[28px] bg-white text-left shadow-2xl">
 					<div className="flex flex-col gap-6 p-5 sm:flex-row sm:p-6">
 						<div className="relative aspect-video w-full shrink-0 overflow-hidden rounded-2xl bg-gradient-to-br from-orange-400 via-rose-500 to-purple-700 sm:w-72">
-							{analysis.thumbnail ? (
+							{result.thumbnail ? (
 								// eslint-disable-next-line @next/next/no-img-element
-								<img src={analysis.thumbnail} alt="" className="h-full w-full object-cover" />
+								<img src={result.thumbnail} alt="" className="h-full w-full object-cover" />
 							) : (
 								<div className="absolute inset-0 grid place-items-center">
 									<PlayIcon className="ml-1 h-10 w-10 text-white" />
 								</div>
 							)}
-							{duration && (
-								<span className="absolute bottom-2 right-2 rounded-md bg-black/70 px-2 py-0.5 text-xs font-semibold text-white">
-									{duration}
-								</span>
-							)}
 							<span className="absolute left-2 top-2 grid h-8 w-8 place-items-center rounded-lg bg-white shadow">
-								{(() => {
-									const P = platforms.find((p) => p.id === platformFor(analysis.sourceUrl))!.Icon;
-									return <P className="h-5 w-5" />;
-								})()}
+								<ResultIcon className="h-5 w-5" />
 							</span>
 						</div>
+
 						<div className="min-w-0 flex-1">
-							<h3 className="line-clamp-2 text-lg font-bold leading-snug text-slate-900">{analysis.title}</h3>
-							<p className="mt-1.5 text-sm text-slate-500">
-								{analysis.uploader ?? "Unknown uploader"}
-								{analysis.durationSeconds ? ` · ${formatDuration(analysis.durationSeconds)}` : ""}
-							</p>
+							<span className="text-[11px] font-extrabold uppercase tracking-[0.16em] text-slate-400">
+								{SOURCE_LABELS[result.source]}
+							</span>
+							<h3 className="mt-1 line-clamp-2 text-lg font-bold leading-snug text-slate-900">
+								{result.title ?? result.verdict.headline}
+							</h3>
+							{result.author && <p className="mt-1.5 text-sm text-slate-500">{result.author}</p>}
+							{result.metadataNote && <p className="mt-1 text-xs text-slate-400">{result.metadataNote}</p>}
 
-							{tabs.length > 1 && (
-								<div className="mt-4 inline-flex rounded-full bg-slate-100 p-1">
-									{tabs.map((kind) => (
-										<button
-											key={kind}
-											onClick={() => setTab(kind)}
-											className={`flex items-center gap-1.5 rounded-full px-4 py-1.5 text-sm font-semibold capitalize transition ${
-												tab === kind ? "bg-white text-brand-600 shadow" : "text-slate-500 hover:text-slate-800"
-											}`}
-										>
-											{kind === "video" ? <VideoIcon className="h-4 w-4" /> : <MusicIcon className="h-4 w-4" />}
-											{kind === "video" ? "Video" : "MP3 / Audio"}
-										</button>
-									))}
-								</div>
-							)}
-
-							<div className="mt-4 grid gap-2.5 sm:grid-cols-2">
-								{options.map((option) => {
-									const size = formatBytes(option.filesize);
-									return (
-										<button
-											key={option.id}
-											onClick={() => void startDownload(option)}
-											disabled={busyOption !== null}
-											className="group/f flex items-center justify-between rounded-2xl border border-slate-200 px-4 py-3 text-left transition hover:-translate-y-0.5 hover:border-brand-300 hover:bg-brand-50 hover:shadow-md disabled:cursor-wait disabled:opacity-70"
-										>
-											<div className="min-w-0">
-												<div className="flex items-center gap-2">
-													<span className="font-bold text-slate-900">{option.label}</span>
-													<span className="rounded-md bg-gradient-to-r from-brand-500 to-orange-500 px-1.5 py-0.5 text-[10px] font-extrabold uppercase text-white">
-														{option.container}
-													</span>
-												</div>
-												<p className="text-xs text-slate-500">
-													{size ? `${size} · ` : ""}
-													{option.note ?? (option.kind === "video" ? "video" : "audio")}
-												</p>
-											</div>
-											<span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-brand-600 text-white shadow-md shadow-brand-600/30 transition group-hover/f:scale-110">
-												{busyOption === option.id ? (
-													<span className="h-4 w-4 animate-spin rounded-full border-2 border-white/40 border-t-white" />
-												) : (
-													<DownloadIcon className="h-4 w-4" />
-												)}
-											</span>
-										</button>
-									);
-								})}
-							</div>
-							{options.length === 0 && (
-								<p className="mt-4 rounded-2xl bg-slate-50 px-4 py-3 text-sm text-slate-500">
-									No {tab} formats were found for this link.
+							<div
+								className={`mt-4 rounded-2xl border p-4 ${
+									result.verdict.downloadInBrowser ? "border-emerald-200 bg-emerald-50" : "border-amber-200 bg-amber-50"
+								}`}
+							>
+								<p className="flex items-center gap-2 text-sm font-bold text-slate-900">
+									<ShieldIcon className="h-4 w-4 shrink-0" />
+									{result.verdict.headline}
 								</p>
-							)}
+								<p className="mt-1.5 text-sm leading-relaxed text-slate-600">{result.verdict.detail}</p>
+
+								<div className="mt-3.5 flex flex-wrap items-center gap-2">
+									{result.deviceDownload ? (
+										<button
+											onClick={() => void download(result.deviceDownload!)}
+											disabled={saving}
+											className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 px-4 py-2.5 text-sm font-bold text-white shadow-md shadow-emerald-600/30 transition hover:brightness-110 disabled:opacity-70"
+										>
+											{saving ? (
+												<span className="h-4 w-4 animate-spin rounded-full border-2 border-white/40 border-t-white" />
+											) : (
+												<DownloadIcon className="h-4 w-4" />
+											)}
+											{saving ? "Saving…" : "Download to this device"}
+										</button>
+									) : (
+										<button
+											onClick={() => void copyLink()}
+											className="rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm font-bold text-slate-700 transition hover:border-slate-400 hover:bg-slate-50"
+										>
+											{copied ? "Link copied" : "Copy link"}
+										</button>
+									)}
+									<a
+										href={result.url}
+										target="_blank"
+										rel="noreferrer"
+										className="rounded-xl px-3 py-2.5 text-sm font-semibold text-slate-500 underline decoration-slate-300 underline-offset-4 hover:text-slate-800"
+									>
+										Open original
+									</a>
+								</div>
+								{saveMessage && <p className="mt-2.5 text-xs font-medium text-slate-600">{saveMessage}</p>}
+							</div>
 						</div>
 					</div>
-				</div>
-			)}
-
-			{/* Download queue */}
-			{queue.length > 0 && (
-				<div className="animate-fade-up mt-5 rounded-[28px] bg-white/95 p-5 text-left shadow-2xl backdrop-blur">
-					<div className="mb-3 flex items-center justify-between">
-						<h4 className="font-bold text-slate-900">Downloads</h4>
-						<button onClick={() => setQueue([])} className="text-xs font-semibold text-slate-400 hover:text-brand-600">
-							Clear list
-						</button>
-					</div>
-					<ul className="space-y-3">
-						{queue.map((job) => {
-							const done = job.status === "completed";
-							const failed = job.status === "failed";
-							const P = platforms.find((p) => p.id === platformFor(analysis?.sourceUrl ?? ""))!.Icon;
-							return (
-								<li key={job.id} className="flex items-center gap-3 rounded-2xl bg-slate-50 p-3">
-									<span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white shadow-sm">
-										<P className="h-6 w-6" />
-									</span>
-									<div className="min-w-0 flex-1">
-										<p className="truncate text-sm font-semibold text-slate-800">{job.filename ?? job.title}</p>
-										<div className="mt-1.5 flex items-center gap-3">
-											<div className="h-2 flex-1 overflow-hidden rounded-full bg-slate-200">
-												<div
-													className={`h-full rounded-full transition-all duration-300 ${
-														failed ? "bg-red-500" : done ? "bg-emerald-500" : "bg-gradient-to-r from-brand-500 to-orange-400"
-													}`}
-													style={{ width: `${failed ? 100 : job.progress}%` }}
-												/>
-											</div>
-											<span className="w-28 truncate text-right text-xs font-medium text-slate-500">
-												{failed ? job.error ?? "Failed" : done ? "Completed" : `${Math.floor(job.progress)}%`}
-											</span>
-										</div>
-									</div>
-									{done ? (
-										<a
-											href={`/api/download/${job.id}/file`}
-											className="grid h-8 place-items-center rounded-full bg-emerald-100 px-3 text-xs font-bold text-emerald-700 hover:bg-emerald-200"
-										>
-											Save
-										</a>
-									) : (
-										<span
-											className={`grid h-8 w-8 shrink-0 place-items-center rounded-full ${
-												failed ? "bg-red-100 text-red-600" : "bg-brand-100 text-brand-600"
-											}`}
-										>
-											{failed ? <XIcon className="h-4 w-4" /> : <SearchIcon className="h-4 w-4 animate-pulse" />}
-										</span>
-									)}
-								</li>
-							);
-						})}
-					</ul>
 				</div>
 			)}
 		</div>
