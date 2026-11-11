@@ -15,7 +15,6 @@ interface YtDlpHarnessArgsOptions {
 
 export interface E2eHarnessMode {
 	enabled: boolean
-	disableAnalytics: boolean
 	disableUpdater: boolean
 	allowClipboardWatch: boolean
 	useMockTokenProvider: boolean
@@ -52,7 +51,7 @@ export function isHeadlessWindowRequested(env: NodeJS.ProcessEnv): boolean {
 }
 
 function applyE2eAppSettingsDefaults(defaults: AppSettings, allowClipboardWatch: boolean): AppSettings {
-	return {...defaults, common: {...defaults.common, clipboardWatchEnabled: allowClipboardWatch ? defaults.common.clipboardWatchEnabled : false, analyticsEnabled: false}}
+	return {...defaults, common: {...defaults.common, clipboardWatchEnabled: allowClipboardWatch ? defaults.common.clipboardWatchEnabled : false}}
 }
 
 function applyProxyEnv(env: NodeJS.ProcessEnv, proxyUrl: string | undefined): NodeJS.ProcessEnv {
@@ -130,7 +129,7 @@ function readExploreAdBlockFilters(file: string | undefined, gate: HarnessGate):
 
 export function resolveE2eHarnessMode(env: NodeJS.ProcessEnv = process.env, gate: HarnessGate): E2eHarnessMode {
 	if (!isE2eHarnessEnabled(env, gate)) {
-		return {enabled: false, disableAnalytics: false, disableUpdater: false, allowClipboardWatch: true, useMockTokenProvider: false, commandLineSwitches: [], applyAppSettingsDefaults: defaults => defaults, applySpawnEnv: baseEnv => ({...baseEnv}), ytDlpArgs: () => [], downloadRetryPolicy: undefined}
+		return {enabled: false, disableUpdater: false, allowClipboardWatch: true, useMockTokenProvider: false, commandLineSwitches: [], applyAppSettingsDefaults: defaults => defaults, applySpawnEnv: baseEnv => ({...baseEnv}), ytDlpArgs: () => [], downloadRetryPolicy: undefined}
 	}
 
 	const pluginRoot = validatePluginRoot(env.ARROXY_E2E_YTDLP_PLUGIN_DIR)
@@ -145,7 +144,6 @@ export function resolveE2eHarnessMode(env: NodeJS.ProcessEnv = process.env, gate
 
 	return {
 		enabled: true,
-		disableAnalytics: true,
 		disableUpdater: true,
 		allowClipboardWatch,
 		useMockTokenProvider: true,

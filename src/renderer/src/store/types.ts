@@ -89,7 +89,7 @@ export interface ProbeOrchestratorSlice {
 	wizardTitle: string
 	wizardThumbnail: string
 	wizardDuration?: number
-	// Fields a filename template may name a *directory* after. Arroxy renders
+	// Fields a filename template may name a *directory* after. FlickGrab renders
 	// directory segments itself (it needs the path before the download starts),
 	// so these must be in state rather than left to yt-dlp. Empty when the
 	// extractor did not supply one — the segment then collapses.
@@ -503,7 +503,6 @@ export interface SystemSlice {
 	setHotkeyEnabled: (enabled: boolean) => Promise<void>
 	setHotkeyAccelerator: (accelerator: HotkeyAccelerator) => Promise<void>
 	setCloseBehavior: (value: 'tray' | 'quit') => Promise<void>
-	setAnalyticsEnabled: (enabled: boolean) => Promise<void>
 	// False when the save failed (the active profile is then rolled back).
 	setActiveDownloadProfile: (ref: DownloadProfileRef) => Promise<boolean>
 	saveDownloadProfile: (profile: DownloadProfile, activate?: boolean) => Promise<void>

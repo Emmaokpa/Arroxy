@@ -316,7 +316,7 @@ function mapPlaylistEntriesInner(entries: readonly InfoDict[], jobUrl: string, s
 
 /**
  * Resolve the uploader the same way the compiled `{uploader}` output template
- * does (`%(uploader,channel,creator,uploader_id)`). Arroxy renders `{uploader}`
+ * does (`%(uploader,channel,creator,uploader_id)`). FlickGrab renders `{uploader}`
  * itself in directory position, so drifting from that chain would put a video
  * in a folder named differently from the file yt-dlp writes inside it.
  */

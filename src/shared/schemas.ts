@@ -149,7 +149,7 @@ export const DEFAULT_PLAYLIST_SUBTITLE_SELECTION: PlaylistSubtitleSelection = {k
 // probe-order identity (mixes repeat videos, so ids are per-row), and sorting
 // never recomputes them. Upload-time modes need per-row `timestamp`; rows
 // without one sort last, stable in api order. No update-time option — no
-// extractor Arroxy supports provides a modified timestamp.
+// extractor FlickGrab supports provides a modified timestamp.
 export const playlistSortModeSchema = z.enum(['api', 'upload-asc', 'upload-desc'])
 export type PlaylistSortMode = z.infer<typeof playlistSortModeSchema>
 export const PLAYLIST_SORT_MODES = playlistSortModeSchema.options
@@ -676,9 +676,6 @@ const commonSettingsSchema = z.object({
 	rememberLastOutputDir: z.boolean(),
 	lastSubfolderEnabled: z.boolean().optional(),
 	lastSubfolder: subfolderNameSchema.optional(),
-	// Lenient on read: a malformed value only means "not sent today", and a strict
-	// check here would reset the whole common section to defaults.
-	lastHeartbeatDay: z.string().optional(),
 	uiZoom: z.number().min(ZOOM_MIN).max(ZOOM_MAX).optional(),
 	uiTheme: uiThemeSchema.optional(),
 	uiStyle: uiStyleSchema.optional(),
@@ -728,7 +725,6 @@ const commonSettingsSchema = z.object({
 	writeM3u: z.boolean().optional(),
 	lastSponsorBlockMode: sponsorBlockModeSchema.optional(),
 	lastSponsorBlockCategories: z.array(sponsorBlockCategorySchema).optional(),
-	analyticsEnabled: z.boolean().optional(),
 	firstRunCompleted: z.boolean().optional(),
 	launchCount: z.number().int().nonnegative().optional(),
 	lastReleaseNotesVersionShown: z.string().trim().min(1).optional(),
@@ -747,16 +743,15 @@ const playlistPrefsSchema = z.object({lastPlaylistSelection: playlistSelectionSc
 
 export const appSettingsSchema = z.object({common: commonSettingsSchema, playlist: playlistPrefsSchema, profiles: downloadProfilesPrefsSchema})
 
-// Common paths are derived from the OS, the heartbeat day is internal, and the last
-// Explore page is the view host's; none is accepted from renderer settings
-// updates. Deriving the rest keeps the patch contract in lockstep with the
-// persisted settings contract.
+// Common paths are derived from the OS and the last Explore page is the view
+// host's; neither is accepted from renderer settings updates. Deriving the rest
+// keeps the patch contract in lockstep with the persisted settings contract.
 // The UA token is validated on write only: a stored value the validator later
 // rejects must not invalidate the whole persisted `common` section, because the
 // reader (ExploreSessionService) already falls back to the default token.
 const commonSettingsPatchSchema = commonSettingsSchema
 	.partial()
-	.omit({commonPaths: true, lastHeartbeatDay: true, exploreLastUrl: true})
+	.omit({commonPaths: true, exploreLastUrl: true})
 	.extend({
 		exploreUserAgent: z
 			.string()

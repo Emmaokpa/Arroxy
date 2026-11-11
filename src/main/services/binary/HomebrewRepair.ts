@@ -72,29 +72,29 @@ function newestInstalled(listOutput: string): string | null {
 
 // A zero exit is not proof of an update: a stale tap or an already-current cask
 // also succeeds. Only a cask at or past the announced version may be relaunched into.
-async function runArroxyBrew(args: string[], expectedVersion: string): Promise<void> {
+async function runFlickGrabBrew(args: string[], expectedVersion: string): Promise<void> {
 	await runBrew(args, ARROXY_COMMAND_HINT, FRESH_TAP_ENV)
 	const installed = newestInstalled(await runBrew(['list', '--cask', '--versions', 'arroxy'], ARROXY_COMMAND_HINT))
 	if (installed === null) {
-		throw new Error(`Homebrew did not report an installed Arroxy version, so ${expectedVersion} could not be confirmed. Try again, or run the command shown in the banner in a terminal.`)
+		throw new Error(`Homebrew did not report an installed FlickGrab version, so ${expectedVersion} could not be confirmed. Try again, or run the command shown in the banner in a terminal.`)
 	}
 	if (compareVersions(installed, expectedVersion) < 0) {
-		throw new Error(`Homebrew has Arroxy ${installed} but ${expectedVersion} was announced. Its repository may be a few minutes behind the release: try again shortly, or download the DMG.`)
+		throw new Error(`Homebrew has FlickGrab ${installed} but ${expectedVersion} was announced. Its repository may be a few minutes behind the release: try again shortly, or download the DMG.`)
 	}
 }
 
 // Fixed argv, no caller-supplied input: the in-app "Run" for the Homebrew
 // update banner shows the same command it copies.
-export async function upgradeArroxyWithHomebrew(expectedVersion: string): Promise<void> {
-	await runArroxyBrew(['upgrade', '--cask', 'arroxy'], expectedVersion)
+export async function upgradeFlickGrabWithHomebrew(expectedVersion: string): Promise<void> {
+	await runFlickGrabBrew(['upgrade', '--cask', 'arroxy'], expectedVersion)
 }
 
 // Moves a DMG-installed copy under Homebrew while updating it. `--adopt` cannot
 // do this: it requires the installed app to be identical to the cask's, and an
 // update is by definition pending. `--force` overwrites the old bundle and
-// registers the cask, so later updates run through `upgradeArroxyWithHomebrew`.
-export async function installArroxyWithHomebrew(expectedVersion: string): Promise<void> {
-	await runArroxyBrew(['install', '--cask', '--force', HOMEBREW_CASK], expectedVersion)
+// registers the cask, so later updates run through `upgradeFlickGrabWithHomebrew`.
+export async function installFlickGrabWithHomebrew(expectedVersion: string): Promise<void> {
+	await runFlickGrabBrew(['install', '--cask', '--force', HOMEBREW_CASK], expectedVersion)
 }
 
 export async function installYtDlpWithHomebrew(): Promise<string> {

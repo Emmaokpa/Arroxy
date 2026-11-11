@@ -39,7 +39,7 @@ brew install mise
 xcode-select --install
 \`\`\`
 
-Baada ya ku-clone, endesha \`mise trust && mise install\` ndani ya checkout. Ikiwa shell yako tayari inatumia \`fnm\`, \`nvm\`, au Bun ya Homebrew, wezesha mise katika \`~/.zshrc\` ili Arroxy itumie Node.js 24.21.0 na Bun 1.4.2:
+Baada ya ku-clone, endesha \`mise trust && mise install\` ndani ya checkout. Ikiwa shell yako tayari inatumia \`fnm\`, \`nvm\`, au Bun ya Homebrew, wezesha mise katika \`~/.zshrc\` ili FlickGrab itumie Node.js 24.21.0 na Bun 1.4.2:
 
 \`\`\`bash
 printf '\n# mise\nif command -v mise >/dev/null 2>&1; then\n  eval "$(mise activate zsh)"\nfi\n' >> ~/.zshrc
@@ -61,8 +61,8 @@ sudo apt install -y xvfb
 ### Clone na uendeshe
 
 \`\`\`bash
-git clone https://github.com/antonio-orionus/Arroxy
-cd Arroxy
+git clone https://github.com/antonio-orionus/FlickGrab
+cd FlickGrab
 mise trust
 mise install           # inapendekezwa; ruka kama umewezesha zana zilizopiniwa mwenyewe
 bun run bootstrap
@@ -78,14 +78,14 @@ bun run dist         # funga kwa OS ya sasa
 bun run dist:win     # funga malengo ya Windows kwenye host inayotumika
 \`\`\`
 
-> \`bun run bootstrap\` husakinisha utegemezi, hujenga upya utegemezi wa programu ya Electron, huthibitisha Electron, huandaa ffmpeg/ffprobe zilizopachikwa kwa maendeleo, na husakinisha Playwright Chromium. yt-dlp husimamiwa wakati wa runtime kwenye folda ya data ya programu; ffmpeg na ffprobe hujumuishwa katika kila toleo la Arroxy.
+> \`bun run bootstrap\` husakinisha utegemezi, hujenga upya utegemezi wa programu ya Electron, huthibitisha Electron, huandaa ffmpeg/ffprobe zilizopachikwa kwa maendeleo, na husakinisha Playwright Chromium. yt-dlp husimamiwa wakati wa runtime kwenye folda ya data ya programu; ffmpeg na ffprobe hujumuishwa katika kila toleo la FlickGrab.
 
 </details>`;
 
 export const sw = {
-  icon_alt: "Nembo ya Arroxy",
+  icon_alt: "Nembo ya FlickGrab",
   title:
-    "Arroxy — Kipakuzi Bure cha Chanzo Wazi cha YouTube (+ Tovuti 2000) kwa Windows, macOS na Linux",
+    "FlickGrab — Kipakuzi Bure cha Chanzo Wazi cha YouTube (+ Tovuti 2000) kwa Windows, macOS na Linux",
   read_in_label: "Soma kwa:",
   badge_release_alt: "Toleo",
   badge_build_alt: "Ujenzi",
@@ -99,10 +99,10 @@ export const sw = {
     "Pakua video, Shorts, muziki, vituo, podikasti, au nyimbo za sauti kutoka **YouTube na tovuti 2000+ zinazotumika** — hadi 4K HDR kwa fps 60, au kama MP3 / AAC / Opus. Inafanya kazi mahali hapo kwenye Windows, macOS, na Linux. **Hakuna matangazo, hakuna mzigo wa ziada, hakuna mauzo ya ziada.**",
   cta_latest: "↓ Pakua Toleo la Hivi Karibuni",
   cta_website: "Tovuti",
-  star_cta: "Ikiwa Arroxy inakuokoa muda, ⭐ inasaidia wengine kuipata.",
+  star_cta: "Ikiwa FlickGrab inakuokoa muda, ⭐ inasaidia wengine kuipata.",
   ai_notice: "",
   toc_heading: "Yaliyomo",
-  why_h2: "Kwa Nini Arroxy",
+  why_h2: "Kwa Nini FlickGrab",
   features_h2: "Vipengele",
   dl_h2: "Sakinisha na uzinduzi wa kwanza",
   privacy_h2: "Faragha",
@@ -117,14 +117,14 @@ export const sw = {
   why_r6: "Programu ya mezani inayofanya kazi kwenye mifumo yote",
   why_r7: "Manukuu + SponsorBlock",
   why_summary:
-    "Arroxy imejengwa kwa jambo moja: bandika URL, pata faili safi la mahali hapo. Hakuna mauzo ya ziada, hakuna ukusanyaji wa data.",
-  feat_explore_h3: "Explore: vinjari YouTube ndani ya Arroxy",
-  feat_explore_1: "**Kichupo cha Explore** — vinjari YouTube ndani ya Arroxy na upakue unachopata bila kunakili viungo. **Pakua · *wasifu wako*** huweka kwenye foleni video, playlist, au channel unayotazama; mshale ulio kando hubadilisha wasifu, na kijiti cha uchawi hufungua upakuaji wa hatua kwa hatua wa kuchagua fomati, manukuu, na zaidi",
+    "FlickGrab imejengwa kwa jambo moja: bandika URL, pata faili safi la mahali hapo. Hakuna mauzo ya ziada, hakuna ukusanyaji wa data.",
+  feat_explore_h3: "Explore: vinjari YouTube ndani ya FlickGrab",
+  feat_explore_1: "**Kichupo cha Explore** — vinjari YouTube ndani ya FlickGrab na upakue unachopata bila kunakili viungo. **Pakua · *wasifu wako*** huweka kwenye foleni video, playlist, au channel unayotazama; mshale ulio kando hubadilisha wasifu, na kijiti cha uchawi hufungua upakuaji wa hatua kwa hatua wa kuchagua fomati, manukuu, na zaidi",
   feat_explore_6: "**Bofya kulia ili kupakua** — bofya kulia kiungo chochote cha video, playlist au channel katika Explore ili kukipakua kwa wasifu wako, kuchagua wasifu mwingine kutoka **Pakua kwa**, kufungua upakuaji wa hatua kwa hatua, au kunakili kiungo. Hakuna haja ya kufungua kila video kwanza",
   feat_explore_7:
-    "**Mpangilio mshikamano** — kubofya mara moja kwenye upau wa zana wa Explore huhamishia vichupo vya Arroxy ndani yake na kuipa ukurasa nafasi zaidi",
+    "**Mpangilio mshikamano** — kubofya mara moja kwenye upau wa zana wa Explore huhamishia vichupo vya FlickGrab ndani yake na kuipa ukurasa nafasi zaidi",
   feat_explore_2: "**Upau wa anwani** — andika kutafuta YouTube au bandika kiungo cha YouTube. Explore hutumika kuvinjari YouTube pekee, kwa hiyo kiungo cha tovuti nyingine hakifunguliwi hapo, lakini unaweza kukipakua kwa kubofya mara moja",
-  feat_explore_3: "**Upakuaji unaohitaji akaunti** — ingia mara moja katika Explore na Arroxy inaweza kupakua video za faragha na za wanachama pekee ambazo akaunti yako inaweza kutazama, video zenye kikomo cha umri ikiwa umri wa akaunti umethibitishwa, na orodha zako za Tazama Baadaye na Zilizopendwa. Arroxy bado hupakua bila kuingia na hutumia kuingia kwako kwa Explore tu pale upakuaji unaposhindwa kwa njia ambayo akaunti inaweza kurekebisha. YouTube inapokuomba uthibitishe kuwa wewe si roboti, Arroxy pia hujaribu kuingia kwako kwa Explore",
+  feat_explore_3: "**Upakuaji unaohitaji akaunti** — ingia mara moja katika Explore na FlickGrab inaweza kupakua video za faragha na za wanachama pekee ambazo akaunti yako inaweza kutazama, video zenye kikomo cha umri ikiwa umri wa akaunti umethibitishwa, na orodha zako za Tazama Baadaye na Zilizopendwa. FlickGrab bado hupakua bila kuingia na hutumia kuingia kwako kwa Explore tu pale upakuaji unaposhindwa kwa njia ambayo akaunti inaweza kurekebisha. YouTube inapokuomba uthibitishe kuwa wewe si roboti, FlickGrab pia hujaribu kuingia kwako kwa Explore",
   feat_explore_4: "**Tumia akaunti ya pili** — skrini ya kwanza ya Explore inaeleza sababu: kupakua kwa akaunti kuna hatari fulani ya akaunti hiyo kuwekewa vikwazo. Toka kwenye Explore kupitia Mipangilio wakati wowote unapotaka kusahau kuingia",
   feat_explore_5: "**Kizuia matangazo** — Explore huzuia matangazo na vifuatiliaji kwenye kurasa zake yenyewe; upakuaji haubadiliki. Kimewashwa kwa chaguomsingi, kubofya ngao mara moja kwenye upau wa zana wa Explore kunakizima, na hakifanyi kazi kamwe kwenye kurasa za kuingia za Google. YouTube inaweza kupinga vizuia matangazo kwa akaunti zilizoingia",
   feat_quality_h3: "Ubora na fomati",
@@ -142,12 +142,12 @@ export const sw = {
     "Hakuna kuingia, hakuna vidakuzi, hakuna akaunti ya Google iliyounganishwa",
   feat_privacy_3: "Faili zimehifadhiwa moja kwa moja kwenye folda unayochagua",
   feat_workflow_h3: "Mtiririko wa kazi",
-  feat_workflow_12: "**Njia ya mkato ya kupakua kwa mfumo mzima** — nakili kiungo katika programu yoyote kisha bonyeza `Ctrl+Shift+D` (`Cmd+Shift+D` kwenye macOS); Arroxy huikiweka kwenye foleni kwa wasifu wako unaotumika bila kufungua dirisha, na arifa huthibitisha. Imewashwa kwa chaguo-msingi, inaweza kubadilishwa",
+  feat_workflow_12: "**Njia ya mkato ya kupakua kwa mfumo mzima** — nakili kiungo katika programu yoyote kisha bonyeza `Ctrl+Shift+D` (`Cmd+Shift+D` kwenye macOS); FlickGrab huikiweka kwenye foleni kwa wasifu wako unaotumika bila kufungua dirisha, na arifa huthibitisha. Imewashwa kwa chaguo-msingi, inaweza kubadilishwa",
   feat_workflow_1: "**Njia rahisi za kuanza** — chagua upakuaji mmoja unaoongozwa, kichagua playlist/channel, kubandika URL nyingi, Quick Download kwa mipangilio chaguomsingi iliyohifadhiwa, au vinjari na upakue kutoka Explore",
   feat_workflow_2:
     "**Foleni kuu ya upakuaji** — kazi ya single, playlist, bulk, au quick yote huingia sehemu moja kwa maendeleo, kusitisha, kuendelea, kughairi, kujaribu tena, na udhibiti wa kipaumbele",
   feat_workflow_3:
-    "**Ufuatiliaji wa ubao wa kunakili** — nakili kiungo cha YouTube na Arroxy itajaza URL kiotomatiki ukirejesha umakini kwenye programu (washa/zima katika mipangilio ya Kina)",
+    "**Ufuatiliaji wa ubao wa kunakili** — nakili kiungo cha YouTube na FlickGrab itajaza URL kiotomatiki ukirejesha umakini kwenye programu (washa/zima katika mipangilio ya Kina)",
   feat_workflow_4:
     "**Usafi wa URL kiotomatiki** — huondoa vigezo vya ufuatiliaji (`si`, `pp`, `utm_*`, `fbclid`, `gclid`) na kufungua viungo vya `youtube.com/redirect`",
   feat_workflow_5:
@@ -161,17 +161,17 @@ export const sw = {
   feat_workflow_9:
     "**Violezo vya majina ya faili** — taja upakuaji jinsi unavyotaka kwa `{title}`, `{uploader}`, `{id}`, `{date}`, `{resolution}` na `{playlist_index}`, kwa jumla au kwa kila wasifu wa upakuaji",
   feat_workflow_10:
-    "**Upakuaji kwa wakati mmoja na kujaribu tena kiotomatiki** — chagua upakuaji mangapi wa foleni unaendelea kwa wakati mmoja, na acha Arroxy ajaribu tena upakuaji uliokumbwa na hitilafu ya mtandao au seva, akisubiri muda mrefu zaidi kabla ya kila jaribio",
+    "**Upakuaji kwa wakati mmoja na kujaribu tena kiotomatiki** — chagua upakuaji mangapi wa foleni unaendelea kwa wakati mmoja, na acha FlickGrab ajaribu tena upakuaji uliokumbwa na hitilafu ya mtandao au seva, akisubiri muda mrefu zaidi kabla ya kila jaribio",
   feat_workflow_11:
     "**Wasifu kwa kila kipengele cha orodha ya kucheza** — mpe kila video katika orodha ya kucheza wasifu wake wa upakuaji badala ya mpangilio mmoja kwa orodha nzima, ili pasi moja iweze kuhifadhi baadhi kwa ubora kamili na kupata zilizobaki kama MP3",
   feat_workflow_13: "**Quick Download hufanya kazi chinichini** — kiungo huonekana mara moja katika Vipakuliwa na kuandaliwa huko, ujumbe wenye **Tazama** unathibitisha, na sehemu ya URL husafishwa kwa kiungo kinachofuata. Anzisha nyingi upendavyo huku zile za awali zikiandaliwa",
-  feat_workflow_14: "**Vipakuliwa hukuambia kinachokuhitaji** — ikiwa Arroxy haiwezi kusoma kiungo, safu yake inaeleza sababu na kutoa suluhisho: Jaribu tena, washa vidakuzi, au ingia katika Explore. Vidakuzi vikiwa vimezimwa, **Ingia kwa Explore** hujaribu tena kwa ajili yako ukishaingia. Playlist ndefu kuliko kikomo chako cha kupakia husubiri kwenye safu yake ili uchague yote, za kwanza, au ukaguzi. Kichupo cha Vipakuliwa kinahesabu safu zinazokusubiri",
+  feat_workflow_14: "**Vipakuliwa hukuambia kinachokuhitaji** — ikiwa FlickGrab haiwezi kusoma kiungo, safu yake inaeleza sababu na kutoa suluhisho: Jaribu tena, washa vidakuzi, au ingia katika Explore. Vidakuzi vikiwa vimezimwa, **Ingia kwa Explore** hujaribu tena kwa ajili yako ukishaingia. Playlist ndefu kuliko kikomo chako cha kupakia husubiri kwenye safu yake ili uchague yote, za kwanza, au ukaguzi. Kichupo cha Vipakuliwa kinahesabu safu zinazokusubiri",
   feat_workflow_15:
-    "**Pakua sehemu tu ya video** — chagua mwanzo na mwisho, au sura, kwenye skrini ya Umbizo na Arroxy huhifadhi kipindi hicho tu, kikiwa na jina lenye kipindi baada ya kitambulisho cha video. Ukataji hutua kwenye fremu kuu iliyo karibu zaidi; washa ukataji kamili ili kusimba upya badala yake",
+    "**Pakua sehemu tu ya video** — chagua mwanzo na mwisho, au sura, kwenye skrini ya Umbizo na FlickGrab huhifadhi kipindi hicho tu, kikiwa na jina lenye kipindi baada ya kitambulisho cha video. Ukataji hutua kwenye fremu kuu iliyo karibu zaidi; washa ukataji kamili ili kusimba upya badala yake",
   feat_workflow_16:
     "**Ondoa kiotomatiki vipakuzi vilivyokamilika** — hiari: upakuaji uliokamilika huondoka kwenye orodha baada ya sekunde 5. Faili zake hubaki kwenye diski, na upakuaji ulioshindwa hubaki kwenye orodha",
   feat_workflow_17:
-    "**Ukubwa na Haipo katika Vipakuliwa** — safu ya **Ukubwa** inayoweza kupangwa inaonyesha kila upakuaji unatumia nafasi kiasi gani, na **Haipo** huashiria faili zilizohamishwa au kufutwa nje ya Arroxy",
+    "**Ukubwa na Haipo katika Vipakuliwa** — safu ya **Ukubwa** inayoweza kupangwa inaonyesha kila upakuaji unatumia nafasi kiasi gani, na **Haipo** huashiria faili zilizohamishwa au kufutwa nje ya FlickGrab",
   feat_workflow_18:
     "**Aurora au Rahisi, giza au mwanga** — paneli za kioo juu ya anga linalosogea, au nyuso tulivu thabiti; badilisha kutoka kijachini. Kompyuta zisizo na kasi ya michoro hupata Rahisi kiotomatiki",
   feat_workflow_19:
@@ -195,7 +195,7 @@ export const sw = {
   feat_sites_3:
     "**Sauti pekee na manukuu** yanafanya kazi kwenye kila tovuti inayoungwa mkono, si YouTube peke yake",
   feat_sites_4:
-    "Tovuti ikibadilika, yt-dlp hutoa marekebisho kila wiki na Arroxy husasisha binary kiotomatiki wakati wa uzinduzi",
+    "Tovuti ikibadilika, yt-dlp hutoa marekebisho kila wiki na FlickGrab husasisha binary kiotomatiki wakati wa uzinduzi",
   shot1_cap:
     "<b>Ukurasa wa Upakuaji wa haraka</b><br/>Bandika URL na uipakue papo hapo kwa wasifu wako amilifu",
   shot2_cap:
@@ -208,13 +208,13 @@ export const sw = {
     "<b>Hali ya URL nyingi</b><br/>Bandika orodha, ondoa nakala kiotomatiki, panga zote kwa pamoja",
   shot6_cap:
     "<b>Foleni ya upakuaji sambamba</b><br/>Upakuaji kadhaa kwa wakati mmoja na maendeleo ya moja kwa moja",
-  hotkey_fig_alt: "Njia ya mkato ya kupakua kwa mfumo mzima ya Arroxy — Ctrl+Shift+D kwenye Windows na Linux, Cmd+Shift+D kwenye macOS, hupeleka kiungo kilichonakiliwa moja kwa moja kwenye foleni ya upakuaji",
+  hotkey_fig_alt: "Njia ya mkato ya kupakua kwa mfumo mzima ya FlickGrab — Ctrl+Shift+D kwenye Windows na Linux, Cmd+Shift+D kwenye macOS, hupeleka kiungo kilichonakiliwa moja kwa moja kwenye foleni ya upakuaji",
   hotkey_fig_cap: "<b>Njia ya mkato ya kupakua kwa mfumo mzima</b><br/>Nakili kiungo popote, bonyeza mara moja — huingia kwenye foleni na upakuaji huanza",
   shot7_cap: "<b>Wasifu kwa kila kipengele cha orodha ya kucheza</b><br/>Mpe kila video wasifu wake — hifadhi baadhi kwa 4K, chukua zilizobaki kama MP3",
-  shot8_cap: "<b>Explore</b><br/>Vinjari YouTube ndani ya Arroxy na upakue ukurasa ulioko kwa wasifu wako unaotumika",
+  shot8_cap: "<b>Explore</b><br/>Vinjari YouTube ndani ya FlickGrab na upakue ukurasa ulioko kwa wasifu wako unaotumika",
   shot9_cap: "<b>Skrini ya kwanza ya Explore</b><br/>Mtazamo wa haraka wa Explore, na kwa nini akaunti ya pili ndiyo njia salama zaidi ya kuingia",
   shot10_cap: "<b>Vipakuliwa hukuambia kinachokuhitaji</b><br/>Viungo huandaliwa chinichini; kilichoshindwa hutoa suluhisho lake, playlist ndefu husubiri chaguo lako",
-  shot11_cap: "<b>Pakua sehemu tu ya video</b><br/>Chagua mwanzo na mwisho, au sura — Arroxy huhifadhi sehemu hiyo pekee",
+  shot11_cap: "<b>Pakua sehemu tu ya video</b><br/>Chagua mwanzo na mwisho, au sura — FlickGrab huhifadhi sehemu hiyo pekee",
   shot12_cap: "<b>Kihariri cha wasifu</b><br/>Rekebisha wasifu: aina ya faili, ubora, manukuu, mahali pa kuhifadhi, kiolezo cha jina la faili na mengineyo",
   shot13_cap: "<b>Giza au mwanga, kioo au imara</b><br/>Mionekano minne ya kuchagua: paneli za kioo juu ya anga linalosonga au nyuso imara tulivu, kila mmoja katika giza na mwanga",
   dl_platform_col: "Jukwaa",
@@ -249,26 +249,26 @@ export const sw = {
     "**Pendekezo:** tumia kisanidi cha NSIS kwa masasisho ya kiotomatiki na uzinduzi wa haraka. Tumia `.exe` inayobebeka kwa chaguo lisilo na usanidi na bila usajili.",
   dl_win_smartscreen_h4: "Onyo la Windows SmartScreen",
   dl_win_smartscreen_intro:
-    'Wakati wa uzinduzi wa kwanza unaweza kuona **"Windows protected your PC"** au **"Unknown publisher."** Hii inatumika kwa `Arroxy-win-x64-Setup.exe` na `Arroxy-win-x64-Portable.exe`. Arroxy ni bure na chanzo wazi, na ujenzi wa Windows haujasainiwa kwa cheti cha malipo, ndiyo maana SmartScreen huipiga bendera. Hii **haimaanishi** kiotomatiki kwamba Arroxy si salama. Ili kuendelea:',
+    'Wakati wa uzinduzi wa kwanza unaweza kuona **"Windows protected your PC"** au **"Unknown publisher."** Hii inatumika kwa `FlickGrab-win-x64-Setup.exe` na `FlickGrab-win-x64-Portable.exe`. FlickGrab ni bure na chanzo wazi, na ujenzi wa Windows haujasainiwa kwa cheti cha malipo, ndiyo maana SmartScreen huipiga bendera. Hii **haimaanishi** kiotomatiki kwamba FlickGrab si salama. Ili kuendelea:',
   dl_win_smartscreen_step1: "Bonyeza **More info**.",
   dl_win_smartscreen_step2: "Bonyeza **Run anyway**.",
   dl_win_smartscreen_official:
-    "Pakua Arroxy tu kutoka ukurasa rasmi wa GitHub Releases. Ukipata faili kutoka tovuti nyingine au mtu akikutumia, ifute na upakue nakala mpya kutoka chanzo rasmi. Msimbo wa chanzo ni wa umma, hivyo unaweza kuukagua au kuijenga Arroxy mwenyewe ukitaka.",
+    "Pakua FlickGrab tu kutoka ukurasa rasmi wa GitHub Releases. Ukipata faili kutoka tovuti nyingine au mtu akikutumia, ifute na upakue nakala mpya kutoka chanzo rasmi. Msimbo wa chanzo ni wa umma, hivyo unaweza kuukagua au kuijenga FlickGrab mwenyewe ukitaka.",
   dl_macos_h3: "Uzinduzi wa kwanza kwenye macOS",
   dl_macos_warning:
-    "Arroxy bado haijasainiwa kwa nambari, kwa hivyo macOS Gatekeeper inaweza kuonyesha onyo la programu kuonekana imeharibika wakati wa uzinduzi wa kwanza. Hii inatarajiwa — haimaanishi faili zimeharibika kweli.",
+    "FlickGrab bado haijasainiwa kwa nambari, kwa hivyo macOS Gatekeeper inaweza kuonyesha onyo la programu kuonekana imeharibika wakati wa uzinduzi wa kwanza. Hii inatarajiwa — haimaanishi faili zimeharibika kweli.",
   dl_macos_m1_h4: "Njia ya Terminal:",
   dl_macos_step1:
-    "Buruta `Arroxy.app` kutoka DMG iliyofunguliwa hadi `/Applications`.",
+    "Buruta `FlickGrab.app` kutoka DMG iliyofunguliwa hadi `/Applications`.",
   dl_macos_step2:
-    "Fungua Terminal na uendeshe `sudo xattr -dr com.apple.quarantine /Applications/Arroxy.app`.",
-  dl_macos_step3: "Endesha `open /Applications/Arroxy.app`.",
+    "Fungua Terminal na uendeshe `sudo xattr -dr com.apple.quarantine /Applications/FlickGrab.app`.",
+  dl_macos_step3: "Endesha `open /Applications/FlickGrab.app`.",
   dl_macos_step4:
-    "Ikiwa njia ya app ni tofauti, badilisha `/Applications/Arroxy.app` na njia uliyoisakinisha.",
+    "Ikiwa njia ya app ni tofauti, badilisha `/Applications/FlickGrab.app` na njia uliyoisakinisha.",
   dl_macos_step5:
     "Weka nenosiri la Mac yako ikiwa `sudo` italiomba.",
   dl_macos_after:
-    "Baada ya quarantine kuondolewa, Arroxy hufunguka kawaida.",
+    "Baada ya quarantine kuondolewa, FlickGrab hufunguka kawaida.",
   dl_macos_m2_h4: "Njia ya Terminal:",
   dl_macos_note:
     "Ujenzi wa macOS hufanywa kupitia CI kwenye vichakataji vya Apple Silicon na Intel. Ukipata matatizo, tafadhali [fungua tatizo](../../issues) — maoni kutoka kwa watumiaji wa macOS yanaathiri kikamilifu mzunguko wa majaribio ya macOS.",
@@ -284,9 +284,9 @@ export const sw = {
   dl_linux_arch_note: "**Vipakuliwa vya Linux kwenye ukurasa wa matoleo ni vya x86_64 pekee.** Kwenye mashine za ARM64 (Raspberry Pi, Asahi Linux) Flatpak husakinishwa lakini hushindwa kuanza ikitoa `bwrap: execvp ldconfig: Exec format error`.",
   dl_warning_h3: "Kwa nini unaweza kuona onyo",
   dl_warning_p1:
-    "Arroxy ni chanzo wazi na ina leseni ya MIT. Ujenzi wa Windows na macOS **haujasainiwa kwa nambari** — cheti cha Apple Developer ID na Windows EV cha kutia saini msimbo huchangia mamia ya dola kwa mwaka, ambayo mradi wa kujitegemea hulipa mfukoni mwake. Bila saini hizo, Windows SmartScreen na macOS Gatekeeper watakuonya wakati wa uzinduzi wa kwanza. Maonyo hayo yanamaanisha *mfumo wako wa uendeshaji haukuitambua kampuni inayotoa programu* — hayamaanishi kwamba Arroxy ni programu hasidi.",
+    "FlickGrab ni chanzo wazi na ina leseni ya MIT. Ujenzi wa Windows na macOS **haujasainiwa kwa nambari** — cheti cha Apple Developer ID na Windows EV cha kutia saini msimbo huchangia mamia ya dola kwa mwaka, ambayo mradi wa kujitegemea hulipa mfukoni mwake. Bila saini hizo, Windows SmartScreen na macOS Gatekeeper watakuonya wakati wa uzinduzi wa kwanza. Maonyo hayo yanamaanisha *mfumo wako wa uendeshaji haukuitambua kampuni inayotoa programu* — hayamaanishi kwamba FlickGrab ni programu hasidi.",
   dl_warning_p2:
-    "Njia tatu za kuthibitisha Arroxy mwenyewe, kwa uthabiti unaozidi:\n\n- **Soma msimbo wa chanzo.** Kila mstari uko kwenye [GitHub](https://github.com/antonio-orionus/Arroxy) na unaweza [kuijenga kutoka chanzo](#tech).\n- **Angalia SHA256.** Linganisha faili yako na [`SHA256SUMS`](../../releases/latest) iliyochapishwa — tazama [Thibitisha upakuaji wako](#verify) hapa chini.\n- **Fanya ukaguzi wa tatu.** Pakia faili kwenye [VirusTotal](https://www.virustotal.com).",
+    "Njia tatu za kuthibitisha FlickGrab mwenyewe, kwa uthabiti unaozidi:\n\n- **Soma msimbo wa chanzo.** Kila mstari uko kwenye [GitHub](https://github.com/antonio-orionus/FlickGrab) na unaweza [kuijenga kutoka chanzo](#tech).\n- **Angalia SHA256.** Linganisha faili yako na [`SHA256SUMS`](../../releases/latest) iliyochapishwa — tazama [Thibitisha upakuaji wako](#verify) hapa chini.\n- **Fanya ukaguzi wa tatu.** Pakia faili kwenye [VirusTotal](https://www.virustotal.com).",
 
   dl_win_first_h3: "Uzinduzi wa kwanza wa Windows",
   shot_smartscreen_more_alt:
@@ -295,33 +295,33 @@ export const sw = {
     'SmartScreen dialog after expanding More info, showing the "Run anyway" button',
   dl_win_defender_h4: "Ikiwa Windows Defender inaweka bendera au kuondoa faili",
   dl_win_defender_p:
-    "Heuristics za Defender wakati mwingine huweka bendera kwenye visanidi visivyosainiwa vya NSIS na portable za Electron kama zinazoshukiwa. Ikiwa Defender inaweka karantini `Arroxy-win-x64-Setup.exe` au `Arroxy-win-x64-Portable.exe`, irudishe kutoka **Windows Security → Virus & threat protection → Protection history**, kisha ongeza faili inayoweza kutekelezwa ya Arroxy kama kipengele kinachoruhusiwa chini ya **Manage settings → Add or remove exclusions**. Kama ilivyo na SmartScreen, kisababishi ni saini ya mchapishaji inayokosekana, si programu hasidi iliyogunduliwa.",
+    "Heuristics za Defender wakati mwingine huweka bendera kwenye visanidi visivyosainiwa vya NSIS na portable za Electron kama zinazoshukiwa. Ikiwa Defender inaweka karantini `FlickGrab-win-x64-Setup.exe` au `FlickGrab-win-x64-Portable.exe`, irudishe kutoka **Windows Security → Virus & threat protection → Protection history**, kisha ongeza faili inayoweza kutekelezwa ya FlickGrab kama kipengele kinachoruhusiwa chini ya **Manage settings → Add or remove exclusions**. Kama ilivyo na SmartScreen, kisababishi ni saini ya mchapishaji inayokosekana, si programu hasidi iliyogunduliwa.",
 
   dl_macos_first_h3: "Uzinduzi wa kwanza wa macOS",
   dl_macos_intro:
-    "Arroxy bado haijasainiwa kwa macOS, kwa hivyo Gatekeeper inaweza kuonyesha ujumbe wa kutisha *\"Arroxy.app is damaged and can't be opened\"* baada ya kuisakinisha kutoka DMG. Ujumbe huo unamaanisha macOS imeweka programu isiyosainiwa kwenye quarantine; haumaanishi faili za programu zimeharibika kweli. Kwenye macOS za sasa, suluhisho la kuaminika ni Terminal:",
+    "FlickGrab bado haijasainiwa kwa macOS, kwa hivyo Gatekeeper inaweza kuonyesha ujumbe wa kutisha *\"FlickGrab.app is damaged and can't be opened\"* baada ya kuisakinisha kutoka DMG. Ujumbe huo unamaanisha macOS imeweka programu isiyosainiwa kwenye quarantine; haumaanishi faili za programu zimeharibika kweli. Kwenye macOS za sasa, suluhisho la kuaminika ni Terminal:",
   dl_macos_sequoia_h4: "Suluhisho la Terminal kwa macOS ya sasa",
   dl_macos_sequoia_intro:
-    "Tumia Terminal baada ya kunakili Arroxy kwenda Applications:",
+    "Tumia Terminal baada ya kunakili FlickGrab kwenda Applications:",
   dl_macos_sequoia_step1:
-    "Buruta `Arroxy.app` kutoka kwenye DMG iliyopachikwa hadi `/Applications`.",
+    "Buruta `FlickGrab.app` kutoka kwenye DMG iliyopachikwa hadi `/Applications`.",
   dl_macos_sequoia_step2:
     "Fungua Terminal na uendeshe amri hizi mbili:",
   dl_macos_sequoia_step3:
-    "Endesha `open /Applications/Arroxy.app` ili kuzindua Arroxy.",
+    "Endesha `open /Applications/FlickGrab.app` ili kuzindua FlickGrab.",
   dl_macos_sequoia_step4:
-    "Ikiwa njia ya app ni tofauti, badilisha `/Applications/Arroxy.app` na njia uliyoisakinisha.",
+    "Ikiwa njia ya app ni tofauti, badilisha `/Applications/FlickGrab.app` na njia uliyoisakinisha.",
   dl_macos_sonoma_h4: "Suluhisho la Terminal kwa macOS za zamani",
   dl_macos_sonoma_step1:
-    "Buruta `Arroxy.app` kutoka kwenye DMG iliyopachikwa hadi `/Applications`.",
+    "Buruta `FlickGrab.app` kutoka kwenye DMG iliyopachikwa hadi `/Applications`.",
   dl_macos_sonoma_step2:
-    "Fungua Terminal na uondoe quarantine kutoka `/Applications/Arroxy.app`.",
+    "Fungua Terminal na uondoe quarantine kutoka `/Applications/FlickGrab.app`.",
   dl_macos_sonoma_step3:
-    "Zindua Arroxy kutoka Terminal au Finder baada ya quarantine kuondolewa.",
+    "Zindua FlickGrab kutoka Terminal au Finder baada ya quarantine kuondolewa.",
   dl_macos_damaged_h4:
     "Suluhisho la quarantine ya Gatekeeper",
   dl_macos_damaged_p:
-    "Amri ya kwanza huondoa sifa ya quarantine kutoka kwenye nakala yako ya Arroxy iliyosakinishwa. Ya pili huzindua programu. `sudo` inaweza kukuuliza nenosiri la Mac yako; Terminal haitaonyesha herufi unapoliandika.",
+    "Amri ya kwanza huondoa sifa ya quarantine kutoka kwenye nakala yako ya FlickGrab iliyosakinishwa. Ya pili huzindua programu. `sudo` inaweza kukuuliza nenosiri la Mac yako; Terminal haitaonyesha herufi unapoliandika.",
   dl_macos_arch_note:
     "**Apple Silicon vs Intel:** kwenye Mac ya mfululizo wa M (M1 / M2 / M3 / M4), pakua DMG ya `arm64`. Kwenye Mac za Intel, pakua DMG ya `x64`. Kuendesha build isiyo sahihi bado kunafanya kazi kupitia Rosetta lakini ni polepole zaidi kwa kiasi kinachoonekana.",
 
@@ -345,7 +345,7 @@ export const sw = {
     "Maudhui hupakuliwa moja kwa moja kupitia [yt-dlp](https://github.com/yt-dlp/yt-dlp) kutoka YouTube hadi kwenye folda unayochagua — hakuna kitu kinachopita kwenye seva ya mtu wa tatu. Historia ya kutazama, historia ya kupakua, URL, na maudhui ya faili yanabaki kwenye kifaa chako.",
   privacy_p2:
     "Hakuna telemetry — ishara moja tu isiyo na jina kwa siku: toleo la programu, OS, lugha, njia ya usakinishaji na nchi, ili tuweze kuhesabu watumiaji hai. Hakuna vitambulisho, URLs, vichwa vya video, njia za faili wala taarifa za akaunti. Unaweza kuizima katika Mipangilio.",
-  privacy_p3: "Explore ina njia yake ya kuingia, tofauti na kivinjari chako, na Arroxy haisomi wala kujaza fomu ya kuingia kamwe — unaandika kwenye ukurasa wa Google wenyewe. Upakuaji hufanyika bila kuingia; ni pale tu upakuaji unaposhindwa kwa njia ambayo akaunti inaweza kurekebisha ndipo Arroxy husoma kuingia upya, kuliweka kwenye faili ya muda kwa upakuaji huo, na kufuta faili baadaye. Kutoka kwenye Explore katika Mipangilio huifanya isahaulike.",
+  privacy_p3: "Explore ina njia yake ya kuingia, tofauti na kivinjari chako, na FlickGrab haisomi wala kujaza fomu ya kuingia kamwe — unaandika kwenye ukurasa wa Google wenyewe. Upakuaji hufanyika bila kuingia; ni pale tu upakuaji unaposhindwa kwa njia ambayo akaunti inaweza kurekebisha ndipo FlickGrab husoma kuingia upya, kuliweka kwenye faili ya muda kwa upakuaji huo, na kufuta faili baadaye. Kutoka kwenye Explore katika Mipangilio huifanya isahaulike.",
   faq_q1: "Je, ni bure kweli kweli?",
   faq_a1:
     "Ndiyo — leseni ya MIT, hakuna ngazi ya malipo, hakuna kizuizi cha vipengele.",
@@ -356,12 +356,12 @@ export const sw = {
   faq_a3:
     "Ndiyo. Chagua *sauti pekee* kwenye menyu ya fomati kisha uchague MP3, M4A/AAC, Opus au WAV.",
   faq_q4: "Ninawezaje kupakua video zinazohitaji akaunti ya YouTube?",
-  faq_a4: "Ingia mara moja kwenye kichupo cha Explore. Kisha Arroxy inaweza kupakua video za faragha na za wanachama pekee ambazo akaunti yako inaweza kutazama, video zenye kikomo cha umri ikiwa umri wa akaunti umethibitishwa, na orodha zako za Tazama Baadaye na Zilizopendwa. Hutumia kuingia huko tu pale upakuaji unaposhindwa kwa njia ambayo akaunti inaweza kurekebisha; kila kitu kingine hupakuliwa kama kawaida. Hili ni chaguo la **Kuingia kwa Explore**, lililoorodheshwa kwanza na kuwekewa alama ya Inapendekezwa katika mipangilio ya vidakuzi, na Arroxy huliteua kwa ajili yako mara ya kwanza unapofungua Explore. Wiki ya yt-dlp inaeleza kwamba [otomatiki ya akaunti iliyoingia inaweza kuweka alama kwenye akaunti ya Google](https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies); kwa hiyo akaunti ya pili ndiyo chaguo salama zaidi.",
+  faq_a4: "Ingia mara moja kwenye kichupo cha Explore. Kisha FlickGrab inaweza kupakua video za faragha na za wanachama pekee ambazo akaunti yako inaweza kutazama, video zenye kikomo cha umri ikiwa umri wa akaunti umethibitishwa, na orodha zako za Tazama Baadaye na Zilizopendwa. Hutumia kuingia huko tu pale upakuaji unaposhindwa kwa njia ambayo akaunti inaweza kurekebisha; kila kitu kingine hupakuliwa kama kawaida. Hili ni chaguo la **Kuingia kwa Explore**, lililoorodheshwa kwanza na kuwekewa alama ya Inapendekezwa katika mipangilio ya vidakuzi, na FlickGrab huliteua kwa ajili yako mara ya kwanza unapofungua Explore. Wiki ya yt-dlp inaeleza kwamba [otomatiki ya akaunti iliyoingia inaweza kuweka alama kwenye akaunti ya Google](https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies); kwa hiyo akaunti ya pili ndiyo chaguo salama zaidi.",
   faq_q5: "Je, itaendelea kufanya kazi YouTube ikibadilisha kitu?",
-  faq_a5: "yt-dlp husasishwa kiotomatiki wakati wa uzinduzi, na Arroxy hutuma marekebisho haraka YouTube inapobadilisha kitu. YouTube inapokuomba uthibitishe kuwa wewe si roboti, Arroxy pia hujaribu kuingia kwako kwa Explore ikiwa umeingia huko, na vidakuzi kutoka kwenye faili au kivinjari chako vinapatikana katika mipangilio ya vidakuzi.",
-  faq_q6: "Arroxy inapatikana katika lugha zipi?",
+  faq_a5: "yt-dlp husasishwa kiotomatiki wakati wa uzinduzi, na FlickGrab hutuma marekebisho haraka YouTube inapobadilisha kitu. YouTube inapokuomba uthibitishe kuwa wewe si roboti, FlickGrab pia hujaribu kuingia kwako kwa Explore ikiwa umeingia huko, na vidakuzi kutoka kwenye faili au kivinjari chako vinapatikana katika mipangilio ya vidakuzi.",
+  faq_q6: "FlickGrab inapatikana katika lugha zipi?",
   faq_a6:
-    "Lugha {{LANG_COUNT}} zipo tayari: {{LANG_NAME_LIST}}. Arroxy hutambua lugha ya mfumo wako wa uendeshaji kiotomatiki inapofunguliwa mara ya kwanza, na unaweza kubadilisha wakati wowote kupitia kiteuzi cha lugha kwenye upau wa zana. Runtime locale JSON ziko src/shared/i18n/locales/, na catalog za PO kwa watafsiri ziko i18n/locales/ — fungua PR kwenye GitHub ili kuchangia.",
+    "Lugha {{LANG_COUNT}} zipo tayari: {{LANG_NAME_LIST}}. FlickGrab hutambua lugha ya mfumo wako wa uendeshaji kiotomatiki inapofunguliwa mara ya kwanza, na unaweza kubadilisha wakati wowote kupitia kiteuzi cha lugha kwenye upau wa zana. Runtime locale JSON ziko src/shared/i18n/locales/, na catalog za PO kwa watafsiri ziko i18n/locales/ — fungua PR kwenye GitHub ili kuchangia.",
   faq_q7: "Je, ninahitaji kusakinisha kitu kingine chochote?",
   faq_a7:
     "Hapana. yt-dlp hupakuliwa kiotomatiki wakati wa uzinduzi wa kwanza na kuhifadhiwa kwenye kifaa chako; ffmpeg na ffprobe huja pamoja na programu. Baada ya hapo, hakuna usanidi wa ziada unaohitajika.",
@@ -370,7 +370,7 @@ export const sw = {
     "Ndiyo — zote mbili. Bandika URL ya playlist au channel (mf. `youtube.com/@handle`, `/channel/UC…`, `/c/Name`, `/user/Old`); chagua idadi ya vipengee vya kuchanganua, kisha weka orodha yote kwenye foleni au chagua video maalum. Vichujio vya tarehe vinakuja hivi karibuni.",
   faq_q9: 'macOS inasema "programu imeharibiwa" — nifanye nini?',
   faq_a9:
-    "Hiyo ni macOS Gatekeeper inayozuia programu isiyosainiwa, si uharibifu wa kweli. Tazama [macOS first launch](#macos-first-launch) kwa amri za Terminal zinazoondoa quarantine na kuzindua Arroxy.",
+    "Hiyo ni macOS Gatekeeper inayozuia programu isiyosainiwa, si uharibifu wa kweli. Tazama [macOS first launch](#macos-first-launch) kwa amri za Terminal zinazoondoa quarantine na kuzindua FlickGrab.",
   faq_q10: "Je, ni halali kupakua video za YouTube?",
   faq_a10:
     "Kwa matumizi ya kibinafsi na ya faragha, kwa ujumla inakubaliwa katika mamlaka nyingi. Unawajibika kufuata [Masharti ya Huduma](https://www.youtube.com/t/terms) ya YouTube na sheria za haki miliki za mamlaka yako.",
@@ -396,11 +396,11 @@ export const sw = {
   plan_cta:
     "Una kipengele unachofikiria? [Fungua ombi](../../issues) — maoni ya jamii huathiri kipaumbele.",
   tech_content: TECH_CONTENT,
-  support_h2: "Saidia Arroxy",
-  support_note: "Arroxy ni bure na ina leseni ya MIT — hakuna matangazo, hakuna telemetria, hakuna toleo la kulipia. Ikiwa inakuokolea muda, unaweza kusaidia maendeleo yake kwa Bitcoin au Tron: anwani zipo katika [DONATE.md](DONATE.md), ambacho ndicho chanzo rasmi pekee cha anwani hizo. Arroxy hatakutumia kamwe anwani kwa barua pepe au ujumbe wa moja kwa moja. Kuipa repo nyota, kuripoti hitilafu, na kuboresha tafsiri kunasaidia vivyo hivyo.",
+  support_h2: "Saidia FlickGrab",
+  support_note: "FlickGrab ni bure na ina leseni ya MIT — hakuna matangazo, hakuna telemetria, hakuna toleo la kulipia. Ikiwa inakuokolea muda, unaweza kusaidia maendeleo yake kwa Bitcoin au Tron: anwani zipo katika [DONATE.md](DONATE.md), ambacho ndicho chanzo rasmi pekee cha anwani hizo. FlickGrab hatakutumia kamwe anwani kwa barua pepe au ujumbe wa moja kwa moja. Kuipa repo nyota, kuripoti hitilafu, na kuboresha tafsiri kunasaidia vivyo hivyo.",
   tos_h2: "Masharti ya matumizi",
   tos_note:
-    "Arroxy ni zana ya matumizi ya kibinafsi na ya faragha tu. Unawajibika peke yako kuhakikisha maudhui unayopakua yanafuata [Masharti ya Huduma](https://www.youtube.com/t/terms) ya YouTube na sheria za haki miliki za mamlaka yako. Usitumie Arroxy kupakua, kunakili, au kusambaza maudhui ambayo huna haki ya kuyatumia. Waendelezaji hawana jukumu lolote kwa matumizi mabaya.",
+    "FlickGrab ni zana ya matumizi ya kibinafsi na ya faragha tu. Unawajibika peke yako kuhakikisha maudhui unayopakua yanafuata [Masharti ya Huduma](https://www.youtube.com/t/terms) ya YouTube na sheria za haki miliki za mamlaka yako. Usitumie FlickGrab kupakua, kunakili, au kusambaza maudhui ambayo huna haki ya kuyatumia. Waendelezaji hawana jukumu lolote kwa matumizi mabaya.",
   footer_credit:
     'Leseni ya MIT · Imetengenezwa kwa uangalifu na <a href="https://x.com/OrionusAI">@OrionusAI</a>',
 };

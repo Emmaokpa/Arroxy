@@ -5,13 +5,13 @@
 		"logs": "Protokolle",
 		"saveDiagnostics": "Diagnosedatei speichern",
 		"saveDiagnosticsDescription": "Fasst Protokolle und App-Details in einer Datei im Downloads-Ordner zusammen, bereit zum Anhängen an ein GitHub-Issue. Der Name des Benutzerordners wird entfernt; Videolinks und -titel bleiben erhalten.",
-		"feedbackNudge": "Gefällt dir Arroxy? Ich freue mich über dein Feedback! 💬",
+		"feedbackNudge": "Gefällt dir FlickGrab? Ich freue mich über dein Feedback! 💬",
 		"zoomIn": "Vergrößern",
 		"zoomOut": "Verkleinern",
 		"theme": "Farbschema",
 		"styleHint": "Neu: Aurora oder Minimal hier auswählen"
 	},
-	"about": {"button": "Info", "openTitle": "Über Arroxy", "tagline": "Schneller, freundlicher Downloader für YouTube und über 2000 weitere Seiten.", "websiteLink": "Website", "githubLink": "GitHub", "licenseLine": "MIT-Lizenz · von Antonio Orionus", "thirdPartyNotices": "Drittanbieter-Hinweise anzeigen"},
+	"about": {"button": "Info", "openTitle": "Über FlickGrab", "tagline": "Schneller, freundlicher Downloader für YouTube und über 2000 weitere Seiten.", "websiteLink": "Website", "githubLink": "GitHub", "licenseLine": "MIT-Lizenz · von Antonio Orionus", "thirdPartyNotices": "Drittanbieter-Hinweise anzeigen"},
 	"titleBar": {"close": "Schließen", "minimize": "Minimieren", "maximize": "Maximieren", "restore": "Wiederherstellen"},
 	"splash": {
 		"greeting": "Hey, schön dich wiederzusehen!",
@@ -131,7 +131,7 @@
 			"nestedPlaylistHint_other": "{{count}} davon sind Wiedergabelisten, keine Videos — füge die Links einzeln ein, um sie herunterzuladen.",
 			"probeLimitAlertTitle": "Playlist-Scan ist begrenzt",
 			"probeLimitAlertTitleGeneric": "Scan ist begrenzt",
-			"probeLimitAlertDesc": "Arroxy hat mehr als {{count}} Einträge gefunden, daher verbirgt das aktuelle Scan-Limit den Rest.",
+			"probeLimitAlertDesc": "FlickGrab hat mehr als {{count}} Einträge gefunden, daher verbirgt das aktuelle Scan-Limit den Rest.",
 			"multiProfileEntry": "Profile pro Element zuweisen",
 			"multiProfileEntryTooltip": "Überspringt Qualität, SponsorBlock, Ausgabe und Speichern — weist stattdessen jedem Element ein Download-Profil zu",
 			"removeFromListCount_one": "{{count}} aus der Liste entfernen",
@@ -144,7 +144,7 @@
 		},
 		"bulk": {
 			"title": "Bulk-URLs",
-			"description": "Füge Video-, Playlist-, Kanal-, Such- oder Audio-URLs ein. Arroxy bereinigt Duplikate vor dem Einreihen.",
+			"description": "Füge Video-, Playlist-, Kanal-, Such- oder Audio-URLs ein. FlickGrab bereinigt Duplikate vor dem Einreihen.",
 			"textareaLabel": "URL-Liste",
 			"textareaPlaceholder": "https://video.example/one\nhttps://video.example/two\nhttps://video.example/three",
 			"acceptedCount": "Bereit",
@@ -164,11 +164,11 @@
 			"pickFromPlaylist": "Aus Playlist auswählen",
 			"quickWholePlaylist": "Ganze Playlist herunterladen",
 			"playlistLimit": "Playlist-Prüflimit: {{count}} Einträge",
-			"quickLimitDescription": "Maximale Anzahl der Einträge, die Arroxy scannt, bevor eine Playlist, ein Kanal oder ein Suchergebnis in die Warteschlange kommt.",
+			"quickLimitDescription": "Maximale Anzahl der Einträge, die FlickGrab scannt, bevor eine Playlist, ein Kanal oder ein Suchergebnis in die Warteschlange kommt.",
 			"singleTooltip": "Verwendet den Einzelvideo-Modus von yt-dlp, sodass die an diese URL angehängte Playlist ignoriert wird.",
 			"quickSingleTooltip": "Stellt einen Download in die Warteschlange und ignoriert die Playlist, die an diese URL angehängt ist.",
 			"playlistTooltip": "Verwendet den Playlist-Modus von yt-dlp und lädt bis zu deinem Playlist-Prüflimit, bevor die Auswahl angezeigt wird.",
-			"quickPlaylistTooltip": "Stellt jeden geladenen Playlist-Eintrag mit dem aktiven Schnelldownload-Profil in die Warteschlange. Wenn der Scan dein Limit erreicht, fragt Arroxy vor dem Einreihen nach."
+			"quickPlaylistTooltip": "Stellt jeden geladenen Playlist-Eintrag mit dem aktiven Schnelldownload-Profil in die Warteschlange. Wenn der Scan dein Limit erreicht, fragt FlickGrab vor dem Einreihen nach."
 		},
 		"url": {
 			"heading": "Von URL herunterladen",
@@ -214,12 +214,12 @@
 			"bulkButton": "Bulk-URLs",
 			"bulkTooltip": "Mehrere URLs hinzufügen und in die Warteschlange stellen.",
 			"features": {
-				"heading": "Was Arroxy laden kann",
+				"heading": "Was FlickGrab laden kann",
 				"youtube": {"heading": "YouTube", "video": "Videos", "channel": "Kanäle", "playlist": "Wiedergabelisten", "short": "Shorts", "music": "Musik", "podcast": "Podcasts"},
 				"anySite": {"heading": "2000+ Seiten", "video": "Videos", "videoPlaylist": "Video-Playlists", "musicPlaylist": "Musik-Playlists"},
 				"always": {"audioOnly": "Nur Audio", "subtitles": "Untertitel"}
 			},
-			"mascotIdle": "Wirf einen Link rein und lass Arroxy ihn holen ✨",
+			"mascotIdle": "Wirf einen Link rein und lass FlickGrab ihn holen ✨",
 			"mascotBusy": "Lade im Hintergrund… ich kann mehrere Dinge gleichzeitig 😎",
 			"advanced": "Erweitert",
 			"settings": {"inputHeading": "Eingabe", "behaviorHeading": "Downloadverhalten", "behaviorDescription": "Globales Verhalten, das auch profilgesteuerte Downloads betrifft."},
@@ -236,7 +236,7 @@
 			},
 			"hotkey": {
 				"sectionTitle": "Globales Tastenkürzel",
-				"sectionDescription": "Lädt jeden kopierten Link aus jeder App herunter, ohne Arroxy zu öffnen.",
+				"sectionDescription": "Lädt jeden kopierten Link aus jeder App herunter, ohne FlickGrab zu öffnen.",
 				"toggle": "Globales Tastenkürzel aktivieren",
 				"toggleDescription": "Drücke das Kürzel mit einem Video-Link in der Zwischenablage.",
 				"changeShortcut": "Kürzel ändern",
@@ -244,7 +244,7 @@
 				"test": "Testen",
 				"conflict": "Dieses Kürzel wird bereits von einer anderen App verwendet — wähle ein anderes.",
 				"hintLabel": "Oder drücke",
-				"hintTooltip": "Kopiere irgendwo einen Videolink, drücke dieses Kürzel, und Arroxy reiht ihn mit deinem aktiven Profil ein — du musst nicht zwischen Fenstern wechseln.",
+				"hintTooltip": "Kopiere irgendwo einen Videolink, drücke dieses Kürzel, und FlickGrab reiht ihn mit deinem aktiven Profil ein — du musst nicht zwischen Fenstern wechseln.",
 				"hintTooltipSettings": "Ändere es in den Einstellungen oder schalte es dort aus.",
 				"reset": "Auf Standard zurücksetzen"
 			},
@@ -277,12 +277,12 @@
 			"proxy": {"label": "Proxy URL", "description": "Datenverkehr über einen Proxy leiten — nützlich für geo-gesperrte Inhalte.", "placeholder": "http://host:port", "clear": "Löschen"},
 			"style": {
 				"panelTitle": "Aussehen",
-				"panelDescription": "So sieht Arroxy aus. Wechsle in der Fußzeile zwischen Hell und Dunkel.",
+				"panelDescription": "So sieht FlickGrab aus. Wechsle in der Fußzeile zwischen Hell und Dunkel.",
 				"modeLabel": "Stil",
 				"modeDescription": "Beide Stile gibt es in Hell und Dunkel.",
 				"aurora": {"label": "Aurora", "description": "Glaspaneele über einem bewegten Himmel. Braucht Grafikbeschleunigung."},
 				"minimal": {"label": "Minimal", "description": "Ruhige, einfarbige Flächen. Läuft auf jedem Computer flüssig."},
-				"unavailableNotice": "{{style}} braucht Grafikbeschleunigung, die gerade nicht verfügbar ist. Deshalb zeigt Arroxy {{fallback}}."
+				"unavailableNotice": "{{style}} braucht Grafikbeschleunigung, die gerade nicht verfügbar ist. Deshalb zeigt FlickGrab {{fallback}}."
 			},
 			"limitRate": {
 				"label": "Download-Geschwindigkeitslimit",
@@ -295,7 +295,7 @@
 			},
 			"playlistProbeLimit": {
 				"label": "Playlist-Einträge scannen",
-				"description": "Maximale Anzahl der Einträge, die Arroxy beim Öffnen einer Playlist, eines Kanals oder eines Suchergebnisses lädt.",
+				"description": "Maximale Anzahl der Einträge, die FlickGrab beim Öffnen einer Playlist, eines Kanals oder eines Suchergebnisses lädt.",
 				"option": "{{count}} Einträge",
 				"current": "Aktuelles Limit: {{count}} Einträge",
 				"customValue": "Benutzerdefiniert: {{count}} Einträge",
@@ -305,7 +305,7 @@
 				"customDialogCancel": "Abbrechen",
 				"customDialogSave": "Limit speichern",
 				"invalid": "Verwende eine ganze Zahl von 1 bis 5000",
-				"tooltip": "Entspricht yt-dlp --playlist-end: Arroxy fragt nur so viele Playlist-, Kanal- oder Suchergebnisse ab, bevor die Auswahl angezeigt wird."
+				"tooltip": "Entspricht yt-dlp --playlist-end: FlickGrab fragt nur so viele Playlist-, Kanal- oder Suchergebnisse ab, bevor die Auswahl angezeigt wird."
 			},
 			"nativeAudioPreference": {"label": "Native Audioeinstellung", "description": "Stereo oder Surround, wenn ein Profil natives Audio wählt. Ein Profil kann das überschreiben.", "compatible": "Kompatibles Stereo", "surround": "Surround / Dolby bevorzugen"},
 			"autoRetry": {"label": "Fehlgeschlagene Downloads wiederholen", "description": "Versucht es nach einem Netzwerk- oder Serverproblem automatisch erneut und wartet vor jedem Versuch länger. Von der Seite blockierte Downloads werden nie automatisch wiederholt.", "unit": "mal"},
@@ -314,13 +314,13 @@
 			"downloadConnections": {"label": "Download-Verbindungen", "description": "Beschleunigt große Downloads, indem mehrere Teile eines Videos gleichzeitig geladen werden. Höhere Werte erhöhen die Wahrscheinlichkeit, dass eine Seite dich drosselt.", "unit": "Verbindungen"},
 			"networkPacing": {
 				"heading": "Sanftes Herunterladen",
-				"description": "Fügt bei jedem Download kleine Pausen ein, damit Arroxy die Seite nicht zu aggressiv belastet. Werte in Sekunden.",
-				"presetLabel": "Wie vorsichtig soll Arroxy sein?",
+				"description": "Fügt bei jedem Download kleine Pausen ein, damit FlickGrab die Seite nicht zu aggressiv belastet. Werte in Sekunden.",
+				"presetLabel": "Wie vorsichtig soll FlickGrab sein?",
 				"tooltip": "Diese Pausen liegen innerhalb jedes Downloads. Wie viele Downloads gleichzeitig laufen, wird separat unter „Gleichzeitige Downloads“ eingestellt.",
 				"summary": "Pausen: {{requests}} zwischen Abfragen, {{downloads}} vor Medienbeginn, {{subtitles}} vor Untertiteldateien.",
 				"presets": {"off": "Aus", "balanced": "Ausgewogen", "careful": "Vorsichtig", "custom": "Benutzerdefiniert"},
 				"tooltips": {
-					"off": "Nutzt nur die kleinen Basispausen, die Arroxy für Medien und Untertitel beibehält.",
+					"off": "Nutzt nur die kleinen Basispausen, die FlickGrab für Medien und Untertitel beibehält.",
 					"balanced": "Standard. Fügt kurze Pausen zwischen Abfragen und vor Medienbeginn hinzu.",
 					"careful": "Fügt längere Pausen für große Playlists oder Netzwerke ein, die häufig an Limits stoßen.",
 					"custom": "Passe die erweiterten Download-Steuerungen selbst an."
@@ -333,9 +333,9 @@
 		},
 		"quickProgress": {
 			"title": "Schnelldownload wird vorbereitet",
-			"description": "Arroxy liest den Link und wendet {{profileName}} an.",
+			"description": "FlickGrab liest den Link und wendet {{profileName}} an.",
 			"currentFallback": "Aktueller Link",
-			"waitHint": "Lass dies geöffnet, während Arroxy die Warteschlange vorbereitet.",
+			"waitHint": "Lass dies geöffnet, während FlickGrab die Warteschlange vorbereitet.",
 			"failedCount_one": "{{count}} fehlgeschlagen",
 			"failedCount_other": "{{count}} fehlgeschlagen",
 			"cancel": "Vorbereitung abbrechen",
@@ -429,9 +429,9 @@
 				"explanationFile": "Deine Cookies-Datei könnte leer, abgelaufen oder im falschen Format vorliegen (yt-dlp erwartet Netscape cookies.txt). Versuche, die Cookies neu zu exportieren, eine andere Datei auszuwählen, in den Browser-Modus zu wechseln oder Cookies zu deaktivieren.",
 				"explanationBrowser": "Cookies werden direkt aus dem Browser gelesen. Wenn der Browser gerade läuft, ist die Cookie-Datenbank möglicherweise gesperrt (Chromium-Familie). Der Browser muss zudem bei YouTube angemeldet sein. Versuche, den Browser zu schließen, zu einem anderen Browser zu wechseln, in den Datei-Modus zu wechseln oder Cookies zu deaktivieren.",
 				"openSettingsCta": "Cookies-Einstellungen öffnen",
-				"exploreSignIn": {"heading": "Dieses Video erfordert möglicherweise ein YouTube-Konto", "body": "Falls dieses Video ein YouTube-Konto erfordert, melde dich in Explore an und versuche es erneut. Arroxy verwendet diese Anmeldung nur, wenn ein Download sie braucht.", "cta": "In Explore anmelden"},
-				"exploreSignedIn": {"heading": "Bei Explore angemeldet", "body": "Falls dieses Video ein Konto erfordert, verwendet Arroxy automatisch deine Explore-Anmeldung. Es kann auch einen anderen Grund für die Nichtverfügbarkeit geben."},
-				"exploreOffer": {"heading": "Dieses Video erfordert möglicherweise ein YouTube-Konto", "body": "Melde dich in Explore an, dann versucht Arroxy es erneut.", "cta": "Mit Explore anmelden"},
+				"exploreSignIn": {"heading": "Dieses Video erfordert möglicherweise ein YouTube-Konto", "body": "Falls dieses Video ein YouTube-Konto erfordert, melde dich in Explore an und versuche es erneut. FlickGrab verwendet diese Anmeldung nur, wenn ein Download sie braucht.", "cta": "In Explore anmelden"},
+				"exploreSignedIn": {"heading": "Bei Explore angemeldet", "body": "Falls dieses Video ein Konto erfordert, verwendet FlickGrab automatisch deine Explore-Anmeldung. Es kann auch einen anderen Grund für die Nichtverfügbarkeit geben."},
+				"exploreOffer": {"heading": "Dieses Video erfordert möglicherweise ein YouTube-Konto", "body": "Melde dich in Explore an, dann versucht FlickGrab es erneut.", "cta": "Mit Explore anmelden"},
 				"exploreReuse": {"heading": "Dieses Video erfordert möglicherweise ein YouTube-Konto", "body": "Du bist in Explore angemeldet, aber Downloads nutzen diese Anmeldung gerade nicht.", "cta": "Meine Explore-Anmeldung nutzen und erneut versuchen"},
 				"otherCookiesCta": "Stattdessen eine Cookies-Datei oder einen Browser verwenden…",
 				"needsCookies": {"heading": "Diese Seite erfordert eine Anmeldung", "body": "yt-dlp konnte ohne Authentifizierung nicht auf dieses Video zugreifen. Konfiguriere Cookies in den erweiterten Einstellungen — verweise auf einen Browser, in dem du bereits angemeldet bist, oder importiere eine cookies.txt-Datei."},
@@ -700,11 +700,11 @@
 	},
 	"update": {
 		"message": {
-			"generic": "Arroxy {{version}} ist verfügbar — du hast {{currentVersion}}.",
-			"homebrew": "Arroxy {{version}} ist verfügbar — mit Homebrew aktualisieren.",
-			"macosDirect": "Arroxy {{version}} ist verfügbar — lade die neue DMG herunter.",
-			"macosDirectHomebrew": "Arroxy {{version}} ist verfügbar — lade die DMG herunter oder wechsle zu Homebrew.",
-			"portable": "Arroxy {{version}} ist verfügbar — lade den neuen Build herunter."
+			"generic": "FlickGrab {{version}} ist verfügbar — du hast {{currentVersion}}.",
+			"homebrew": "FlickGrab {{version}} ist verfügbar — mit Homebrew aktualisieren.",
+			"macosDirect": "FlickGrab {{version}} ist verfügbar — lade die neue DMG herunter.",
+			"macosDirectHomebrew": "FlickGrab {{version}} ist verfügbar — lade die DMG herunter oder wechsle zu Homebrew.",
+			"portable": "FlickGrab {{version}} ist verfügbar — lade den neuen Build herunter."
 		},
 		"install": "Installieren & neu starten",
 		"downloading": "Wird heruntergeladen…",
@@ -718,7 +718,7 @@
 		"installFailed": "Update fehlgeschlagen",
 		"retry": "Erneut versuchen"
 	},
-	"releaseNotes": {"title": "Neu in Arroxy {{version}}", "description": "Du verwendest ein frisches Update. Hier sind die Highlights.", "fullNotes": "Vollständige Versionshinweise ↗", "continue": "Weiter"},
+	"releaseNotes": {"title": "Neu in FlickGrab {{version}}", "description": "Du verwendest ein frisches Update. Hier sind die Highlights.", "fullNotes": "Vollständige Versionshinweise ↗", "continue": "Weiter"},
 	"status": {
 		"preparingBinaries": "Binärdateien werden vorbereitet…",
 		"mintingToken": "YouTube-Token wird erzeugt…",
@@ -743,7 +743,7 @@
 		"downloadingBinary": "Binärdatei {{name}} wird heruntergeladen…",
 		"unknownStartupFailure": "Unbekannter Fehler beim Starten des Downloads",
 		"diskSpaceInsufficient": "Nicht genug Speicherplatz — {{required}} benötigt, nur {{free}} verfügbar",
-		"outputNotWritable": "Speichern in {{dir}} nicht möglich — Arroxy darf dort nicht schreiben",
+		"outputNotWritable": "Speichern in {{dir}} nicht möglich — FlickGrab darf dort nicht schreiben",
 		"fetchingSponsorBlock": "SponsorBlock wird kontaktiert…",
 		"retryingSponsorBlock": "SponsorBlock nicht verfügbar, erneuter Versuch ({{attempt}}/{{total}})…",
 		"retryingTransfer": "Verbindung hängt, erneuter Versuch ({{attempt}}/{{total}})…",
@@ -765,11 +765,11 @@
 			"queued": "Download aus der Zwischenablage hinzugefügt",
 			"alreadyQueued": "Bereits in der Warteschlange — keine Kopie hinzugefügt",
 			"invalidClipboard": "Kein Link in der Zwischenablage — kopiere zuerst einen",
-			"multipleUrls": "Mehrere Links kopiert — „Bulk-URLs“ in Arroxy verwenden",
-			"needsReview": "Dieser Link braucht deine Auswahl — siehe Downloads in Arroxy",
-			"cookiesSetup": "Schließe die Cookie-Einrichtung in Arroxy ab und versuche es dann erneut",
-			"busy": "Arroxy startet noch — versuche es gleich erneut",
-			"submissionFailed": "Dieser Link konnte nicht hinzugefügt werden — versuche es erneut in Arroxy"
+			"multipleUrls": "Mehrere Links kopiert — „Bulk-URLs“ in FlickGrab verwenden",
+			"needsReview": "Dieser Link braucht deine Auswahl — siehe Downloads in FlickGrab",
+			"cookiesSetup": "Schließe die Cookie-Einrichtung in FlickGrab ab und versuche es dann erneut",
+			"busy": "FlickGrab startet noch — versuche es gleich erneut",
+			"submissionFailed": "Dieser Link konnte nicht hinzugefügt werden — versuche es erneut in FlickGrab"
 		},
 		"queue": {"skippedAlreadyQueued_one": "{{count}} Video ist bereits in der Warteschlange — übersprungen", "skippedAlreadyQueued_other": "{{count}} Videos sind bereits in der Warteschlange — übersprungen"},
 		"quickDownload": {
@@ -788,19 +788,19 @@
 	},
 	"errors": {
 		"ytdlp": {
-			"botBlock": "Bot-Schutz ausgelöst. Die verwendete IP ist höchstwahrscheinlich als verdächtig markiert (Rechenzentrumsbereich oder stark genutzter VPN-Ausgangsknoten). Wechsle deine IP oder wähle einen anderen VPN-Endpunkt und versuche es erneut. Falls das Problem weiterhin besteht, könnte es sich um eine vorübergehende Änderung seitens YouTube handeln – Arroxy aktualisiert yt-dlp beim Start automatisch, sodass der Fix automatisch angewendet wird, sobald er upstream verfügbar ist.",
+			"botBlock": "Bot-Schutz ausgelöst. Die verwendete IP ist höchstwahrscheinlich als verdächtig markiert (Rechenzentrumsbereich oder stark genutzter VPN-Ausgangsknoten). Wechsle deine IP oder wähle einen anderen VPN-Endpunkt und versuche es erneut. Falls das Problem weiterhin besteht, könnte es sich um eine vorübergehende Änderung seitens YouTube handeln – FlickGrab aktualisiert yt-dlp beim Start automatisch, sodass der Fix automatisch angewendet wird, sobald er upstream verfügbar ist.",
 			"ipBlock": "Deine IP-Adresse scheint von YouTube blockiert zu sein. Versuch es später oder nutze ein VPN.",
 			"rateLimit": "YouTube drosselt die Anfragen. Warte eine Minute und versuch es dann erneut.",
 			"ageRestricted": "Dieses Video ist altersbeschränkt und kann ohne angemeldetes Konto nicht heruntergeladen werden.",
 			"unavailable": "Dieses Video ist nicht verfügbar — möglicherweise privat, gelöscht oder regional gesperrt.",
 			"geoBlocked": "Dieses Video ist in deiner Region nicht verfügbar.",
 			"outOfDiskSpace": "Nicht genug Speicherplatz. Gib Speicher frei und versuche es erneut.",
-			"outputNotWritable": "Arroxy kann nicht in den Download-Ordner schreiben. Er ist vielleicht schreibgeschützt, liegt auf einem gesperrten Laufwerk oder wird von den Datenschutzeinstellungen deines Systems blockiert. Wähle einen anderen Ordner oder erlaube den Zugriff und versuche es erneut.",
+			"outputNotWritable": "FlickGrab kann nicht in den Download-Ordner schreiben. Er ist vielleicht schreibgeschützt, liegt auf einem gesperrten Laufwerk oder wird von den Datenschutzeinstellungen deines Systems blockiert. Wähle einen anderen Ordner oder erlaube den Zugriff und versuche es erneut.",
 			"unsupportedUrl": "Diese URL wird von yt-dlp nicht unterstützt. Versuche einen anderen Link von einer von yt-dlp unterstützten Seite.",
 			"chunkTransferFailure": "Der Server hat den Download wiederholt mittendrin abgebrochen und yt-dlp hat nach mehreren Versuchen aufgegeben. Das betrifft meist die größten Videoformate (4K HDR / VP9 mit hoher Bitrate). Versuche es erneut, wechsle das Netzwerk/VPN oder wähle eine niedrigere Auflösung.",
 			"missingDependency": "yt-dlp konnte ffmpeg oder ffprobe nicht finden. Repariere die gebündelten Binärdateien oder lege einen FFmpeg-Speicherort fest und versuche es erneut.",
 			"postprocessFailure": "yt-dlp hat den Download abgeschlossen, aber die Nachbearbeitung (Merge / Mux / Konvertierung) ist fehlgeschlagen. Oft ist das ein vorübergehendes ffmpeg-Problem — versuche es erneut, und wenn es bestehen bleibt, probiere eine andere Formatkombination.",
-			"parse": "Die Antwort der Seite konnte nicht analysiert werden. Der Extraktor von yt-dlp ist möglicherweise veraltet. Arroxy aktualisiert yt-dlp automatisch beim Start — versuche es in ein paar Minuten erneut, sobald der Fix eintrifft.",
+			"parse": "Die Antwort der Seite konnte nicht analysiert werden. Der Extraktor von yt-dlp ist möglicherweise veraltet. FlickGrab aktualisiert yt-dlp automatisch beim Start — versuche es in ein paar Minuten erneut, sobald der Fix eintrifft.",
 			"network": "Netzwerkfehler. Überprüfe deine Verbindung und versuche es erneut.",
 			"drmProtected": "Dieses Video ist DRM-geschützt. yt-dlp kann DRM nicht entfernen, daher kann die Datei nicht heruntergeladen werden.",
 			"loginRequired": "Dieses Video erfordert ein angemeldetes Konto.",
@@ -837,7 +837,7 @@
 		"mp4Cap": "H.264 über 1080p ist auf YouTube nicht verfügbar — automatisch auf 1080p begrenzt"
 	},
 	"formatLabel": {"audioFallback": "Audio", "audioOnlyDot": "Nur Audio · {{audio}}", "videoDot": "{{resolution}} · {{audio}}"},
-	"tray": {"tooltip": "Arroxy", "menu": {"statusIdle": "Inaktiv", "statusActive_one": "1 lädt herunter · {{percent}}%", "statusActive_other": "{{count}} laden herunter · {{percent}}%", "downloadFromClipboard": "Aus der Zwischenablage herunterladen", "open": "Arroxy öffnen", "quit": "Arroxy beenden"}},
+	"tray": {"tooltip": "FlickGrab", "menu": {"statusIdle": "Inaktiv", "statusActive_one": "1 lädt herunter · {{percent}}%", "statusActive_other": "{{count}} laden herunter · {{percent}}%", "downloadFromClipboard": "Aus der Zwischenablage herunterladen", "open": "FlickGrab öffnen", "quit": "FlickGrab beenden"}},
 	"dialogs": {
 		"quitWithActiveDownloads": {
 			"message_one": "{{count}} Download läuft",
@@ -847,25 +847,25 @@
 			"pause": "Downloads pausieren & beenden",
 			"keep": "Weiter herunterladen"
 		},
-		"closeToTray": {"message": "Arroxy beim Schließen in den Infobereich minimieren?", "detail": "Arroxy läuft weiter und schließt aktive Downloads ab. Ändern Sie dies in den erweiterten Einstellungen.", "hide": "In Infobereich minimieren", "quit": "Beenden", "remember": "Nicht mehr fragen"},
-		"rendererCrashed": {"message": "Arroxy hat ein Problem festgestellt", "detail": "Der Renderer-Prozess ist abgestürzt ({{reason}}). Neu laden, um es erneut zu versuchen.", "reload": "Neu laden", "quit": "Beenden"}
+		"closeToTray": {"message": "FlickGrab beim Schließen in den Infobereich minimieren?", "detail": "FlickGrab läuft weiter und schließt aktive Downloads ab. Ändern Sie dies in den erweiterten Einstellungen.", "hide": "In Infobereich minimieren", "quit": "Beenden", "remember": "Nicht mehr fragen"},
+		"rendererCrashed": {"message": "FlickGrab hat ein Problem festgestellt", "detail": "Der Renderer-Prozess ist abgestürzt ({{reason}}). Neu laden, um es erneut zu versuchen.", "reload": "Neu laden", "quit": "Beenden"}
 	},
 	"share": {
-		"title": "Arroxy teilen",
-		"description": "Arroxy ist kostenlos und Open-Source. Durch das Teilen helfen mehr Menschen, es zu entdecken.",
+		"title": "FlickGrab teilen",
+		"description": "FlickGrab ist kostenlos und Open-Source. Durch das Teilen helfen mehr Menschen, es zu entdecken.",
 		"copyLink": "Link kopieren",
 		"copied": "Kopiert!",
-		"defaultMessage": "Arroxy — Kostenloser Open-Source-Video-Downloader für Windows, macOS & Linux. Funktioniert mit YouTube, Vimeo, Twitch und 2000+ weiteren Websites.\n4K · HDR · MP3 · Shorts · Subtitles · SponsorBlock",
-		"footerTooltip": "Arroxy teilen",
+		"defaultMessage": "FlickGrab — Kostenloser Open-Source-Video-Downloader für Windows, macOS & Linux. Funktioniert mit YouTube, Vimeo, Twitch und 2000+ weiteren Websites.\n4K · HDR · MP3 · Shorts · Subtitles · SponsorBlock",
+		"footerTooltip": "FlickGrab teilen",
 		"footerLabel": "Teilen",
-		"shareAction": "Arroxy teilen"
+		"shareAction": "FlickGrab teilen"
 	},
 	"filenameTemplate": {
 		"label": "Dateinamenvorlage",
 		"description": "Lege fest, wie heruntergeladene Dateien benannt werden. Klicke auf einen Platzhalter, um ihn einzufügen. Nutze /, um Downloads in Ordner zu sortieren.",
 		"profileOverrideLabel": "Dateinamenvorlage",
 		"profileOverrideDescription": "Leer lassen, um die globale Vorlage zu übernehmen.",
-		"idWarning": "Ohne {id} kann Arroxy bereits heruntergeladene Playlist-Einträge nicht erkennen und keine .m3u-Playlists erstellen.",
+		"idWarning": "Ohne {id} kann FlickGrab bereits heruntergeladene Playlist-Einträge nicht erkennen und keine .m3u-Playlists erstellen.",
 		"m3uDisabled": "Nicht verfügbar, weil deine Dateinamenvorlage entweder {id} nicht enthält oder Downloads in Ordner sortiert.",
 		"previewSingle": "Einzelnes Video",
 		"previewPlaylist": "In einer Wiedergabeliste",
@@ -885,7 +885,7 @@
 		"tabLabel": "Explore",
 		"newBadge": "Neu",
 		"notice": {
-			"title": "YouTube direkt in Arroxy durchstöbern",
+			"title": "YouTube direkt in FlickGrab durchstöbern",
 			"body": "Finde Videos, Playlists oder Kanäle und lade sie direkt von hier herunter — ohne Links zu kopieren. Melde dich hier bei YouTube an, um Videos herunterzuladen, für die ein Konto nötig ist.",
 			"riskTitle": "Mit einem Zweitkonto anmelden",
 			"riskBody": "YouTube kann Konten markieren — und manchmal sperren —, die mit Download-Tools wie yt-dlp verwendet werden. Nutze ein Konto, das du verschmerzen kannst, nicht dein Hauptkonto.",
@@ -928,7 +928,7 @@
 		},
 		"settings": {
 			"title": "Explore",
-			"description": "Durchstöbere YouTube in Arroxy und melde dich für Videos an, die ein Konto erfordern.",
+			"description": "Durchstöbere YouTube in FlickGrab und melde dich für Videos an, die ein Konto erfordern.",
 			"showTab": "Explore-Tab anzeigen",
 			"showTabDescription": "Wenn du ihn ausschaltest, verwenden Downloads deine Explore-Anmeldung ebenfalls nicht mehr.",
 			"signOut": "Von Explore abmelden",

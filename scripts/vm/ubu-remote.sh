@@ -140,7 +140,7 @@ wait_for_cdp() {
 # runs as real usage.
 seed_profile() {
 	mkdir -p "$1"
-	printf '%s\n' '{"common": {"hotkeyEnabled": false, "analyticsEnabled": false, "clipboardWatchEnabled": false}}' >"$1/settings.json"
+	printf '%s\n' '{"common": {"hotkeyEnabled": false, "clipboardWatchEnabled": false}}' >"$1/settings.json"
 }
 
 cmd_launch() {

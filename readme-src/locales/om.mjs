@@ -39,7 +39,7 @@ brew install mise
 xcode-select --install
 \`\`\`
 
-Erga clone gootee booda checkout keessatti \`mise trust && mise install\` hojjedhu. Yoo shell kee duraan \`fnm\`, \`nvm\`, ykn Homebrew Bun fayyadama ta'e, Arroxy Node.js 24.21.0 fi Bun 1.4.2 akka fayyadamuuf \`~/.zshrc\` keessatti mise kakaasi:
+Erga clone gootee booda checkout keessatti \`mise trust && mise install\` hojjedhu. Yoo shell kee duraan \`fnm\`, \`nvm\`, ykn Homebrew Bun fayyadama ta'e, FlickGrab Node.js 24.21.0 fi Bun 1.4.2 akka fayyadamuuf \`~/.zshrc\` keessatti mise kakaasi:
 
 \`\`\`bash
 printf '\n# mise\nif command -v mise >/dev/null 2>&1; then\n  eval "$(mise activate zsh)"\nfi\n' >> ~/.zshrc
@@ -61,8 +61,8 @@ sudo apt install -y xvfb
 ### Clone fi itti fayyadami
 
 \`\`\`bash
-git clone https://github.com/antonio-orionus/Arroxy
-cd Arroxy
+git clone https://github.com/antonio-orionus/FlickGrab
+cd FlickGrab
 mise trust
 mise install           # kan gorfamu; pinned tools harkaan hojiirra oolchan yoo ta'e dhiisi
 bun run bootstrap
@@ -78,14 +78,14 @@ bun run dist         # OS ammaa kanaaf qindeessi
 bun run dist:win     # supported host irratti Windows targets package godhi
 \`\`\`
 
-> \`bun run bootstrap\` dependencies fe'a, Electron app dependencies rebuild godha, Electron mirkaneessa, development'f embedded ffmpeg/ffprobe qopheessa, Playwright Chromium fe'a. yt-dlp runtime irratti app data folder keessatti manage ta'a; ffmpeg fi ffprobe release Arroxy hunda waliin bundled ta'u.
+> \`bun run bootstrap\` dependencies fe'a, Electron app dependencies rebuild godha, Electron mirkaneessa, development'f embedded ffmpeg/ffprobe qopheessa, Playwright Chromium fe'a. yt-dlp runtime irratti app data folder keessatti manage ta'a; ffmpeg fi ffprobe release FlickGrab hunda waliin bundled ta'u.
 
 </details>`;
 
 export const om = {
-  icon_alt: "Arroxy mascot",
+  icon_alt: "FlickGrab mascot",
   title:
-    "Arroxy — Buufataa YouTube (+ Saayitii 2000) Bilisaa fi Madda Banaa Windows, macOS & Linux",
+    "FlickGrab — Buufataa YouTube (+ Saayitii 2000) Bilisaa fi Madda Banaa Windows, macOS & Linux",
   read_in_label: "Afaan:",
   badge_release_alt: "Baasii",
   badge_build_alt: "Ijaarsaa",
@@ -100,10 +100,10 @@ export const om = {
   cta_latest: "↓ Baasii Haaraa Buusi",
   cta_website: "Marsariitii",
   star_cta:
-    "Arroxy yeroo si oolfate, ⭐ tokko kan biroo argachuu isaaniif gargaara.",
+    "FlickGrab yeroo si oolfate, ⭐ tokko kan biroo argachuu isaaniif gargaara.",
   ai_notice: "",
   toc_heading: "Qabiyyee",
-  why_h2: "Maaliif Arroxy",
+  why_h2: "Maaliif FlickGrab",
   features_h2: "Amaloota",
   dl_h2: "Fe'iitii yeroo jalqabaa banuu",
   privacy_h2: "Icciitii",
@@ -119,13 +119,13 @@ export const om = {
   why_r6: "App desktop platformoota hundaaf",
   why_r7: "Subtitle + SponsorBlock",
   why_summary:
-    "Arroxy waan tokko qofaaf ijaarame: URL maxxansi, faayila naannoo qulqulluu argadhu. Gurgurtaa dabalaataa hin jiru, odeeffannoo walitti qabuu hin jiru.",
-  feat_explore_h3: "Explore: YouTube Arroxy keessatti ilaali",
-  feat_explore_1: "**Tabii Explore** — YouTube Arroxy keessatti ilaaluudhaan waan argatte hidhaa waraabuu malee buufadhu. **Buusi · *piroofaayilii kee*** viidiyoo, playlist, ykn channel ati ilaaltu tarree keessa galcha; xiyyi isa cinaa piroofaayilii jijjiira, ulee falfalaa immoo buufannaa tarkaanfii-tarkaanfiidhaan formaata, barruu jalaa fi kkf filachuuf bana",
+    "FlickGrab waan tokko qofaaf ijaarame: URL maxxansi, faayila naannoo qulqulluu argadhu. Gurgurtaa dabalaataa hin jiru, odeeffannoo walitti qabuu hin jiru.",
+  feat_explore_h3: "Explore: YouTube FlickGrab keessatti ilaali",
+  feat_explore_1: "**Tabii Explore** — YouTube FlickGrab keessatti ilaaluudhaan waan argatte hidhaa waraabuu malee buufadhu. **Buusi · *piroofaayilii kee*** viidiyoo, playlist, ykn channel ati ilaaltu tarree keessa galcha; xiyyi isa cinaa piroofaayilii jijjiira, ulee falfalaa immoo buufannaa tarkaanfii-tarkaanfiidhaan formaata, barruu jalaa fi kkf filachuuf bana",
   feat_explore_6: "**Buusuuf mirgaan cuqaasi** — Explore keessatti hidhaa viidiyoo, playlist ykn channel kamiyyuu mirgaan cuqaasiitii piroofaayilii keetiin buusi, **Profaayiliin buusi** irraa piroofaayilii biraa filadhu, buufata tarkaanfii tarkaanfiin bani, ykn hidhaa garagalchi. Tokkoon tokkoon viidiyoo dursa banuun hin barbaachisu",
-  feat_explore_7: "**Qindaa'ina gabaabaa** — Explore keessatti baarii meeshaalee irratti tuqaa tokkoon sabbata Arroxy achitti geessee fuula sanaaf bakka dabalataa kenna",
+  feat_explore_7: "**Qindaa'ina gabaabaa** — Explore keessatti baarii meeshaalee irratti tuqaa tokkoon sabbata FlickGrab achitti geessee fuula sanaaf bakka dabalataa kenna",
   feat_explore_2: "**Bar teessoo** — YouTube barbaaduuf barreessi ykn hidhaa YouTube maxxansi. Explore YouTube qofa ilaala; kanaaf hidhaan marsariitii biraa achi hin banamu, garuu tuqaa tokkoon buufachuu ni dandeessa",
-  feat_explore_3: "**Buufannaa akkaawuntii barbaadu** — Explore keessatti altokko seeni, Arroxyn viidiyoowwan dhuunfaa fi miseensoota qofaaf kan akkaawuntiin kee ilaaluu danda'u, viidiyoowwan umurii daangeffaman yoo umurii akkaawuntii mirkanaa'e, akkasumas tarreewwan Booda Ilaali fi Jaallatamte buufachuu danda'a. Arroxy ammas utuu hin seenin buufata; yeroo buufannaan karaa akkaawuntiin sirreessuu danda'uun hin milkoofnetti qofa seensa Explore kee fayyadama. YouTube bot akka hin taane akka mirkaneessitu yoo gaafate, Arroxy seensa Explore kee illee ni yaala",
+  feat_explore_3: "**Buufannaa akkaawuntii barbaadu** — Explore keessatti altokko seeni, FlickGrabn viidiyoowwan dhuunfaa fi miseensoota qofaaf kan akkaawuntiin kee ilaaluu danda'u, viidiyoowwan umurii daangeffaman yoo umurii akkaawuntii mirkanaa'e, akkasumas tarreewwan Booda Ilaali fi Jaallatamte buufachuu danda'a. FlickGrab ammas utuu hin seenin buufata; yeroo buufannaan karaa akkaawuntiin sirreessuu danda'uun hin milkoofnetti qofa seensa Explore kee fayyadama. YouTube bot akka hin taane akka mirkaneessitu yoo gaafate, FlickGrab seensa Explore kee illee ni yaala",
   feat_explore_4: "**Akkaawuntii lammaffaa fayyadami** — fuula jalqabaa Explore sababa ibsa: akkaawuntiidhaan buufachuun balaa akkaawuntiin sun daangeffamuu tokko of keessaa qaba. Seensa irraanfachuu yeroo barbaadde Qindoomina keessaa Explore irraa bahi",
   feat_explore_5: "**Dhorkaa beeksisaa** — Explore fuula mataa isaa irratti beeksisaa fi hordoftoota ni dhorka; buufannaan hin tuqamu. Durtiidhaan banaa, Explore kaaba meeshaa irratti gaachana tuquun ni cufa, fuulota seensa Google irrattis gonkumaa hin hojjetu. YouTube akkaawuntiiwwan seenan irratti dhorkaa beeksisaa mormuu danda'a",
   feat_quality_h3: "Qulqullina & formatoota",
@@ -143,12 +143,12 @@ export const om = {
     "Seensuu hin jiru, kuukkii hin jiru, akkaawuntii Google waliin hin hidhu",
   feat_privacy_3: "Faayiloonni kallattiin foldera filatteen seenu",
   feat_workflow_h3: "Hojii hordoffii",
-  feat_workflow_12: "**Qabduu ariifachiisaa buufannaa waliigalaa** — appii kamiyyuu keessatti hidhaa waraabii `Ctrl+Shift+D` (macOS irratti `Cmd+Shift+D`) tuqi; Arroxy foddaa utuu hin banin piroofaayilii kee kan hojiirra jiruun tarree keessa galcha, beeksisnis ni mirkaneessa. Durtiidhaan banaa, irra deebi'anii qindeessuun ni danda'ama",
+  feat_workflow_12: "**Qabduu ariifachiisaa buufannaa waliigalaa** — appii kamiyyuu keessatti hidhaa waraabii `Ctrl+Shift+D` (macOS irratti `Cmd+Shift+D`) tuqi; FlickGrab foddaa utuu hin banin piroofaayilii kee kan hojiirra jiruun tarree keessa galcha, beeksisnis ni mirkaneessa. Durtiidhaan banaa, irra deebi'anii qindeessuun ni danda'ama",
   feat_workflow_1: "**Haalawwan jalqabaa jijjiiramaa** — buusuu tokko qajeelfamaan, filannoo playlist/channel, URL hedduu maxxansuu, Quick Download filannoowwan duraan kuufamaniin, ykn Explore irraa ilaaluu fi buufachuu filadhu",
   feat_workflow_2:
     "**Tarree buusuu giddugaleessaa** — hojii tokko, playlist, bulk, ykn quick hundi bakka tokkotti walitti dhufa: adeemsa, dhaabuu, itti fufsiisuu, haquu, irra deebi’uu, fi dursa to’achuuf",
   feat_workflow_3:
-    "**Eegaa clipboard** — link YouTube koppiisi Arroxy URL of-hordofaa guutu yeroo app deebi'itu (Advanced settings keessatti jijjiiri)",
+    "**Eegaa clipboard** — link YouTube koppiisi FlickGrab URL of-hordofaa guutu yeroo app deebi'itu (Advanced settings keessatti jijjiiri)",
   feat_workflow_4:
     "**URL of-qulqulleessa** — params hordoffii (`si`, `pp`, `utm_*`, `fbclid`, `gclid`) haqa fi linkiiwwan `youtube.com/redirect` bana",
   feat_workflow_5:
@@ -162,17 +162,17 @@ export const om = {
   feat_workflow_9:
     "**Bocquuwwan maqaa faayilii** — `{title}`, `{uploader}`, `{id}`, `{date}`, `{resolution}` fi `{playlist_index}` fayyadamuun buufamawwan kee akka feetetti moggaasi, waliigalaan ykn tokkoon tokkoon piroofaayilii buufamaatiif",
   feat_workflow_10:
-    "**Buufata yeroo tokkotti fi ofumaan irra deebi'uu** — buufanni tarree meeqa yeroo tokkotti akka deemu filadhu, buufata rakkoo networkii yookaan saarvarii qunname immoo Arroxy yaalii tokkoo dura dheeraa eegee irra deebi'ee haa yaalu",
+    "**Buufata yeroo tokkotti fi ofumaan irra deebi'uu** — buufanni tarree meeqa yeroo tokkotti akka deemu filadhu, buufata rakkoo networkii yookaan saarvarii qunname immoo FlickGrab yaalii tokkoo dura dheeraa eegee irra deebi'ee haa yaalu",
   feat_workflow_11:
     "**Profaayiloota buufannaa viidiyoo playlist keessaa tokkoon tokkoon** — sirna tokko guutummaa tarreef fayyadamuu mannaa, viidiyoo playlist keessa jiru hundaaf piroofaayilii buufannaa addaa kennuu dandeessa; kanaanis dabarsa tokkoon garii qulqullina guutuun kuufamee, hafan immoo akka MP3tti fudhatamuu danda'a",
   feat_workflow_13: "**Quick Download duubatti hojjeta** — hidhaan battaluma Buufata keessatti mul'ata achittis qophaa'a, ergaan **Ilaali** qabu ni mirkaneessa, bakki URL immoo hidhaa itti aanuuf qulqullaa'a. Kanneen duraa utuu qophaa'aa jiranii kan feete baay'ee jalqabi",
-  feat_workflow_14: "**Buufata maal akka si barbaaduu sitti hima** — Arroxy hidhaa dubbisuu yoo hin dandeenye, sarara isaa sababa ibsee furmaata dhiyeessa: Irra deebi'i, kuukkii bani, ykn Explore keessatti seeni. Kuukkiin yeroo cufamu, **Explore'n seeni** erga seentee booda siif irra deebi'a. Playlist daangaa fe'uu kee caalu sarara isaa irratti eegaa jira, hunda, kan jalqabaa ykn ilaalcha akka filattu. Tabiin Buufata sarara si eegaa jiru lakkaa'a",
+  feat_workflow_14: "**Buufata maal akka si barbaaduu sitti hima** — FlickGrab hidhaa dubbisuu yoo hin dandeenye, sarara isaa sababa ibsee furmaata dhiyeessa: Irra deebi'i, kuukkii bani, ykn Explore keessatti seeni. Kuukkiin yeroo cufamu, **Explore'n seeni** erga seentee booda siif irra deebi'a. Playlist daangaa fe'uu kee caalu sarara isaa irratti eegaa jira, hunda, kan jalqabaa ykn ilaalcha akka filattu. Tabiin Buufata sarara si eegaa jiru lakkaa'a",
   feat_workflow_15:
-    "**Kutaa viidiyoo tokko qofa buufadhu** — much'aa Foormaatii irratti jalqaba fi xumura, ykn boqonnaa filadhu, Arroxy ardii kana qofa olkaa'a; maqaan isaas id viidiyoo booda ardii kanaan moggaafama. Muruun keyframe isa dhiyoo irratti kufa; muruu sirrii banuun immoo deebisee koodii godha",
+    "**Kutaa viidiyoo tokko qofa buufadhu** — much'aa Foormaatii irratti jalqaba fi xumura, ykn boqonnaa filadhu, FlickGrab ardii kana qofa olkaa'a; maqaan isaas id viidiyoo booda ardii kanaan moggaafama. Muruun keyframe isa dhiyoo irratti kufa; muruu sirrii banuun immoo deebisee koodii godha",
   feat_workflow_16:
     "**Buufata xumuraman ofumaan haqi** — filannoo: buufanni xumurame sekondii 5 booda tarreeffama keessaa ba'a. Faayiloonni isaa kuufama irra turu, buufanni kufe immoo tarreeffama keessa ni jiru",
   feat_workflow_17:
-    "**Bal'ina fi Hin jiru Buufata keessatti** — gabatee **Bal'ina** tartiibaan qindeessuun buufanni tokkoon tokkoon bakka hammam fudhatu agarsiisa, **Hin jiru** immoo faayiloota Arroxy alaa sochoo'an ykn haqaman mallattoo godha",
+    "**Bal'ina fi Hin jiru Buufata keessatti** — gabatee **Bal'ina** tartiibaan qindeessuun buufanni tokkoon tokkoon bakka hammam fudhatu agarsiisa, **Hin jiru** immoo faayiloota FlickGrab alaa sochoo'an ykn haqaman mallattoo godha",
   feat_workflow_18:
     "**Aurora ykn Salphaa, dukkana ykn ifa** — paanaala galaasaa samii socho'u irra jiru, ykn gar-fuula cimaa callisaa; gadi-fuula irraa jijjiiri. Kompiitaroonni saffisiisaa giraafiksii hin qabne ofumaan Salphaa argatu",
   feat_workflow_19:
@@ -196,7 +196,7 @@ export const om = {
   feat_sites_3:
     "**Audio qofa fi subtitle** saayitii deeggara hunda irratti hojjeta, YouTube qofa irratti miti",
   feat_sites_4:
-    "Saayitiin yoo jijjiirames, yt-dlp torban hunda sirreessa erga, Arroxy immoo binary-n yeroo eegaluu ofumaan haaromsa",
+    "Saayitiin yoo jijjiirames, yt-dlp torban hunda sirreessa erga, FlickGrab immoo binary-n yeroo eegaluu ofumaan haaromsa",
   shot1_cap:
     "<b>Fuula Buufata saffisaa</b><br/>URL maxxansiitii profaayilii kee kan socho'aadhaan battalumatti buufadhu",
   shot2_cap:
@@ -209,13 +209,13 @@ export const om = {
     "<b>Haala URL baay'ee</b><br/>Tarree maxxansi, irra deebii ofumaan haqi, hunda yeroo tokkotti tarreessi",
   shot6_cap:
     "<b>Tarree buufannaa walqixaa</b><br/>Buufannaa hedduu yeroo tokkotti, guddina kallattiidhaan",
-  hotkey_fig_alt: "Qabduu ariifachiisaa buufannaa waliigalaa Arroxy — Windows fi Linux irratti Ctrl+Shift+D, macOS irratti Cmd+Shift+D, hidhaa waraabame kallattiin tarree buufannaatti erga",
+  hotkey_fig_alt: "Qabduu ariifachiisaa buufannaa waliigalaa FlickGrab — Windows fi Linux irratti Ctrl+Shift+D, macOS irratti Cmd+Shift+D, hidhaa waraabame kallattiin tarree buufannaatti erga",
   hotkey_fig_cap: "<b>Qabduu ariifachiisaa buufannaa waliigalaa</b><br/>Bakka kamiyyuu hidhaa waraabi, altokko tuqi — tarree seenee buufamuu jalqaba",
   shot7_cap: "<b>Profaayilii viidiyoo playlist tokkoon tokkoon</b><br/>Viidiyoo hundaaf profaayilii mataa isaa kenni — garii 4K'n kuusi, hafan MP3'n fudhu",
-  shot8_cap: "<b>Explore</b><br/>YouTube Arroxy keessatti ilaali, fuula irra jirtu piroofaayilii hojiirra jiruun buufadhu",
+  shot8_cap: "<b>Explore</b><br/>YouTube FlickGrab keessatti ilaali, fuula irra jirtu piroofaayilii hojiirra jiruun buufadhu",
   shot9_cap: "<b>Fuula jalqabaa Explore</b><br/>Explore ilaalcha gabaabaa, akkasumas maaliif akkaawuntiin lammaffaan seensa nageenya qabeessa ta'e",
   shot10_cap: "<b>Buufata maal akka si barbaaduu sitti hima</b><br/>Hidhaawwan duubatti qophaa'u; kan hin milkoofne furmaata dhiyeessa, playlist dheeraan filannoo kee eega",
-  shot11_cap: "<b>Kutaa viidiyoo tokko qofa buusi</b><br/>Jalqabaa fi dhumaa, yookaan boqonnaa filadhu — Arroxy kutaa sana qofa kuusa",
+  shot11_cap: "<b>Kutaa viidiyoo tokko qofa buusi</b><br/>Jalqabaa fi dhumaa, yookaan boqonnaa filadhu — FlickGrab kutaa sana qofa kuusa",
   shot12_cap: "<b>Gulaalaa piroofayilii</b><br/>Piroofayilii sirreessi: gosa faayilii, gulaalummaa, hiikkaa jalqabaa, bakka kuusaa, qophii maqaa faayilii fi kkf",
   shot13_cap: "<b>Dukkana moo ifa, galaasaa moo cimaa</b><br/>Mul'ata afur filachuu dandeessu: paanaalii galaasaa samii socho'u irra jiru yookaan fuula cimaa callisaa, tokkoon tokkoon isaanii dukkanaa fi ifaan",
   dl_platform_col: "Platform",
@@ -250,25 +250,25 @@ export const om = {
     "**Gorsa:** Of-haaromeessaa fi saffisa eegaluu gaaariif NSIS fayyadu fayyadami. Fayyadu hin barbaachifne, reejistrii hin barbaachifne filannoof portable `.exe` fayyadami.",
   dl_win_smartscreen_h4: "Windows SmartScreen akeekkachiisa",
   dl_win_smartscreen_intro:
-    'Jalqaba banuu irratti **"Windows protected your PC"** ykn **"Unknown publisher"** arguu dandeessa. Kun `Arroxy-win-x64-Setup.exe` fi `Arroxy-win-x64-Portable.exe` lameeniifuu hojjeta. Arroxy bilisaa fi madda banaa dha, ijaarsonni Windows mallattoo kafaltii hin qabne waliin hin mallatteffamne, kanaafuu SmartScreen mallattoo isaanirratti kaa\'a. Kun Arroxy nageenya hin qabu **jechuuf** of-hordofaan miti. Itti fufuuf:',
+    'Jalqaba banuu irratti **"Windows protected your PC"** ykn **"Unknown publisher"** arguu dandeessa. Kun `FlickGrab-win-x64-Setup.exe` fi `FlickGrab-win-x64-Portable.exe` lameeniifuu hojjeta. FlickGrab bilisaa fi madda banaa dha, ijaarsonni Windows mallattoo kafaltii hin qabne waliin hin mallatteffamne, kanaafuu SmartScreen mallattoo isaanirratti kaa\'a. Kun FlickGrab nageenya hin qabu **jechuuf** of-hordofaan miti. Itti fufuuf:',
   dl_win_smartscreen_step1: "**More info** cuqaasi.",
   dl_win_smartscreen_step2: "**Run anyway** cuqaasi.",
   dl_win_smartscreen_official:
-    "Arroxy fuula GitHub Releases mirkaneessaatii qofa buufi. Faayila marsariitii biraatii argatte ykn namni tokko si erge yoo ta'e, haqii fi ganda mirkaneessaatii faayila haaraa buufi. Koodii madda ummataadhaan banaa waan ta'eef, of irraadhaa sakatta'uu ykn Arroxy of irraadhaa ijaaru dandeessa.",
+    "FlickGrab fuula GitHub Releases mirkaneessaatii qofa buufi. Faayila marsariitii biraatii argatte ykn namni tokko si erge yoo ta'e, haqii fi ganda mirkaneessaatii faayila haaraa buufi. Koodii madda ummataadhaan banaa waan ta'eef, of irraadhaa sakatta'uu ykn FlickGrab of irraadhaa ijaaru dandeessa.",
   dl_macos_h3: "macOS irratti yeroo jalqabaa eegaluu",
   dl_macos_warning:
-    "Arroxy ammallee mallattoo hin qabdu, kanaaf macOS Gatekeeper yeroo jalqabaa banuutti akeekkachiisa app miidhame jedhu agarsiisuu danda'a. Kun kan eegamu dha — faayiliiwwan dhugumaan miidhaman jechuu miti.",
+    "FlickGrab ammallee mallattoo hin qabdu, kanaaf macOS Gatekeeper yeroo jalqabaa banuutti akeekkachiisa app miidhame jedhu agarsiisuu danda'a. Kun kan eegamu dha — faayiliiwwan dhugumaan miidhaman jechuu miti.",
   dl_macos_m1_h4: "Mala Terminal:",
-  dl_macos_step1: "`Arroxy.app` DMG irraa gara `/Applications` harkisi.",
+  dl_macos_step1: "`FlickGrab.app` DMG irraa gara `/Applications` harkisi.",
   dl_macos_step2:
-    "Terminal baniitii `sudo xattr -dr com.apple.quarantine /Applications/Arroxy.app` hojjedhu.",
-  dl_macos_step3: "`open /Applications/Arroxy.app` hojjedhu.",
+    "Terminal baniitii `sudo xattr -dr com.apple.quarantine /Applications/FlickGrab.app` hojjedhu.",
+  dl_macos_step3: "`open /Applications/FlickGrab.app` hojjedhu.",
   dl_macos_step4:
-    "Daandiin app adda yoo ta'e, `/Applications/Arroxy.app` bakka itti feeteen bakka buusi.",
+    "Daandiin app adda yoo ta'e, `/Applications/FlickGrab.app` bakka itti feeteen bakka buusi.",
   dl_macos_step5:
     "`sudo` yoo gaafate jecha darbii Mac kee galchi.",
   dl_macos_after:
-    "Quarantine erga haqamee booda Arroxy akka idileetti ni banama.",
+    "Quarantine erga haqamee booda FlickGrab akka idileetti ni banama.",
   dl_macos_m2_h4: "Mala Terminal:",
   dl_macos_note:
     "Ijaarsi macOS CI irratti Apple Silicon fi Intel runners irratti hojjetama. Rakkoo yoo qabaatte, maaloo [gaaffii bani](../../issues) — yaada fayyadamtootaa macOS irraa yeroo hedduu qabxii qormaata macOS murteessa.",
@@ -284,9 +284,9 @@ export const om = {
   dl_linux_arch_note: "**Buufannoowwan Linux fuula gadhiisaa irra jiran x86_64 qofaaf.** Maashinoota ARM64 (Raspberry Pi, Asahi Linux) irratti Flatpak ni ijaarama garuu yeroo eegalu `bwrap: execvp ldconfig: Exec format error` jedhee kufa.",
   dl_warning_h3: "Maaliif akeekkachiisa arguu dandeessa",
   dl_warning_p1:
-    "Arroxy madda banaa fi hayyama MIT qaba. Ijaarsonni Windows fi macOS **mallattoo hin qaban** — ragaaleen Apple Developer ID fi Windows EV mallattoo koodii kafaltii waggaatti dhibba doolara baay'ee waan gaafataniif, pirojektiin self-funded baasii kana mataa isaarraa kafala. Mallattoo sana malee, Windows SmartScreen fi macOS Gatekeeper yeroo jalqabaatti si akeekachisuu. Akeekkachiisni kun *siistamni kee maxxantiisa hin beeku* jechuudha — Arroxy malwaare dha jechuuf miti.",
+    "FlickGrab madda banaa fi hayyama MIT qaba. Ijaarsonni Windows fi macOS **mallattoo hin qaban** — ragaaleen Apple Developer ID fi Windows EV mallattoo koodii kafaltii waggaatti dhibba doolara baay'ee waan gaafataniif, pirojektiin self-funded baasii kana mataa isaarraa kafala. Mallattoo sana malee, Windows SmartScreen fi macOS Gatekeeper yeroo jalqabaatti si akeekachisuu. Akeekkachiisni kun *siistamni kee maxxantiisa hin beeku* jechuudha — FlickGrab malwaare dha jechuuf miti.",
   dl_warning_p2:
-    "Haala sadii Arroxy ofii keetiin mirkaneessuuf, kutaa cimina irraa cimina gaditti:\n\n- **Koodii madda dubbisi.** Sarara hundi [GitHub](https://github.com/antonio-orionus/Arroxy) irratti jira fi [madda irraa ijaaruuf](#tech) ni danda'ama.\n- **SHA256 mirkaneessi.** Faayila kee [`SHA256SUMS`](../../releases/latest) maxxanfame walitti bira qabbi — armaan gadii [Buufannoo kee mirkaneessi](#verify) ilaali.\n- **Sakattaa miilaafi baasii.** Faayila [VirusTotal](https://www.virustotal.com) irratti fe'i.",
+    "Haala sadii FlickGrab ofii keetiin mirkaneessuuf, kutaa cimina irraa cimina gaditti:\n\n- **Koodii madda dubbisi.** Sarara hundi [GitHub](https://github.com/antonio-orionus/FlickGrab) irratti jira fi [madda irraa ijaaruuf](#tech) ni danda'ama.\n- **SHA256 mirkaneessi.** Faayila kee [`SHA256SUMS`](../../releases/latest) maxxanfame walitti bira qabbi — armaan gadii [Buufannoo kee mirkaneessi](#verify) ilaali.\n- **Sakattaa miilaafi baasii.** Faayila [VirusTotal](https://www.virustotal.com) irratti fe'i.",
 
   dl_win_first_h3: "Windows yeroo jalqabaa eegaluu",
   shot_smartscreen_more_alt:
@@ -296,33 +296,33 @@ export const om = {
   dl_win_defender_h4:
     "Windows Defender faayila mallattaa itti kaa'e ykn haqe yoo ta'e",
   dl_win_defender_p:
-    "Heuristics Defender sometimes flag unsigned NSIS installers fi Electron portables akka shakkisiisoo. Defender `Arroxy-win-x64-Setup.exe` ykn `Arroxy-win-x64-Portable.exe` karantinii keessa kaa'e yoo ta'e, **Windows Security → Virus & threat protection → Protection history** irraa deebi'i, erga Arroxy executable **Manage settings → Add or remove exclusions** jalatti wantoota hayyamamaniitti dabalii. SmartScreen wajjin akkuma, kasaara mallattoo maxxantii dhabuu irraa dhufa, malwaare argamuuurraa miti.",
+    "Heuristics Defender sometimes flag unsigned NSIS installers fi Electron portables akka shakkisiisoo. Defender `FlickGrab-win-x64-Setup.exe` ykn `FlickGrab-win-x64-Portable.exe` karantinii keessa kaa'e yoo ta'e, **Windows Security → Virus & threat protection → Protection history** irraa deebi'i, erga FlickGrab executable **Manage settings → Add or remove exclusions** jalatti wantoota hayyamamaniitti dabalii. SmartScreen wajjin akkuma, kasaara mallattoo maxxantii dhabuu irraa dhufa, malwaare argamuuurraa miti.",
 
   dl_macos_first_h3: "macOS yeroo jalqabaa eegaluu",
   dl_macos_intro:
-    "Arroxy ammallee macOS'f mallattoo hin qabdu, kanaaf Gatekeeper erga DMG irraa feete booda diyalogii sodaachisaa *\"Arroxy.app is damaged and can't be opened\"* agarsiisuu danda'a. Ergaan kun macOS app mallattoo hin qabne quarantine keessa kaa'e jechuu dha; faayiliiwwan app dhugumaan miidhaman jechuu miti. macOS ammaa irratti furmaanni amanamaan Terminal dha:",
+    "FlickGrab ammallee macOS'f mallattoo hin qabdu, kanaaf Gatekeeper erga DMG irraa feete booda diyalogii sodaachisaa *\"FlickGrab.app is damaged and can't be opened\"* agarsiisuu danda'a. Ergaan kun macOS app mallattoo hin qabne quarantine keessa kaa'e jechuu dha; faayiliiwwan app dhugumaan miidhaman jechuu miti. macOS ammaa irratti furmaanni amanamaan Terminal dha:",
   dl_macos_sequoia_h4: "Furmaata Terminal kan macOS ammaa",
   dl_macos_sequoia_intro:
-    "Arroxy gara Applications erga garagalchitee booda Terminal fayyadami:",
+    "FlickGrab gara Applications erga garagalchitee booda Terminal fayyadami:",
   dl_macos_sequoia_step1:
-    "`Arroxy.app` DMG ramadame irraa `/Applications` tti harkisi.",
+    "`FlickGrab.app` DMG ramadame irraa `/Applications` tti harkisi.",
   dl_macos_sequoia_step2:
     "Terminal baniitii ajajoota lamaan kana hojjedhu:",
   dl_macos_sequoia_step3:
-    "Arroxy banuuf `open /Applications/Arroxy.app` hojjedhu.",
+    "FlickGrab banuuf `open /Applications/FlickGrab.app` hojjedhu.",
   dl_macos_sequoia_step4:
-    "Daandiin app adda yoo ta'e, `/Applications/Arroxy.app` bakka itti feeteen bakka buusi.",
+    "Daandiin app adda yoo ta'e, `/Applications/FlickGrab.app` bakka itti feeteen bakka buusi.",
   dl_macos_sonoma_h4: "Furmaata Terminal kan macOS durii",
   dl_macos_sonoma_step1:
-    "`Arroxy.app` DMG ramadame irraa `/Applications` tti harkisi.",
+    "`FlickGrab.app` DMG ramadame irraa `/Applications` tti harkisi.",
   dl_macos_sonoma_step2:
-    "Terminal baniitii `/Applications/Arroxy.app` irraa quarantine haqi.",
+    "Terminal baniitii `/Applications/FlickGrab.app` irraa quarantine haqi.",
   dl_macos_sonoma_step3:
-    "Quarantine erga haqamee booda Arroxy Terminal ykn Finder irraa bani.",
+    "Quarantine erga haqamee booda FlickGrab Terminal ykn Finder irraa bani.",
   dl_macos_damaged_h4:
     "Furmaata quarantine Gatekeeper",
   dl_macos_damaged_p:
-    "Ajajni jalqabaa kopi Arroxy kan feete irraa amala quarantine haqa. Inni lammaffaa app banuu dha. `sudo` jecha darbii Mac kee gaafachuu danda'a; Terminal yeroo barreessitu mallattoo hin agarsiisu.",
+    "Ajajni jalqabaa kopi FlickGrab kan feete irraa amala quarantine haqa. Inni lammaffaa app banuu dha. `sudo` jecha darbii Mac kee gaafachuu danda'a; Terminal yeroo barreessitu mallattoo hin agarsiisu.",
   dl_macos_arch_note:
     "**Apple Silicon vs Intel:** Mac M-series (M1 / M2 / M3 / M4) irratti, `arm64` DMG buusi. Intel Macs irratti, `x64` DMG buusi. Ijaarsaa dogoggora oofuu Rosetta fayyadamuudhaan hojjeta garuu ifa gadi bu'aa.",
 
@@ -346,7 +346,7 @@ export const om = {
     "Buufannoonni kallattiin [yt-dlp](https://github.com/yt-dlp/yt-dlp) fayyadamuudhaan YouTube irraa foldera filatteetti darbamu — miila-seerri hunduu sarara servera sadarkaa-sadaffaa tokko keessa darbuu hin qabu. Seenaa ilaaluu, seenaa buufannoo, URLs, fi qabiyyee faayilaa meeshaa kee irratti hafu.",
   privacy_p2:
     "Telemetrii hin jiru — guyyaatti mallattoo maqaa-dhabduu tokko qofa: version app, OS, afaan, karaa itti install godhame fi biyya, akka fayyadamtoota hojii irra jiran lakkoofnuuf. ID, URL, mata-duree viidiyoo, karaa faayilaa yookaan odeeffannoo account hin jiru. Settings keessatti dhaabuu dandeessa.",
-  privacy_p3: "Explore seensa mataa isaa qaba, biraawzara keetii addaa, Arroxyn unka seensaa gonkumaa hin dubbisu hin guutus — ati fuula Google mataa isaa irratti barreessita. Buufannaan utuu hin seenin deemu; yeroo tokko karaa akkaawuntiin sirreessuu danda'un hin milkoofnetti qofa Arroxy seensa yeroo sana haaraatti dubbisa, buufannaa sanaaf faayilii yeroo keessatti qaba, booda faayilicha haqa. Qindoomina keessatti Explore irraa bahuun isa irraanfachiisa.",
+  privacy_p3: "Explore seensa mataa isaa qaba, biraawzara keetii addaa, FlickGrabn unka seensaa gonkumaa hin dubbisu hin guutus — ati fuula Google mataa isaa irratti barreessita. Buufannaan utuu hin seenin deemu; yeroo tokko karaa akkaawuntiin sirreessuu danda'un hin milkoofnetti qofa FlickGrab seensa yeroo sana haaraatti dubbisa, buufannaa sanaaf faayilii yeroo keessatti qaba, booda faayilicha haqa. Qindoomina keessatti Explore irraa bahuun isa irraanfachiisa.",
   faq_q1: "Dhuguma bilisaa dha?",
   faq_a1:
     "Eeyyee — hayyama MIT, sadarkaa kafaltii hin jiru, amaloota dhorkamuun hin jiru.",
@@ -357,12 +357,12 @@ export const om = {
   faq_a3:
     "Eeyyee. Menu format keessaa *audio qofa* filadhu, booda MP3, M4A/AAC, Opus yookaan WAV filadhu.",
   faq_q4: "Viidiyoowwan akkaawuntii YouTube barbaadan akkamitti buufadha?",
-  faq_a4: "Tabii Explore keessatti altokko seeni. Yeroo sana Arroxyn viidiyoowwan dhuunfaa fi miseensoota qofaaf kan akkaawuntiin kee ilaaluu danda'u, viidiyoowwan umurii daangeffaman yoo umurii akkaawuntii mirkanaa'e, akkasumas tarreewwan Booda Ilaali fi Jaallatamte buufachuu danda'a. Seensa sana yeroo buufannaan karaa akkaawuntiin sirreessuu danda'uun hin milkoofnetti qofa fayyadama; kan hafe hundi akka duraan buufama. Kun filannoo **Seensa Explore** dha, qindoomina kuukkii keessatti jalqabaatti tarreeffamee Kan Gorfamu jedhamee mallatteeffame, Arroxyn immoo yeroo jalqabaaf Explore banattu siif filata. Wiki yt-dlp [automatic akkaawuntii seenaan irratti hundaa'e akkaawuntii Google mallatteessisuu danda'a](https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies) jedha; kanaaf akkaawuntiin lammaffaan filannoo nageenya caalu dha.",
+  faq_a4: "Tabii Explore keessatti altokko seeni. Yeroo sana FlickGrabn viidiyoowwan dhuunfaa fi miseensoota qofaaf kan akkaawuntiin kee ilaaluu danda'u, viidiyoowwan umurii daangeffaman yoo umurii akkaawuntii mirkanaa'e, akkasumas tarreewwan Booda Ilaali fi Jaallatamte buufachuu danda'a. Seensa sana yeroo buufannaan karaa akkaawuntiin sirreessuu danda'uun hin milkoofnetti qofa fayyadama; kan hafe hundi akka duraan buufama. Kun filannoo **Seensa Explore** dha, qindoomina kuukkii keessatti jalqabaatti tarreeffamee Kan Gorfamu jedhamee mallatteeffame, FlickGrabn immoo yeroo jalqabaaf Explore banattu siif filata. Wiki yt-dlp [automatic akkaawuntii seenaan irratti hundaa'e akkaawuntii Google mallatteessisuu danda'a](https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies) jedha; kanaaf akkaawuntiin lammaffaan filannoo nageenya caalu dha.",
   faq_q5: "YouTube waan tokko jijjiirte itti fufaa hojeta?",
-  faq_a5: "yt-dlp yeroo eegaluu irratti ofumaan haaromfama, fi Arroxy yeroo YouTube waan tokko jijjiirtu ariitiidhaan sirreessa erga. YouTube bot akka hin taane akka mirkaneessitu yoo gaafate, Arroxy yoo Explore keessatti seentee jirta seensa Explore kee illee ni yaala, kuukkiin faayila ykn biraawzara irraa immoo qindoomina kuukkii keessatti ni argama.",
-  faq_q6: "Arroxy afaan meeqa keessatti argamu?",
+  faq_a5: "yt-dlp yeroo eegaluu irratti ofumaan haaromfama, fi FlickGrab yeroo YouTube waan tokko jijjiirtu ariitiidhaan sirreessa erga. YouTube bot akka hin taane akka mirkaneessitu yoo gaafate, FlickGrab yoo Explore keessatti seentee jirta seensa Explore kee illee ni yaala, kuukkiin faayila ykn biraawzara irraa immoo qindoomina kuukkii keessatti ni argama.",
+  faq_q6: "FlickGrab afaan meeqa keessatti argamu?",
   faq_a6:
-    "Afaanota {{LANG_COUNT}} battalumatti ni argatta: {{LANG_NAME_LIST}}. Arroxy yeroo jalqaba banamu afaan sirna hojii kee ofumaan adda baasa, akkasumas filataa afaanii toolbar keessa jiru irraa yeroo kamiyyuu jijjiiruu dandeessa. Runtime locale JSON src/shared/i18n/locales/ keessa jira, katalogiin PO hiiktotaaf ammoo i18n/locales/ keessa jira — gumaachuuf GitHub irratti PR bani.",
+    "Afaanota {{LANG_COUNT}} battalumatti ni argatta: {{LANG_NAME_LIST}}. FlickGrab yeroo jalqaba banamu afaan sirna hojii kee ofumaan adda baasa, akkasumas filataa afaanii toolbar keessa jiru irraa yeroo kamiyyuu jijjiiruu dandeessa. Runtime locale JSON src/shared/i18n/locales/ keessa jira, katalogiin PO hiiktotaaf ammoo i18n/locales/ keessa jira — gumaachuuf GitHub irratti PR bani.",
   faq_q7: "Waan biraa fayyadu barbaachisaa?",
   faq_a7:
     "Lakki. yt-dlp jalqaba banuu irratti ofumaan buufamee meeshaa kee irratti kuufama; ffmpeg fi ffprobe app waliin dhufu. Sana booda qindaaʼinni dabalataa hin barbaachisu.",
@@ -371,7 +371,7 @@ export const om = {
     "Eeyyee — lamaan isaaniiyyuu. URL playlist ykn channel maxxansi (fkn. `youtube.com/@handle`, `/channel/UC…`, `/c/Name`, `/user/Old`); galfata meeqa akka sakatta’u filadhu, ergasii tarree guutuu queue godhi ykn viidiyoo addaa filadhu. Filtraroonni guyyaa gara fuulduraatti dhufu.",
   faq_q9: 'macOS "app miidhaameera" jedha — maal godhaa?',
   faq_a9:
-    "Sun macOS Gatekeeper app mallattoo hin qabne dhorku, miidhaa dhugaa miti. Ajajoota Terminal quarantine haquu fi Arroxy banuuf [macOS first launch](#macos-first-launch) ilaali.",
+    "Sun macOS Gatekeeper app mallattoo hin qabne dhorku, miidhaa dhugaa miti. Ajajoota Terminal quarantine haquu fi FlickGrab banuuf [macOS first launch](#macos-first-launch) ilaali.",
   faq_q10: "Viidiyoo YouTube buusuu seeraa dha?",
   faq_a10:
     "Fayyadama dhuunfaa, dhoksaa qofaaf yeroo hedduun mootummoota heddu keessatti fudhatama. [Dambii Tajaajilaaf](https://www.youtube.com/t/terms) YouTube fi seeraa mirga-qopheessaa naannoo keetti hordofuuf ati itti gaafatamtummaa qabda.",
@@ -396,11 +396,11 @@ export const om = {
   plan_cta:
     "Amala yaaddetee jirtaa? [Gaaffii bani](../../issues) — galchiin hawaasaa dursa murteessa.",
   tech_content: TECH_CONTENT,
-  support_h2: "Arroxy Deggeri",
-  support_note: "Arroxy bilisa fi hayyama MIT jala jira — beeksisni hin jiru, telemetriin hin jiru, fooyya'iinsi kaffaltiin hin jiru. Yoo yeroo siif qusate, guddina isaa Bitcoin ykn Tron'iin deggeruu dandeessa: teessoowwan [DONATE.md](DONATE.md) keessa jiru, innis madda ofiisaa qofa. Arroxy gonkumaa teessoo iimeeliidhaan ykn ergaa kallattiitiin siif hin ergu. Repoo'f urjii kennuun, dogoggora gabaasuu fi hiikkaa fooyyessuun hammuma sana gargaara.",
+  support_h2: "FlickGrab Deggeri",
+  support_note: "FlickGrab bilisa fi hayyama MIT jala jira — beeksisni hin jiru, telemetriin hin jiru, fooyya'iinsi kaffaltiin hin jiru. Yoo yeroo siif qusate, guddina isaa Bitcoin ykn Tron'iin deggeruu dandeessa: teessoowwan [DONATE.md](DONATE.md) keessa jiru, innis madda ofiisaa qofa. FlickGrab gonkumaa teessoo iimeeliidhaan ykn ergaa kallattiitiin siif hin ergu. Repoo'f urjii kennuun, dogoggora gabaasuu fi hiikkaa fooyyessuun hammuma sana gargaara.",
   tos_h2: "Hayyama fayyadamuu",
   tos_note:
-    "Arroxy meeshaa fayyadama dhuunfaa, dhoksaa qofaaf. Buufannoonni kee Dambii Tajaajilaaf YouTube [Terms of Service](https://www.youtube.com/t/terms) fi seeraa mirga-qopheessaa naannoo keetii wajjin walsimuu mirkaneessuu qofaaf itti gaafatamaa taata. Arroxy fayyadamuudhaan mirgaa hin qabne qabiyyee buusuu, haaromsu, ykn raabsuu hin godhin. Guddiftoonni misooma dogoggoraa kamiifis itti gaafatamu hin qaban.",
+    "FlickGrab meeshaa fayyadama dhuunfaa, dhoksaa qofaaf. Buufannoonni kee Dambii Tajaajilaaf YouTube [Terms of Service](https://www.youtube.com/t/terms) fi seeraa mirga-qopheessaa naannoo keetii wajjin walsimuu mirkaneessuu qofaaf itti gaafatamaa taata. FlickGrab fayyadamuudhaan mirgaa hin qabne qabiyyee buusuu, haaromsu, ykn raabsuu hin godhin. Guddiftoonni misooma dogoggoraa kamiifis itti gaafatamu hin qaban.",
   footer_credit:
     'MIT License · Qalbii fi qormaata <a href="https://x.com/OrionusAI">@OrionusAI</a> tiin hojjetame',
 };

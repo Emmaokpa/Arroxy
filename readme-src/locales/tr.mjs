@@ -39,7 +39,7 @@ brew install mise
 xcode-select --install
 \`\`\`
 
-Klonladıktan sonra checkout içinde \`mise trust && mise install\` çalıştır. Shell'in zaten \`fnm\`, \`nvm\` veya Homebrew Bun kullanıyorsa, Arroxy'nin Node.js 24.21.0 ve Bun 1.4.2 alması için \`~/.zshrc\` içinde mise'i etkinleştir:
+Klonladıktan sonra checkout içinde \`mise trust && mise install\` çalıştır. Shell'in zaten \`fnm\`, \`nvm\` veya Homebrew Bun kullanıyorsa, FlickGrab'nin Node.js 24.21.0 ve Bun 1.4.2 alması için \`~/.zshrc\` içinde mise'i etkinleştir:
 
 \`\`\`bash
 printf '\n# mise\nif command -v mise >/dev/null 2>&1; then\n  eval "$(mise activate zsh)"\nfi\n' >> ~/.zshrc
@@ -61,8 +61,8 @@ sudo apt install -y xvfb
 ### Klonla ve çalıştır
 
 \`\`\`bash
-git clone https://github.com/antonio-orionus/Arroxy
-cd Arroxy
+git clone https://github.com/antonio-orionus/FlickGrab
+cd FlickGrab
 mise trust
 mise install           # önerilir; sabitlenmiş araçları elle etkinleştirdiysen atla
 bun run bootstrap
@@ -78,14 +78,14 @@ bun run dist         # geçerli işletim sistemi için paketle
 bun run dist:win     # desteklenen bir host üzerinde Windows hedeflerini paketle
 \`\`\`
 
-> \`bun run bootstrap\` bağımlılıkları kurar, Electron uygulama bağımlılıklarını yeniden derler, Electron'u doğrular, geliştirme için gömülü ffmpeg/ffprobe hazırlar ve Playwright Chromium kurar. yt-dlp uygulama veri klasöründe çalışma zamanında yönetilir; ffmpeg ve ffprobe her Arroxy sürümüyle paketlenir.
+> \`bun run bootstrap\` bağımlılıkları kurar, Electron uygulama bağımlılıklarını yeniden derler, Electron'u doğrular, geliştirme için gömülü ffmpeg/ffprobe hazırlar ve Playwright Chromium kurar. yt-dlp uygulama veri klasöründe çalışma zamanında yönetilir; ffmpeg ve ffprobe her FlickGrab sürümüyle paketlenir.
 
 </details>`;
 
 export const tr = {
-  icon_alt: "Arroxy maskotu",
+  icon_alt: "FlickGrab maskotu",
   title:
-    "Arroxy — Windows, macOS ve Linux için Ücretsiz Açık Kaynak YouTube (+ 2000 site) İndirici",
+    "FlickGrab — Windows, macOS ve Linux için Ücretsiz Açık Kaynak YouTube (+ 2000 site) İndirici",
   read_in_label: "Şu dilde oku:",
   badge_release_alt: "Sürüm",
   badge_build_alt: "Derleme",
@@ -100,11 +100,11 @@ export const tr = {
   cta_latest: "↓ En son sürümü kur",
   cta_website: "Web sitesi",
   star_cta:
-    "Arroxy sana zaman kazandırıyorsa, bir ⭐ başkalarının onu bulmasına yardım eder.",
+    "FlickGrab sana zaman kazandırıyorsa, bir ⭐ başkalarının onu bulmasına yardım eder.",
   ai_notice:
     "> 🌐 Bu, yapay zeka destekli bir çeviridir. [İngilizce README](README.md) gerçek kaynak kabul edilir. Hata mı gördün? [PR'lar memnuniyetle karşılanır](../../pulls).",
   toc_heading: "İçindekiler",
-  why_h2: "Neden Arroxy",
+  why_h2: "Neden FlickGrab",
   features_h2: "Özellikler",
   dl_h2: "Kurulum ve ilk başlatma",
   privacy_h2: "Gizlilik",
@@ -119,14 +119,14 @@ export const tr = {
   why_r6: "Platformlar arası masaüstü uygulaması",
   why_r7: "Altyazılar + SponsorBlock",
   why_summary:
-    "Arroxy tek bir şey için yapılmıştır: URL yapıştır, temiz bir yerel dosya al. Ek satış yok, veri toplama yok.",
-  feat_explore_h3: "Explore: YouTube'a Arroxy içinden göz at",
-  feat_explore_1: "**Explore sekmesi** — YouTube'a Arroxy içinden göz at ve bulduklarını bağlantı kopyalamadan indir. **İndir · *profilin*** baktığın videoyu, oynatma listesini veya kanalı kuyruğa ekler; yanındaki ok profil değiştirir, sihirli değnek ise biçim, altyazı ve daha fazlasını seçebileceğin adım adım indirmeyi açar",
+    "FlickGrab tek bir şey için yapılmıştır: URL yapıştır, temiz bir yerel dosya al. Ek satış yok, veri toplama yok.",
+  feat_explore_h3: "Explore: YouTube'a FlickGrab içinden göz at",
+  feat_explore_1: "**Explore sekmesi** — YouTube'a FlickGrab içinden göz at ve bulduklarını bağlantı kopyalamadan indir. **İndir · *profilin*** baktığın videoyu, oynatma listesini veya kanalı kuyruğa ekler; yanındaki ok profil değiştirir, sihirli değnek ise biçim, altyazı ve daha fazlasını seçebileceğin adım adım indirmeyi açar",
   feat_explore_6: "**Sağ tıklayarak indir** — Explore'da herhangi bir video, oynatma listesi veya kanal bağlantısına sağ tıklayıp profilinle indir, **Profille indir** menüsünden başka bir profil seç, adım adım indirmeyi aç ya da bağlantıyı kopyala. Her videoyu önce açman gerekmez",
   feat_explore_7:
-    "**Kompakt düzen** — Explore araç çubuğundaki tek bir tıklama Arroxy'nin sekmelerini oraya taşır ve sayfaya daha fazla yer açar",
+    "**Kompakt düzen** — Explore araç çubuğundaki tek bir tıklama FlickGrab'nin sekmelerini oraya taşır ve sayfaya daha fazla yer açar",
   feat_explore_2: "**Adres çubuğu** — YouTube'da aramak için yaz ya da bir YouTube bağlantısı yapıştır. Explore yalnızca YouTube'a göz atar, bu yüzden başka bir siteden gelen bağlantı orada açılmaz ama tek tıkla indirebilirsin",
-  feat_explore_3: "**Hesap gerektiren indirmeler** — Explore'da bir kez giriş yap; Arroxy hesabının izleyebildiği özel ve üyelere özel videoları, hesabın yaşı doğrulanmışsa yaş kısıtlamalı videoları, ayrıca Daha Sonra İzle ve Beğenilenler listelerini indirebilir. Arroxy yine de oturum açmadan indirir ve Explore girişini yalnızca bir indirme, hesabın düzeltebileceği bir şekilde başarısız olduğunda kullanır. YouTube robot olmadığını doğrulamanı istediğinde Arroxy Explore girişini de dener",
+  feat_explore_3: "**Hesap gerektiren indirmeler** — Explore'da bir kez giriş yap; FlickGrab hesabının izleyebildiği özel ve üyelere özel videoları, hesabın yaşı doğrulanmışsa yaş kısıtlamalı videoları, ayrıca Daha Sonra İzle ve Beğenilenler listelerini indirebilir. FlickGrab yine de oturum açmadan indirir ve Explore girişini yalnızca bir indirme, hesabın düzeltebileceği bir şekilde başarısız olduğunda kullanır. YouTube robot olmadığını doğrulamanı istediğinde FlickGrab Explore girişini de dener",
   feat_explore_4: "**İkincil hesap kullan** — Explore'un ilk ekranı nedenini açıklar: bir hesapla indirmek, o hesabın kısıtlanması riskini bir ölçüde taşır. Girişi unutmak istediğinde Ayarlar'dan Explore'dan çıkış yap",
   feat_explore_5: "**Reklam engelleyici** — Explore kendi sayfalarındaki reklamları ve izleyicileri engeller; indirmeler etkilenmez. Varsayılan olarak açık, Explore araç çubuğundaki kalkana tek tıklama onu kapatır ve Google'ın giriş sayfalarında asla devreye girmez. YouTube, giriş yapılmış hesaplarda reklam engelleyicilere karşı önlem alabilir",
   feat_quality_h3: "Kalite ve biçimler",
@@ -143,12 +143,12 @@ export const tr = {
   feat_privacy_2: "**Açık kaynak** — her satır denetlenebilir, MIT lisanslı",
   feat_privacy_3: "Dosyalar doğrudan seçtiğin klasöre kaydedilir",
   feat_workflow_h3: "İş akışı",
-  feat_workflow_12: "**Genel indirme kısayolu** — herhangi bir uygulamada bir bağlantı kopyala ve `Ctrl+Shift+D` (macOS'ta `Cmd+Shift+D`) tuşlarına bas; Arroxy pencereyi açmadan aktif profilinle kuyruğa ekler ve bir bildirim bunu doğrular. Varsayılan olarak açık, yeniden atanabilir",
+  feat_workflow_12: "**Genel indirme kısayolu** — herhangi bir uygulamada bir bağlantı kopyala ve `Ctrl+Shift+D` (macOS'ta `Cmd+Shift+D`) tuşlarına bas; FlickGrab pencereyi açmadan aktif profilinle kuyruğa ekler ve bir bildirim bunu doğrular. Varsayılan olarak açık, yeniden atanabilir",
   feat_workflow_1: "**Esnek başlangıç modları** — rehberli tek indirme, oynatma listesi/kanal seçici, toplu URL yapıştırma, kayıtlı varsayılanlarla Hızlı İndirme veya Explore'da gezip indirme seç",
   feat_workflow_2:
     "**Merkezi indirme kuyruğu** — her tekil, oynatma listesi, toplu veya hızlı iş; ilerleme, duraklatma, sürdürme, iptal, yeniden deneme ve öncelik kontrolü için tek yere gelir",
   feat_workflow_3:
-    "**Pano izleme** — bir YouTube bağlantısı kopyala; uygulamaya tekrar odaklandığında Arroxy URL'yi otomatik doldurur (Gelişmiş ayarlardan aç)",
+    "**Pano izleme** — bir YouTube bağlantısı kopyala; uygulamaya tekrar odaklandığında FlickGrab URL'yi otomatik doldurur (Gelişmiş ayarlardan aç)",
   feat_workflow_4:
     "**Otomatik URL temizleme** — izleme parametrelerini (`si`, `pp`, `utm_*`, `fbclid`, `gclid`) kaldırır ve `youtube.com/redirect` bağlantılarını çözer",
   feat_workflow_5:
@@ -162,17 +162,17 @@ export const tr = {
   feat_workflow_9:
     "**Dosya adı şablonları** — indirmelerinizi `{title}`, `{uploader}`, `{id}`, `{date}`, `{resolution}` ve `{playlist_index}` ile dilediğiniz gibi adlandırın; genel olarak veya indirme profili başına",
   feat_workflow_10:
-    "**Aynı anda indirme ve otomatik yeniden deneme** — kuyruktaki kaç indirmenin aynı anda çalışacağını seç ve ağ ya da sunucu kaynaklı sorun yaşayan bir indirmeyi Arroxy'nin, her denemeden önce daha uzun bekleyerek yeniden denemesine izin ver",
+    "**Aynı anda indirme ve otomatik yeniden deneme** — kuyruktaki kaç indirmenin aynı anda çalışacağını seç ve ağ ya da sunucu kaynaklı sorun yaşayan bir indirmeyi FlickGrab'nin, her denemeden önce daha uzun bekleyerek yeniden denemesine izin ver",
   feat_workflow_11:
     "**Oynatma listesinde öğe başına profil** — bir oynatma listesindeki her videoya, tüm liste için tek bir ayar yerine kendi indirme profilini atayın; böylece tek geçişte bazılarını tam kalitede arşivleyip kalanını MP3 olarak alabilirsiniz",
   feat_workflow_13: "**Hızlı İndirme arka planda çalışır** — bağlantı hemen İndirmeler'de görünür ve orada hazırlanır, **Görüntüle** içeren bir not bunu doğrular ve URL alanı bir sonraki bağlantı için temizlenir. Öncekiler hazırlanırken istediğin kadar başlat",
-  feat_workflow_14: "**İndirmeler sana neye ihtiyaç olduğunu söyler** — Arroxy bir bağlantıyı okuyamazsa satırı nedenini söyler ve çözümü sunar: Tekrar dene, çerezleri aç veya Explore'da giriş yap. Çerezler kapalıyken **Explore ile giriş yap**, giriş yaptıktan sonra bunu senin için yeniden dener. Yükleme sınırından uzun bir oynatma listesi satırında bekler; tamamını, ilk birkaç videoyu veya bir incelemeyi seçmeni bekler. İndirmeler sekmesi sende bekleyen satırları sayar",
+  feat_workflow_14: "**İndirmeler sana neye ihtiyaç olduğunu söyler** — FlickGrab bir bağlantıyı okuyamazsa satırı nedenini söyler ve çözümü sunar: Tekrar dene, çerezleri aç veya Explore'da giriş yap. Çerezler kapalıyken **Explore ile giriş yap**, giriş yaptıktan sonra bunu senin için yeniden dener. Yükleme sınırından uzun bir oynatma listesi satırında bekler; tamamını, ilk birkaç videoyu veya bir incelemeyi seçmeni bekler. İndirmeler sekmesi sende bekleyen satırları sayar",
   feat_workflow_15:
-    "**Videonun yalnızca bir kısmını indir** — Biçim ekranında bir başlangıç ve bitiş ya da bir bölüm seç, Arroxy yalnızca o aralığı kaydeder; dosya adında video kimliğinden sonra aralık yer alır. Kesimler en yakın anahtar kareye denk gelir; bunun yerine yeniden kodlamak için tam kesimi aç",
+    "**Videonun yalnızca bir kısmını indir** — Biçim ekranında bir başlangıç ve bitiş ya da bir bölüm seç, FlickGrab yalnızca o aralığı kaydeder; dosya adında video kimliğinden sonra aralık yer alır. Kesimler en yakın anahtar kareye denk gelir; bunun yerine yeniden kodlamak için tam kesimi aç",
   feat_workflow_16:
     "**Biten indirmeleri otomatik kaldır** — isteğe bağlı: biten bir indirme 5 saniye sonra listeden kalkar. Dosyaları diskte kalır, başarısız indirmeler ise listede durur",
   feat_workflow_17:
-    "**İndirmeler'de Boyut ve Eksik** — sıralanabilir **Boyut** sütunu her indirmenin ne kadar yer kapladığını gösterir, **Eksik** ise Arroxy dışında taşınan ya da silinen dosyaları işaretler",
+    "**İndirmeler'de Boyut ve Eksik** — sıralanabilir **Boyut** sütunu her indirmenin ne kadar yer kapladığını gösterir, **Eksik** ise FlickGrab dışında taşınan ya da silinen dosyaları işaretler",
   feat_workflow_18:
     "**Aurora veya Minimal, koyu veya açık** — hareketli bir gökyüzü üzerinde cam paneller ya da sakin düz yüzeyler; alt bilgi çubuğundan değiştir. Grafik hızlandırması olmayan bilgisayarlar otomatik olarak Minimal'i alır",
   feat_workflow_19:
@@ -196,7 +196,7 @@ export const tr = {
   feat_sites_3:
     "**Yalnızca ses ve altyazılar** yalnızca YouTube'da değil, desteklenen her sitede çalışır",
   feat_sites_4:
-    "Bir site değişirse yt-dlp haftalık düzeltmeler yayınlar ve Arroxy açılışta ikili dosyayı otomatik günceller",
+    "Bir site değişirse yt-dlp haftalık düzeltmeler yayınlar ve FlickGrab açılışta ikili dosyayı otomatik günceller",
   shot1_cap:
     "<b>Hızlı İndirme ana ekranı</b><br/>Bir URL yapıştır ve etkin profilinle anında çek",
   shot2_cap:
@@ -209,13 +209,13 @@ export const tr = {
     "<b>Toplu URL modu</b><br/>Bir liste yapıştır, otomatik tekilleştir, hepsini tek seferde kuyruğa al",
   shot6_cap:
     "<b>Paralel indirme kuyruğu</b><br/>Canlı ilerlemeyle aynı anda birden fazla indirme",
-  hotkey_fig_alt: "Arroxy genel indirme kısayolu — Windows ve Linux'ta Ctrl+Shift+D, macOS'ta Cmd+Shift+D, kopyalanan bağlantıyı doğrudan indirme kuyruğuna gönderir",
+  hotkey_fig_alt: "FlickGrab genel indirme kısayolu — Windows ve Linux'ta Ctrl+Shift+D, macOS'ta Cmd+Shift+D, kopyalanan bağlantıyı doğrudan indirme kuyruğuna gönderir",
   hotkey_fig_cap: "<b>Genel indirme kısayolu</b><br/>Bağlantıyı nerede olursan ol kopyala, bir kez bas — kuyruğa girer ve inmeye başlar",
   shot7_cap: "<b>Oynatma listesinde öğe başına profil</b><br/>Her videoya kendi profilini ver — bazılarını 4K arşivle, kalanını MP3 olarak al",
-  shot8_cap: "<b>Explore</b><br/>YouTube'a Arroxy içinden göz at ve bulunduğun sayfayı aktif profilinle indir",
+  shot8_cap: "<b>Explore</b><br/>YouTube'a FlickGrab içinden göz at ve bulunduğun sayfayı aktif profilinle indir",
   shot9_cap: "<b>Explore'un ilk ekranı</b><br/>Explore'a kısa bir bakış ve ikincil hesabın neden daha güvenli giriş olduğu",
   shot10_cap: "<b>İndirmeler sana neye ihtiyaç olduğunu söyler</b><br/>Bağlantılar arka planda hazırlanır; başarısız olan çözümünü sunar, uzun bir oynatma listesi seçimini bekler",
-  shot11_cap: "<b>Videonun yalnızca bir bölümünü indirin</b><br/>Başlangıç ve bitiş ya da bir bölüm seçin — Arroxy yalnızca o aralığı kaydeder",
+  shot11_cap: "<b>Videonun yalnızca bir bölümünü indirin</b><br/>Başlangıç ve bitiş ya da bir bölüm seçin — FlickGrab yalnızca o aralığı kaydeder",
   shot12_cap: "<b>Profil düzenleyici</b><br/>Bir profili ayarlayın: dosya türü, çözünürlük, altyazılar, hedef, dosya adı şablonu ve daha fazlası",
   shot13_cap: "<b>Koyu ya da açık, cam ya da sade</b><br/>Seçebileceğiniz dört görünüm: hareketli bir gökyüzü üzerinde cam paneller ya da sakin düz yüzeyler, her biri koyu ve açık temada",
   dl_platform_col: "Platform",
@@ -250,25 +250,25 @@ export const tr = {
     "**Öneri:** otomatik güncellemeler ve daha hızlı başlangıç için NSIS kurucuyu kullan. Kurulum yapmadan, kayıt defterine dokunmadan kullanmak için taşınabilir `.exe` uygundur.",
   dl_win_smartscreen_h4: "Windows SmartScreen uyarısı",
   dl_win_smartscreen_intro:
-    'İlk başlatmada **"Windows bilgisayarınızı korudu"** veya **"Bilinmeyen yayımcı"** görebilirsin. Bu hem `Arroxy-win-x64-Setup.exe` hem de `Arroxy-win-x64-Portable.exe` için geçerlidir. Arroxy ücretsiz ve açık kaynaklıdır; Windows derlemeleri ücretli bir sertifikayla kod imzalı değildir, SmartScreen bu yüzden işaretler. Bu, Arroxy’nin otomatik olarak güvensiz olduğu anlamına gelmez. Devam etmek için:',
+    'İlk başlatmada **"Windows bilgisayarınızı korudu"** veya **"Bilinmeyen yayımcı"** görebilirsin. Bu hem `FlickGrab-win-x64-Setup.exe` hem de `FlickGrab-win-x64-Portable.exe` için geçerlidir. FlickGrab ücretsiz ve açık kaynaklıdır; Windows derlemeleri ücretli bir sertifikayla kod imzalı değildir, SmartScreen bu yüzden işaretler. Bu, FlickGrab’nin otomatik olarak güvensiz olduğu anlamına gelmez. Devam etmek için:',
   dl_win_smartscreen_step1: "**Daha fazla bilgi** seçeneğine tıkla.",
   dl_win_smartscreen_step2: "**Yine de çalıştır** seçeneğine tıkla.",
   dl_win_smartscreen_official:
-    "Arroxy'yi yalnızca resmi GitHub Releases sayfasından indir. Dosyayı başka bir web sitesinden aldıysan veya biri sana gönderdiyse sil ve resmi kaynaktan yeni kopya indir. Kaynak kodu herkese açık; istersen inceleyebilir veya Arroxy'yi kendin derleyebilirsin.",
+    "FlickGrab'yi yalnızca resmi GitHub Releases sayfasından indir. Dosyayı başka bir web sitesinden aldıysan veya biri sana gönderdiyse sil ve resmi kaynaktan yeni kopya indir. Kaynak kodu herkese açık; istersen inceleyebilir veya FlickGrab'yi kendin derleyebilirsin.",
   dl_macos_h3: "macOS'ta ilk başlatma",
   dl_macos_warning:
-    "Arroxy henüz kod imzalı değildir, bu yüzden macOS Gatekeeper ilk açılışta hasarlı uygulama uyarısı gösterebilir. Bu beklenen bir durumdur — gerçek dosya hasarı anlamına gelmez.",
+    "FlickGrab henüz kod imzalı değildir, bu yüzden macOS Gatekeeper ilk açılışta hasarlı uygulama uyarısı gösterebilir. Bu beklenen bir durumdur — gerçek dosya hasarı anlamına gelmez.",
   dl_macos_m1_h4: "Terminal yöntemi:",
-  dl_macos_step1: "Bağlanan DMG'den `Arroxy.app` dosyasını `/Applications` içine sürükle.",
+  dl_macos_step1: "Bağlanan DMG'den `FlickGrab.app` dosyasını `/Applications` içine sürükle.",
   dl_macos_step2:
-    "Terminal'i aç ve `sudo xattr -dr com.apple.quarantine /Applications/Arroxy.app` çalıştır.",
-  dl_macos_step3: "`open /Applications/Arroxy.app` çalıştır.",
+    "Terminal'i aç ve `sudo xattr -dr com.apple.quarantine /Applications/FlickGrab.app` çalıştır.",
+  dl_macos_step3: "`open /Applications/FlickGrab.app` çalıştır.",
   dl_macos_step4:
-    "Uygulama yolu farklıysa `/Applications/Arroxy.app` yerine kurduğun yolu yaz.",
+    "Uygulama yolu farklıysa `/Applications/FlickGrab.app` yerine kurduğun yolu yaz.",
   dl_macos_step5:
     "`sudo` isterse Mac parolanı gir.",
   dl_macos_after:
-    "Karantina kaldırıldıktan sonra Arroxy normal şekilde açılır.",
+    "Karantina kaldırıldıktan sonra FlickGrab normal şekilde açılır.",
   dl_macos_m2_h4: "Terminal yöntemi:",
   dl_macos_note:
     "macOS derlemeleri Apple Silicon ve Intel CI runner'larında üretilir. Sorun yaşarsan lütfen [issue aç](../../issues) — macOS kullanıcılarından gelen geri bildirim macOS test döngüsünü doğrudan şekillendirir.",
@@ -284,9 +284,9 @@ export const tr = {
   dl_linux_arch_note: "**Sürüm sayfasındaki Linux indirmeleri yalnızca x86_64'tür.** ARM64 makinelerde (Raspberry Pi, Asahi Linux) Flatpak kurulur ama açılışta `bwrap: execvp ldconfig: Exec format error` hatasıyla başarısız olur.",
   dl_warning_h3: "Neden uyarı görebilirsin",
   dl_warning_p1:
-    "Arroxy açık kaynaklı ve MIT lisanslıdır. Windows ve macOS derlemeleri **kod imzalı değildir** — Apple Developer ID ve Windows EV kod imzalama sertifikalarının her biri yılda yüzlerce dolara mal olur; bağımsız bir proje bunu cebinden öder. Bu imzalar olmayınca Windows SmartScreen ve macOS Gatekeeper ilk başlatmada uyarır. Uyarılar *işletim sisteminin yayımcıyı tanımadığı* anlamına gelir — Arroxy'nin kötü amaçlı yazılım olduğu anlamına gelmez.",
+    "FlickGrab açık kaynaklı ve MIT lisanslıdır. Windows ve macOS derlemeleri **kod imzalı değildir** — Apple Developer ID ve Windows EV kod imzalama sertifikalarının her biri yılda yüzlerce dolara mal olur; bağımsız bir proje bunu cebinden öder. Bu imzalar olmayınca Windows SmartScreen ve macOS Gatekeeper ilk başlatmada uyarır. Uyarılar *işletim sisteminin yayımcıyı tanımadığı* anlamına gelir — FlickGrab'nin kötü amaçlı yazılım olduğu anlamına gelmez.",
   dl_warning_p2:
-    "Arroxy'yi kendin doğrulamanın giderek daha sıkı üç yolu:\n\n- **Kaynağı oku.** Her satır [GitHub](https://github.com/antonio-orionus/Arroxy) üzerinde ve [kaynaktan derleyebilirsin](#tech).\n- **SHA256 kontrol et.** Dosyanı yayımlanan [`SHA256SUMS`](https://github.com/antonio-orionus/Arroxy/releases/latest/download/SHA256SUMS) ile eşleştir — aşağıdaki [İndirmeni doğrula](#verify) bölümüne bak.\n- **Üçüncü taraf taraması yap.** Dosyayı [VirusTotal](https://www.virustotal.com) üzerine yükle.",
+    "FlickGrab'yi kendin doğrulamanın giderek daha sıkı üç yolu:\n\n- **Kaynağı oku.** Her satır [GitHub](https://github.com/antonio-orionus/FlickGrab) üzerinde ve [kaynaktan derleyebilirsin](#tech).\n- **SHA256 kontrol et.** Dosyanı yayımlanan [`SHA256SUMS`](https://github.com/antonio-orionus/FlickGrab/releases/latest/download/SHA256SUMS) ile eşleştir — aşağıdaki [İndirmeni doğrula](#verify) bölümüne bak.\n- **Üçüncü taraf taraması yap.** Dosyayı [VirusTotal](https://www.virustotal.com) üzerine yükle.",
 
   dl_win_first_h3: "Windows ilk başlatma",
   shot_smartscreen_more_alt:
@@ -295,33 +295,33 @@ export const tr = {
     'Daha fazla bilgi açıldıktan sonra "Yine de çalıştır" düğmesini gösteren SmartScreen penceresi',
   dl_win_defender_h4: "Windows Defender dosyayı işaretler veya kaldırırsa",
   dl_win_defender_p:
-    "Defender sezgisel kuralları bazen imzasız NSIS kurucuları ve Electron taşınabilirlerini şüpheli olarak işaretler. Defender `Arroxy-win-x64-Setup.exe` veya `Arroxy-win-x64-Portable.exe` dosyasını karantinaya alırsa **Windows Güvenliği → Virüs ve tehdit koruması → Koruma geçmişi** içinden geri yükle, sonra Arroxy yürütülebilir dosyasını **Ayarları yönet → Dışlamalar ekle veya kaldır** altında izin verilen öğe olarak ekle. SmartScreen'de olduğu gibi tetikleyici eksik yayımcı imzasıdır, tespit edilmiş kötü amaçlı yazılım değil.",
+    "Defender sezgisel kuralları bazen imzasız NSIS kurucuları ve Electron taşınabilirlerini şüpheli olarak işaretler. Defender `FlickGrab-win-x64-Setup.exe` veya `FlickGrab-win-x64-Portable.exe` dosyasını karantinaya alırsa **Windows Güvenliği → Virüs ve tehdit koruması → Koruma geçmişi** içinden geri yükle, sonra FlickGrab yürütülebilir dosyasını **Ayarları yönet → Dışlamalar ekle veya kaldır** altında izin verilen öğe olarak ekle. SmartScreen'de olduğu gibi tetikleyici eksik yayımcı imzasıdır, tespit edilmiş kötü amaçlı yazılım değil.",
 
   dl_macos_first_h3: "macOS ilk başlatma",
   dl_macos_intro:
-    "Arroxy henüz macOS için kod imzalı değildir, bu yüzden Gatekeeper DMG'den kurduktan sonra korkutucu *\"Arroxy.app is damaged and can't be opened\"* penceresini gösterebilir. Bu mesaj macOS'un imzasız uygulamayı karantinaya aldığı anlamına gelir; uygulama dosyalarının gerçekten hasarlı olduğu anlamına gelmez. Güncel macOS'ta güvenilir çözüm Terminal'dir:",
+    "FlickGrab henüz macOS için kod imzalı değildir, bu yüzden Gatekeeper DMG'den kurduktan sonra korkutucu *\"FlickGrab.app is damaged and can't be opened\"* penceresini gösterebilir. Bu mesaj macOS'un imzasız uygulamayı karantinaya aldığı anlamına gelir; uygulama dosyalarının gerçekten hasarlı olduğu anlamına gelmez. Güncel macOS'ta güvenilir çözüm Terminal'dir:",
   dl_macos_sequoia_h4: "Güncel macOS için Terminal düzeltmesi",
   dl_macos_sequoia_intro:
-    "Arroxy'yi Applications içine kopyaladıktan sonra Terminal kullan:",
+    "FlickGrab'yi Applications içine kopyaladıktan sonra Terminal kullan:",
   dl_macos_sequoia_step1:
-    "Bağlanan DMG'den `Arroxy.app` dosyasını `/Applications` içine sürükle.",
+    "Bağlanan DMG'den `FlickGrab.app` dosyasını `/Applications` içine sürükle.",
   dl_macos_sequoia_step2:
     "Terminal'i aç ve şu iki komutu çalıştır:",
   dl_macos_sequoia_step3:
-    "Arroxy'yi başlatmak için `open /Applications/Arroxy.app` çalıştır.",
+    "FlickGrab'yi başlatmak için `open /Applications/FlickGrab.app` çalıştır.",
   dl_macos_sequoia_step4:
-    "Uygulama yolu farklıysa `/Applications/Arroxy.app` yerine kurduğun yolu yaz.",
+    "Uygulama yolu farklıysa `/Applications/FlickGrab.app` yerine kurduğun yolu yaz.",
   dl_macos_sonoma_h4: "Eski macOS için Terminal düzeltmesi",
   dl_macos_sonoma_step1:
-    "Bağlanan DMG'den `Arroxy.app` dosyasını `/Applications` içine sürükle.",
+    "Bağlanan DMG'den `FlickGrab.app` dosyasını `/Applications` içine sürükle.",
   dl_macos_sonoma_step2:
-    "Terminal'i aç ve `/Applications/Arroxy.app` üzerindeki karantinayı kaldır.",
+    "Terminal'i aç ve `/Applications/FlickGrab.app` üzerindeki karantinayı kaldır.",
   dl_macos_sonoma_step3:
-    "Karantina kaldırıldıktan sonra Arroxy'yi Terminal veya Finder'dan başlat.",
+    "Karantina kaldırıldıktan sonra FlickGrab'yi Terminal veya Finder'dan başlat.",
   dl_macos_damaged_h4:
     "Gatekeeper karantina düzeltmesi",
   dl_macos_damaged_p:
-    "İlk komut kurulu Arroxy kopyandan karantina özniteliğini kaldırır. İkinci komut uygulamayı başlatır. `sudo` Mac parolanı isteyebilir; Terminal yazarken karakterleri göstermez.",
+    "İlk komut kurulu FlickGrab kopyandan karantina özniteliğini kaldırır. İkinci komut uygulamayı başlatır. `sudo` Mac parolanı isteyebilir; Terminal yazarken karakterleri göstermez.",
   dl_macos_arch_note:
     "**Apple Silicon ve Intel:** M serisi Mac'te (M1 / M2 / M3 / M4) `arm64` DMG indir. Intel Mac'lerde `x64` DMG indir. Yanlış derleme Rosetta ile çalışır ama belirgin şekilde daha yavaştır.",
 
@@ -345,7 +345,7 @@ export const tr = {
     "İndirmeler [yt-dlp](https://github.com/yt-dlp/yt-dlp) ile doğrudan YouTube'dan seçtiğin klasöre alınır — hiçbir şey üçüncü taraf sunucu üzerinden yönlendirilmez. İzleme geçmişi, indirme geçmişi, URL'ler ve dosya içerikleri cihazında kalır.",
   privacy_p2:
     "Telemetri yok — günde yalnızca bir anonim sinyal: uygulama sürümü, işletim sistemi, dil, kurulum kanalı ve ülke; böylece etkin kullanıcıları sayabiliriz. Kimlik, URL, video başlığı, dosya yolu veya hesap bilgisi yok. Ayarlar'dan kapatabilirsin.",
-  privacy_p3: "Explore, tarayıcından ayrı kendi girişini tutar ve Arroxy giriş formunu asla okumaz ya da doldurmaz — Google'ın kendi sayfasına yazarsın. İndirmeler oturum açmadan çalışır; yalnızca biri hesabın düzeltebileceği bir şekilde başarısız olduğunda Arroxy girişi o an okur, o indirme için geçici bir dosyada tutar ve dosyayı sonra siler. Ayarlar'dan Explore'dan çıkış yapmak girişi unutturur.",
+  privacy_p3: "Explore, tarayıcından ayrı kendi girişini tutar ve FlickGrab giriş formunu asla okumaz ya da doldurmaz — Google'ın kendi sayfasına yazarsın. İndirmeler oturum açmadan çalışır; yalnızca biri hesabın düzeltebileceği bir şekilde başarısız olduğunda FlickGrab girişi o an okur, o indirme için geçici bir dosyada tutar ve dosyayı sonra siler. Ayarlar'dan Explore'dan çıkış yapmak girişi unutturur.",
   faq_q1: "Gerçekten ücretsiz mi?",
   faq_a1: "Evet — MIT lisanslı, premium katman yok, özellik kilidi yok.",
   faq_q2: "Hangi video kalitelerini indirebilirim?",
@@ -355,12 +355,12 @@ export const tr = {
   faq_a3:
     "Evet. Biçim menüsünde *yalnızca ses* seç ve MP3, M4A/AAC, Opus veya WAV tercih et.",
   faq_q4: "Hesap gerektiren YouTube videolarını nasıl indiririm?",
-  faq_a4: "Explore sekmesinde bir kez giriş yap. Arroxy bunun ardından hesabının izleyebildiği özel ve üyelere özel videoları, hesabın yaşı doğrulanmışsa yaş kısıtlamalı videoları, ayrıca Daha Sonra İzle ve Beğenilenler listelerini indirebilir. Girişi yalnızca bir indirme, hesabın düzeltebileceği bir şekilde başarısız olduğunda kullanır; geri kalan her şey eskisi gibi iner. Bu, çerez ayarlarında en başta listelenen ve Önerilen olarak işaretlenen **Explore girişi** seçeneğidir ve Explore'u ilk açtığında Arroxy bunu senin için seçer. yt-dlp wiki'si [oturum açılmış otomasyonun bir Google hesabını işaretleyebileceğini](https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies) belirtir, bu yüzden ikincil hesap daha güvenli bir seçimdir.",
+  faq_a4: "Explore sekmesinde bir kez giriş yap. FlickGrab bunun ardından hesabının izleyebildiği özel ve üyelere özel videoları, hesabın yaşı doğrulanmışsa yaş kısıtlamalı videoları, ayrıca Daha Sonra İzle ve Beğenilenler listelerini indirebilir. Girişi yalnızca bir indirme, hesabın düzeltebileceği bir şekilde başarısız olduğunda kullanır; geri kalan her şey eskisi gibi iner. Bu, çerez ayarlarında en başta listelenen ve Önerilen olarak işaretlenen **Explore girişi** seçeneğidir ve Explore'u ilk açtığında FlickGrab bunu senin için seçer. yt-dlp wiki'si [oturum açılmış otomasyonun bir Google hesabını işaretleyebileceğini](https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies) belirtir, bu yüzden ikincil hesap daha güvenli bir seçimdir.",
   faq_q5: "YouTube bir şey değiştirdiğinde çalışmaya devam eder mi?",
-  faq_a5: "yt-dlp açılışta otomatik güncellenir ve YouTube bir şey değiştirdiğinde Arroxy hızlıca düzeltme yayımlar. YouTube robot olmadığını doğrulamanı istediğinde, Explore'da giriş yaptıysan Arroxy Explore girişini de dener; bir dosyadaki veya tarayıcındaki çerezler de çerez ayarlarında kullanılabilir.",
-  faq_q6: "Arroxy hangi dillerde mevcut?",
+  faq_a5: "yt-dlp açılışta otomatik güncellenir ve YouTube bir şey değiştirdiğinde FlickGrab hızlıca düzeltme yayımlar. YouTube robot olmadığını doğrulamanı istediğinde, Explore'da giriş yaptıysan FlickGrab Explore girişini de dener; bir dosyadaki veya tarayıcındaki çerezler de çerez ayarlarında kullanılabilir.",
+  faq_q6: "FlickGrab hangi dillerde mevcut?",
   faq_a6:
-    "Kutudan çıktığı gibi {{LANG_COUNT}} dil: {{LANG_NAME_LIST}}. Arroxy ilk açılışta işletim sisteminin dilini otomatik algılar ve araç çubuğundaki dil seçiciden istediğin zaman değiştirebilirsin. Çalışma zamanı locale JSON dosyaları src/shared/i18n/locales/ içinde, çevirmenlere yönelik PO katalogları i18n/locales/ içinde bulunur — katkı için GitHub'da PR aç.",
+    "Kutudan çıktığı gibi {{LANG_COUNT}} dil: {{LANG_NAME_LIST}}. FlickGrab ilk açılışta işletim sisteminin dilini otomatik algılar ve araç çubuğundaki dil seçiciden istediğin zaman değiştirebilirsin. Çalışma zamanı locale JSON dosyaları src/shared/i18n/locales/ içinde, çevirmenlere yönelik PO katalogları i18n/locales/ içinde bulunur — katkı için GitHub'da PR aç.",
   faq_q7: "Başka bir şey kurmam gerekir mi?",
   faq_a7:
     "Hayır. yt-dlp ilk açılışta otomatik indirilir ve makinede önbelleğe alınır; ffmpeg ve ffprobe uygulamayla gelir. Bundan sonra ek kurulum gerekmez.",
@@ -369,7 +369,7 @@ export const tr = {
     "Evet — ikisi de. Bir oynatma listesi URL'si veya kanal URL'si yapıştır (örn. `youtube.com/@handle`, `/channel/UC…`, `/c/Name`, `/user/Old`); kaç kayıt taranacağını seç, sonra tüm listeyi kuyruğa al veya belirli videoları seç. Tarih aralığı filtreleri yakında geliyor.",
   faq_q9: 'macOS "uygulama hasarlı" diyor — ne yapmalıyım?',
   faq_a9:
-    'Bu, macOS Gatekeeper’ın imzasız uygulamayı engellemesidir; gerçek hasar değildir. Karantinayı kaldırıp Arroxy’yi başlatan Terminal komutları için [macOS ilk başlatma](#macos-first-launch) bölümüne bak.',
+    'Bu, macOS Gatekeeper’ın imzasız uygulamayı engellemesidir; gerçek hasar değildir. Karantinayı kaldırıp FlickGrab’yi başlatan Terminal komutları için [macOS ilk başlatma](#macos-first-launch) bölümüne bak.',
   faq_q10: "YouTube videoları indirmek yasal mı?",
   faq_a10:
     "Kişisel, özel kullanım için çoğu yargı alanında genellikle kabul edilir. YouTube'un [Hizmet Şartları](https://www.youtube.com/t/terms) ve yerel telif hakkı yasalarına uymaktan sen sorumlusun.",
@@ -394,11 +394,11 @@ export const tr = {
   plan_cta:
     "Aklında bir özellik mi var? [İstek aç](../../issues) — topluluk girdisi önceliği şekillendirir.",
   tech_content: TECH_CONTENT,
-  support_h2: "Arroxy'yi destekle",
-  support_note: "Arroxy ücretsizdir ve MIT lisanslıdır — reklam yok, telemetri yok, ücretli sürüm yok. Sana zaman kazandırıyorsa geliştirmeyi Bitcoin veya Tron ile destekleyebilirsin: adresler, tek resmi kaynak olan [DONATE.md](DONATE.md) dosyasında. Arroxy sana asla e-posta veya özel mesajla adres göndermez. Depoya yıldız vermek, hata bildirmek ve çevirileri iyileştirmek de en az o kadar yardımcı olur.",
+  support_h2: "FlickGrab'yi destekle",
+  support_note: "FlickGrab ücretsizdir ve MIT lisanslıdır — reklam yok, telemetri yok, ücretli sürüm yok. Sana zaman kazandırıyorsa geliştirmeyi Bitcoin veya Tron ile destekleyebilirsin: adresler, tek resmi kaynak olan [DONATE.md](DONATE.md) dosyasında. FlickGrab sana asla e-posta veya özel mesajla adres göndermez. Depoya yıldız vermek, hata bildirmek ve çevirileri iyileştirmek de en az o kadar yardımcı olur.",
   tos_h2: "Kullanım şartları",
   tos_note:
-    "Arroxy yalnızca kişisel, özel kullanım için bir araçtır. İndirmelerinin YouTube [Hizmet Şartları](https://www.youtube.com/t/terms) ve bulunduğun yargı alanındaki telif hakkı yasalarına uygun olduğundan yalnızca sen sorumlusun. Kullanma hakkına sahip olmadığın içerikleri indirmek, çoğaltmak veya dağıtmak için Arroxy'yi kullanma. Geliştiriciler kötüye kullanımdan sorumlu değildir.",
+    "FlickGrab yalnızca kişisel, özel kullanım için bir araçtır. İndirmelerinin YouTube [Hizmet Şartları](https://www.youtube.com/t/terms) ve bulunduğun yargı alanındaki telif hakkı yasalarına uygun olduğundan yalnızca sen sorumlusun. Kullanma hakkına sahip olmadığın içerikleri indirmek, çoğaltmak veya dağıtmak için FlickGrab'yi kullanma. Geliştiriciler kötüye kullanımdan sorumlu değildir.",
   footer_credit:
     'MIT Lisansı · Özenle geliştiren <a href="https://x.com/OrionusAI">@OrionusAI</a>',
 };

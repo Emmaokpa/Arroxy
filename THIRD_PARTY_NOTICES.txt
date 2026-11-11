@@ -1,8 +1,8 @@
-Arroxy — Third-party software notices
+FlickGrab — Third-party software notices
 ======================================
 
-Arroxy itself is licensed under the MIT license. The third-party tools
-listed below are used by Arroxy. Tools 1 and 2 are invoked as separate
+FlickGrab itself is licensed under the MIT license. The third-party tools
+listed below are used by FlickGrab. Tools 1 and 2 are invoked as separate
 subprocesses; their licenses do not propagate to Arroxy's source code.
 Libraries 3 to 5 are bundled, unmodified, into Arroxy for its optional
 Explore ad blocker.

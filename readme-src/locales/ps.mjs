@@ -39,7 +39,7 @@ brew install mise
 xcode-select --install
 \`\`\`
 
-له clone وروسته، په checkout کې \`mise trust && mise install\` وچلوئ. که ستاسو shell له مخکې \`fnm\`، \`nvm\`، يا د Homebrew Bun کاروي، نو په \`~/.zshrc\` کې mise فعال کړئ څو Arroxy د Node.js 24.21.0 او Bun 1.4.2 وکاروي:
+له clone وروسته، په checkout کې \`mise trust && mise install\` وچلوئ. که ستاسو shell له مخکې \`fnm\`، \`nvm\`، يا د Homebrew Bun کاروي، نو په \`~/.zshrc\` کې mise فعال کړئ څو FlickGrab د Node.js 24.21.0 او Bun 1.4.2 وکاروي:
 
 \`\`\`bash
 printf '\n# mise\nif command -v mise >/dev/null 2>&1; then\n  eval "$(mise activate zsh)"\nfi\n' >> ~/.zshrc
@@ -61,8 +61,8 @@ sudo apt install -y xvfb
 ### کلون کول او چلول
 
 \`\`\`bash
-git clone https://github.com/antonio-orionus/Arroxy
-cd Arroxy
+git clone https://github.com/antonio-orionus/FlickGrab
+cd FlickGrab
 mise trust
 mise install           # سپارښتنه؛ که pinned tools مو لاسي فعال کړي وي پرېږدئ
 bun run bootstrap
@@ -78,14 +78,14 @@ bun run dist         # د اوسني OS لپاره پیکیج کول
 bun run dist:win     # په supported host کې د Windows targets پیکیج کول
 \`\`\`
 
-> \`bun run bootstrap\` dependencies نصبوي، د Electron app dependencies بیا جوړوي، Electron تاییدوي، د development لپاره embedded ffmpeg/ffprobe چمتو کوي، او Playwright Chromium نصبوي. yt-dlp په runtime کې د app data folder کې manage کېږي؛ ffmpeg او ffprobe د Arroxy هر release سره bundled وي.
+> \`bun run bootstrap\` dependencies نصبوي، د Electron app dependencies بیا جوړوي، Electron تاییدوي، د development لپاره embedded ffmpeg/ffprobe چمتو کوي، او Playwright Chromium نصبوي. yt-dlp په runtime کې د app data folder کې manage کېږي؛ ffmpeg او ffprobe د FlickGrab هر release سره bundled وي.
 
 </details>`;
 
 export const ps = {
-  icon_alt: "د Arroxy ماسکوټ",
+  icon_alt: "د FlickGrab ماسکوټ",
   title:
-    "Arroxy — د Windows، macOS او Linux لپاره وړیا خلاصه سرچینه YouTube (+ ۲۰۰۰ سایټونه) ډاونلوډر",
+    "FlickGrab — د Windows، macOS او Linux لپاره وړیا خلاصه سرچینه YouTube (+ ۲۰۰۰ سایټونه) ډاونلوډر",
   read_in_label: "پدې ژبه ولولئ:",
   badge_release_alt: "خپرونه",
   badge_build_alt: "جوړونه",
@@ -100,10 +100,10 @@ export const ps = {
     "له **YouTube او ۲۰۰۰+ ملاتړ شویو سایټونو** نه ویډیوګانې، Shorts، موسیقي، چینلونه، پوډکاسټونه، یا اوډیو ټریکونه ډاونلوډ کړئ — تر 4K HDR پورې د 60 fps سره، یا د MP3 / AAC / Opus په توګه. د Windows، macOS، او Linux پر سیستم ځایي چلیږي. **هیڅ اعلانات، هیڅ بلوټ، هیڅ اضافي پلورنه نه ده.**",
   cta_latest: "↓ وروستۍ خپرونه ډاونلوډ کړئ",
   cta_website: "ویب پاڼه",
-  star_cta: "که Arroxy ستاسو وخت خوندي کوي، یو ⭐ نورو سره مرسته کوي چې ومومي.",
+  star_cta: "که FlickGrab ستاسو وخت خوندي کوي، یو ⭐ نورو سره مرسته کوي چې ومومي.",
   ai_notice: "",
   toc_heading: "منځپانګه",
-  why_h2: "ولې Arroxy",
+  why_h2: "ولې FlickGrab",
   features_h2: "ځانګړتیاوې",
   dl_h2: "نصب او لومړی پیل",
   privacy_h2: "محرمیت",
@@ -118,17 +118,17 @@ export const ps = {
   why_r6: "کراس-پلیټفارم ډیسکټاپ اپلیکیشن",
   why_r7: "ساب ټایټلونه + SponsorBlock",
   why_summary:
-    "Arroxy د یوه کار لپاره جوړ شوی: URL پیسټ کړئ، پاک ځایني فایل ترلاسه کړئ. هیڅ اضافي پلورنه، هیڅ د معلوماتو راټولونه.",
+    "FlickGrab د یوه کار لپاره جوړ شوی: URL پیسټ کړئ، پاک ځایني فایل ترلاسه کړئ. هیڅ اضافي پلورنه، هیڅ د معلوماتو راټولونه.",
   feat_explore_h3:
-    "Explore: په Arroxy کې YouTube وګورئ",
+    "Explore: په FlickGrab کې YouTube وګورئ",
   feat_explore_1:
-    "**Explore ټب** — د Arroxy په دننه کې YouTube وګورئ او هغه څه چې مومئ پرته له لینکونو کاپي کولو ډاونلوډ یې کړئ. **ډاونلوډ · *ستاسو پروفایل*** هغه ویډیو، playlist یا چینل په قطار کې اچوي چې تاسو یې ګورئ؛ د هغې تر څنګ تیر پروفایلونه بدلوي، او جادویي لرګی د فارمټونو، ساب ټایټلونو او نورو د ټاکلو لپاره ګام په ګام ډاونلوډ پرانیزي",
+    "**Explore ټب** — د FlickGrab په دننه کې YouTube وګورئ او هغه څه چې مومئ پرته له لینکونو کاپي کولو ډاونلوډ یې کړئ. **ډاونلوډ · *ستاسو پروفایل*** هغه ویډیو، playlist یا چینل په قطار کې اچوي چې تاسو یې ګورئ؛ د هغې تر څنګ تیر پروفایلونه بدلوي، او جادویي لرګی د فارمټونو، ساب ټایټلونو او نورو د ټاکلو لپاره ګام په ګام ډاونلوډ پرانیزي",
   feat_explore_6: "**د ډاونلوډ لپاره ښي کلیک** — په Explore کې د هرې ویډیو، playlist یا چینل په لینک ښي کلیک وکړئ چې د خپل پروفایل سره یې ډاونلوډ کړئ، له **په پروفایل ډاونلوډ** څخه بل پروفایل وټاکئ، ګام په ګام ډاونلوډ پرانیزئ، یا لینک کاپي کړئ. اړتیا نشته چې لومړی هره ویډیو پرانیزئ",
-  feat_explore_7: "**کمپیکټ ترتیب** — د Explore په وسیلو پټه کې یو کلیک د Arroxy ټبونه همدې ته راوړي او پاڼې ته ډېر ځای ورکوي",
+  feat_explore_7: "**کمپیکټ ترتیب** — د Explore په وسیلو پټه کې یو کلیک د FlickGrab ټبونه همدې ته راوړي او پاڼې ته ډېر ځای ورکوي",
   feat_explore_2:
     "**د پتې پټه** — د YouTube د لټون لپاره ټایپ کړئ یا د YouTube لینک پیسټ کړئ. Explore یوازې YouTube ګوري، نو د بل سایټ لینک هلته نه خلاصېږي، خو تاسو یې په یو click ډاونلوډ کولی شئ",
   feat_explore_3:
-    "**هغه ډاونلوډونه چې اکاونټ ته اړتیا لري** — په Explore کې یو ځل sign in وکړئ او Arroxy کولی شي هغه شخصي او یوازې د غړو ویډیوګانې ډاونلوډ کړي چې ستاسو اکاونټ یې لیدلی شي، د عمر محدودیت لرونکې ویډیوګانې که اکاونټ د عمر لپاره تایید شوی وي، او ستاسو Watch Later او Liked لیستونه. Arroxy لا هم له sign in پرته ډاونلوډ کوي او ستاسو Explore sign in یوازې هغه وخت کاروي چې ډاونلوډ په داسې ډول ناکام شي چې اکاونټ یې سمولی شي. کله چې YouTube وغواړي تاسو تایید کړئ چې bot نه یاست، Arroxy ستاسو Explore sign in هم هڅوي",
+    "**هغه ډاونلوډونه چې اکاونټ ته اړتیا لري** — په Explore کې یو ځل sign in وکړئ او FlickGrab کولی شي هغه شخصي او یوازې د غړو ویډیوګانې ډاونلوډ کړي چې ستاسو اکاونټ یې لیدلی شي، د عمر محدودیت لرونکې ویډیوګانې که اکاونټ د عمر لپاره تایید شوی وي، او ستاسو Watch Later او Liked لیستونه. FlickGrab لا هم له sign in پرته ډاونلوډ کوي او ستاسو Explore sign in یوازې هغه وخت کاروي چې ډاونلوډ په داسې ډول ناکام شي چې اکاونټ یې سمولی شي. کله چې YouTube وغواړي تاسو تایید کړئ چې bot نه یاست، FlickGrab ستاسو Explore sign in هم هڅوي",
   feat_explore_4:
     "**دوهم اکاونټ وکاروئ** — د Explore لومړی سکرین دلیل بیانوي: د اکاونټ سره ډاونلوډ کول د هغه اکاونټ د محدودېدو یو څه خطر لري. کله چې غواړئ sign in هېر شي، له Settings څخه له Explore sign out وکړئ",
   feat_explore_5:
@@ -145,13 +145,13 @@ export const ps = {
   feat_privacy_2: "هیڅ ننوتل، هیڅ کوکیز، هیڅ د ګوګل اکاونټ لینک نه دی",
   feat_privacy_3: "فایلونه مستقیما هغه فولډر ته خوندي کیږي چې تاسو انتخاب کوئ",
   feat_workflow_h3: "کاري جریان",
-  feat_workflow_12: "**عمومي د ډاونلوډ هاټکي** — په هره اپلیکیشن کې یو لینک کاپي کړئ او `Ctrl+Shift+D` (په macOS کې `Cmd+Shift+D`) کېکاږئ؛ Arroxy یې پرته له دې چې کړکۍ پرانیزي ستاسو فعال پروفایل سره په کتار کې ورزیاتوي او یوه خبرتیا یې تاییدوي. په ډیفالټ ډول فعال، بیا ټاکل کېدونکی",
+  feat_workflow_12: "**عمومي د ډاونلوډ هاټکي** — په هره اپلیکیشن کې یو لینک کاپي کړئ او `Ctrl+Shift+D` (په macOS کې `Cmd+Shift+D`) کېکاږئ؛ FlickGrab یې پرته له دې چې کړکۍ پرانیزي ستاسو فعال پروفایل سره په کتار کې ورزیاتوي او یوه خبرتیا یې تاییدوي. په ډیفالټ ډول فعال، بیا ټاکل کېدونکی",
   feat_workflow_1:
     "**انعطاف منونکي د پیل حالتونه** — لارښود شوی واحد ډاونلوډ، د playlist/channel ټاکونکی، د bulk URL پیسټ، د خوندي شوو defaultونو سره Quick Download، یا له Explore څخه کتل او ډاونلوډ وټاکئ",
   feat_workflow_2:
     "**مرکزي ډاونلوډ قطار** — هر single، playlist، bulk، یا quick کار د پرمختګ، pause، resume، cancel، retry، او priority کنټرول لپاره یوه ځای ته راځي",
   feat_workflow_3:
-    "**د کلپبورډ لیدل** — یو YouTube لینک کاپي کړئ او Arroxy د اپ بیا تمرکز کولو پر مهال URL پخپله ډکوي (د پرمختللو تنظیماتو کې بدل کړئ)",
+    "**د کلپبورډ لیدل** — یو YouTube لینک کاپي کړئ او FlickGrab د اپ بیا تمرکز کولو پر مهال URL پخپله ډکوي (د پرمختللو تنظیماتو کې بدل کړئ)",
   feat_workflow_4:
     "**د URL اتوماتیک پاکول** — د تعقیب پیرامیترونه (`si`، `pp`، `utm_*`، `fbclid`، `gclid`) لرې کوي او `youtube.com/redirect` لینکونه پرانیستي",
   feat_workflow_5:
@@ -165,19 +165,19 @@ export const ps = {
   feat_workflow_9:
     "**د دوتنې نوم بېلګې** — د `{title}`، `{uploader}`، `{id}`، `{date}`، `{resolution}` او `{playlist_index}` په مرسته خپل ښکته کول د خپلې خوښې سره سم ونوموئ، ټولیز یا د هر ښکته کولو پروفایل لپاره",
   feat_workflow_10:
-    "**یو ځای ډاونلوډونه او اتوماتیک بیا هڅه** — وټاکئ چې د کتار څو ډاونلوډونه په یو وخت کې روان وي، او هغه ډاونلوډ چې د شبکې یا سرور ستونزه ورسره پیښه شوې وي، Arroxy د هرې هڅې دمخه اوږد انتظار سره بیا هڅه وکړي",
+    "**یو ځای ډاونلوډونه او اتوماتیک بیا هڅه** — وټاکئ چې د کتار څو ډاونلوډونه په یو وخت کې روان وي، او هغه ډاونلوډ چې د شبکې یا سرور ستونزه ورسره پیښه شوې وي، FlickGrab د هرې هڅې دمخه اوږد انتظار سره بیا هڅه وکړي",
   feat_workflow_11:
     "**د پلی‌لېست د هر توکي لپاره پروفایل** — د ټول لیست لپاره یوه ترتیب پرځای، د پلی‌لېست هر ویډیو ته خپل ډاونلوډ پروفایل وټاکئ، ترڅو یو پړاو کې ځینې په بشپړ کیفیت خوندي شي او پاتې یې د MP3 په توګه واخیستل شي",
   feat_workflow_13:
     "**Quick Download په شاليد کې کار کوي** — لینک سمدستي په ډاونلوډونو کې ښکاري او هلته چمتو کېږي، د **View** سره یوه یادښت دا تاییدوي، او د URL ساحه د راتلونکي لینک لپاره پاکېږي. کله چې پخواني چمتو کېږي، لکه څومره چې غواړئ پیل یې کړئ",
   feat_workflow_14:
-    "**ډاونلوډونه درته وايي څه ستاسو سره اړتیا لري** — که Arroxy یو لینک ونه لوستلی شي، د هغه کتار دلیل وايي او حل وړاندې کوي: بیا هڅه، کوکیز فعالول، یا په Explore کې sign in. کله چې کوکیز بند وي، **له Explore سره sign in** وروسته له دې چې تاسو sign in وکړئ، دا بیا درته هڅوي. هغه playlist چې ستاسو د بارولو حد څخه اوږد وي په خپل کتار کې انتظار کوي چې تاسو ټول، لومړني، یا بیاکتنه وټاکئ. د ډاونلوډونو ټب هغه کتارونه شمېري چې ستاسو انتظار باسي",
+    "**ډاونلوډونه درته وايي څه ستاسو سره اړتیا لري** — که FlickGrab یو لینک ونه لوستلی شي، د هغه کتار دلیل وايي او حل وړاندې کوي: بیا هڅه، کوکیز فعالول، یا په Explore کې sign in. کله چې کوکیز بند وي، **له Explore سره sign in** وروسته له دې چې تاسو sign in وکړئ، دا بیا درته هڅوي. هغه playlist چې ستاسو د بارولو حد څخه اوږد وي په خپل کتار کې انتظار کوي چې تاسو ټول، لومړني، یا بیاکتنه وټاکئ. د ډاونلوډونو ټب هغه کتارونه شمېري چې ستاسو انتظار باسي",
   feat_workflow_15:
-    "**د ویډیو یوازې یوه برخه ډاونلوډ کړئ** — د بڼې په پردې کې پیل او پای، یا یو فصل وټاکئ او Arroxy یوازې همدا بریدونه ساتي، او د ویډیو id وروسته یې په نوم کې اضافه کوي. پرې کول نږدې کیفریم ته رسېږي؛ دقیق پرې کول چالان کړئ ترڅو پرځای یې بیا کوډ شي",
+    "**د ویډیو یوازې یوه برخه ډاونلوډ کړئ** — د بڼې په پردې کې پیل او پای، یا یو فصل وټاکئ او FlickGrab یوازې همدا بریدونه ساتي، او د ویډیو id وروسته یې په نوم کې اضافه کوي. پرې کول نږدې کیفریم ته رسېږي؛ دقیق پرې کول چالان کړئ ترڅو پرځای یې بیا کوډ شي",
   feat_workflow_16:
     "**بشپړ شوي ډاونلوډونه په اتوماتيک ډول لرې کړئ** — اختیاري: بشپړ شوی ډاونلوډ 5 ثانیې وروسته له لیست څخه وځي. فایلونه یې په ډیسک کې پاتې کیږي، او ناکام ډاونلوډونه په لیست کې پاتې کیږي",
   feat_workflow_17:
-    "**په ډاونلوډونو کې اندازه او ورک** — د ترتیبولو وړ **اندازه** ستون ښيي چې هر ډاونلوډ څومره ځای نیسي، او **ورک** هغه فایلونه په نښه کوي چې د Arroxy بهر حرکت یا ړنګ شوي",
+    "**په ډاونلوډونو کې اندازه او ورک** — د ترتیبولو وړ **اندازه** ستون ښيي چې هر ډاونلوډ څومره ځای نیسي، او **ورک** هغه فایلونه په نښه کوي چې د FlickGrab بهر حرکت یا ړنګ شوي",
   feat_workflow_18:
     "**اورورا یا ساده، تیاره یا روښانه** — د حرکت کوونکي اسمان پر سر شیشه‌ایي پینلونه، یا آرام ټینګې سطحې؛ له فوټر څخه یې بدل کړئ. هغه کمپیوټرونه چې ګرافیک ګړندیتوب نلري په اتوماتيک ډول ساده ترلاسه کوي",
   feat_workflow_19:
@@ -201,7 +201,7 @@ export const ps = {
   feat_sites_3:
     "**یوازې اوډیو او ساب ټایټلونه** د هر ملاتړ شوي سایټ پر مهال کار کوي، نه یوازې YouTube",
   feat_sites_4:
-    "که یو سایټ بدل شي، yt-dlp اونیزه فکسونه لیږدوي او Arroxy د پیلولو پر مهال بائنري اوتومات تازه کوي",
+    "که یو سایټ بدل شي، yt-dlp اونیزه فکسونه لیږدوي او FlickGrab د پیلولو پر مهال بائنري اوتومات تازه کوي",
   shot1_cap:
     "<b>د چټک ښکته کولو کور</b><br/>URL پیسټ کړئ او په خپل فعال پروفایل سره یې سمدلاسه ښکته کړئ",
   shot2_cap:
@@ -213,17 +213,17 @@ export const ps = {
     "<b>د ډله ییز URL حالت</b><br/>لیست پیسټ کړئ، په اتومات ډول نقلونه لرې کړئ، ټول یې په یوه وخت کې کتار کړئ",
   shot6_cap:
     "<b>موازي د ښکته کولو کتار</b><br/>د ژوندۍ پرمختیا سره په یوه وخت کې څو ښکته کول",
-  hotkey_fig_alt: "د Arroxy عمومي د ډاونلوډ هاټکي — په Windows او Linux کې Ctrl+Shift+D، په macOS کې Cmd+Shift+D، کاپي شوی لینک مستقیم د ډاونلوډ کتار ته لېږي",
+  hotkey_fig_alt: "د FlickGrab عمومي د ډاونلوډ هاټکي — په Windows او Linux کې Ctrl+Shift+D، په macOS کې Cmd+Shift+D، کاپي شوی لینک مستقیم د ډاونلوډ کتار ته لېږي",
   hotkey_fig_cap: "<b>عمومي د ډاونلوډ هاټکي</b><br/>هر چېرې لینک کاپي کړئ، یو ځل کېکاږئ — کتار ته ننوځي او ډاونلوډ پیلېږي",
   shot7_cap: "<b>د پلی‌لېست د هر توکي پروفایل</b><br/>هر ویډیو ته خپل پروفایل ورکړئ — ځینې په 4K کې خوندي کړئ، پاتې یې د MP3 په توګه واخلئ",
   shot8_cap:
-    "<b>Explore</b><br/>په Arroxy کې YouTube وګورئ او اوسنۍ پاڼه د خپل فعال پروفایل سره ډاونلوډ کړئ",
+    "<b>Explore</b><br/>په FlickGrab کې YouTube وګورئ او اوسنۍ پاڼه د خپل فعال پروفایل سره ډاونلوډ کړئ",
   shot9_cap:
     "<b>د Explore لومړی سکرین</b><br/>Explore ته یوه ګړندۍ کتنه، او ولې دوهم اکاونټ خوندي sign in دی",
   shot10_cap:
     "<b>ډاونلوډونه درته وايي څه ستاسو سره اړتیا لري</b><br/>لینکونه په شاليد کې چمتو کېږي؛ ناکام لینک حل وړاندې کوي، اوږد playlist ستاسو انتخاب ته انتظار باسي",
   shot11_cap:
-    "<b>د ویډیو یوازې یوه برخه ډاونلوډ کړئ</b><br/>پیل او پای، یا یو فصل وټاکئ — Arroxy یوازې همدا برخه ساتي",
+    "<b>د ویډیو یوازې یوه برخه ډاونلوډ کړئ</b><br/>پیل او پای، یا یو فصل وټاکئ — FlickGrab یوازې همدا برخه ساتي",
   shot12_cap:
     "<b>د پروفایل مدیر</b><br/>یو پروفایل برابر کړئ: د فایل ډول، ریزولیشن، فرعي سرلیکونه، منزل، د فایل نوم کينه او نور",
   shot13_cap:
@@ -260,25 +260,25 @@ export const ps = {
     "**سپارښتنه:** د اتوماتیک تازه کولو او ګړندي پیل لپاره د NSIS نصب کوونکی وکاروئ. د بې نصبه، بې ریجسټرۍ اختیار لپاره پورټیبل `.exe` وکاروئ.",
   dl_win_smartscreen_h4: "Windows SmartScreen خبرداری",
   dl_win_smartscreen_intro:
-    'د لومړي پیلولو پر مهال ممکن وګورئ **"Windows protected your PC"** یا **"Unknown publisher."** دا د دواړو `Arroxy-win-x64-Setup.exe` او `Arroxy-win-x64-Portable.exe` پر لور پلي کیږي. Arroxy وړیا او خلاصه سرچینه ده او د Windows جوړونې د پیسو ورکولو سند سره کوډ لاسلیک شوي نه دي، له همدې امله SmartScreen یې بیرغ کوي. دا **اوتومات** معنی نه لري چې Arroxy خطرناک ده. د دوام لپاره:',
+    'د لومړي پیلولو پر مهال ممکن وګورئ **"Windows protected your PC"** یا **"Unknown publisher."** دا د دواړو `FlickGrab-win-x64-Setup.exe` او `FlickGrab-win-x64-Portable.exe` پر لور پلي کیږي. FlickGrab وړیا او خلاصه سرچینه ده او د Windows جوړونې د پیسو ورکولو سند سره کوډ لاسلیک شوي نه دي، له همدې امله SmartScreen یې بیرغ کوي. دا **اوتومات** معنی نه لري چې FlickGrab خطرناک ده. د دوام لپاره:',
   dl_win_smartscreen_step1: "**More info** کلیک کړئ.",
   dl_win_smartscreen_step2: "**Run anyway** کلیک کړئ.",
   dl_win_smartscreen_official:
-    "یوازې د رسمي GitHub Releases پاڼې نه Arroxy ډاونلوډ کړئ. که چیرې تاسو فایل د بل ویب پاڼې نه ترلاسه کولو وي یا چا درته لیږلی وي، هغه حذف کړئ او د رسمي سرچینې نه نوي نسخه ډاونلوډ کړئ. سرچینه کوډ عامه ده، نو که چیرې غواړئ کولی شئ پخپله یې وڅیړئ یا Arroxy جوړ کړئ.",
+    "یوازې د رسمي GitHub Releases پاڼې نه FlickGrab ډاونلوډ کړئ. که چیرې تاسو فایل د بل ویب پاڼې نه ترلاسه کولو وي یا چا درته لیږلی وي، هغه حذف کړئ او د رسمي سرچینې نه نوي نسخه ډاونلوډ کړئ. سرچینه کوډ عامه ده، نو که چیرې غواړئ کولی شئ پخپله یې وڅیړئ یا FlickGrab جوړ کړئ.",
   dl_macos_h3: "د macOS پر لومړي پیل",
   dl_macos_warning:
-    "Arroxy لاهم کوډ لاسلیک شوی نه دی، نو macOS Gatekeeper د لومړي پیل پر وخت د app damaged خبرداری ښودلی شي. دا تمه کېدونکې ده — دا مانا نه لري چې فایلونه رښتیا خراب دي.",
+    "FlickGrab لاهم کوډ لاسلیک شوی نه دی، نو macOS Gatekeeper د لومړي پیل پر وخت د app damaged خبرداری ښودلی شي. دا تمه کېدونکې ده — دا مانا نه لري چې فایلونه رښتیا خراب دي.",
   dl_macos_m1_h4: "د Terminal طریقه:",
-  dl_macos_step1: "`Arroxy.app` له پرانیستل شوي DMG څخه `/Applications` ته کش کړئ.",
+  dl_macos_step1: "`FlickGrab.app` له پرانیستل شوي DMG څخه `/Applications` ته کش کړئ.",
   dl_macos_step2:
-    "Terminal پرانیزئ او `sudo xattr -dr com.apple.quarantine /Applications/Arroxy.app` وچلوئ.",
-  dl_macos_step3: "`open /Applications/Arroxy.app` وچلوئ.",
+    "Terminal پرانیزئ او `sudo xattr -dr com.apple.quarantine /Applications/FlickGrab.app` وچلوئ.",
+  dl_macos_step3: "`open /Applications/FlickGrab.app` وچلوئ.",
   dl_macos_step4:
-    "که د app لاره بله وي، `/Applications/Arroxy.app` د نصب شوې لارې سره بدله کړئ.",
+    "که د app لاره بله وي، `/Applications/FlickGrab.app` د نصب شوې لارې سره بدله کړئ.",
   dl_macos_step5:
     "که `sudo` وغواړي، د خپل Mac پاسورډ ولیکئ.",
   dl_macos_after:
-    "کله چې quarantine لرې شي، Arroxy عادي پرانیستل کېږي.",
+    "کله چې quarantine لرې شي، FlickGrab عادي پرانیستل کېږي.",
   dl_macos_m2_h4: "د Terminal طریقه:",
   dl_macos_note:
     "د macOS جوړونه د Apple Silicon او Intel رنرانو پر CI کیږي. که تاسو ستونزو سره مخ شئ، مهرباني وکړئ [یوه ستونزه خلاصه کړئ](../../issues) — د macOS کارونکو بازخورد فعاله د macOS ازموینې دورې بڼه ورکوي.",
@@ -294,9 +294,9 @@ export const ps = {
   dl_linux_arch_note: "**د خپرونې پاڼې د لینکس ډاونلوډونه یوازې x86_64 دي.** په ARM64 ماشینونو (Raspberry Pi، Asahi Linux) کې Flatpak انسټالېږي خو د پیل پر مهال د `bwrap: execvp ldconfig: Exec format error` سره ناکامېږي.",
   dl_warning_h3: "ولې ممکن خبرداری وګورئ",
   dl_warning_p1:
-    "Arroxy خلاصه سرچینه او MIT-licensed ده. د Windows او macOS جوړونې **د کوډ لاسلیک شوي نه دي** — د Apple Developer ID او د Windows EV د کوډ لاسلیک کولو سندونه هر کال د سلو ډالرو لګښت لري، چې یو خپلواک پروژه له خپل ځان ادا کوي. پرته له هغو لاسلیکونو، د Windows SmartScreen او macOS Gatekeeper به تاسو ته د لومړي پیل پر مهال خبرداری درکوي. خبرداریونه دا معنی لري چې *ستاسو OS خپرنده نه پیژني* — دا معنی نه لري چې Arroxy malware دی.",
+    "FlickGrab خلاصه سرچینه او MIT-licensed ده. د Windows او macOS جوړونې **د کوډ لاسلیک شوي نه دي** — د Apple Developer ID او د Windows EV د کوډ لاسلیک کولو سندونه هر کال د سلو ډالرو لګښت لري، چې یو خپلواک پروژه له خپل ځان ادا کوي. پرته له هغو لاسلیکونو، د Windows SmartScreen او macOS Gatekeeper به تاسو ته د لومړي پیل پر مهال خبرداری درکوي. خبرداریونه دا معنی لري چې *ستاسو OS خپرنده نه پیژني* — دا معنی نه لري چې FlickGrab malware دی.",
   dl_warning_p2:
-    "درې طریقې چې پخپله Arroxy تصدیق کړئ، د لوړیدونکي دقت سره:\n\n- **سرچینه ولولئ.** هره کرښه پر [GitHub](https://github.com/antonio-orionus/Arroxy) ده او تاسو کولی شئ [له سرچینې جوړ کړئ](#tech).\n- **SHA256 وڅیړئ.** ستاسو فایل د خپور شوي [`SHA256SUMS`](../../releases/latest) سره سمول کړئ — لاندې [خپل ډاونلوډ تصدیق کړئ](#verify) وګورئ.\n- **د دریمې ډلې سکن چلوئ.** فایل [VirusTotal](https://www.virustotal.com) ته اپلوډ کړئ.",
+    "درې طریقې چې پخپله FlickGrab تصدیق کړئ، د لوړیدونکي دقت سره:\n\n- **سرچینه ولولئ.** هره کرښه پر [GitHub](https://github.com/antonio-orionus/FlickGrab) ده او تاسو کولی شئ [له سرچینې جوړ کړئ](#tech).\n- **SHA256 وڅیړئ.** ستاسو فایل د خپور شوي [`SHA256SUMS`](../../releases/latest) سره سمول کړئ — لاندې [خپل ډاونلوډ تصدیق کړئ](#verify) وګورئ.\n- **د دریمې ډلې سکن چلوئ.** فایل [VirusTotal](https://www.virustotal.com) ته اپلوډ کړئ.",
 
   dl_win_first_h3: "Windows لومړی پیل",
   shot_smartscreen_more_alt:
@@ -305,33 +305,33 @@ export const ps = {
     'SmartScreen د More info پراخولو وروسته ډیالوګ، د "Run anyway" تڼۍ ښودلو سره',
   dl_win_defender_h4: "که Windows Defender فایل بیرغ کوي یا لرې کوي",
   dl_win_defender_p:
-    "د Defender د اټکل کولو میکانیزمونه ځینې وختونه بې لاسلیکه NSIS نصب کوونکي او Electron پورټیبل د شکمن وګڼي. که Defender `Arroxy-win-x64-Setup.exe` یا `Arroxy-win-x64-Portable.exe` قرنطین کوي، له **Windows Security → Virus & threat protection → Protection history** بیرته راولئ، بیا د Arroxy اجرایوي د مجاز توکي تحت **Manage settings → Add or remove exclusions** ووهئ. لکه SmartScreen، محرک د غیر موجوده خپرندې لاسلیک دی، نه کشف شوی malware.",
+    "د Defender د اټکل کولو میکانیزمونه ځینې وختونه بې لاسلیکه NSIS نصب کوونکي او Electron پورټیبل د شکمن وګڼي. که Defender `FlickGrab-win-x64-Setup.exe` یا `FlickGrab-win-x64-Portable.exe` قرنطین کوي، له **Windows Security → Virus & threat protection → Protection history** بیرته راولئ، بیا د FlickGrab اجرایوي د مجاز توکي تحت **Manage settings → Add or remove exclusions** ووهئ. لکه SmartScreen، محرک د غیر موجوده خپرندې لاسلیک دی، نه کشف شوی malware.",
 
   dl_macos_first_h3: "macOS لومړی پیل",
   dl_macos_intro:
-    "Arroxy لاهم د macOS لپاره کوډ لاسلیک شوی نه دی، نو Gatekeeper ښايي له DMG څخه د نصب وروسته وېرونکی *\"Arroxy.app is damaged and can't be opened\"* ډیالوګ وښيي. دا پیغام مانا لري چې macOS بې لاسلیکه app quarantine کړی؛ دا مانا نه لري چې د app فایلونه رښتیا خراب دي. په اوسني macOS کې باوري حل Terminal دی:",
+    "FlickGrab لاهم د macOS لپاره کوډ لاسلیک شوی نه دی، نو Gatekeeper ښايي له DMG څخه د نصب وروسته وېرونکی *\"FlickGrab.app is damaged and can't be opened\"* ډیالوګ وښيي. دا پیغام مانا لري چې macOS بې لاسلیکه app quarantine کړی؛ دا مانا نه لري چې د app فایلونه رښتیا خراب دي. په اوسني macOS کې باوري حل Terminal دی:",
   dl_macos_sequoia_h4: "د اوسني macOS لپاره Terminal فکس",
   dl_macos_sequoia_intro:
-    "Arroxy Applications ته له کاپي کولو وروسته Terminal وکاروئ:",
+    "FlickGrab Applications ته له کاپي کولو وروسته Terminal وکاروئ:",
   dl_macos_sequoia_step1:
-    "د نصب شوي DMG نه `Arroxy.app` د `/Applications` ته ډریګ کړئ.",
+    "د نصب شوي DMG نه `FlickGrab.app` د `/Applications` ته ډریګ کړئ.",
   dl_macos_sequoia_step2:
     "Terminal پرانیزئ او دا دوه قوماندې وچلوئ:",
   dl_macos_sequoia_step3:
-    "د Arroxy د پیل لپاره `open /Applications/Arroxy.app` وچلوئ.",
+    "د FlickGrab د پیل لپاره `open /Applications/FlickGrab.app` وچلوئ.",
   dl_macos_sequoia_step4:
-    "که د app لاره بله وي، `/Applications/Arroxy.app` د نصب شوې لارې سره بدله کړئ.",
+    "که د app لاره بله وي، `/Applications/FlickGrab.app` د نصب شوې لارې سره بدله کړئ.",
   dl_macos_sonoma_h4: "د زاړه macOS لپاره Terminal فکس",
   dl_macos_sonoma_step1:
-    "د نصب شوي DMG نه `Arroxy.app` د `/Applications` ته ډریګ کړئ.",
+    "د نصب شوي DMG نه `FlickGrab.app` د `/Applications` ته ډریګ کړئ.",
   dl_macos_sonoma_step2:
-    "Terminal پرانیزئ او quarantine له `/Applications/Arroxy.app` څخه لرې کړئ.",
+    "Terminal پرانیزئ او quarantine له `/Applications/FlickGrab.app` څخه لرې کړئ.",
   dl_macos_sonoma_step3:
-    "له quarantine لرې کولو وروسته Arroxy له Terminal یا Finder څخه پیل کړئ.",
+    "له quarantine لرې کولو وروسته FlickGrab له Terminal یا Finder څخه پیل کړئ.",
   dl_macos_damaged_h4:
     "د Gatekeeper quarantine فکس",
   dl_macos_damaged_p:
-    "لومړۍ قومانده ستاسو د نصب شوي Arroxy له نسخې څخه quarantine attribute لرې کوي. دویمه app پیلوي. `sudo` ښايي ستاسو د Mac پاسورډ وغواړي؛ Terminal د لیکلو پر وخت حروف نه ښيي.",
+    "لومړۍ قومانده ستاسو د نصب شوي FlickGrab له نسخې څخه quarantine attribute لرې کوي. دویمه app پیلوي. `sudo` ښايي ستاسو د Mac پاسورډ وغواړي؛ Terminal د لیکلو پر وخت حروف نه ښيي.",
   dl_macos_arch_note:
     "**Apple Silicon د Intel پرتله:** پر M-series Mac (M1 / M2 / M3 / M4)، `arm64` DMG ډاونلوډ کړئ. پر Intel Mac، `x64` DMG ډاونلوډ کړئ. د غلط جوړونې چلول د Rosetta له لارې لاهم کار کوي خو د پام وړ ورو دي.",
 
@@ -356,7 +356,7 @@ export const ps = {
   privacy_p2:
     "هیڅ ټیلیمیټري نشته — په ورځ کې یوازې یو ناپیژندلی سیګنال: د اپ نسخه، OS، ژبه، د نصب چینل او هېواد، ترڅو موږ فعال کاروونکي وشمېرو. هیڅ ID، URLs، د ویډیو سرلیکونه، د فایل لارې یا د اکاونټ معلومات نشته. تاسو یې په Settings کې بندولی شئ.",
   privacy_p3:
-    "Explore خپل sign in ساتي، ستاسو له browser جلا، او Arroxy هیڅکله د sign in فورمه نه لولي او نه یې ډکوي — تاسو د Google په خپله پاڼه کې ټایپ کوئ. ډاونلوډونه له sign in پرته چلېږي؛ یوازې کله چې یو ډاونلوډ په داسې ډول ناکام شي چې اکاونټ یې سمولی شي، Arroxy sign in بیا لولي، د هغه ډاونلوډ لپاره یې په موقت فایل کې ساتي، او وروسته فایل ړنګوي. په Settings کې له Explore څخه sign out دا هېروي.",
+    "Explore خپل sign in ساتي، ستاسو له browser جلا، او FlickGrab هیڅکله د sign in فورمه نه لولي او نه یې ډکوي — تاسو د Google په خپله پاڼه کې ټایپ کوئ. ډاونلوډونه له sign in پرته چلېږي؛ یوازې کله چې یو ډاونلوډ په داسې ډول ناکام شي چې اکاونټ یې سمولی شي، FlickGrab sign in بیا لولي، د هغه ډاونلوډ لپاره یې په موقت فایل کې ساتي، او وروسته فایل ړنګوي. په Settings کې له Explore څخه sign out دا هېروي.",
   faq_q1: "ایا دا واقعیا وړیا ده؟",
   faq_a1: "هو — د MIT جواز، هیڅ پریمیم کچه، هیڅ د ځانګړتیا محدودیت نشته.",
   faq_q2: "کومې ویډیو کیفیتونه ډاونلوډ کولی شم؟",
@@ -367,13 +367,13 @@ export const ps = {
     "هو. د format menu کې *یوازې آډیو* وټاکئ او بیا MP3، M4A/AAC، Opus یا WAV غوره کړئ.",
   faq_q4: "هغه ویډیوګانې څنګه ډاونلوډ کړم چې د YouTube اکاونټ ته اړتیا لري؟",
   faq_a4:
-    "په Explore ټب کې یو ځل sign in وکړئ. بیا Arroxy کولی شي هغه شخصي او یوازې د غړو ویډیوګانې ډاونلوډ کړي چې ستاسو اکاونټ یې لیدلی شي، د عمر محدودیت لرونکې ویډیوګانې که اکاونټ د عمر لپاره تایید شوی وي، او ستاسو Watch Later او Liked لیستونه. دا sign in یوازې هغه وخت کاروي چې ډاونلوډ په داسې ډول ناکام شي چې اکاونټ یې سمولی شي؛ نور هر څه لکه مخکې ډاونلوډېږي. دا د **Explore sign in** انتخاب دی، چې د کوکیز په تنظیماتو کې لومړی لیست شوی او Recommended نښه لري، او Arroxy یې ستاسو لپاره لومړی ځل چې Explore پرانیزئ غوره کوي. د yt-dlp ویکي یاد کوي چې [د sign in سره اتومات کول کولی شي د ګوګل اکاونټ بیرغ کړي](https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies)، نو دوهم اکاونټ خوندي انتخاب دی.",
+    "په Explore ټب کې یو ځل sign in وکړئ. بیا FlickGrab کولی شي هغه شخصي او یوازې د غړو ویډیوګانې ډاونلوډ کړي چې ستاسو اکاونټ یې لیدلی شي، د عمر محدودیت لرونکې ویډیوګانې که اکاونټ د عمر لپاره تایید شوی وي، او ستاسو Watch Later او Liked لیستونه. دا sign in یوازې هغه وخت کاروي چې ډاونلوډ په داسې ډول ناکام شي چې اکاونټ یې سمولی شي؛ نور هر څه لکه مخکې ډاونلوډېږي. دا د **Explore sign in** انتخاب دی، چې د کوکیز په تنظیماتو کې لومړی لیست شوی او Recommended نښه لري، او FlickGrab یې ستاسو لپاره لومړی ځل چې Explore پرانیزئ غوره کوي. د yt-dlp ویکي یاد کوي چې [د sign in سره اتومات کول کولی شي د ګوګل اکاونټ بیرغ کړي](https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies)، نو دوهم اکاونټ خوندي انتخاب دی.",
   faq_q5: "ایا کله چې YouTube یو شی بدل کوي کار کوي؟",
   faq_a5:
-    "yt-dlp د لانچ پر مهال اتومات تازه کیږي، او Arroxy هغه وخت چې YouTube یو شی بدل کړي په چټکۍ سره فکسونه لیږدوي. کله چې YouTube وغواړي تاسو تایید کړئ چې bot نه یاست، که تاسو په Explore کې sign in کړی وي Arroxy ستاسو Explore sign in هم هڅوي، او د فایل یا browser کوکیز د کوکیز په تنظیماتو کې شته.",
-  faq_q6: "Arroxy د کومو ژبو لپاره شته دی؟",
+    "yt-dlp د لانچ پر مهال اتومات تازه کیږي، او FlickGrab هغه وخت چې YouTube یو شی بدل کړي په چټکۍ سره فکسونه لیږدوي. کله چې YouTube وغواړي تاسو تایید کړئ چې bot نه یاست، که تاسو په Explore کې sign in کړی وي FlickGrab ستاسو Explore sign in هم هڅوي، او د فایل یا browser کوکیز د کوکیز په تنظیماتو کې شته.",
+  faq_q6: "FlickGrab د کومو ژبو لپاره شته دی؟",
   faq_a6:
-    "{{LANG_COUNT}} ژبې له مخکې چمتو دي: {{LANG_NAME_LIST}}. Arroxy په لومړي پیل کې ستاسو د عملیاتي سیسټم ژبه په اتومات ډول پېژني، او تاسو یې هر وخت د تولبار د ژبې له ټاکونکي څخه بدلولای شئ. Runtime locale JSON په src/shared/i18n/locales/ کې دی، او د ژباړونکو PO catalog په i18n/locales/ کې دی — د مرستې لپاره په GitHub کې PR پرانیزئ.",
+    "{{LANG_COUNT}} ژبې له مخکې چمتو دي: {{LANG_NAME_LIST}}. FlickGrab په لومړي پیل کې ستاسو د عملیاتي سیسټم ژبه په اتومات ډول پېژني، او تاسو یې هر وخت د تولبار د ژبې له ټاکونکي څخه بدلولای شئ. Runtime locale JSON په src/shared/i18n/locales/ کې دی، او د ژباړونکو PO catalog په i18n/locales/ کې دی — د مرستې لپاره په GitHub کې PR پرانیزئ.",
   faq_q7: "ایا ما ته بل شی نصب کولو ته اړتیا ده؟",
   faq_a7:
     "نه. yt-dlp د لومړي پیل پر مهال اوتومات ډاونلوډ او ستاسو په ماشین کې کېچ کېږي؛ ffmpeg او ffprobe د اپ سره راځي. له دې وروسته، کوم اضافي ترتیب ته اړتیا نشته.",
@@ -382,7 +382,7 @@ export const ps = {
     "هو — دواړه. د playlist یا channel URL پیسټ کړئ (لکه `youtube.com/@handle`, `/channel/UC…`, `/c/Name`, `/user/Old`)؛ وټاکئ چې څو entries scan شي، بیا ټول لیست queue کړئ یا ځانګړي ویډیوګانې وټاکئ. د date-range filters ژر راځي.",
   faq_q9: 'macOS وايي "اپ خرابه ده" — څه وکړم؟',
   faq_a9:
-    "دا macOS Gatekeeper دی چې بې لاسلیکه app بندوي، واقعي زیان نه دی. د quarantine لرې کولو او Arroxy پیلولو لپاره د Terminal قوماندې په [macOS first launch](#macos-first-launch) کې وګورئ.",
+    "دا macOS Gatekeeper دی چې بې لاسلیکه app بندوي، واقعي زیان نه دی. د quarantine لرې کولو او FlickGrab پیلولو لپاره د Terminal قوماندې په [macOS first launch](#macos-first-launch) کې وګورئ.",
   faq_q10: "ایا د YouTube ویډیوز ډاونلوډ کول قانوني دي؟",
   faq_a10:
     "د شخصي، خصوصي کارولو لپاره دا معمولا ډیرو قضایي سیمو کې منل کیږي. تاسو د YouTube د [د کارولو شرایطو](https://www.youtube.com/t/terms) او د خپل ځایني د کاپي رایټ قوانینو سره مطابقت لرل ستاسو مسؤلیت دی.",
@@ -407,11 +407,11 @@ export const ps = {
   plan_cta:
     "ذهن کې کومه ځانګړتیا لرئ؟ [یوه غوښتنه خلاصه کړئ](../../issues) — د ټولنې ننوتل لومړیتوب ورکوي.",
   tech_content: TECH_CONTENT,
-  support_h2: "Arroxy ملاتړ وکړئ",
-  support_note: "Arroxy وړیا دی او د MIT جواز لري — نه اعلانونه، نه ټیلي‌مېټري، او نه د پیسو نسخه. که ستاسو وخت خوندي کوي، کولی شئ د Bitcoin یا Tron له لارې یې پرمختګ ملاتړ کړئ: پتې په [DONATE.md](DONATE.md) کې دي، چې د هغوی یوازینۍ رسمي سرچینه ده. Arroxy به تاسو ته هیڅکله د بریښنالیک یا مستقیم پیغام له لارې پته وا نه لېږي. ریپو ته ستوری ورکول، د ستونزو راپور ورکول او د ژباړو ښه کول هم په همدې اندازه ګټور دي.",
+  support_h2: "FlickGrab ملاتړ وکړئ",
+  support_note: "FlickGrab وړیا دی او د MIT جواز لري — نه اعلانونه، نه ټیلي‌مېټري، او نه د پیسو نسخه. که ستاسو وخت خوندي کوي، کولی شئ د Bitcoin یا Tron له لارې یې پرمختګ ملاتړ کړئ: پتې په [DONATE.md](DONATE.md) کې دي، چې د هغوی یوازینۍ رسمي سرچینه ده. FlickGrab به تاسو ته هیڅکله د بریښنالیک یا مستقیم پیغام له لارې پته وا نه لېږي. ریپو ته ستوری ورکول، د ستونزو راپور ورکول او د ژباړو ښه کول هم په همدې اندازه ګټور دي.",
   tos_h2: "د کارولو شرایط",
   tos_note:
-    "Arroxy یوازې د شخصي، خصوصي کارولو لپاره یوه وسیله ده. تاسو یوازې مسؤل یاست چې ستاسو ډاونلوډونه د YouTube د [د کارولو شرایطو](https://www.youtube.com/t/terms) او ستاسو د قضایي سیمې د کاپي رایټ قوانینو سره مطابقت لري. د Arroxy د ډاونلوډ، تکرار، یا د هغه منځپانګې توزیع لپاره مه کاروئ چې تاسو حق نه لرئ وکاروئ. پراختیا کونکي د هر ناسم کارولو لپاره مسؤل نه دي.",
+    "FlickGrab یوازې د شخصي، خصوصي کارولو لپاره یوه وسیله ده. تاسو یوازې مسؤل یاست چې ستاسو ډاونلوډونه د YouTube د [د کارولو شرایطو](https://www.youtube.com/t/terms) او ستاسو د قضایي سیمې د کاپي رایټ قوانینو سره مطابقت لري. د FlickGrab د ډاونلوډ، تکرار، یا د هغه منځپانګې توزیع لپاره مه کاروئ چې تاسو حق نه لرئ وکاروئ. پراختیا کونکي د هر ناسم کارولو لپاره مسؤل نه دي.",
   footer_credit:
     'MIT License · د مینې سره جوړ شوی <a href="https://x.com/OrionusAI">@OrionusAI</a> لخوا',
 };

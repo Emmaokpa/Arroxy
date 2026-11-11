@@ -39,10 +39,7 @@ export function FeedbackDialog({open, onOpenChange}: FeedbackDialogProps): null 
 				wizardError: state.wizardError,
 				wizardExtractor: state.wizardExtractor,
 				wizardStep: state.wizardStep
-			}),
-			onSubmit: () => {
-				void uploadDiagnostic(reportId)
-			}
+			})
 		})
 			.catch(error => {
 				logger.warn('Tally feedback popup failed to open', {reportId, message: errorMessage(error)})
@@ -54,19 +51,6 @@ export function FeedbackDialog({open, onOpenChange}: FeedbackDialogProps): null 
 	}, [onOpenChange, open])
 
 	return null
-}
-
-async function uploadDiagnostic(reportId: string): Promise<void> {
-	try {
-		const result = await window.appApi.logs.uploadFeedbackDiagnostic({reportId})
-		if (result.ok) {
-			logger.info('Feedback diagnostic uploaded', {reportId, rawBytes: result.data.rawBytes, compressedBytes: result.data.compressedBytes, truncated: result.data.truncated})
-			return
-		}
-		logger.warn('Feedback diagnostic upload failed', {reportId, message: result.error.message})
-	} catch (error) {
-		logger.warn('Feedback diagnostic upload failed', {reportId, message: errorMessage(error)})
-	}
 }
 
 function errorMessage(error: unknown): string {

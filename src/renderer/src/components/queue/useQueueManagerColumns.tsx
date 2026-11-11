@@ -60,7 +60,7 @@ function rowStatusDetail(item: QueueItem, t: TFunction): string {
 	if (item.status === 'error') {
 		const message = formatLocalizedError(item.error) || t('queue.item.defaultError')
 		// A scheduled auto-retry otherwise reads as a dead failure. Say that
-		// Arroxy is going to act, so the user does not retry it by hand.
+		// FlickGrab is going to act, so the user does not retry it by hand.
 		return item.retryAt ? `${message} — ${t('queue.item.retryingSoon', {attempt: item.retryCount})}` : message
 	}
 	if (item.status === 'running' || item.status === 'paused-active') return item.progressDetail ?? formatStatus(item.lastStatus)

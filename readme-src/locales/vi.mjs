@@ -39,7 +39,7 @@ brew install mise
 xcode-select --install
 \`\`\`
 
-Sau khi clone, chạy \`mise trust && mise install\` trong checkout. Nếu shell của bạn đã dùng \`fnm\`, \`nvm\`, hoặc Bun từ Homebrew, hãy kích hoạt mise trong \`~/.zshrc\` để Arroxy dùng Node.js 24.21.0 và Bun 1.4.2:
+Sau khi clone, chạy \`mise trust && mise install\` trong checkout. Nếu shell của bạn đã dùng \`fnm\`, \`nvm\`, hoặc Bun từ Homebrew, hãy kích hoạt mise trong \`~/.zshrc\` để FlickGrab dùng Node.js 24.21.0 và Bun 1.4.2:
 
 \`\`\`bash
 printf '\n# mise\nif command -v mise >/dev/null 2>&1; then\n  eval "$(mise activate zsh)"\nfi\n' >> ~/.zshrc
@@ -61,8 +61,8 @@ sudo apt install -y xvfb
 ### Clone & chạy
 
 \`\`\`bash
-git clone https://github.com/antonio-orionus/Arroxy
-cd Arroxy
+git clone https://github.com/antonio-orionus/FlickGrab
+cd FlickGrab
 mise trust
 mise install           # khuyến nghị; bỏ qua nếu đã kích hoạt thủ công các công cụ đã ghim
 bun run bootstrap
@@ -78,14 +78,14 @@ bun run dist         # đóng gói cho OS hiện tại
 bun run dist:win     # đóng gói mục tiêu Windows trên host được hỗ trợ
 \`\`\`
 
-> \`bun run bootstrap\` cài dependencies, rebuild dependencies của app Electron, xác minh Electron, chuẩn bị ffmpeg/ffprobe nhúng cho phát triển và cài Playwright Chromium. yt-dlp được quản lý lúc runtime trong thư mục dữ liệu ứng dụng; ffmpeg và ffprobe được đóng gói trong mọi bản phát hành Arroxy.
+> \`bun run bootstrap\` cài dependencies, rebuild dependencies của app Electron, xác minh Electron, chuẩn bị ffmpeg/ffprobe nhúng cho phát triển và cài Playwright Chromium. yt-dlp được quản lý lúc runtime trong thư mục dữ liệu ứng dụng; ffmpeg và ffprobe được đóng gói trong mọi bản phát hành FlickGrab.
 
 </details>`;
 
 export const vi = {
-  icon_alt: "Linh vật Arroxy",
+  icon_alt: "Linh vật FlickGrab",
   title:
-    "Arroxy — Trình tải YouTube (+ 2000 trang) miễn phí và mã nguồn mở cho Windows, macOS & Linux",
+    "FlickGrab — Trình tải YouTube (+ 2000 trang) miễn phí và mã nguồn mở cho Windows, macOS & Linux",
   read_in_label: "Đọc bằng:",
   badge_release_alt: "Phiên bản",
   badge_build_alt: "Build",
@@ -101,10 +101,10 @@ export const vi = {
   cta_latest: "↓ Tải phiên bản mới nhất",
   cta_website: "Trang web",
   star_cta:
-    "Nếu Arroxy giúp bạn tiết kiệm thời gian, một ⭐ sẽ giúp người khác tìm thấy nó.",
+    "Nếu FlickGrab giúp bạn tiết kiệm thời gian, một ⭐ sẽ giúp người khác tìm thấy nó.",
   ai_notice: "",
   toc_heading: "Mục lục",
-  why_h2: "Tại sao chọn Arroxy",
+  why_h2: "Tại sao chọn FlickGrab",
   features_h2: "Tính năng",
   dl_h2: "Cài đặt và lần khởi chạy đầu tiên",
   privacy_h2: "Quyền riêng tư",
@@ -119,17 +119,17 @@ export const vi = {
   why_r6: "Ứng dụng máy tính để bàn đa nền tảng",
   why_r7: "Phụ đề + SponsorBlock",
   why_summary:
-    "Arroxy được xây dựng cho một mục đích duy nhất: dán URL, nhận file cục bộ sạch. không upsell, không thu thập dữ liệu.",
-  feat_explore_h3: "Explore: duyệt YouTube ngay trong Arroxy",
+    "FlickGrab được xây dựng cho một mục đích duy nhất: dán URL, nhận file cục bộ sạch. không upsell, không thu thập dữ liệu.",
+  feat_explore_h3: "Explore: duyệt YouTube ngay trong FlickGrab",
   feat_explore_1:
-    "**Tab Explore** — duyệt YouTube ngay trong Arroxy và tải những gì bạn tìm thấy mà không cần sao chép liên kết. **Tải xuống · *hồ sơ của bạn*** đưa video, danh sách phát hoặc kênh bạn đang xem vào hàng đợi; mũi tên bên cạnh để đổi hồ sơ, còn cây đũa phép mở trình tải từng bước để chọn định dạng, phụ đề, v.v.",
+    "**Tab Explore** — duyệt YouTube ngay trong FlickGrab và tải những gì bạn tìm thấy mà không cần sao chép liên kết. **Tải xuống · *hồ sơ của bạn*** đưa video, danh sách phát hoặc kênh bạn đang xem vào hàng đợi; mũi tên bên cạnh để đổi hồ sơ, còn cây đũa phép mở trình tải từng bước để chọn định dạng, phụ đề, v.v.",
   feat_explore_6: "**Nhấp chuột phải để tải** — nhấp chuột phải vào bất kỳ liên kết video, danh sách phát hoặc kênh nào trong Explore để tải bằng hồ sơ của bạn, chọn hồ sơ khác trong **Tải xuống với**, mở trình tải từng bước hoặc sao chép liên kết. Không cần mở từng video trước",
   feat_explore_7:
-    "**Bố cục thu gọn** — một cú nhấp trên thanh công cụ của Explore chuyển các tab của Arroxy vào đó và cho trang thêm không gian",
+    "**Bố cục thu gọn** — một cú nhấp trên thanh công cụ của Explore chuyển các tab của FlickGrab vào đó và cho trang thêm không gian",
   feat_explore_2:
     "**Thanh địa chỉ** — gõ để tìm kiếm trên YouTube hoặc dán một liên kết YouTube. Explore chỉ duyệt YouTube nên liên kết từ trang khác sẽ không mở ở đó, nhưng bạn có thể tải nó chỉ với một cú nhấp",
   feat_explore_3:
-    "**Tải video cần tài khoản** — đăng nhập một lần trong Explore là Arroxy có thể tải video riêng tư và video dành cho thành viên mà tài khoản của bạn xem được, video giới hạn độ tuổi nếu tài khoản đã xác minh tuổi, cùng danh sách Xem sau và Video đã thích của bạn. Arroxy vẫn tải khi chưa đăng nhập và chỉ dùng đăng nhập Explore của bạn khi một lượt tải thất bại theo cách mà tài khoản có thể khắc phục. Khi YouTube yêu cầu xác nhận bạn không phải robot, Arroxy cũng thử dùng đăng nhập Explore của bạn",
+    "**Tải video cần tài khoản** — đăng nhập một lần trong Explore là FlickGrab có thể tải video riêng tư và video dành cho thành viên mà tài khoản của bạn xem được, video giới hạn độ tuổi nếu tài khoản đã xác minh tuổi, cùng danh sách Xem sau và Video đã thích của bạn. FlickGrab vẫn tải khi chưa đăng nhập và chỉ dùng đăng nhập Explore của bạn khi một lượt tải thất bại theo cách mà tài khoản có thể khắc phục. Khi YouTube yêu cầu xác nhận bạn không phải robot, FlickGrab cũng thử dùng đăng nhập Explore của bạn",
   feat_explore_4:
     "**Dùng tài khoản phụ** — màn hình đầu tiên của Explore giải thích lý do: tải bằng tài khoản có một chút rủi ro tài khoản đó bị hạn chế. Hãy đăng xuất khỏi Explore trong Cài đặt bất cứ khi nào bạn muốn xóa thông tin đăng nhập",
   feat_explore_5:
@@ -149,13 +149,13 @@ export const vi = {
     "Không đăng nhập, không cookie, không liên kết tài khoản Google",
   feat_privacy_3: "File được lưu thẳng vào thư mục bạn chọn",
   feat_workflow_h3: "Quy trình làm việc",
-  feat_workflow_12: "**Phím tắt tải xuống toàn cục** — sao chép một liên kết trong bất kỳ ứng dụng nào rồi nhấn `Ctrl+Shift+D` (`Cmd+Shift+D` trên macOS); Arroxy đưa nó vào hàng đợi với hồ sơ đang dùng mà không mở cửa sổ, và một thông báo xác nhận. Bật sẵn, có thể đổi phím",
+  feat_workflow_12: "**Phím tắt tải xuống toàn cục** — sao chép một liên kết trong bất kỳ ứng dụng nào rồi nhấn `Ctrl+Shift+D` (`Cmd+Shift+D` trên macOS); FlickGrab đưa nó vào hàng đợi với hồ sơ đang dùng mà không mở cửa sổ, và một thông báo xác nhận. Bật sẵn, có thể đổi phím",
   feat_workflow_1:
     "**Chế độ bắt đầu linh hoạt** — chọn tải một video có hướng dẫn, bộ chọn playlist/kênh, dán URL hàng loạt, Quick Download với mặc định đã lưu, hoặc duyệt và tải từ Explore",
   feat_workflow_2:
     "**Hàng đợi tải xuống trung tâm** — mọi tác vụ đơn lẻ, playlist, hàng loạt hoặc nhanh đều vào một nơi để theo dõi tiến độ, tạm dừng, tiếp tục, hủy, thử lại và điều chỉnh ưu tiên",
   feat_workflow_3:
-    "**Theo dõi clipboard** — sao chép liên kết YouTube và Arroxy tự điền URL khi bạn chuyển lại ứng dụng (bật/tắt trong Cài đặt nâng cao)",
+    "**Theo dõi clipboard** — sao chép liên kết YouTube và FlickGrab tự điền URL khi bạn chuyển lại ứng dụng (bật/tắt trong Cài đặt nâng cao)",
   feat_workflow_4:
     "**Tự làm sạch URL** — loại bỏ các tham số theo dõi (`si`, `pp`, `utm_*`, `fbclid`, `gclid`) và mở gói các liên kết `youtube.com/redirect`",
   feat_workflow_5:
@@ -169,19 +169,19 @@ export const vi = {
   feat_workflow_9:
     "**Mẫu tên tệp** — đặt tên tệp tải về theo ý bạn với `{title}`, `{uploader}`, `{id}`, `{date}`, `{resolution}` và `{playlist_index}`, áp dụng chung hoặc theo từng hồ sơ tải xuống",
   feat_workflow_10:
-    "**Tải cùng lúc và tự động thử lại** — chọn bao nhiêu mục trong hàng đợi được tải cùng lúc, và để Arroxy thử lại một mục gặp sự cố mạng hoặc máy chủ, chờ lâu hơn trước mỗi lần thử",
+    "**Tải cùng lúc và tự động thử lại** — chọn bao nhiêu mục trong hàng đợi được tải cùng lúc, và để FlickGrab thử lại một mục gặp sự cố mạng hoặc máy chủ, chờ lâu hơn trước mỗi lần thử",
   feat_workflow_11:
     "**Hồ sơ theo từng video trong danh sách phát** — gán cho mỗi video trong danh sách phát hồ sơ tải riêng thay vì một cài đặt chung cho cả danh sách, để một lượt tải có thể lưu trữ một số video ở chất lượng đầy đủ và lấy phần còn lại dưới dạng MP3",
   feat_workflow_13:
     "**Quick Download chạy nền** — liên kết hiện ngay trong Tải xuống và được chuẩn bị tại đó, một thông báo có nút **Xem** xác nhận, và ô URL được xóa để nhập liên kết tiếp theo. Bạn có thể bắt đầu bao nhiêu lượt tùy ý trong khi các lượt trước vẫn đang chuẩn bị",
   feat_workflow_14:
-    "**Tải xuống cho bạn biết điều gì cần bạn xử lý** — nếu Arroxy không đọc được một liên kết, dòng của nó nêu lý do và đề xuất cách khắc phục: Thử lại, bật cookie hoặc đăng nhập trong Explore. Khi cookie tắt, **Đăng nhập bằng Explore** sẽ thử lại giúp bạn sau khi bạn đã đăng nhập. Danh sách phát dài hơn giới hạn tải sẽ chờ trên dòng của nó để bạn chọn toàn bộ, vài video đầu, hoặc xem lại. Tab Tải xuống đếm số dòng đang chờ bạn",
+    "**Tải xuống cho bạn biết điều gì cần bạn xử lý** — nếu FlickGrab không đọc được một liên kết, dòng của nó nêu lý do và đề xuất cách khắc phục: Thử lại, bật cookie hoặc đăng nhập trong Explore. Khi cookie tắt, **Đăng nhập bằng Explore** sẽ thử lại giúp bạn sau khi bạn đã đăng nhập. Danh sách phát dài hơn giới hạn tải sẽ chờ trên dòng của nó để bạn chọn toàn bộ, vài video đầu, hoặc xem lại. Tab Tải xuống đếm số dòng đang chờ bạn",
   feat_workflow_15:
-    "**Chỉ tải một đoạn của video** — chọn điểm bắt đầu và kết thúc, hoặc một chương, trên màn hình Format và Arroxy chỉ lưu đoạn đó, tên tệp ghi khoảng thời gian sau ID video. Điểm cắt rơi vào keyframe gần nhất; bật cắt chính xác để mã hóa lại thay vào đó",
+    "**Chỉ tải một đoạn của video** — chọn điểm bắt đầu và kết thúc, hoặc một chương, trên màn hình Format và FlickGrab chỉ lưu đoạn đó, tên tệp ghi khoảng thời gian sau ID video. Điểm cắt rơi vào keyframe gần nhất; bật cắt chính xác để mã hóa lại thay vào đó",
   feat_workflow_16:
     "**Tự động gỡ các mục tải xuống đã xong** — tùy chọn: mục tải xuống đã xong sẽ rời khỏi danh sách sau 5 giây. Tệp của nó vẫn còn trên ổ đĩa, còn các mục tải xuống thất bại vẫn nằm trong danh sách",
   feat_workflow_17:
-    "**Kích thước và Thiếu trong Tải xuống** — cột **Kích thước** có thể sắp xếp cho biết mỗi mục chiếm bao nhiêu dung lượng, còn **Thiếu** đánh dấu các tệp bị di chuyển hoặc xóa bên ngoài Arroxy",
+    "**Kích thước và Thiếu trong Tải xuống** — cột **Kích thước** có thể sắp xếp cho biết mỗi mục chiếm bao nhiêu dung lượng, còn **Thiếu** đánh dấu các tệp bị di chuyển hoặc xóa bên ngoài FlickGrab",
   feat_workflow_18:
     "**Aurora hoặc Tối giản, tối hoặc sáng** — các bảng kính trên bầu trời chuyển động, hoặc các bề mặt đặc yên tĩnh; chuyển đổi từ chân trang. Máy tính không có tăng tốc đồ họa sẽ tự động dùng Tối giản",
   feat_workflow_19:
@@ -205,7 +205,7 @@ export const vi = {
   feat_sites_3:
     "**Chỉ âm thanh và phụ đề** hoạt động trên mọi trang được hỗ trợ, không chỉ YouTube",
   feat_sites_4:
-    "Nếu một trang thay đổi, yt-dlp phát hành bản sửa lỗi hàng tuần và Arroxy tự động cập nhật nhị phân khi khởi động",
+    "Nếu một trang thay đổi, yt-dlp phát hành bản sửa lỗi hàng tuần và FlickGrab tự động cập nhật nhị phân khi khởi động",
   shot1_cap:
     "<b>Trang Tải nhanh</b><br/>Dán URL và tải ngay với hồ sơ đang dùng",
   shot2_cap:
@@ -218,17 +218,17 @@ export const vi = {
     "<b>Chế độ URL hàng loạt</b><br/>Dán danh sách, tự loại trùng, xếp hàng tất cả cùng lúc",
   shot6_cap:
     "<b>Hàng đợi tải song song</b><br/>Nhiều lượt tải cùng lúc với tiến trình trực tiếp",
-  hotkey_fig_alt: "Phím tắt tải xuống toàn cục của Arroxy — Ctrl+Shift+D trên Windows và Linux, Cmd+Shift+D trên macOS, đưa liên kết đã sao chép thẳng vào hàng đợi tải xuống",
+  hotkey_fig_alt: "Phím tắt tải xuống toàn cục của FlickGrab — Ctrl+Shift+D trên Windows và Linux, Cmd+Shift+D trên macOS, đưa liên kết đã sao chép thẳng vào hàng đợi tải xuống",
   hotkey_fig_cap: "<b>Phím tắt tải xuống toàn cục</b><br/>Sao chép liên kết ở bất cứ đâu, nhấn một lần — nó vào hàng đợi và bắt đầu tải",
   shot7_cap: "<b>Hồ sơ theo từng video trong danh sách phát</b><br/>Cho mỗi video một hồ sơ riêng — lưu một số ở 4K, lấy phần còn lại dạng MP3",
   shot8_cap:
-    "<b>Explore</b><br/>Duyệt YouTube ngay trong Arroxy và tải trang bạn đang xem bằng hồ sơ đang dùng",
+    "<b>Explore</b><br/>Duyệt YouTube ngay trong FlickGrab và tải trang bạn đang xem bằng hồ sơ đang dùng",
   shot9_cap:
     "<b>Màn hình đầu tiên của Explore</b><br/>Giới thiệu nhanh về Explore, và lý do tài khoản phụ là cách đăng nhập an toàn hơn",
   shot10_cap:
     "<b>Tải xuống cho bạn biết điều gì cần bạn xử lý</b><br/>Liên kết được chuẩn bị ở chế độ nền; liên kết lỗi sẽ đề xuất cách khắc phục, danh sách phát dài chờ bạn lựa chọn",
   shot11_cap:
-    "<b>Chỉ tải một phần của video</b><br/>Chọn điểm bắt đầu và kết thúc, hoặc một chương — Arroxy chỉ lưu đoạn đó",
+    "<b>Chỉ tải một phần của video</b><br/>Chọn điểm bắt đầu và kết thúc, hoặc một chương — FlickGrab chỉ lưu đoạn đó",
   shot12_cap:
     "<b>Trình chỉnh sửa hồ sơ</b><br/>Tinh chỉnh một hồ sơ: loại tệp, độ phân giải, phụ đề, nơi lưu, mẫu tên tệp và nhiều hơn nữa",
   shot13_cap:
@@ -265,26 +265,26 @@ export const vi = {
     "**Khuyến nghị:** sử dụng NSIS installer để có tự động cập nhật và khởi động nhanh hơn. Dùng portable `.exe` nếu bạn muốn không cần cài đặt, không ghi registry.",
   dl_win_smartscreen_h4: "Cảnh báo Windows SmartScreen",
   dl_win_smartscreen_intro:
-    'Khi khởi động lần đầu, bạn có thể thấy **"Windows protected your PC"** hoặc **"Unknown publisher."** Điều này áp dụng cho cả `Arroxy-win-x64-Setup.exe` và `Arroxy-win-x64-Portable.exe`. Arroxy là phần mềm miễn phí và mã nguồn mở, các bản build trên Windows không được ký mã bằng chứng chỉ có phí, đó là lý do SmartScreen gắn cờ chúng. Điều này **không** tự động có nghĩa là Arroxy không an toàn. Để tiếp tục:',
+    'Khi khởi động lần đầu, bạn có thể thấy **"Windows protected your PC"** hoặc **"Unknown publisher."** Điều này áp dụng cho cả `FlickGrab-win-x64-Setup.exe` và `FlickGrab-win-x64-Portable.exe`. FlickGrab là phần mềm miễn phí và mã nguồn mở, các bản build trên Windows không được ký mã bằng chứng chỉ có phí, đó là lý do SmartScreen gắn cờ chúng. Điều này **không** tự động có nghĩa là FlickGrab không an toàn. Để tiếp tục:',
   dl_win_smartscreen_step1: "Nhấp **More info**.",
   dl_win_smartscreen_step2: "Nhấp **Run anyway**.",
   dl_win_smartscreen_official:
-    "Chỉ tải Arroxy từ trang GitHub Releases chính thức. Nếu bạn tải file từ trang web khác hoặc ai đó gửi cho bạn, hãy xóa nó và tải bản sao mới từ nguồn chính thức. Mã nguồn là công khai, vì vậy bạn có thể tự kiểm tra hoặc tự build Arroxy nếu muốn.",
+    "Chỉ tải FlickGrab từ trang GitHub Releases chính thức. Nếu bạn tải file từ trang web khác hoặc ai đó gửi cho bạn, hãy xóa nó và tải bản sao mới từ nguồn chính thức. Mã nguồn là công khai, vì vậy bạn có thể tự kiểm tra hoặc tự build FlickGrab nếu muốn.",
   dl_macos_h3: "Lần đầu khởi động trên macOS",
   dl_macos_warning:
-    "Arroxy chưa được ký mã, nên macOS Gatekeeper có thể hiển thị cảnh báo ứng dụng bị hỏng trong lần khởi chạy đầu tiên. Đây là điều dự kiến — không có nghĩa là tệp thật sự bị hỏng.",
+    "FlickGrab chưa được ký mã, nên macOS Gatekeeper có thể hiển thị cảnh báo ứng dụng bị hỏng trong lần khởi chạy đầu tiên. Đây là điều dự kiến — không có nghĩa là tệp thật sự bị hỏng.",
   dl_macos_m1_h4: "Cách dùng Terminal:",
   dl_macos_step1:
-    "Kéo `Arroxy.app` từ DMG đã mở vào `/Applications`.",
+    "Kéo `FlickGrab.app` từ DMG đã mở vào `/Applications`.",
   dl_macos_step2:
-    "Mở Terminal và chạy `sudo xattr -dr com.apple.quarantine /Applications/Arroxy.app`.",
-  dl_macos_step3: "Chạy `open /Applications/Arroxy.app`.",
+    "Mở Terminal và chạy `sudo xattr -dr com.apple.quarantine /Applications/FlickGrab.app`.",
+  dl_macos_step3: "Chạy `open /Applications/FlickGrab.app`.",
   dl_macos_step4:
-    "Nếu đường dẫn ứng dụng khác, hãy thay `/Applications/Arroxy.app` bằng đường dẫn bạn đã cài đặt.",
+    "Nếu đường dẫn ứng dụng khác, hãy thay `/Applications/FlickGrab.app` bằng đường dẫn bạn đã cài đặt.",
   dl_macos_step5:
     "Nhập mật khẩu Mac nếu `sudo` yêu cầu.",
   dl_macos_after:
-    "Sau khi gỡ quarantine, Arroxy sẽ mở bình thường.",
+    "Sau khi gỡ quarantine, FlickGrab sẽ mở bình thường.",
   dl_macos_m2_h4: "Cách dùng Terminal:",
   dl_macos_note:
     "Các bản build macOS được tạo qua CI trên máy chủ Apple Silicon và Intel. Nếu gặp sự cố, vui lòng [mở issue](../../issues) — phản hồi từ người dùng macOS ảnh hưởng trực tiếp đến chu kỳ kiểm thử macOS.",
@@ -300,9 +300,9 @@ export const vi = {
   dl_linux_arch_note: "**Các bản tải Linux trên trang phát hành chỉ có x86_64.** Trên máy ARM64 (Raspberry Pi, Asahi Linux), Flatpak vẫn cài được nhưng khi khởi chạy sẽ lỗi `bwrap: execvp ldconfig: Exec format error`.",
   dl_warning_h3: "Tại sao bạn có thể thấy cảnh báo",
   dl_warning_p1:
-    "Arroxy là phần mềm mã nguồn mở theo giấy phép MIT. Các bản build trên Windows và macOS **không được ký mã** — chứng chỉ Apple Developer ID và Windows EV code-signing mỗi loại tốn hàng trăm đô la mỗi năm, một dự án độc lập phải tự chi trả. Không có những chữ ký đó, Windows SmartScreen và macOS Gatekeeper sẽ cảnh báo khi khởi động lần đầu. Các cảnh báo có nghĩa là *hệ điều hành của bạn không nhận ra nhà phát hành* — không có nghĩa là Arroxy là phần mềm độc hại.",
+    "FlickGrab là phần mềm mã nguồn mở theo giấy phép MIT. Các bản build trên Windows và macOS **không được ký mã** — chứng chỉ Apple Developer ID và Windows EV code-signing mỗi loại tốn hàng trăm đô la mỗi năm, một dự án độc lập phải tự chi trả. Không có những chữ ký đó, Windows SmartScreen và macOS Gatekeeper sẽ cảnh báo khi khởi động lần đầu. Các cảnh báo có nghĩa là *hệ điều hành của bạn không nhận ra nhà phát hành* — không có nghĩa là FlickGrab là phần mềm độc hại.",
   dl_warning_p2:
-    "Ba cách để tự xác minh Arroxy, theo mức độ nghiêm ngặt tăng dần:\n\n- **Đọc mã nguồn.** Mọi dòng đều có trên [GitHub](https://github.com/antonio-orionus/Arroxy) và bạn có thể [tự build từ nguồn](#tech).\n- **Kiểm tra SHA256.** So sánh file của bạn với [`SHA256SUMS`](../../releases/latest) đã công bố — xem [Xác minh tải xuống](#verify) bên dưới.\n- **Chạy quét của bên thứ ba.** Tải file lên [VirusTotal](https://www.virustotal.com).",
+    "Ba cách để tự xác minh FlickGrab, theo mức độ nghiêm ngặt tăng dần:\n\n- **Đọc mã nguồn.** Mọi dòng đều có trên [GitHub](https://github.com/antonio-orionus/FlickGrab) và bạn có thể [tự build từ nguồn](#tech).\n- **Kiểm tra SHA256.** So sánh file của bạn với [`SHA256SUMS`](../../releases/latest) đã công bố — xem [Xác minh tải xuống](#verify) bên dưới.\n- **Chạy quét của bên thứ ba.** Tải file lên [VirusTotal](https://www.virustotal.com).",
 
   dl_win_first_h3: "Lần đầu khởi động trên Windows",
   shot_smartscreen_more_alt:
@@ -311,31 +311,31 @@ export const vi = {
     'Hộp thoại SmartScreen sau khi mở rộng More info, hiển thị nút "Run anyway"',
   dl_win_defender_h4: "Nếu Windows Defender gắn cờ hoặc xóa file",
   dl_win_defender_p:
-    "Heuristic của Defender đôi khi gắn cờ các trình cài đặt NSIS không được ký và Electron portable là đáng ngờ. Nếu Defender cách ly `Arroxy-win-x64-Setup.exe` hoặc `Arroxy-win-x64-Portable.exe`, hãy khôi phục nó từ **Windows Security → Virus & threat protection → Protection history**, sau đó thêm file thực thi Arroxy làm mục được phép trong **Manage settings → Add or remove exclusions**. Cũng giống SmartScreen, nguyên nhân là thiếu chữ ký nhà phát hành, không phải phần mềm độc hại bị phát hiện.",
+    "Heuristic của Defender đôi khi gắn cờ các trình cài đặt NSIS không được ký và Electron portable là đáng ngờ. Nếu Defender cách ly `FlickGrab-win-x64-Setup.exe` hoặc `FlickGrab-win-x64-Portable.exe`, hãy khôi phục nó từ **Windows Security → Virus & threat protection → Protection history**, sau đó thêm file thực thi FlickGrab làm mục được phép trong **Manage settings → Add or remove exclusions**. Cũng giống SmartScreen, nguyên nhân là thiếu chữ ký nhà phát hành, không phải phần mềm độc hại bị phát hiện.",
 
   dl_macos_first_h3: "Lần đầu khởi động trên macOS",
   dl_macos_intro:
-    "Arroxy chưa được ký mã cho macOS, vì vậy Gatekeeper có thể hiển thị hộp thoại đáng sợ *\"Arroxy.app is damaged and can't be opened\"* sau khi bạn cài từ DMG. Thông báo này nghĩa là macOS đã đưa một ứng dụng chưa ký vào quarantine; không có nghĩa là tệp ứng dụng thật sự bị hỏng. Trên macOS hiện tại, cách đáng tin cậy là dùng Terminal:",
+    "FlickGrab chưa được ký mã cho macOS, vì vậy Gatekeeper có thể hiển thị hộp thoại đáng sợ *\"FlickGrab.app is damaged and can't be opened\"* sau khi bạn cài từ DMG. Thông báo này nghĩa là macOS đã đưa một ứng dụng chưa ký vào quarantine; không có nghĩa là tệp ứng dụng thật sự bị hỏng. Trên macOS hiện tại, cách đáng tin cậy là dùng Terminal:",
   dl_macos_sequoia_h4: "Sửa bằng Terminal cho macOS hiện tại",
   dl_macos_sequoia_intro:
-    "Dùng Terminal sau khi sao chép Arroxy vào Applications:",
-  dl_macos_sequoia_step1: "Kéo `Arroxy.app` từ DMG đã gắn vào `/Applications`.",
+    "Dùng Terminal sau khi sao chép FlickGrab vào Applications:",
+  dl_macos_sequoia_step1: "Kéo `FlickGrab.app` từ DMG đã gắn vào `/Applications`.",
   dl_macos_sequoia_step2:
     "Mở Terminal và chạy hai lệnh này:",
   dl_macos_sequoia_step3:
-    "Chạy `open /Applications/Arroxy.app` để khởi chạy Arroxy.",
+    "Chạy `open /Applications/FlickGrab.app` để khởi chạy FlickGrab.",
   dl_macos_sequoia_step4:
-    "Nếu đường dẫn ứng dụng khác, hãy thay `/Applications/Arroxy.app` bằng đường dẫn bạn đã cài đặt.",
+    "Nếu đường dẫn ứng dụng khác, hãy thay `/Applications/FlickGrab.app` bằng đường dẫn bạn đã cài đặt.",
   dl_macos_sonoma_h4: "Sửa bằng Terminal cho macOS cũ hơn",
-  dl_macos_sonoma_step1: "Kéo `Arroxy.app` từ DMG đã gắn vào `/Applications`.",
+  dl_macos_sonoma_step1: "Kéo `FlickGrab.app` từ DMG đã gắn vào `/Applications`.",
   dl_macos_sonoma_step2:
-    "Mở Terminal và xóa quarantine khỏi `/Applications/Arroxy.app`.",
+    "Mở Terminal và xóa quarantine khỏi `/Applications/FlickGrab.app`.",
   dl_macos_sonoma_step3:
-    "Khởi chạy Arroxy từ Terminal hoặc Finder sau khi quarantine được gỡ bỏ.",
+    "Khởi chạy FlickGrab từ Terminal hoặc Finder sau khi quarantine được gỡ bỏ.",
   dl_macos_damaged_h4:
     "Sửa quarantine của Gatekeeper",
   dl_macos_damaged_p:
-    "Lệnh đầu tiên xóa thuộc tính quarantine khỏi bản Arroxy đã cài. Lệnh thứ hai khởi chạy ứng dụng. `sudo` có thể hỏi mật khẩu Mac; Terminal sẽ không hiển thị ký tự khi bạn nhập.",
+    "Lệnh đầu tiên xóa thuộc tính quarantine khỏi bản FlickGrab đã cài. Lệnh thứ hai khởi chạy ứng dụng. `sudo` có thể hỏi mật khẩu Mac; Terminal sẽ không hiển thị ký tự khi bạn nhập.",
   dl_macos_arch_note:
     "**Apple Silicon vs Intel:** trên Mac dòng M (M1 / M2 / M3 / M4), hãy tải DMG `arm64`. Trên Mac Intel, tải DMG `x64`. Chạy bản build sai vẫn hoạt động qua Rosetta nhưng sẽ chậm hơn đáng kể.",
 
@@ -360,7 +360,7 @@ export const vi = {
   privacy_p2:
     "Không có telemetry — chỉ một tín hiệu ẩn danh mỗi ngày: phiên bản ứng dụng, OS, ngôn ngữ, kênh cài đặt và quốc gia, để chúng tôi đếm số người dùng đang hoạt động. Không có ID, URL, tiêu đề video, đường dẫn tệp hay thông tin tài khoản. Bạn có thể tắt trong Cài đặt.",
   privacy_p3:
-    "Explore giữ đăng nhập riêng, tách biệt với trình duyệt của bạn, và Arroxy không bao giờ đọc hay điền biểu mẫu đăng nhập — bạn nhập trực tiếp vào trang của Google. Các lượt tải chạy khi chưa đăng nhập; chỉ khi một lượt tải thất bại theo cách mà tài khoản có thể khắc phục, Arroxy mới đọc lại thông tin đăng nhập, lưu vào một tệp tạm cho lượt tải đó và xóa tệp sau đó. Đăng xuất khỏi Explore trong Cài đặt sẽ xóa thông tin này.",
+    "Explore giữ đăng nhập riêng, tách biệt với trình duyệt của bạn, và FlickGrab không bao giờ đọc hay điền biểu mẫu đăng nhập — bạn nhập trực tiếp vào trang của Google. Các lượt tải chạy khi chưa đăng nhập; chỉ khi một lượt tải thất bại theo cách mà tài khoản có thể khắc phục, FlickGrab mới đọc lại thông tin đăng nhập, lưu vào một tệp tạm cho lượt tải đó và xóa tệp sau đó. Đăng xuất khỏi Explore trong Cài đặt sẽ xóa thông tin này.",
   faq_q1: "Thực sự miễn phí không?",
   faq_a1: "Có — giấy phép MIT, không có gói cao cấp, không khóa tính năng.",
   faq_q2: "Tôi có thể tải xuống chất lượng video nào?",
@@ -371,13 +371,13 @@ export const vi = {
     "Có. Chọn *chỉ âm thanh* trong menu định dạng rồi chọn MP3, M4A/AAC, Opus hoặc WAV.",
   faq_q4: "Làm sao để tải video cần tài khoản YouTube?",
   faq_a4:
-    "Hãy đăng nhập một lần trong tab Explore. Sau đó Arroxy có thể tải video riêng tư và video dành cho thành viên mà tài khoản của bạn xem được, video giới hạn độ tuổi nếu tài khoản đã xác minh tuổi, cùng danh sách Xem sau và Video đã thích của bạn. Arroxy chỉ dùng đăng nhập này khi một lượt tải thất bại theo cách mà tài khoản có thể khắc phục; mọi thứ khác vẫn tải như trước. Đây là lựa chọn **Đăng nhập Explore** trong cài đặt cookie, được xếp đầu tiên và gắn nhãn Khuyên dùng, và Arroxy tự chọn nó cho bạn lần đầu bạn mở Explore. Wiki của yt-dlp lưu ý rằng [tự động hóa khi đã đăng nhập có thể gắn cờ tài khoản Google](https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies), nên tài khoản phụ là lựa chọn an toàn hơn.",
+    "Hãy đăng nhập một lần trong tab Explore. Sau đó FlickGrab có thể tải video riêng tư và video dành cho thành viên mà tài khoản của bạn xem được, video giới hạn độ tuổi nếu tài khoản đã xác minh tuổi, cùng danh sách Xem sau và Video đã thích của bạn. FlickGrab chỉ dùng đăng nhập này khi một lượt tải thất bại theo cách mà tài khoản có thể khắc phục; mọi thứ khác vẫn tải như trước. Đây là lựa chọn **Đăng nhập Explore** trong cài đặt cookie, được xếp đầu tiên và gắn nhãn Khuyên dùng, và FlickGrab tự chọn nó cho bạn lần đầu bạn mở Explore. Wiki của yt-dlp lưu ý rằng [tự động hóa khi đã đăng nhập có thể gắn cờ tài khoản Google](https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies), nên tài khoản phụ là lựa chọn an toàn hơn.",
   faq_q5: "Ứng dụng có tiếp tục hoạt động khi YouTube thay đổi gì đó không?",
   faq_a5:
-    "yt-dlp được cập nhật tự động khi khởi động, và Arroxy nhanh chóng phát hành các bản sửa lỗi khi YouTube thay đổi điều gì đó. Khi YouTube yêu cầu xác nhận bạn không phải robot, Arroxy cũng thử dùng đăng nhập Explore nếu bạn đã đăng nhập ở đó, và cookie từ tệp hoặc trình duyệt có sẵn trong cài đặt cookie.",
-  faq_q6: "Arroxy có sẵn bằng những ngôn ngữ nào?",
+    "yt-dlp được cập nhật tự động khi khởi động, và FlickGrab nhanh chóng phát hành các bản sửa lỗi khi YouTube thay đổi điều gì đó. Khi YouTube yêu cầu xác nhận bạn không phải robot, FlickGrab cũng thử dùng đăng nhập Explore nếu bạn đã đăng nhập ở đó, và cookie từ tệp hoặc trình duyệt có sẵn trong cài đặt cookie.",
+  faq_q6: "FlickGrab có sẵn bằng những ngôn ngữ nào?",
   faq_a6:
-    "{{LANG_COUNT}} ngôn ngữ có sẵn ngay: {{LANG_NAME_LIST}}. Arroxy tự động phát hiện ngôn ngữ hệ điều hành của bạn trong lần khởi chạy đầu tiên, và bạn có thể đổi bất cứ lúc nào từ bộ chọn ngôn ngữ trên thanh công cụ. Runtime locale JSON nằm trong src/shared/i18n/locales/, còn catalog PO dành cho người dịch nằm trong i18n/locales/ — hãy mở PR trên GitHub để đóng góp.",
+    "{{LANG_COUNT}} ngôn ngữ có sẵn ngay: {{LANG_NAME_LIST}}. FlickGrab tự động phát hiện ngôn ngữ hệ điều hành của bạn trong lần khởi chạy đầu tiên, và bạn có thể đổi bất cứ lúc nào từ bộ chọn ngôn ngữ trên thanh công cụ. Runtime locale JSON nằm trong src/shared/i18n/locales/, còn catalog PO dành cho người dịch nằm trong i18n/locales/ — hãy mở PR trên GitHub để đóng góp.",
   faq_q7: "Tôi có cần cài đặt thêm gì không?",
   faq_a7:
     "Không. yt-dlp được tải xuống tự động khi khởi động lần đầu và được lưu vào bộ nhớ đệm trên máy của bạn; ffmpeg và ffprobe đi kèm với ứng dụng. Sau đó, không cần thiết lập thêm gì.",
@@ -386,7 +386,7 @@ export const vi = {
     "Có — cả hai. Dán URL playlist hoặc kênh (ví dụ `youtube.com/@handle`, `/channel/UC…`, `/c/Name`, `/user/Old`); chọn số mục cần quét, rồi đưa cả danh sách vào hàng đợi hoặc chọn từng video. Bộ lọc theo khoảng ngày sẽ có sớm.",
   faq_q9: 'macOS báo "ứng dụng bị hỏng" — tôi phải làm gì?',
   faq_a9:
-    "Đó là macOS Gatekeeper chặn ứng dụng chưa được ký, không phải file thật sự bị hỏng. Xem [macOS first launch](#macos-first-launch) để biết các lệnh Terminal xóa quarantine và khởi chạy Arroxy.",
+    "Đó là macOS Gatekeeper chặn ứng dụng chưa được ký, không phải file thật sự bị hỏng. Xem [macOS first launch](#macos-first-launch) để biết các lệnh Terminal xóa quarantine và khởi chạy FlickGrab.",
   faq_q10: "Tải video YouTube có hợp pháp không?",
   faq_a10:
     "Đối với mục đích sử dụng cá nhân, riêng tư thì nhìn chung được chấp nhận ở hầu hết các khu vực pháp lý. Bạn có trách nhiệm tuân thủ [Điều khoản dịch vụ](https://www.youtube.com/t/terms) của YouTube và luật bản quyền tại địa phương của bạn.",
@@ -411,11 +411,11 @@ export const vi = {
   plan_cta:
     "Bạn có ý tưởng tính năng? [Mở yêu cầu](../../issues) — ý kiến cộng đồng định hình thứ tự ưu tiên.",
   tech_content: TECH_CONTENT,
-  support_h2: "Ủng hộ Arroxy",
-  support_note: "Arroxy miễn phí và có giấy phép MIT — không quảng cáo, không telemetry, không bản trả phí. Nếu nó giúp bạn tiết kiệm thời gian, bạn có thể ủng hộ việc phát triển bằng Bitcoin hoặc Tron: địa chỉ nằm trong [DONATE.md](DONATE.md), nguồn chính thức duy nhất cho các địa chỉ này. Arroxy sẽ không bao giờ gửi cho bạn địa chỉ qua email hay tin nhắn riêng. Gắn sao cho kho mã, báo lỗi và cải thiện bản dịch cũng giúp ích không kém.",
+  support_h2: "Ủng hộ FlickGrab",
+  support_note: "FlickGrab miễn phí và có giấy phép MIT — không quảng cáo, không telemetry, không bản trả phí. Nếu nó giúp bạn tiết kiệm thời gian, bạn có thể ủng hộ việc phát triển bằng Bitcoin hoặc Tron: địa chỉ nằm trong [DONATE.md](DONATE.md), nguồn chính thức duy nhất cho các địa chỉ này. FlickGrab sẽ không bao giờ gửi cho bạn địa chỉ qua email hay tin nhắn riêng. Gắn sao cho kho mã, báo lỗi và cải thiện bản dịch cũng giúp ích không kém.",
   tos_h2: "Điều khoản sử dụng",
   tos_note:
-    "Arroxy là công cụ chỉ dành cho mục đích sử dụng cá nhân, riêng tư. Bạn hoàn toàn chịu trách nhiệm đảm bảo các tải xuống của mình tuân thủ [Điều khoản dịch vụ](https://www.youtube.com/t/terms) của YouTube và luật bản quyền tại khu vực pháp lý của bạn. Không sử dụng Arroxy để tải xuống, sao chép hoặc phân phối nội dung mà bạn không có quyền sử dụng. Các nhà phát triển không chịu trách nhiệm về bất kỳ hành vi lạm dụng nào.",
+    "FlickGrab là công cụ chỉ dành cho mục đích sử dụng cá nhân, riêng tư. Bạn hoàn toàn chịu trách nhiệm đảm bảo các tải xuống của mình tuân thủ [Điều khoản dịch vụ](https://www.youtube.com/t/terms) của YouTube và luật bản quyền tại khu vực pháp lý của bạn. Không sử dụng FlickGrab để tải xuống, sao chép hoặc phân phối nội dung mà bạn không có quyền sử dụng. Các nhà phát triển không chịu trách nhiệm về bất kỳ hành vi lạm dụng nào.",
   footer_credit:
     'Giấy phép MIT · Được tạo ra với tâm huyết bởi <a href="https://x.com/OrionusAI">@OrionusAI</a>',
 };

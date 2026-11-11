@@ -122,9 +122,6 @@ export interface CommonSettings {
 	rememberLastOutputDir: boolean
 	lastSubfolderEnabled?: boolean
 	lastSubfolder?: string
-	// UTC day (YYYY-MM-DD) of the last anonymous heartbeat, so an install is
-	// counted at most once per day. Internal: never accepted from the renderer.
-	lastHeartbeatDay?: string
 	uiZoom?: number
 	uiTheme?: UiTheme
 	uiStyle?: UiStyle
@@ -169,7 +166,6 @@ export interface CommonSettings {
 	writeM3u?: boolean
 	lastSponsorBlockMode?: SponsorBlockMode
 	lastSponsorBlockCategories?: SponsorBlockCategory[]
-	analyticsEnabled?: boolean
 	firstRunCompleted?: boolean
 	launchCount?: number
 	lastReleaseNotesVersionShown?: string
@@ -371,7 +367,7 @@ export interface PlaylistEntry {
 	// Inherited from the playlist probe, or set by this row's own hydration probe.
 	auth?: JobAuth
 	// Filename templates can name directories after {uploader} / {date}, and
-	// Arroxy renders those itself because it needs the path before downloading.
+	// FlickGrab renders those itself because it needs the path before downloading.
 	// Sparse on flat playlist probes — an absent value collapses the folder.
 	uploader?: string // uploader → channel → creator → uploader_id, resolved at probe time
 	uploadDate?: string // raw yt-dlp upload_date (YYYYMMDD)
@@ -401,7 +397,7 @@ export interface ProbeInput {
 	// forces playlist enumeration.
 	playlistMode?: ProbePlaylistMode
 	// Probe-time scope for playlist/channel/search enumeration. Downloads still
-	// split into Arroxy queue items after this filtered flat probe.
+	// split into FlickGrab queue items after this filtered flat probe.
 	playlistScope?: PlaylistScope
 	// Optional cancellation key: lets the caller abort exactly this probe
 	// later (probeCancel(key)) without touching other in-flight probes —
@@ -594,14 +590,6 @@ export interface CommonPaths {
 	home?: string | null
 }
 
-export interface FeedbackDiagnosticUpload {
-	reportId: string
-	diagnosticUrl: string | null
-	rawBytes: number
-	compressedBytes: number
-	truncated: boolean
-	sha256: string
-}
 
 export interface StartDownloadInput {
 	url: string

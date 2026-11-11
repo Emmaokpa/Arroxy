@@ -39,7 +39,7 @@ brew install mise
 xcode-select --install
 \`\`\`
 
-ከ clone በኋላ በ checkout ውስጥ \`mise trust && mise install\` ያስኪዱ። shell እርስዎ አስቀድሞ \`fnm\`፣ \`nvm\` ወይም Homebrew Bun የሚጠቀም ከሆነ፣ Arroxy Node.js 24.21.0 እና Bun 1.4.2 እንዲጠቀም \`~/.zshrc\` ውስጥ mise ን ያንቁ:
+ከ clone በኋላ በ checkout ውስጥ \`mise trust && mise install\` ያስኪዱ። shell እርስዎ አስቀድሞ \`fnm\`፣ \`nvm\` ወይም Homebrew Bun የሚጠቀም ከሆነ፣ FlickGrab Node.js 24.21.0 እና Bun 1.4.2 እንዲጠቀም \`~/.zshrc\` ውስጥ mise ን ያንቁ:
 
 \`\`\`bash
 printf '\n# mise\nif command -v mise >/dev/null 2>&1; then\n  eval "$(mise activate zsh)"\nfi\n' >> ~/.zshrc
@@ -61,8 +61,8 @@ sudo apt install -y xvfb
 ### ቅዳና አሂድ
 
 \`\`\`bash
-git clone https://github.com/antonio-orionus/Arroxy
-cd Arroxy
+git clone https://github.com/antonio-orionus/FlickGrab
+cd FlickGrab
 mise trust
 mise install           # የሚመከር፤ pinned tools በእጅ ካነቃችሁ ይዝለሉት
 bun run bootstrap
@@ -78,14 +78,14 @@ bun run dist         # package for current OS
 bun run dist:win     # supported host ላይ Windows targets package ማድረግ
 \`\`\`
 
-> \`bun run bootstrap\` dependencies ይጭናል፣ Electron app dependencies rebuild ያደርጋል፣ Electron ያረጋግጣል፣ ለ development embedded ffmpeg/ffprobe ያዘጋጃል፣ እና Playwright Chromium ይጭናል። yt-dlp በ runtime ውስጥ app data folder ይ managed ይሆናል፤ ffmpeg እና ffprobe ከእያንዳንዱ የArroxy release ጋር bundled ይመጣሉ።
+> \`bun run bootstrap\` dependencies ይጭናል፣ Electron app dependencies rebuild ያደርጋል፣ Electron ያረጋግጣል፣ ለ development embedded ffmpeg/ffprobe ያዘጋጃል፣ እና Playwright Chromium ይጭናል። yt-dlp በ runtime ውስጥ app data folder ይ managed ይሆናል፤ ffmpeg እና ffprobe ከእያንዳንዱ የFlickGrab release ጋር bundled ይመጣሉ።
 
 </details>`;
 
 export const am = {
-  icon_alt: "የ Arroxy መሸፈኛ",
+  icon_alt: "የ FlickGrab መሸፈኛ",
   title:
-    "Arroxy — ነፃ ምን ኮድ ያለው YouTube (+ 2000 ጣቢያ) አውራጅ ለ Windows, macOS እና Linux",
+    "FlickGrab — ነፃ ምን ኮድ ያለው YouTube (+ 2000 ጣቢያ) አውራጅ ለ Windows, macOS እና Linux",
   read_in_label: "አንብብ በ:",
   badge_release_alt: "ስሪት",
   badge_build_alt: "ግንባታ",
@@ -100,10 +100,10 @@ export const am = {
     "ቪዲዮዎች፣ Shorts፣ ሙዚቃ፣ ቻናሎች፣ ፖድካስቶች ወይም የድምፅ ትራኮች ከ**YouTube እና ከ2000+ ተደገፉ ጣቢያዎች** ያውርዱ — እስከ 4K HDR በ60 fps፣ ወይም MP3 / AAC / Opus። በ Windows፣ macOS፣ እና Linux ላይ አካባቢያዊ ሆኖ ይሠራል። **ምንም ማስታወቂያ፣ ምንም ብዝሃ ሸቀጥ፣ ምንም ተጨማሪ ሽያጭ።**",
   cta_latest: "↓ የቅርብ ጊዜ ስሪት አውርድ",
   cta_website: "ድር ጣቢያ",
-  star_cta: "Arroxy ጊዜ ካስቆጠበዎ፣ ⭐ ሌሎች እንዲያገኙት ይረዳል።",
+  star_cta: "FlickGrab ጊዜ ካስቆጠበዎ፣ ⭐ ሌሎች እንዲያገኙት ይረዳል።",
   ai_notice: "",
   toc_heading: "ዝርዝር",
-  why_h2: "ለምን Arroxy",
+  why_h2: "ለምን FlickGrab",
   features_h2: "ባህሪያት",
   dl_h2: "መጫን እና የመጀመሪያ ማስነሳት",
   privacy_h2: "ግላዊነት",
@@ -118,17 +118,17 @@ export const am = {
   why_r6: "ለሁሉም ዓይነት ሥርዓቶች የሚሠራ የዴስክቶፕ አፕ",
   why_r7: "ንዑስ ርዕሶች + SponsorBlock",
   why_summary:
-    "Arroxy ለአንድ ነገር ብቻ ተሠርቷል: URL ይለጥፉ፣ ንጹህ አካባቢያዊ ፋይል ያግኙ። ምንም ሽያጭ፣ ምንም የዳታ ስብስብ።",
+    "FlickGrab ለአንድ ነገር ብቻ ተሠርቷል: URL ይለጥፉ፣ ንጹህ አካባቢያዊ ፋይል ያግኙ። ምንም ሽያጭ፣ ምንም የዳታ ስብስብ።",
   feat_explore_h3:
-    "Explore: YouTubeን በArroxy ውስጥ ያስሱ",
+    "Explore: YouTubeን በFlickGrab ውስጥ ያስሱ",
   feat_explore_1:
-    "**Explore ትር** — YouTubeን በArroxy ውስጥ ያስሱ እና ያገኙትን ሊንክ ሳይገለብጡ ያውርዱ። **አውርድ · *መገለጫዎ*** እየተመለከቱት ያለውን ቪዲዮ፣ playlist ወይም channel በወረፋ ያስገባል፤ ከጎኑ ያለው ቀስት መገለጫዎችን ይቀይራል፣ የአስማት ዘንግ ደግሞ ቅርጸቶችን፣ ንዑስ ርዕሶችን እና ሌሎችን ለመምረጥ ደረጃ በደረጃ ማውረድን ይከፍታል",
+    "**Explore ትር** — YouTubeን በFlickGrab ውስጥ ያስሱ እና ያገኙትን ሊንክ ሳይገለብጡ ያውርዱ። **አውርድ · *መገለጫዎ*** እየተመለከቱት ያለውን ቪዲዮ፣ playlist ወይም channel በወረፋ ያስገባል፤ ከጎኑ ያለው ቀስት መገለጫዎችን ይቀይራል፣ የአስማት ዘንግ ደግሞ ቅርጸቶችን፣ ንዑስ ርዕሶችን እና ሌሎችን ለመምረጥ ደረጃ በደረጃ ማውረድን ይከፍታል",
   feat_explore_6: "**ለማውረድ በቀኝ ጠቅ ያድርጉ** — በExplore ውስጥ ማንኛውንም የቪዲዮ፣ playlist ወይም channel ሊንክ በቀኝ ጠቅ አድርገው በመገለጫዎ ያውርዱ፣ ከ**በመገለጫ አውርድ** ሌላ መገለጫ ይምረጡ፣ ደረጃ በደረጃ ማውረድን ይክፈቱ ወይም ሊንኩን ይቅዱ። እያንዳንዱን ቪዲዮ አስቀድሞ መክፈት አያስፈልግም",
-  feat_explore_7: "**የታመቀ አቀማመጥ** — በExplore የመሳሪያ አሞሌ ውስጥ በአንድ ጠቅታ የArroxy ትሮችን ወደዚያ ያንቀሳቅሳል እና ገጹ ተጨማሪ ቦታ ያገኛል",
+  feat_explore_7: "**የታመቀ አቀማመጥ** — በExplore የመሳሪያ አሞሌ ውስጥ በአንድ ጠቅታ የFlickGrab ትሮችን ወደዚያ ያንቀሳቅሳል እና ገጹ ተጨማሪ ቦታ ያገኛል",
   feat_explore_2:
     "**የአድራሻ አሞሌ** — YouTube ለመፈለግ ይተይቡ ወይም የYouTube ሊንክ ይለጥፉ። Explore YouTubeን ብቻ ያስሳል፣ ስለዚህ ከሌላ ጣቢያ የሆነ ሊንክ እዚያ አይከፈትም፣ ግን በአንድ ጠቅታ ማውረድ ይችላሉ",
   feat_explore_3:
-    "**ሒሳብ የሚፈልጉ ማውረዶች** — በExplore ውስጥ አንድ ጊዜ ይግቡ እና Arroxy ሒሳብዎ ማየት የሚችላቸውን የግል እና የአባላት-ብቻ ቪዲዮዎች፣ ሒሳቡ በዕድሜ ከተረጋገጠ ዕድሜ-የተገደቡ ቪዲዮዎች፣ እንዲሁም የWatch Later እና Liked ዝርዝሮችዎን ማውረድ ይችላል። Arroxy አሁንም ሳይገባ ያወርዳል፣ እና የExplore መግቢያዎን የሚጠቀመው ማውረድ ሒሳብ ሊያስተካክለው በሚችል መንገድ ሲወድቅ ብቻ ነው። YouTube ቦት አለመሆንዎን እንዲያረጋግጡ ሲጠይቅ፣ Arroxy የExplore መግቢያዎን ደግሞ ይሞክራል",
+    "**ሒሳብ የሚፈልጉ ማውረዶች** — በExplore ውስጥ አንድ ጊዜ ይግቡ እና FlickGrab ሒሳብዎ ማየት የሚችላቸውን የግል እና የአባላት-ብቻ ቪዲዮዎች፣ ሒሳቡ በዕድሜ ከተረጋገጠ ዕድሜ-የተገደቡ ቪዲዮዎች፣ እንዲሁም የWatch Later እና Liked ዝርዝሮችዎን ማውረድ ይችላል። FlickGrab አሁንም ሳይገባ ያወርዳል፣ እና የExplore መግቢያዎን የሚጠቀመው ማውረድ ሒሳብ ሊያስተካክለው በሚችል መንገድ ሲወድቅ ብቻ ነው። YouTube ቦት አለመሆንዎን እንዲያረጋግጡ ሲጠይቅ፣ FlickGrab የExplore መግቢያዎን ደግሞ ይሞክራል",
   feat_explore_4:
     "**ሁለተኛ ሒሳብ ይጠቀሙ** — የExplore የመጀመሪያ ማያ ለምን እንደሆነ ያብራራል፡ በሒሳብ ማውረድ ያ ሒሳብ የመገደብ የተወሰነ አደጋ አለው። መግቢያውን ለመርሳት በፈለጉት ጊዜ ከSettings ከExplore ይውጡ",
   feat_explore_5:
@@ -144,13 +144,13 @@ export const am = {
   feat_privacy_2: "ምንም ግባ፣ ምንም ኩኪ፣ ምንም Google ሒሳብ አልተያያዘም",
   feat_privacy_3: "ፋይሎች ወደ መረጡት አቃፊ ቀጥታ ተቀምጠዋል",
   feat_workflow_h3: "የሥራ ፍሰት",
-  feat_workflow_12: "**አጠቃላይ የማውረድ አቋራጭ** — በማንኛውም መተግበሪያ ውስጥ አገናኝ ይቅዱና `Ctrl+Shift+D` (በmacOS ላይ `Cmd+Shift+D`) ይጫኑ፤ Arroxy መስኮቱን ሳይከፍት በንቁ መገለጫዎ ወደ ወረፋ ያስገባዋል፣ ማሳወቂያም ያረጋግጣል። በነባሪ የነቃ፣ እንደገና ሊመደብ የሚችል",
+  feat_workflow_12: "**አጠቃላይ የማውረድ አቋራጭ** — በማንኛውም መተግበሪያ ውስጥ አገናኝ ይቅዱና `Ctrl+Shift+D` (በmacOS ላይ `Cmd+Shift+D`) ይጫኑ፤ FlickGrab መስኮቱን ሳይከፍት በንቁ መገለጫዎ ወደ ወረፋ ያስገባዋል፣ ማሳወቂያም ያረጋግጣል። በነባሪ የነቃ፣ እንደገና ሊመደብ የሚችል",
   feat_workflow_1:
     "**ተለዋዋጭ የመጀመሪያ ሁነታዎች** — የተመራ ነጠላ ማውረድ፣ የplaylist/channel መምረጫ፣ ብዙ URL መለጠፍ፣ በተቀመጡ ነባሪዎች Quick Download፣ ወይም ከExplore ማሰስና ማውረድ ይምረጡ",
   feat_workflow_2:
     "**ማዕከላዊ የማውረድ ወረፋ** — ነጠላ፣ playlist፣ bulk፣ ወይም quick ሥራ ሁሉ ለሂደት፣ ለማቆም፣ ለመቀጠል፣ ለመሰረዝ፣ እንደገና ለመሞከር እና ለቅድሚያ ቁጥጥር በአንድ ቦታ ይመጣል",
   feat_workflow_3:
-    "**ክሊፕቦርድ ክትትል** — YouTube ሊንክ ቅዱ እና Arroxy ወደ አፕ ሲመለሱ URL ን አውቶሜቲክ ይሙላሉ (በ Advanced settings ውስጥ ያብሩ/ያጥፉ)",
+    "**ክሊፕቦርድ ክትትል** — YouTube ሊንክ ቅዱ እና FlickGrab ወደ አፕ ሲመለሱ URL ን አውቶሜቲክ ይሙላሉ (በ Advanced settings ውስጥ ያብሩ/ያጥፉ)",
   feat_workflow_4:
     "**URL ን ራስ ሰር ያጥሩ** — ትራኪንግ ፓራሜትሮችን (`si`፣ `pp`፣ `utm_*`፣ `fbclid`፣ `gclid`) ያስወግዳሉ እና `youtube.com/redirect` ሊንኮችን ያሰናስሉ",
   feat_workflow_5: "**ትሬ ሁነታ** — መስኮቱን መዝጋት ማውረዶቹን በጀርባ ያስቀጥላሉ",
@@ -162,19 +162,19 @@ export const am = {
   feat_workflow_9:
     "**የፋይል ስም አብነቶች** — `{title}`፣ `{uploader}`፣ `{id}`፣ `{date}`፣ `{resolution}` እና `{playlist_index}` በመጠቀም ውርዶችዎን በፈለጉት መንገድ ይሰይሙ፤ በአጠቃላይ ወይም በእያንዳንዱ የማውረድ መገለጫ",
   feat_workflow_10:
-    "**በአንድ ጊዜ ዳውንሎዶች እና ራስ-ሰር ድጋሚ ሙከራ** — በአንድ ጊዜ ስንት የተሰለፉ ዳውንሎዶች እንደሚሄዱ ይምረጡ፣ እና የኔትወርክ ወይም የሰርቨር ችግር ያጋጠመውን ዳውንሎድ Arroxy በእያንዳንዱ ሙከራ መካከል ረዘም ብሎ በመጠበቅ እንደገና ይሞክር",
+    "**በአንድ ጊዜ ዳውንሎዶች እና ራስ-ሰር ድጋሚ ሙከራ** — በአንድ ጊዜ ስንት የተሰለፉ ዳውንሎዶች እንደሚሄዱ ይምረጡ፣ እና የኔትወርክ ወይም የሰርቨር ችግር ያጋጠመውን ዳውንሎድ FlickGrab በእያንዳንዱ ሙከራ መካከል ረዘም ብሎ በመጠበቅ እንደገና ይሞክር",
   feat_workflow_11:
     "**በአጫዋች ዝርዝር ውስጥ ለእያንዳንዱ ንጥል መገለጫ** — ለመላው ዝርዝር አንድ ቅንብር ከመጠቀም ይልቅ በአጫዋች ዝርዝር ውስጥ ላለ እያንዳንዱ ቪዲዮ የራሱን የማውረድ መገለጫ ይመድቡ፤ በአንድ ዙር አንዳንዶቹን በሙሉ ጥራት ማከማቸት እና ቀሪዎቹን እንደ MP3 መያዝ ይቻላል",
   feat_workflow_13:
     "**Quick Download በጀርባ ይሠራል** — ሊንኩ ወዲያውኑ በዳውንሎዶች ውስጥ ይታያል እና እዚያ ይዘጋጃል፣ **View** ያለው ማስታወሻ ያረጋግጣል፣ እና የURL መስክ ለቀጣዩ ሊንክ ይጸዳል። ቀዳሚዎቹ እየተዘጋጁ ሳለ የፈለጉትን ያህል ይጀምሩ",
   feat_workflow_14:
-    "**ዳውንሎዶች ምን እንደሚያስፈልግዎ ይነግርዎታል** — Arroxy ሊንክ ማንበብ ካልቻለ፣ ረድፉ ምክንያቱን ይናገራል እና መፍትሔውን ያቀርባል፡ እንደገና ሞክር፣ ኩኪዎችን ማብራት፣ ወይም በExplore መግባት። ኩኪዎች ሲጠፉ፣ ከገቡ በኋላ **በExplore ግባ** ለእርስዎ እንደገና ይሞክረዋል። ከጭነት ገደብዎ የሚረዝም playlist ሁሉንም፣ የመጀመሪያዎቹን ወይም ግምገማ እስኪመርጡ በረድፉ ላይ ይጠብቃል። የዳውንሎዶች ትር እርስዎን የሚጠብቁ ረድፎችን ይቆጥራል",
+    "**ዳውንሎዶች ምን እንደሚያስፈልግዎ ይነግርዎታል** — FlickGrab ሊንክ ማንበብ ካልቻለ፣ ረድፉ ምክንያቱን ይናገራል እና መፍትሔውን ያቀርባል፡ እንደገና ሞክር፣ ኩኪዎችን ማብራት፣ ወይም በExplore መግባት። ኩኪዎች ሲጠፉ፣ ከገቡ በኋላ **በExplore ግባ** ለእርስዎ እንደገና ይሞክረዋል። ከጭነት ገደብዎ የሚረዝም playlist ሁሉንም፣ የመጀመሪያዎቹን ወይም ግምገማ እስኪመርጡ በረድፉ ላይ ይጠብቃል። የዳውንሎዶች ትር እርስዎን የሚጠብቁ ረድፎችን ይቆጥራል",
   feat_workflow_15:
-    "**የቪዲዮውን አንድ ክፍል ብቻ ያውርዱ** — በቅርጸት ማያ ላይ መጀመሪያና መጨረሻ ወይም አንድ ምዕራፍ ይምረጡ፣ Arroxy ያንን ክልል ብቻ ያስቀምጣል፤ ስሙም ከቪዲዮ መታወቂያው በኋላ ክልሉን ይይዛል። ቁረጣዎች በቅርቡ ባለው ቁልፍ ፍሬም ላይ ያርፋሉ፤ በምትኩ ዳግም ኮድ ለማድረግ ትክክለኛ ቁረጣን ያብሩ",
+    "**የቪዲዮውን አንድ ክፍል ብቻ ያውርዱ** — በቅርጸት ማያ ላይ መጀመሪያና መጨረሻ ወይም አንድ ምዕራፍ ይምረጡ፣ FlickGrab ያንን ክልል ብቻ ያስቀምጣል፤ ስሙም ከቪዲዮ መታወቂያው በኋላ ክልሉን ይይዛል። ቁረጣዎች በቅርቡ ባለው ቁልፍ ፍሬም ላይ ያርፋሉ፤ በምትኩ ዳግም ኮድ ለማድረግ ትክክለኛ ቁረጣን ያብሩ",
   feat_workflow_16:
     "**የተጠናቀቁ ዳውንሎዶችን በራስ-ሰር አስወግድ** — አማራጭ፦ የተጠናቀቀ ዳውንሎድ ከ5 ሰከንድ በኋላ ከዝርዝሩ ይወጣል። ፋይሎቹ በዲስክ ላይ ይቀራሉ፣ የከሸፉ ዳውንሎዶች ደግሞ በዝርዝሩ ውስጥ ይቆያሉ",
   feat_workflow_17:
-    "**በዳውንሎዶች ውስጥ መጠን እና ጠፍቷል** — ሊደረደር የሚችል **መጠን** አምድ እያንዳንዱ ዳውንሎድ ምን ያህል ቦታ እንደሚይዝ ያሳያል፣ **ጠፍቷል** ደግሞ ከArroxy ውጭ የተንቀሳቀሱ ወይም የተሰረዙ ፋይሎችን ምልክት ያደርጋል",
+    "**በዳውንሎዶች ውስጥ መጠን እና ጠፍቷል** — ሊደረደር የሚችል **መጠን** አምድ እያንዳንዱ ዳውንሎድ ምን ያህል ቦታ እንደሚይዝ ያሳያል፣ **ጠፍቷል** ደግሞ ከFlickGrab ውጭ የተንቀሳቀሱ ወይም የተሰረዙ ፋይሎችን ምልክት ያደርጋል",
   feat_workflow_18:
     "**Aurora ወይም ቀላል፣ ጨለማ ወይም ብርሃን** — በሚንቀሳቀስ ሰማይ ላይ የመስታወት ፓነሎች፣ ወይም ጸጥ ያሉ ጠጣር ገጾች፤ ከግርጌ ይቀያይሩ። የግራፊክስ ማፋጠን የሌላቸው ኮምፒውተሮች ቀላልን በራስ-ሰር ያገኛሉ",
   feat_workflow_19:
@@ -197,7 +197,7 @@ export const am = {
   feat_sites_3:
     "**ኦዲዮ ብቻ እና ጽሑፍ ርዕሶች** ሁሉም ተደጋፊ ጣቢያዎች ላይ ይሠራሉ፣ YouTube ብቻ ሳይሆን",
   feat_sites_4:
-    "ጣቢያ ሲቀይር yt-dlp በሳምንት ውስጥ ማሻሻያዎችን ይልካሉ፣ Arroxy ደግሞ ሲጀምር binary ን ራስ-ሰር ያዘምናሉ",
+    "ጣቢያ ሲቀይር yt-dlp በሳምንት ውስጥ ማሻሻያዎችን ይልካሉ፣ FlickGrab ደግሞ ሲጀምር binary ን ራስ-ሰር ያዘምናሉ",
   shot1_cap: "<b>የፈጣን ማውረድ መነሻ</b><br/>URL ይለጥፉ እና በነቃ መገለጫዎ ወዲያውኑ ያውርዱ",
   shot2_cap:
     "<b>እንደገና ጥቅም ላይ የሚውሉ የማውረድ መገለጫዎች</b><br/>ቅርጸት፣ ጥራት እና ውጤትን እንደ ቅድመ-ቅንብር ያስቀምጡ — በእያንዳንዱ ማውረድ ይጠቀሙ",
@@ -206,17 +206,17 @@ export const am = {
   shot5_cap:
     "<b>የጅምላ URL ሁነታ</b><br/>ዝርዝር ይለጥፉ፣ ድግግሞሾችን በራስ-ሰር ያስወግዱ፣ ሁሉንም በአንድ ጊዜ ያሰልፉ",
   shot6_cap: "<b>ትይዩ የማውረድ ሰልፍ</b><br/>በቀጥታ እድገት ብዙ ማውረዶች በአንድ ጊዜ",
-  hotkey_fig_alt: "የArroxy አጠቃላይ የማውረድ አቋራጭ — በWindows እና Linux ላይ Ctrl+Shift+D፣ በmacOS ላይ Cmd+Shift+D፣ የተቀዳውን አገናኝ በቀጥታ ወደ ማውረጃ ወረፋ ይልካል",
+  hotkey_fig_alt: "የFlickGrab አጠቃላይ የማውረድ አቋራጭ — በWindows እና Linux ላይ Ctrl+Shift+D፣ በmacOS ላይ Cmd+Shift+D፣ የተቀዳውን አገናኝ በቀጥታ ወደ ማውረጃ ወረፋ ይልካል",
   hotkey_fig_cap: "<b>አጠቃላይ የማውረድ አቋራጭ</b><br/>የትም ቦታ አገናኝ ይቅዱ፣ አንድ ጊዜ ይጫኑ — ወደ ወረፋ ገብቶ ማውረድ ይጀምራል",
   shot7_cap: "<b>ለእያንዳንዱ ንጥል የአጫዋች ዝርዝር መገለጫዎች</b><br/>ለእያንዳንዱ ቪዲዮ የራሱን መገለጫ ይስጡ — አንዳንዶቹን በ4K ያከማቹ፣ ቀሪዎቹን እንደ MP3 ይያዙ",
   shot8_cap:
-    "<b>Explore</b><br/>YouTubeን በArroxy ውስጥ ያስሱ እና ያሉበትን ገጽ በንቁ መገለጫዎ ያውርዱ",
+    "<b>Explore</b><br/>YouTubeን በFlickGrab ውስጥ ያስሱ እና ያሉበትን ገጽ በንቁ መገለጫዎ ያውርዱ",
   shot9_cap:
     "<b>የExplore የመጀመሪያ ማያ</b><br/>ስለ Explore አጭር እይታ፣ እና ሁለተኛ ሒሳብ ለምን ደህንነቱ የተጠበቀ መግቢያ እንደሆነ",
   shot10_cap:
     "<b>ዳውንሎዶች ምን እንደሚያስፈልግዎ ይነግርዎታል</b><br/>ሊንኮች በጀርባ ይዘጋጃሉ፤ የወደቀው መፍትሔ ያቀርባል፣ ረጅም playlist ምርጫዎን ይጠብቃል",
   shot11_cap:
-    "<b>የቪዲዮውን የተወሰነ ክፍል ብቻ ያውርዱ</b><br/>መጀመሪያና መጨረሻ ወይም ምዕራፍ ይምረጡ — Arroxy ያንን ክልል ብቻ ያስቀምጣል",
+    "<b>የቪዲዮውን የተወሰነ ክፍል ብቻ ያውርዱ</b><br/>መጀመሪያና መጨረሻ ወይም ምዕራፍ ይምረጡ — FlickGrab ያንን ክልል ብቻ ያስቀምጣል",
   shot12_cap:
     "<b>የመገለጫ አርታዒ</b><br/>መገለጫን ያስተካክሉ፦ የፋይል ዓይነት፣ ጥራት፣ ንዑስ ርዕሶች፣ መድረሻ፣ የፋይል ስም አብነት እና ሌሎችም",
   shot13_cap:
@@ -253,23 +253,23 @@ export const am = {
     "**ምክር:** ለራስ ሰር ዝማኔዎች እና ፈጣን ጅምር NSIS ጫኝ ይጠቀሙ። ምንም ጫሌ፣ ምንም ሬጂስትሪ ለሌለው አማራጭ ተጓዥ `.exe` ይጠቀሙ።",
   dl_win_smartscreen_h4: "Windows SmartScreen ማስጠንቀቂያ",
   dl_win_smartscreen_intro:
-    'በመጀመሪያ ጊዜ ሲጀምሩ **"Windows protected your PC"** ወይም **"Unknown publisher"** ሊያዩ ይችላሉ። ይህ ለ `Arroxy-win-x64-Setup.exe` እና `Arroxy-win-x64-Portable.exe` ሁለቱም ይሠራሉ። Arroxy ነፃ እና ምን ኮድ ያለው ሲሆን የ Windows ቅጅዎቹ ባለ ክፍያ የምስክር ወረቀት ተፈርመዋ አይደሉም፣ ስለዚህ SmartScreen ያሳዩዋቸዋል። ይህ Arroxy ደህና ያልሆነ ማለት **አልሆነም**። ለቀጠሉ:',
+    'በመጀመሪያ ጊዜ ሲጀምሩ **"Windows protected your PC"** ወይም **"Unknown publisher"** ሊያዩ ይችላሉ። ይህ ለ `FlickGrab-win-x64-Setup.exe` እና `FlickGrab-win-x64-Portable.exe` ሁለቱም ይሠራሉ። FlickGrab ነፃ እና ምን ኮድ ያለው ሲሆን የ Windows ቅጅዎቹ ባለ ክፍያ የምስክር ወረቀት ተፈርመዋ አይደሉም፣ ስለዚህ SmartScreen ያሳዩዋቸዋል። ይህ FlickGrab ደህና ያልሆነ ማለት **አልሆነም**። ለቀጠሉ:',
   dl_win_smartscreen_step1: "**More info** ጠቅ ያድርጉ።",
   dl_win_smartscreen_step2: "**Run anyway** ጠቅ ያድርጉ።",
   dl_win_smartscreen_official:
-    "Arroxy'ን ከይፋዊው GitHub Releases ገጽ ብቻ ያውርዱ። ፋይሉን ሌላ ድር ጣቢያ ካወረዱ ወይም ሌሎች ከላኩልዎ፣ ሰርዘው ከይፋዊ ምንጩ አዲስ ቅጅ ያውርዱ። ምንጩ ህዝባዊ ስለሆነ ራስዎ ሊፈትሹ ወይም Arroxy'ን ሊሠሩ ይችላሉ።",
+    "FlickGrab'ን ከይፋዊው GitHub Releases ገጽ ብቻ ያውርዱ። ፋይሉን ሌላ ድር ጣቢያ ካወረዱ ወይም ሌሎች ከላኩልዎ፣ ሰርዘው ከይፋዊ ምንጩ አዲስ ቅጅ ያውርዱ። ምንጩ ህዝባዊ ስለሆነ ራስዎ ሊፈትሹ ወይም FlickGrab'ን ሊሠሩ ይችላሉ።",
   dl_macos_h3: "በ macOS ላይ ለመጀመሪያ ጊዜ አስጀምር",
   dl_macos_warning:
-    "Arroxy እስካሁን ኮድ አልተፈረመም፣ ስለዚህ macOS Gatekeeper በመጀመሪያ ማስነሳት የተጎዳ መተግበሪያ ማስጠንቀቂያ ሊያሳይ ይችላል። ይህ የሚጠበቅ ነው — ፋይሎቹ በእውነት ተጎድተዋል ማለት አይደለም።",
+    "FlickGrab እስካሁን ኮድ አልተፈረመም፣ ስለዚህ macOS Gatekeeper በመጀመሪያ ማስነሳት የተጎዳ መተግበሪያ ማስጠንቀቂያ ሊያሳይ ይችላል። ይህ የሚጠበቅ ነው — ፋይሎቹ በእውነት ተጎድተዋል ማለት አይደለም።",
   dl_macos_m1_h4: "የTerminal ዘዴ:",
-  dl_macos_step1: "ከተከፈተው DMG `Arroxy.app`ን ወደ `/Applications` ይጎትቱ።",
+  dl_macos_step1: "ከተከፈተው DMG `FlickGrab.app`ን ወደ `/Applications` ይጎትቱ።",
   dl_macos_step2:
-    "Terminal ይክፈቱና `sudo xattr -dr com.apple.quarantine /Applications/Arroxy.app` ያስኪዱ።",
-  dl_macos_step3: "`open /Applications/Arroxy.app` ያስኪዱ።",
+    "Terminal ይክፈቱና `sudo xattr -dr com.apple.quarantine /Applications/FlickGrab.app` ያስኪዱ።",
+  dl_macos_step3: "`open /Applications/FlickGrab.app` ያስኪዱ።",
   dl_macos_step4:
-    "የapp መንገድ ከተለየ፣ `/Applications/Arroxy.app`ን በጫኑበት መንገድ ይተኩ።",
+    "የapp መንገድ ከተለየ፣ `/Applications/FlickGrab.app`ን በጫኑበት መንገድ ይተኩ።",
   dl_macos_step5: "`sudo` ከጠየቀ የMac የይለፍ ቃልዎን ያስገቡ።",
-  dl_macos_after: "quarantine ከተወገደ በኋላ Arroxy በመደበኛ ሁኔታ ይከፈታል።",
+  dl_macos_after: "quarantine ከተወገደ በኋላ FlickGrab በመደበኛ ሁኔታ ይከፈታል።",
   dl_macos_m2_h4: "የTerminal ዘዴ:",
   dl_macos_note:
     "macOS ሕንጻዎች ከ Apple Silicon እና Intel ሩጫዎች በ CI ላይ ይሠራሉ። ችግር ካጋጠምዎ፣ [ጉዳይ ይክፈቱ](../../issues) — ከ macOS ተጠቃሚዎች ያለው ምላሽ የ macOS ፈተና ዑደቱን ቀጥታ ይቀርፃሉ።",
@@ -285,9 +285,9 @@ export const am = {
   dl_linux_arch_note: "**በተለቀቀው ገጽ ላይ ያሉት የሊኑክስ ማውረጃዎች x86_64 ብቻ ናቸው።** በARM64 ማሽኖች (Raspberry Pi፣ Asahi Linux) ላይ Flatpak ይጫናል ግን ሲጀመር በ`bwrap: execvp ldconfig: Exec format error` ይወድቃል።",
   dl_warning_h3: "ለምን ማስጠንቀቂያ ሊታዩዎ ይችላሉ",
   dl_warning_p1:
-    "Arroxy ምን ኮድ ያለው (open-source) እና MIT ፈቃድ ያለው ነው። የ Windows እና macOS ቅጅዎቹ **ኮድ አልተፈረመባቸውም** — Apple Developer ID እና Windows EV ኮድ-ፊርማ ሰርቲፊኬቶቹ እያንዳንዳቸው በዓመት በመቶዎች ዶላር ያስወጣሉ፣ ይህ ነጻ ፕሮጀክት ከኪሳቸው ይከፍላሉ። ያነዚህ ፊርሞች ሳይኖሩ፣ Windows SmartScreen እና macOS Gatekeeper በመጀመሪያ አስጀማሪ ያስጠነቅቋቸዋል። ማስጠንቀቂያዎቹ *ሥርዓተ ክወናዎ ናሸርን አይለይም* ማለት ናቸው — Arroxy ተንኮል-አዘል ሶፍትዌር ነው ማለት አይደሉም።",
+    "FlickGrab ምን ኮድ ያለው (open-source) እና MIT ፈቃድ ያለው ነው። የ Windows እና macOS ቅጅዎቹ **ኮድ አልተፈረመባቸውም** — Apple Developer ID እና Windows EV ኮድ-ፊርማ ሰርቲፊኬቶቹ እያንዳንዳቸው በዓመት በመቶዎች ዶላር ያስወጣሉ፣ ይህ ነጻ ፕሮጀክት ከኪሳቸው ይከፍላሉ። ያነዚህ ፊርሞች ሳይኖሩ፣ Windows SmartScreen እና macOS Gatekeeper በመጀመሪያ አስጀማሪ ያስጠነቅቋቸዋል። ማስጠንቀቂያዎቹ *ሥርዓተ ክወናዎ ናሸርን አይለይም* ማለት ናቸው — FlickGrab ተንኮል-አዘል ሶፍትዌር ነው ማለት አይደሉም።",
   dl_warning_p2:
-    "Arroxy ን ራስዎ ለማረጋገጥ ሦስት መንገዶች፣ ከፍ እያለ በሚሄድ ጥብቅነት:\n\n- **ምንጩን ያንብቡ።** ሁሉም መስመሮች [GitHub](https://github.com/antonio-orionus/Arroxy) ላይ ናቸው፣ እናም [ከምንጩ ሊሠሩ](#tech) ይችላሉ።\n- **SHA256ን ያረጋግጡ።** ፋይልዎን ከታተሙት [`SHA256SUMS`](../../releases/latest) ጋር ያዛምዱ — ከዚህ በታች [ማውረዱን ያረጋግጡ](#verify) ይመልከቱ።\n- **የሦስተኛ ወገን ቅኝት ያካሂዱ።** ፋይሉን ወደ [VirusTotal](https://www.virustotal.com) ይጫኑ።",
+    "FlickGrab ን ራስዎ ለማረጋገጥ ሦስት መንገዶች፣ ከፍ እያለ በሚሄድ ጥብቅነት:\n\n- **ምንጩን ያንብቡ።** ሁሉም መስመሮች [GitHub](https://github.com/antonio-orionus/FlickGrab) ላይ ናቸው፣ እናም [ከምንጩ ሊሠሩ](#tech) ይችላሉ።\n- **SHA256ን ያረጋግጡ።** ፋይልዎን ከታተሙት [`SHA256SUMS`](../../releases/latest) ጋር ያዛምዱ — ከዚህ በታች [ማውረዱን ያረጋግጡ](#verify) ይመልከቱ።\n- **የሦስተኛ ወገን ቅኝት ያካሂዱ።** ፋይሉን ወደ [VirusTotal](https://www.virustotal.com) ይጫኑ።",
 
   dl_win_first_h3: "Windows ላይ ለመጀመሪያ ጊዜ አስጀምር",
   shot_smartscreen_more_alt:
@@ -296,32 +296,32 @@ export const am = {
     'More info ከተከፈተ በኋላ SmartScreen መልዕክት ሳጥን፣ "Run anyway" ቁልፍ ከሚታይ ጋር',
   dl_win_defender_h4: "Windows Defender ፋይሉን ቢሰምናቸው ወይም ቢያስወግዳቸው",
   dl_win_defender_p:
-    "Defender ሂዩሪስቲክስ አንዳንድ ጊዜ ያልተፈረሙ NSIS ጫኞችን እና Electron ተጓዥዎችን ጥርጣሬ አዘል ብሎ ሊሰምናቸው ይችላሉ። Defender `Arroxy-win-x64-Setup.exe` ወይም `Arroxy-win-x64-Portable.exe` ን ካቆጠቆጠ፣ ከ **Windows Security → Virus & threat protection → Protection history** ይመልሱ፣ ከዛ Arroxy ን ሊፈጸም የሚችልን ፋይል **Manage settings → Add or remove exclusions** ስር ፈቀደ ሆኖ ያክሉ። እንደ SmartScreen ሁሉ፣ ምክንያቱ አልተገኘ ተንኮል-አዘል ሶፍትዌር ሳይሆን የጎደለ ናሸር ፊርማ ነው።",
+    "Defender ሂዩሪስቲክስ አንዳንድ ጊዜ ያልተፈረሙ NSIS ጫኞችን እና Electron ተጓዥዎችን ጥርጣሬ አዘል ብሎ ሊሰምናቸው ይችላሉ። Defender `FlickGrab-win-x64-Setup.exe` ወይም `FlickGrab-win-x64-Portable.exe` ን ካቆጠቆጠ፣ ከ **Windows Security → Virus & threat protection → Protection history** ይመልሱ፣ ከዛ FlickGrab ን ሊፈጸም የሚችልን ፋይል **Manage settings → Add or remove exclusions** ስር ፈቀደ ሆኖ ያክሉ። እንደ SmartScreen ሁሉ፣ ምክንያቱ አልተገኘ ተንኮል-አዘል ሶፍትዌር ሳይሆን የጎደለ ናሸር ፊርማ ነው።",
 
   dl_macos_first_h3: "macOS ላይ ለመጀመሪያ ጊዜ አስጀምር",
   dl_macos_intro:
-    "Arroxy ለ macOS እስካሁን ኮድ አልተፈረመም፣ ስለዚህ Gatekeeper ከ DMG ከጫኑት በኋላ አስፈሪውን *\"Arroxy.app is damaged and can't be opened\"* መልዕክት ሊያሳይ ይችላል። ይህ መልዕክት macOS ያልተፈረመ app በquarantine ውስጥ አስገብቶታል ማለት ነው፤ የapp ፋይሎች በእውነት ተጎድተዋል ማለት አይደለም። በአሁኑ macOS ላይ አስተማማኙ መፍትሔ Terminal ነው:",
+    "FlickGrab ለ macOS እስካሁን ኮድ አልተፈረመም፣ ስለዚህ Gatekeeper ከ DMG ከጫኑት በኋላ አስፈሪውን *\"FlickGrab.app is damaged and can't be opened\"* መልዕክት ሊያሳይ ይችላል። ይህ መልዕክት macOS ያልተፈረመ app በquarantine ውስጥ አስገብቶታል ማለት ነው፤ የapp ፋይሎች በእውነት ተጎድተዋል ማለት አይደለም። በአሁኑ macOS ላይ አስተማማኙ መፍትሔ Terminal ነው:",
   dl_macos_sequoia_h4: "ለአሁኑ macOS የTerminal መፍትሔ",
   dl_macos_sequoia_intro:
-    "Arroxyን ወደ Applications ከገለበጡ በኋላ Terminal ይጠቀሙ:",
+    "FlickGrabን ወደ Applications ከገለበጡ በኋላ Terminal ይጠቀሙ:",
   dl_macos_sequoia_step1:
-    "ከተቀጠለው DMG ውስጥ `Arroxy.app` ን ወደ `/Applications` ጎትቱ።",
+    "ከተቀጠለው DMG ውስጥ `FlickGrab.app` ን ወደ `/Applications` ጎትቱ።",
   dl_macos_sequoia_step2:
     "Terminal ይክፈቱና እነዚህን ሁለት ትዕዛዞች ያስኪዱ:",
   dl_macos_sequoia_step3:
-    "Arroxyን ለማስነሳት `open /Applications/Arroxy.app` ያስኪዱ።",
+    "FlickGrabን ለማስነሳት `open /Applications/FlickGrab.app` ያስኪዱ።",
   dl_macos_sequoia_step4:
-    "የapp መንገድ ከተለየ፣ `/Applications/Arroxy.app`ን በጫኑበት መንገድ ይተኩ።",
+    "የapp መንገድ ከተለየ፣ `/Applications/FlickGrab.app`ን በጫኑበት መንገድ ይተኩ።",
   dl_macos_sonoma_h4: "ለአሮጌ macOS የTerminal መፍትሔ",
   dl_macos_sonoma_step1:
-    "ከተቀጠለው DMG ውስጥ `Arroxy.app` ን ወደ `/Applications` ጎትቱ።",
+    "ከተቀጠለው DMG ውስጥ `FlickGrab.app` ን ወደ `/Applications` ጎትቱ።",
   dl_macos_sonoma_step2:
-    "Terminal ይክፈቱና quarantine ከ `/Applications/Arroxy.app` ያስወግዱ።",
+    "Terminal ይክፈቱና quarantine ከ `/Applications/FlickGrab.app` ያስወግዱ።",
   dl_macos_sonoma_step3:
-    "quarantine ከተወገደ በኋላ Arroxyን ከTerminal ወይም Finder ያስነሱ።",
+    "quarantine ከተወገደ በኋላ FlickGrabን ከTerminal ወይም Finder ያስነሱ።",
   dl_macos_damaged_h4: "የGatekeeper quarantine መፍትሔ",
   dl_macos_damaged_p:
-    "የመጀመሪያው ትዕዛዝ ከተጫነው የArroxy ቅጂዎ quarantine attribute ያስወግዳል። ሁለተኛው appን ያስነሳል። `sudo` የMac የይለፍ ቃልዎን ሊጠይቅ ይችላል፤ Terminal ሲጻፍ ምልክቶችን አያሳይም።",
+    "የመጀመሪያው ትዕዛዝ ከተጫነው የFlickGrab ቅጂዎ quarantine attribute ያስወግዳል። ሁለተኛው appን ያስነሳል። `sudo` የMac የይለፍ ቃልዎን ሊጠይቅ ይችላል፤ Terminal ሲጻፍ ምልክቶችን አያሳይም።",
   dl_macos_arch_note:
     "**Apple Silicon vs Intel:** M-ሰሪ Mac ላይ (M1 / M2 / M3 / M4)፣ `arm64` DMG ያውርዱ። Intel Mac ላይ፣ `x64` DMG ያውርዱ። የተሳሳተ ቅጅ ማሂደት Rosetta በኩል ይሠራሉ ነገር ግን በግልጽ ዘገምተኛ ነው።",
 
@@ -345,7 +345,7 @@ export const am = {
   privacy_p2:
     "ቴሌሜትሪ የለም — በቀን አንድ ስም-አልባ ምልክት ብቻ፦ የአፕ ስሪት፣ OS፣ ቋንቋ፣ የመጫኛ ቻናል እና ሀገር፣ ንቁ ተጠቃሚዎችን ለመቁጠር። ምንም ID፣ URLs፣ የቪዲዮ ርዕሶች፣ የፋይል መንገዶች ወይም የመለያ መረጃ የለም። በSettings ውስጥ ማጥፋት ይችላሉ።",
   privacy_p3:
-    "Explore ከbrowserዎ የተለየ የራሱን መግቢያ ይይዛል፣ እና Arroxy የመግቢያ ቅጹን ፈጽሞ አያነብም ወይም አይሞላም — እርስዎ በGoogle የራሱ ገጽ ላይ ይተይባሉ። ማውረዶች ሳይገቡ ይሠራሉ፤ ማውረድ ሒሳብ ሊያስተካክለው በሚችል መንገድ ሲወድቅ ብቻ Arroxy መግቢያውን እንደገና ያነባል፣ ለዚያ ማውረድ በጊዜያዊ ፋይል ውስጥ ያቆየዋል፣ እና በኋላ ፋይሉን ይሰርዛል። በSettings ውስጥ ከExplore መውጣት ይረሳዋል።",
+    "Explore ከbrowserዎ የተለየ የራሱን መግቢያ ይይዛል፣ እና FlickGrab የመግቢያ ቅጹን ፈጽሞ አያነብም ወይም አይሞላም — እርስዎ በGoogle የራሱ ገጽ ላይ ይተይባሉ። ማውረዶች ሳይገቡ ይሠራሉ፤ ማውረድ ሒሳብ ሊያስተካክለው በሚችል መንገድ ሲወድቅ ብቻ FlickGrab መግቢያውን እንደገና ያነባል፣ ለዚያ ማውረድ በጊዜያዊ ፋይል ውስጥ ያቆየዋል፣ እና በኋላ ፋይሉን ይሰርዛል። በSettings ውስጥ ከExplore መውጣት ይረሳዋል።",
   faq_q1: "በርግጥ ነፃ ነው?",
   faq_a1: "አዎ — MIT ፈቃድ አለው፣ ምንም ፕሪሚየም ደረጃ፣ ምንም ባህሪ ቁጥጥር የለም።",
   faq_q2: "ምን ዓይነት ቪዲዮ ጥራቶች ማውረድ እችላሉ?",
@@ -355,13 +355,13 @@ export const am = {
   faq_a3: "አዎ። በፎርማት ሜኑ ውስጥ *ኦዲዮ ብቻ* ምረጥ እና MP3፣ M4A/AAC፣ Opus ወይም WAV ምረጥ።",
   faq_q4: "YouTube ሒሳብ የሚፈልጉ ቪዲዮዎችን እንዴት አወርዳለሁ?",
   faq_a4:
-    "በExplore ትር ውስጥ አንድ ጊዜ ይግቡ። ከዚያ Arroxy ሒሳብዎ ማየት የሚችላቸውን የግል እና የአባላት-ብቻ ቪዲዮዎች፣ ሒሳቡ በዕድሜ ከተረጋገጠ ዕድሜ-የተገደቡ ቪዲዮዎች፣ እንዲሁም የWatch Later እና Liked ዝርዝሮችዎን ማውረድ ይችላል። መግቢያውን የሚጠቀመው ማውረድ ሒሳብ ሊያስተካክለው በሚችል መንገድ ሲወድቅ ብቻ ነው፤ የቀረው ሁሉ እንደ ቀድሞው ይወርዳል። ይህ **Explore መግቢያ** ምርጫ ነው፣ በኩኪ ቅንብሮች ውስጥ መጀመሪያ የተዘረዘረ እና Recommended ተብሎ የተመለከተ፣ እና Explore ለመጀመሪያ ጊዜ ሲከፍቱ Arroxy ራሱ ይመርጣል። የ yt-dlp ዊኪ [በመግቢያ የሚደረግ አውቶሜሽን የ Google ሒሳብን ሊያመለክት እንደሚችል](https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies) ያስታውቃል፣ ስለዚህ ሁለተኛ ሒሳብ ጥንቃቄ ያለው ምርጫ ነው።",
+    "በExplore ትር ውስጥ አንድ ጊዜ ይግቡ። ከዚያ FlickGrab ሒሳብዎ ማየት የሚችላቸውን የግል እና የአባላት-ብቻ ቪዲዮዎች፣ ሒሳቡ በዕድሜ ከተረጋገጠ ዕድሜ-የተገደቡ ቪዲዮዎች፣ እንዲሁም የWatch Later እና Liked ዝርዝሮችዎን ማውረድ ይችላል። መግቢያውን የሚጠቀመው ማውረድ ሒሳብ ሊያስተካክለው በሚችል መንገድ ሲወድቅ ብቻ ነው፤ የቀረው ሁሉ እንደ ቀድሞው ይወርዳል። ይህ **Explore መግቢያ** ምርጫ ነው፣ በኩኪ ቅንብሮች ውስጥ መጀመሪያ የተዘረዘረ እና Recommended ተብሎ የተመለከተ፣ እና Explore ለመጀመሪያ ጊዜ ሲከፍቱ FlickGrab ራሱ ይመርጣል። የ yt-dlp ዊኪ [በመግቢያ የሚደረግ አውቶሜሽን የ Google ሒሳብን ሊያመለክት እንደሚችል](https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies) ያስታውቃል፣ ስለዚህ ሁለተኛ ሒሳብ ጥንቃቄ ያለው ምርጫ ነው።",
   faq_q5: "YouTube ሲቀያየር አሁንም ይሠራሉ?",
   faq_a5:
-    "yt-dlp በማስነሻ ላይ ራስ ሰር ይዘመናሉ፣ እናም YouTube አንድ ነገር ሲቀይር Arroxy እርማቶችን በፍጥነት ያደርሳሉ። YouTube ቦት አለመሆንዎን እንዲያረጋግጡ ሲጠይቅ፣ እዚያ ከገቡ Arroxy የExplore መግቢያዎን ደግሞ ይሞክራል፣ እና ከፋይል ወይም ከbrowser የሚመጡ ኩኪዎች በኩኪ ቅንብሮች ውስጥ ይገኛሉ።",
-  faq_q6: "Arroxy በምን ቋንቋዎች ይገኛሉ?",
+    "yt-dlp በማስነሻ ላይ ራስ ሰር ይዘመናሉ፣ እናም YouTube አንድ ነገር ሲቀይር FlickGrab እርማቶችን በፍጥነት ያደርሳሉ። YouTube ቦት አለመሆንዎን እንዲያረጋግጡ ሲጠይቅ፣ እዚያ ከገቡ FlickGrab የExplore መግቢያዎን ደግሞ ይሞክራል፣ እና ከፋይል ወይም ከbrowser የሚመጡ ኩኪዎች በኩኪ ቅንብሮች ውስጥ ይገኛሉ።",
+  faq_q6: "FlickGrab በምን ቋንቋዎች ይገኛሉ?",
   faq_a6:
-    "{{LANG_COUNT}} ቋንቋዎች ወዲያውኑ ይገኛሉ፦ {{LANG_NAME_LIST}}። Arroxy በመጀመሪያ ሲጀመር የእርስዎን የስርዓተ ክወና ቋንቋ በራስ-ሰር ያውቃል፣ እና በመሳሪያ አሞሌው ውስጥ ካለው ቋንቋ መራጭ በማንኛውም ጊዜ መቀየር ይችላሉ። Runtime locale JSON በ src/shared/i18n/locales/ ውስጥ ይኖራል፣ የተርጓሚዎች PO ካታሎጎች ደግሞ በ i18n/locales/ ውስጥ ይኖራሉ — ለመሳተፍ GitHub ላይ PR ይክፈቱ።",
+    "{{LANG_COUNT}} ቋንቋዎች ወዲያውኑ ይገኛሉ፦ {{LANG_NAME_LIST}}። FlickGrab በመጀመሪያ ሲጀመር የእርስዎን የስርዓተ ክወና ቋንቋ በራስ-ሰር ያውቃል፣ እና በመሳሪያ አሞሌው ውስጥ ካለው ቋንቋ መራጭ በማንኛውም ጊዜ መቀየር ይችላሉ። Runtime locale JSON በ src/shared/i18n/locales/ ውስጥ ይኖራል፣ የተርጓሚዎች PO ካታሎጎች ደግሞ በ i18n/locales/ ውስጥ ይኖራሉ — ለመሳተፍ GitHub ላይ PR ይክፈቱ።",
   faq_q7: "ሌላ ነገር ጫን ያስፈልጋሉ?",
   faq_a7:
     "አይ። yt-dlp በመጀመሪያ አስጀማሪ ራስ-ሰር ይወርዳል እና በማሽንዎ ላይ ይቀመጣል፤ ffmpeg እና ffprobe ከአፑ ጋር ይመጣሉ። ከዚያ ተጨማሪ setup አያስፈልግም።",
@@ -370,7 +370,7 @@ export const am = {
     "አዎ — ሁለቱም። የplaylist ወይም channel URL ይለጥፉ (ለምሳሌ `youtube.com/@handle`, `/channel/UC…`, `/c/Name`, `/user/Old`); ስንት ግቤቶች እንዲቃኙ ይምረጡ፣ ከዚያም ሙሉውን ዝርዝር ወደ ወረፋ ያክሉ ወይም ቪዲዮዎችን በተናጠል ይምረጡ። የቀን ክልል ማጣሪያዎች በቅርቡ ይመጣሉ።",
   faq_q9: 'macOS "አፕ ተጎድቷል" ይላሉ — ምን ማድረግ አለብኝ?',
   faq_a9:
-    "ያ macOS Gatekeeper ያልተፈረመ app እየከለከለ ነው፣ እውነተኛ ጉዳት አይደለም። quarantine ለማስወገድ እና Arroxyን ለማስነሳት የTerminal ትዕዛዞችን በ[macOS first launch](#macos-first-launch) ይመልከቱ።",
+    "ያ macOS Gatekeeper ያልተፈረመ app እየከለከለ ነው፣ እውነተኛ ጉዳት አይደለም። quarantine ለማስወገድ እና FlickGrabን ለማስነሳት የTerminal ትዕዛዞችን በ[macOS first launch](#macos-first-launch) ይመልከቱ።",
   faq_q10: "YouTube ቪዲዮዎች ማውረድ ሕጋዊ ነው?",
   faq_a10:
     "ለግል፣ ሚስጥራዊ አጠቃቀም በአብዛኛዎቹ ዳኝነቶች ተቀባይነት ያለው ነው። የ YouTube [የአገልግሎት ደንቦቹን](https://www.youtube.com/t/terms) እና የቦታዎ የቅጂ መብት ሕጎቹን ማክበር ኃላፊነትዎ ነው።",
@@ -394,11 +394,11 @@ export const am = {
   plan_r9_desc: "በArch Linux እና Omarchy ላይ በ`yay -S arroxy-bin` ይጫኑ",
   plan_cta: "ባህሪ ሀሳብ አለዎ? [ጥያቄ ይክፈቱ](../../issues) — ማህበረሰቡ አስተዋጽኦ ቅድሚያ ይወስናሉ።",
   tech_content: TECH_CONTENT,
-  support_h2: "Arroxy ይደግፉ",
-  support_note: "Arroxy ነፃ ነው እና በMIT ፈቃድ ይሰራጫል — ማስታወቂያ የለም፣ ቴሌሜትሪ የለም፣ የሚከፈልበት እትም የለም። ጊዜዎን የሚቆጥብ ከሆነ ልማቱን በBitcoin ወይም በTron መደገፍ ይችላሉ፦ አድራሻዎቹ በ[DONATE.md](DONATE.md) ውስጥ ይገኛሉ፣ እርሱም ብቸኛው ይፋዊ ምንጫቸው ነው። Arroxy በኢሜይል ወይም በቀጥታ መልእክት አድራሻ በፍጹም አይልክልዎትም። ማከማቻውን በኮከብ ምልክት ማድረግ፣ ስህተቶችን ማሳወቅ እና ትርጉሞችን ማሻሻል እኩል ይረዳሉ።",
+  support_h2: "FlickGrab ይደግፉ",
+  support_note: "FlickGrab ነፃ ነው እና በMIT ፈቃድ ይሰራጫል — ማስታወቂያ የለም፣ ቴሌሜትሪ የለም፣ የሚከፈልበት እትም የለም። ጊዜዎን የሚቆጥብ ከሆነ ልማቱን በBitcoin ወይም በTron መደገፍ ይችላሉ፦ አድራሻዎቹ በ[DONATE.md](DONATE.md) ውስጥ ይገኛሉ፣ እርሱም ብቸኛው ይፋዊ ምንጫቸው ነው። FlickGrab በኢሜይል ወይም በቀጥታ መልእክት አድራሻ በፍጹም አይልክልዎትም። ማከማቻውን በኮከብ ምልክት ማድረግ፣ ስህተቶችን ማሳወቅ እና ትርጉሞችን ማሻሻል እኩል ይረዳሉ።",
   tos_h2: "የአጠቃቀም ደንቦች",
   tos_note:
-    "Arroxy ለግል፣ ሚስጥራዊ አጠቃቀም ብቻ ሶፍትዌር ነው። ማውረዶቹ የ YouTube [የአገልግሎት ደንቦቹን](https://www.youtube.com/t/terms) እና የቦታዎ የቅጂ መብት ሕጎቹን ማክበር ሙሉ ኃላፊነትዎ ነው። Arroxy ን ለማውረድ፣ ለማባዛት ወይም ሊጠቀሙበት የማይፈቅዱ ይዘቶችን ለማሰራጨት አይጠቀሙ። ገንቢዎቹ ለምን ዓይነት አላግባብ አጠቃቀም ኃላፊነት አይወስዱም።",
+    "FlickGrab ለግል፣ ሚስጥራዊ አጠቃቀም ብቻ ሶፍትዌር ነው። ማውረዶቹ የ YouTube [የአገልግሎት ደንቦቹን](https://www.youtube.com/t/terms) እና የቦታዎ የቅጂ መብት ሕጎቹን ማክበር ሙሉ ኃላፊነትዎ ነው። FlickGrab ን ለማውረድ፣ ለማባዛት ወይም ሊጠቀሙበት የማይፈቅዱ ይዘቶችን ለማሰራጨት አይጠቀሙ። ገንቢዎቹ ለምን ዓይነት አላግባብ አጠቃቀም ኃላፊነት አይወስዱም።",
   footer_credit:
     'MIT License · Made with care by <a href="https://x.com/OrionusAI">@OrionusAI</a>',
 };

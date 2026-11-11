@@ -80,8 +80,8 @@ jobs:
             dist-cmd: dist:linux:dir
           - os: macos-latest
             dist-cmd: dist:mac:arm64:dir
-          - os: windows-latest
-            dist-cmd: dist:win:dir
+#          - os: windows-latest
+#            dist-cmd: dist:win:dir
     runs-on: ${{ matrix.os }}
     timeout-minutes: 45
     steps:

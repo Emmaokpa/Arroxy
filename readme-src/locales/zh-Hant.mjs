@@ -39,7 +39,7 @@ brew install mise
 xcode-select --install
 \`\`\`
 
-克隆後，在 checkout 中執行 \`mise trust && mise install\`。如果你的 shell 已經使用 \`fnm\`、\`nvm\` 或 Homebrew Bun，請在 \`~/.zshrc\` 中啟用 mise，讓 Arroxy 使用 Node.js 24.21.0 和 Bun 1.4.2：
+克隆後，在 checkout 中執行 \`mise trust && mise install\`。如果你的 shell 已經使用 \`fnm\`、\`nvm\` 或 Homebrew Bun，請在 \`~/.zshrc\` 中啟用 mise，讓 FlickGrab 使用 Node.js 24.21.0 和 Bun 1.4.2：
 
 \`\`\`bash
 printf '\n# mise\nif command -v mise >/dev/null 2>&1; then\n  eval "$(mise activate zsh)"\nfi\n' >> ~/.zshrc
@@ -61,8 +61,8 @@ sudo apt install -y xvfb
 ### 克隆並執行
 
 \`\`\`bash
-git clone https://github.com/antonio-orionus/Arroxy
-cd Arroxy
+git clone https://github.com/antonio-orionus/FlickGrab
+cd FlickGrab
 mise trust
 mise install           # 推薦；如果已手動啟用固定版本工具，可跳過
 bun run bootstrap
@@ -78,14 +78,14 @@ bun run dist         # 為目前系統打包
 bun run dist:win     # 在受支援的主機上打包 Windows 目標
 \`\`\`
 
-> \`bun run bootstrap\` 會安裝依賴、重建 Electron 應用程式程式依賴、驗證 Electron、為開發準備嵌入式 ffmpeg/ffprobe，並安裝 Playwright Chromium。yt-dlp 在執行時由應用程式資料目錄管理；ffmpeg 和 ffprobe 隨每個 Arroxy 版本一起提供。
+> \`bun run bootstrap\` 會安裝依賴、重建 Electron 應用程式程式依賴、驗證 Electron、為開發準備嵌入式 ffmpeg/ffprobe，並安裝 Playwright Chromium。yt-dlp 在執行時由應用程式資料目錄管理；ffmpeg 和 ffprobe 隨每個 FlickGrab 版本一起提供。
 
 </details>`;
 
 export const zhHant = {
-  icon_alt: "Arroxy 吉祥物",
+  icon_alt: "FlickGrab 吉祥物",
   title:
-    "Arroxy — 免費開源 YouTube（+ 2000 個網站）下載工具，支援 Windows、macOS 和 Linux",
+    "FlickGrab — 免費開源 YouTube（+ 2000 個網站）下載工具，支援 Windows、macOS 和 Linux",
   read_in_label: "閱讀語言：",
   badge_release_alt: "釋出",
   badge_build_alt: "建置",
@@ -99,11 +99,11 @@ export const zhHant = {
     "從 **YouTube 和 2000+ 個支援的網站**下載影片、Shorts、音樂、頻道、Podcast或音軌 — 最高 4K HDR 60 fps，或匯出為 MP3 / AAC / Opus。在 Windows、macOS 和 Linux 本機執行。**無廣告、無臃腫、無付費推銷。**",
   cta_latest: "↓ 下載最新版本",
   cta_website: "官網",
-  star_cta: "如果 Arroxy 幫你節省了時間，點個 ⭐ 讓更多人發現它。",
+  star_cta: "如果 FlickGrab 幫你節省了時間，點個 ⭐ 讓更多人發現它。",
   ai_notice:
     "> 🌐 這是 AI 輔助翻譯。[英文 README](README.md) 是內容基準。發現錯誤？歡迎 [建立 PR](../../pulls)。",
   toc_heading: "目錄",
-  why_h2: "為什麼選 Arroxy",
+  why_h2: "為什麼選 FlickGrab",
   features_h2: "功能",
   dl_h2: "安裝和首次啟動",
   privacy_h2: "隱私",
@@ -118,17 +118,17 @@ export const zhHant = {
   why_r6: "跨平台桌面應用程式",
   why_r7: "字幕 + SponsorBlock",
   why_summary:
-    "Arroxy 只做一件事：貼上連結，取得乾淨的本機檔案。無付費推銷、無資料收集。",
-  feat_explore_h3: "Explore：在 Arroxy 內瀏覽 YouTube",
+    "FlickGrab 只做一件事：貼上連結，取得乾淨的本機檔案。無付費推銷、無資料收集。",
+  feat_explore_h3: "Explore：在 FlickGrab 內瀏覽 YouTube",
   feat_explore_1:
-    "**Explore 分頁** — 在 Arroxy 內瀏覽 YouTube，不必複製連結就能下載你找到的內容。**下載 · *你的設定*** 會把你正在看的影片、播放清單或頻道加入佇列；旁邊的箭頭可切換設定，魔術棒則開啟逐步下載，讓你選擇格式、字幕等",
+    "**Explore 分頁** — 在 FlickGrab 內瀏覽 YouTube，不必複製連結就能下載你找到的內容。**下載 · *你的設定*** 會把你正在看的影片、播放清單或頻道加入佇列；旁邊的箭頭可切換設定，魔術棒則開啟逐步下載，讓你選擇格式、字幕等",
   feat_explore_6: "**按右鍵下載** — 在 Explore 中對任何影片、播放清單或頻道連結按右鍵，即可用你的設定下載、從 **使用設定檔下載** 選擇其他設定、開啟逐步下載，或複製連結。不必先逐一開啟影片",
   feat_explore_7:
-    "**精簡版面** — 在 Explore 工具列按一下，就會把 Arroxy 的分頁移進去，讓頁面有更多空間",
+    "**精簡版面** — 在 Explore 工具列按一下，就會把 FlickGrab 的分頁移進去，讓頁面有更多空間",
   feat_explore_2:
     "**位址列** — 輸入文字即可搜尋 YouTube，或貼上 YouTube 連結。Explore 只瀏覽 YouTube，其他網站的連結不會在其中開啟，但你可以一鍵下載",
   feat_explore_3:
-    "**需要帳號的下載** — 在 Explore 登入一次，Arroxy 就能下載你的帳號可觀看的私人與會員專屬影片、已通過年齡驗證帳號可看的年齡限制影片，以及你的「稍後觀看」和「喜歡的影片」清單。Arroxy 仍以未登入狀態下載，只有在下載因帳號可解決的原因失敗時，才會使用你在 Explore 的登入。當 YouTube 要求確認你不是機器人時，Arroxy 也會嘗試使用你在 Explore 的登入",
+    "**需要帳號的下載** — 在 Explore 登入一次，FlickGrab 就能下載你的帳號可觀看的私人與會員專屬影片、已通過年齡驗證帳號可看的年齡限制影片，以及你的「稍後觀看」和「喜歡的影片」清單。FlickGrab 仍以未登入狀態下載，只有在下載因帳號可解決的原因失敗時，才會使用你在 Explore 的登入。當 YouTube 要求確認你不是機器人時，FlickGrab 也會嘗試使用你在 Explore 的登入",
   feat_explore_4:
     "**建議使用備用帳號** — Explore 的首屏會說明原因：使用帳號下載有一定風險，該帳號可能被限制。想清除登入時，隨時可在設定中登出 Explore",
   feat_explore_5:
@@ -145,13 +145,13 @@ export const zhHant = {
   feat_privacy_2: "無登入、無 Cookie、無 Google 帳號繫結",
   feat_privacy_3: "檔案直接儲存到你選擇的資料夾",
   feat_workflow_h3: "工作流程",
-  feat_workflow_12: "**全域下載快速鍵** — 在任意應用中複製連結後按 `Ctrl+Shift+D`（macOS 為 `Cmd+Shift+D`），Arroxy 會用目前設定直接加入佇列，無需開啟視窗，並以通知確認。預設開啟，可重新繫結",
+  feat_workflow_12: "**全域下載快速鍵** — 在任意應用中複製連結後按 `Ctrl+Shift+D`（macOS 為 `Cmd+Shift+D`），FlickGrab 會用目前設定直接加入佇列，無需開啟視窗，並以通知確認。預設開啟，可重新繫結",
   feat_workflow_1:
     "**靈活的開始模式** — 選擇引導式單個下載、播放清單/頻道選擇器、批次貼上 URL、使用已儲存預設值的 Quick Download，或在 Explore 中瀏覽並下載",
   feat_workflow_2:
     "**中央下載佇列** — 單個、播放清單、批次或快速任務都會進入同一個地方，用於查看進度、暫停、繼續、取消、重試和控制優先順序",
   feat_workflow_3:
-    "**剪貼簿監控** — 複製 YouTube 連結後切回應用程式，Arroxy 自動填入 URL（可在進階設定中切換）",
+    "**剪貼簿監控** — 複製 YouTube 連結後切回應用程式，FlickGrab 自動填入 URL（可在進階設定中切換）",
   feat_workflow_4:
     "**自動清理 URL** — 剝除追蹤參數（`si`、`pp`、`utm_*`、`fbclid`、`gclid`）並展開 `youtube.com/redirect` 跳轉連結",
   feat_workflow_5: "**托盤模式** — 關閉視窗後下載在後臺繼續執行",
@@ -163,19 +163,19 @@ export const zhHant = {
   feat_workflow_9:
     "**檔名模板** — 使用 `{title}`、`{uploader}`、`{id}`、`{date}`、`{resolution}` 和 `{playlist_index}` 依你的方式命名下載檔案，可全域設定或按下載設定分別設定",
   feat_workflow_10:
-    "**同時下載數與自動重試** — 選擇佇列中同時進行的下載數量，讓遇到網路或伺服器問題的下載由 Arroxy 自動重試，每次嘗試前等待更久",
+    "**同時下載數與自動重試** — 選擇佇列中同時進行的下載數量，讓遇到網路或伺服器問題的下載由 FlickGrab 自動重試，每次嘗試前等待更久",
   feat_workflow_11:
     "**播放清單逐項設定** — 為播放清單中的每個影片分配各自的下載設定，而不是整份清單用同一套設定，一次即可將部分影片存為最高畫質、其餘轉成 MP3",
   feat_workflow_13:
     "**Quick Download 在背景執行** — 連結會立即出現在「下載」中並在那裡準備，附有 **檢視** 的提示加以確認，URL 輸入框隨即清空，方便貼上下一個連結。前面的還在準備時，可以繼續開始任意多個",
   feat_workflow_14:
-    "**「下載」會告訴你哪些需要處理** — Arroxy 讀取不了某個連結時，該列會說明原因並提供解決辦法：重試、開啟 Cookie，或在 Explore 登入。Cookie 關閉時，登入後點選 **使用 Explore 登入** 會幫你重試。超過載入上限的播放清單會在其所在列等你選擇：全部、前幾個，或先檢閱。「下載」分頁會顯示等你處理的列數",
+    "**「下載」會告訴你哪些需要處理** — FlickGrab 讀取不了某個連結時，該列會說明原因並提供解決辦法：重試、開啟 Cookie，或在 Explore 登入。Cookie 關閉時，登入後點選 **使用 Explore 登入** 會幫你重試。超過載入上限的播放清單會在其所在列等你選擇：全部、前幾個，或先檢閱。「下載」分頁會顯示等你處理的列數",
   feat_workflow_15:
-    "**只下載影片的一部分** — 在「Format」畫面選擇開始與結束時間或某個章節，Arroxy 就只儲存該範圍，檔名會在影片 ID 後加上該範圍。剪輯點會落在最近的關鍵影格上；開啟精確剪輯則改為重新編碼",
+    "**只下載影片的一部分** — 在「Format」畫面選擇開始與結束時間或某個章節，FlickGrab 就只儲存該範圍，檔名會在影片 ID 後加上該範圍。剪輯點會落在最近的關鍵影格上；開啟精確剪輯則改為重新編碼",
   feat_workflow_16:
     "**自動移除已完成的下載** — 選用：已完成的下載會在 5 秒後從清單中消失。檔案仍保留在磁碟上，失敗的下載則會留在清單中",
   feat_workflow_17:
-    "**「下載」中的大小與缺少** — 可排序的 **大小** 欄顯示每個下載佔用多少空間，**缺少** 則標示在 Arroxy 之外被移動或刪除的檔案",
+    "**「下載」中的大小與缺少** — 可排序的 **大小** 欄顯示每個下載佔用多少空間，**缺少** 則標示在 FlickGrab 之外被移動或刪除的檔案",
   feat_workflow_18:
     "**Aurora 或極簡，深色或淺色** — 在流動天空上的玻璃面板，或安靜的純色表面；可從頁尾切換。沒有圖形加速的電腦會自動使用極簡",
   feat_workflow_19:
@@ -197,7 +197,7 @@ export const zhHant = {
     "**透過 yt-dlp 支援 2000+ 個其他網站** — Vimeo、Twitch、Twitter/X、TikTok、SoundCloud、Bandcamp、Bilibili、BBC iPlayer、archive.org 等眾多網站",
   feat_sites_3: "**僅音訊和字幕**在所有支援的網站上均可使用，不限於 YouTube",
   feat_sites_4:
-    "若某個網站發生變化，yt-dlp 每週釋出修復，Arroxy 在啟動時自動更新二進位檔",
+    "若某個網站發生變化，yt-dlp 每週釋出修復，FlickGrab 在啟動時自動更新二進位檔",
   shot1_cap: "<b>快速下載首頁</b><br/>貼上網址，用目前設定一鍵下載",
   shot2_cap:
     "<b>可重複使用的下載設定</b><br/>將格式、畫質和輸出儲存為預設——每次下載重複使用",
@@ -205,13 +205,13 @@ export const zhHant = {
   shot4_cap: "<b>環繞聲 / Dolby 音訊</b><br/>識別並保留 5.1 和 Dolby 音軌",
   shot5_cap: "<b>批次網址模式</b><br/>貼上清單，自動去重，一次全部加入佇列",
   shot6_cap: "<b>並行下載佇列</b><br/>多個下載同時進行，即時顯示進度",
-  hotkey_fig_alt: "Arroxy 全域下載快速鍵 — Windows 和 Linux 上按 Ctrl+Shift+D，macOS 上按 Cmd+Shift+D，把複製的連結直接送入下載佇列",
+  hotkey_fig_alt: "FlickGrab 全域下載快速鍵 — Windows 和 Linux 上按 Ctrl+Shift+D，macOS 上按 Cmd+Shift+D，把複製的連結直接送入下載佇列",
   hotkey_fig_cap: "<b>全域下載快速鍵</b><br/>隨處複製連結，按一次——立即進入佇列並開始下載",
   shot7_cap: "<b>播放清單逐項設定</b><br/>為每個影片指定各自的設定——部分存為 4K，其餘轉成 MP3",
-  shot8_cap: "<b>Explore</b><br/>在 Arroxy 內瀏覽 YouTube，用目前設定下載你正在看的頁面",
+  shot8_cap: "<b>Explore</b><br/>在 FlickGrab 內瀏覽 YouTube，用目前設定下載你正在看的頁面",
   shot9_cap: "<b>Explore 首屏</b><br/>快速了解 Explore，以及為什麼用備用帳號登入更安全",
   shot10_cap: "<b>「下載」告訴你哪些需要處理</b><br/>連結在背景準備；失敗的會提供解決辦法，較長的播放清單則等你選擇",
-  shot11_cap: "<b>只下載影片的一部分</b><br/>選擇開始與結束時間，或某個章節 — Arroxy 只會儲存該範圍",
+  shot11_cap: "<b>只下載影片的一部分</b><br/>選擇開始與結束時間，或某個章節 — FlickGrab 只會儲存該範圍",
   shot12_cap: "<b>設定檔編輯器</b><br/>細部調整設定檔：檔案類型、解析度、字幕、儲存位置、檔名範本等",
   shot13_cap: "<b>深色或淺色，玻璃或純色</b><br/>四種外觀任你選：動態天空上的玻璃面板，或安靜的純色介面，皆提供深色與淺色",
   dl_platform_col: "平台",
@@ -246,22 +246,22 @@ export const zhHant = {
     "**建議：** 使用 NSIS 安裝版以獲得自動更新和更快的啟動速度。使用可攜版 `.exe` 實現免安裝、不寫登錄檔。",
   dl_win_smartscreen_h4: "Windows SmartScreen 警告",
   dl_win_smartscreen_intro:
-    "首次啟動時，您可能會看到 **«Windows protected your PC»** 或 **«Unknown publisher»**。這適用於 `Arroxy-win-x64-Setup.exe` 和 `Arroxy-win-x64-Portable.exe`。Arroxy 是免費開源軟體，Windows 版本未使用付費憑證籤名，這正是 SmartScreen 將它們標示的原因。這**不**代表 Arroxy 自動就是不安全的。要繼續操作：",
+    "首次啟動時，您可能會看到 **«Windows protected your PC»** 或 **«Unknown publisher»**。這適用於 `FlickGrab-win-x64-Setup.exe` 和 `FlickGrab-win-x64-Portable.exe`。FlickGrab 是免費開源軟體，Windows 版本未使用付費憑證籤名，這正是 SmartScreen 將它們標示的原因。這**不**代表 FlickGrab 自動就是不安全的。要繼續操作：",
   dl_win_smartscreen_step1: "點選 **More info**。",
   dl_win_smartscreen_step2: "點選 **Run anyway**。",
   dl_win_smartscreen_official:
-    "請僅從官方 GitHub Releases 頁面下載 Arroxy。如果您從其他網站取得了該檔案，或有人傳送給您，請刪除它並從官方來源重新下載。原始碼是公開的，如果您願意，可以自行審查或編譯 Arroxy。",
+    "請僅從官方 GitHub Releases 頁面下載 FlickGrab。如果您從其他網站取得了該檔案，或有人傳送給您，請刪除它並從官方來源重新下載。原始碼是公開的，如果您願意，可以自行審查或編譯 FlickGrab。",
   dl_macos_h3: "macOS 首次啟動",
   dl_macos_warning:
-    "Arroxy 還沒有程式碼簽名，所以 macOS Gatekeeper 首次啟動時可能會顯示應用已損壞警告。這是預期行為，並不表示檔案真的損壞了。",
+    "FlickGrab 還沒有程式碼簽名，所以 macOS Gatekeeper 首次啟動時可能會顯示應用已損壞警告。這是預期行為，並不表示檔案真的損壞了。",
   dl_macos_m1_h4: "Terminal 方法：",
-  dl_macos_step1: "將已掛載 DMG 中的 `Arroxy.app` 拖到 `/Applications`。",
-  dl_macos_step2: "開啟 Terminal，執行 `sudo xattr -dr com.apple.quarantine /Applications/Arroxy.app`。",
-  dl_macos_step3: "執行 `open /Applications/Arroxy.app`。",
+  dl_macos_step1: "將已掛載 DMG 中的 `FlickGrab.app` 拖到 `/Applications`。",
+  dl_macos_step2: "開啟 Terminal，執行 `sudo xattr -dr com.apple.quarantine /Applications/FlickGrab.app`。",
+  dl_macos_step3: "執行 `open /Applications/FlickGrab.app`。",
   dl_macos_step4:
-    "如果應用路徑不同，請把 `/Applications/Arroxy.app` 替換為你的安裝路徑。",
+    "如果應用路徑不同，請把 `/Applications/FlickGrab.app` 替換為你的安裝路徑。",
   dl_macos_step5: "如果 `sudo` 要求輸入密碼，請輸入你的 Mac 密碼。",
-  dl_macos_after: "移除 quarantine 後，Arroxy 會正常開啟。",
+  dl_macos_after: "移除 quarantine 後，FlickGrab 會正常開啟。",
   dl_macos_m2_h4: "Terminal 方法：",
   dl_macos_note:
     "macOS 建置透過 CI 在 Apple Silicon 和 Intel runner 上生成。如遇問題，請 [建立 issue](../../issues) — macOS 使用者意見回饋會直接影響 macOS 測試週期。",
@@ -276,9 +276,9 @@ export const zhHant = {
   dl_linux_arch_note: "**釋出頁面上的 Linux 下載僅提供 x86_64。** 在 ARM64 裝置（樹莓派、Asahi Linux）上 Flatpak 可以安裝，但啟動時會失敗並報 `bwrap: execvp ldconfig: Exec format error`。",
   dl_warning_h3: "為什麼可能會看到警告",
   dl_warning_p1:
-    "Arroxy 是開源軟體，採用 MIT 授權條款。Windows 和 macOS 版本**未經程式碼簽名** — Apple Developer ID 和 Windows EV 程式碼簽名憑證每年各需數百美元，對於獨立專案來說完全自掏腰包。沒有這些簽名，Windows SmartScreen 和 macOS Gatekeeper 在首次啟動時會向你發出警告。這些警告的意思是*你的系統不認識該釋出者* — 並不意味著 Arroxy 是惡意軟體。",
+    "FlickGrab 是開源軟體，採用 MIT 授權條款。Windows 和 macOS 版本**未經程式碼簽名** — Apple Developer ID 和 Windows EV 程式碼簽名憑證每年各需數百美元，對於獨立專案來說完全自掏腰包。沒有這些簽名，Windows SmartScreen 和 macOS Gatekeeper 在首次啟動時會向你發出警告。這些警告的意思是*你的系統不認識該釋出者* — 並不意味著 FlickGrab 是惡意軟體。",
   dl_warning_p2:
-    "三種自行驗證 Arroxy 的方式，按嚴格程度遞增：\n\n- **查看原始碼。** 每一行都在 [GitHub](https://github.com/antonio-orionus/Arroxy) 上，你也可以[從原始碼建置](#tech)。\n- **驗證 SHA256。** 將你的檔案與釋出的 [`SHA256SUMS`](../../releases/latest) 對比 — 見下方[驗證你的下載](#verify)。\n- **執行第三方掃描。** 將檔案上傳至 [VirusTotal](https://www.virustotal.com)。",
+    "三種自行驗證 FlickGrab 的方式，按嚴格程度遞增：\n\n- **查看原始碼。** 每一行都在 [GitHub](https://github.com/antonio-orionus/FlickGrab) 上，你也可以[從原始碼建置](#tech)。\n- **驗證 SHA256。** 將你的檔案與釋出的 [`SHA256SUMS`](../../releases/latest) 對比 — 見下方[驗證你的下載](#verify)。\n- **執行第三方掃描。** 將檔案上傳至 [VirusTotal](https://www.virustotal.com)。",
 
   dl_win_first_h3: "Windows 首次啟動",
   shot_smartscreen_more_alt:
@@ -287,31 +287,31 @@ export const zhHant = {
     'SmartScreen dialog after expanding More info, showing the "Run anyway" button',
   dl_win_defender_h4: "如果 Windows Defender 標記或刪除了檔案",
   dl_win_defender_p:
-    "Defender 啟發式規則有時會將未簽名的 NSIS 安裝套件和 Electron 可攜版標記為可疑。如果 Defender 隔離了 `Arroxy-win-x64-Setup.exe` 或 `Arroxy-win-x64-Portable.exe`，請從 **Windows Security → Virus & threat protection → Protection history** 還原，然後在 **Manage settings → Add or remove exclusions** 中將 Arroxy 可執行檔案新增為允許項。與 SmartScreen 一樣，觸發原因是缺少釋出者簽名，而非檢測到惡意軟體。",
+    "Defender 啟發式規則有時會將未簽名的 NSIS 安裝套件和 Electron 可攜版標記為可疑。如果 Defender 隔離了 `FlickGrab-win-x64-Setup.exe` 或 `FlickGrab-win-x64-Portable.exe`，請從 **Windows Security → Virus & threat protection → Protection history** 還原，然後在 **Manage settings → Add or remove exclusions** 中將 FlickGrab 可執行檔案新增為允許項。與 SmartScreen 一樣，觸發原因是缺少釋出者簽名，而非檢測到惡意軟體。",
 
   dl_macos_first_h3: "macOS 首次啟動",
   dl_macos_intro:
-    "Arroxy 還沒有為 macOS 進行程式碼簽名，所以從 DMG 安裝後，Gatekeeper 可能會顯示嚇人的 *\"Arroxy.app is damaged and can't be opened\"* 對話方塊。這個提示表示 macOS 將未簽名應用放入了 quarantine；並不表示應用檔案真的損壞。目前 macOS 上可靠的修復方式是 Terminal：",
+    "FlickGrab 還沒有為 macOS 進行程式碼簽名，所以從 DMG 安裝後，Gatekeeper 可能會顯示嚇人的 *\"FlickGrab.app is damaged and can't be opened\"* 對話方塊。這個提示表示 macOS 將未簽名應用放入了 quarantine；並不表示應用檔案真的損壞。目前 macOS 上可靠的修復方式是 Terminal：",
   dl_macos_sequoia_h4: "目前 macOS 的 Terminal 修復方法",
   dl_macos_sequoia_intro:
-    "將 Arroxy 複製到 Applications 後使用 Terminal：",
-  dl_macos_sequoia_step1: "將 `Arroxy.app` 從掛載的 DMG 拖入 `/Applications`。",
+    "將 FlickGrab 複製到 Applications 後使用 Terminal：",
+  dl_macos_sequoia_step1: "將 `FlickGrab.app` 從掛載的 DMG 拖入 `/Applications`。",
   dl_macos_sequoia_step2:
     "開啟 Terminal，執行這兩條指令：",
   dl_macos_sequoia_step3:
-    "執行 `open /Applications/Arroxy.app` 來啟動 Arroxy。",
+    "執行 `open /Applications/FlickGrab.app` 來啟動 FlickGrab。",
   dl_macos_sequoia_step4:
-    "如果應用路徑不同，請把 `/Applications/Arroxy.app` 替換為你的安裝路徑。",
+    "如果應用路徑不同，請把 `/Applications/FlickGrab.app` 替換為你的安裝路徑。",
   dl_macos_sonoma_h4: "舊版 macOS 的 Terminal 修復方法",
-  dl_macos_sonoma_step1: "將 `Arroxy.app` 從掛載的 DMG 拖入 `/Applications`。",
+  dl_macos_sonoma_step1: "將 `FlickGrab.app` 從掛載的 DMG 拖入 `/Applications`。",
   dl_macos_sonoma_step2:
-    "開啟 Terminal，從 `/Applications/Arroxy.app` 移除 quarantine。",
+    "開啟 Terminal，從 `/Applications/FlickGrab.app` 移除 quarantine。",
   dl_macos_sonoma_step3:
-    "移除 quarantine 後，從 Terminal 或 Finder 啟動 Arroxy。",
+    "移除 quarantine 後，從 Terminal 或 Finder 啟動 FlickGrab。",
   dl_macos_damaged_h4:
     "Gatekeeper quarantine 修復",
   dl_macos_damaged_p:
-    "第一條指令會從已安裝的 Arroxy 副本中移除 quarantine 屬性。第二條指令會啟動應用。`sudo` 可能會要求輸入你的 Mac 密碼；Terminal 在輸入時不會顯示字元。",
+    "第一條指令會從已安裝的 FlickGrab 副本中移除 quarantine 屬性。第二條指令會啟動應用。`sudo` 可能會要求輸入你的 Mac 密碼；Terminal 在輸入時不會顯示字元。",
   dl_macos_arch_note:
     "**Apple Silicon vs Intel：** 在搭載 M 系列晶片（M1 / M2 / M3 / M4）的 Mac 上，請下載 `arm64` DMG。在 Intel Mac 上，請下載 `x64` DMG。執行錯誤版本仍可透過 Rosetta 啟動，但速度會明顯變慢。",
 
@@ -335,7 +335,7 @@ export const zhHant = {
   privacy_p2:
     "沒有遙測 — 每天只傳送一次匿名心跳訊號：應用程式版本、OS、語言、安裝管道和國家/地區，用來統計活躍使用者。不包含 ID、URL、影片標題、檔案路徑或帳號資訊。你可以在設定中關閉。",
   privacy_p3:
-    "Explore 有自己獨立的登入，與你的瀏覽器分開，Arroxy 不會讀取或填寫登入表單 — 你是在 Google 自己的頁面上輸入。下載在未登入狀態下進行；只有在下載因帳號可解決的原因失敗時，Arroxy 才會重新讀取該登入，把它放進僅供該次下載使用的暫存檔，並在之後刪除該檔案。在設定中登出 Explore 即可清除登入。",
+    "Explore 有自己獨立的登入，與你的瀏覽器分開，FlickGrab 不會讀取或填寫登入表單 — 你是在 Google 自己的頁面上輸入。下載在未登入狀態下進行；只有在下載因帳號可解決的原因失敗時，FlickGrab 才會重新讀取該登入，把它放進僅供該次下載使用的暫存檔，並在之後刪除該檔案。在設定中登出 Explore 即可清除登入。",
   faq_q1: "真的免費嗎？",
   faq_a1: "是的 — MIT 授權條款，無付費版，無功能限制。",
   faq_q2: "能下載哪些影片畫質？",
@@ -346,13 +346,13 @@ export const zhHant = {
     "可以。在格式選單裡選擇*僅音訊*，然後選擇 MP3、M4A/AAC、Opus 或 WAV。",
   faq_q4: "如何下載需要 YouTube 帳號的影片？",
   faq_a4:
-    "在 Explore 分頁中登入一次。之後 Arroxy 就能下載你的帳號可觀看的私人與會員專屬影片、已通過年齡驗證帳號可看的年齡限制影片，以及你的「稍後觀看」和「喜歡的影片」清單。只有在下載因帳號可解決的原因失敗時才會使用該登入，其他下載與之前一樣。這就是 Cookie 設定中的 **Explore 登入** 選項，排在第一位並標有「建議」，首次開啟 Explore 時 Arroxy 會為你選取它。yt-dlp 的 wiki 指出[已登入狀態下的自動化可能會標記 Google 帳號](https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies)，因此使用備用帳號是更安全的選擇。",
+    "在 Explore 分頁中登入一次。之後 FlickGrab 就能下載你的帳號可觀看的私人與會員專屬影片、已通過年齡驗證帳號可看的年齡限制影片，以及你的「稍後觀看」和「喜歡的影片」清單。只有在下載因帳號可解決的原因失敗時才會使用該登入，其他下載與之前一樣。這就是 Cookie 設定中的 **Explore 登入** 選項，排在第一位並標有「建議」，首次開啟 Explore 時 FlickGrab 會為你選取它。yt-dlp 的 wiki 指出[已登入狀態下的自動化可能會標記 Google 帳號](https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies)，因此使用備用帳號是更安全的選擇。",
   faq_q5: "YouTube 更新後還能繼續使用嗎？",
   faq_a5:
-    "yt-dlp 在啟動時自動更新，YouTube 一旦發生變化，Arroxy 會及時釋出修復。YouTube 要求確認你不是機器人時，如果你已在 Explore 登入，Arroxy 也會嘗試使用該登入；Cookie 設定中還可使用來自檔案或瀏覽器的 Cookie。",
-  faq_q6: "Arroxy 支援哪些語言？",
+    "yt-dlp 在啟動時自動更新，YouTube 一旦發生變化，FlickGrab 會及時釋出修復。YouTube 要求確認你不是機器人時，如果你已在 Explore 登入，FlickGrab 也會嘗試使用該登入；Cookie 設定中還可使用來自檔案或瀏覽器的 Cookie。",
+  faq_q6: "FlickGrab 支援哪些語言？",
   faq_a6:
-    "立即可用的 {{LANG_COUNT}} 種語言：{{LANG_NAME_LIST}}。 Arroxy 會在首次啟動時自動檢測作業系統語言，你也可以隨時從工具列的語言選擇器切換。Runtime locale JSON 位於 src/shared/i18n/locales/，面向譯者的 PO catalog 位於 i18n/locales/ — 歡迎在 GitHub 上建立 PR 貢獻。",
+    "立即可用的 {{LANG_COUNT}} 種語言：{{LANG_NAME_LIST}}。 FlickGrab 會在首次啟動時自動檢測作業系統語言，你也可以隨時從工具列的語言選擇器切換。Runtime locale JSON 位於 src/shared/i18n/locales/，面向譯者的 PO catalog 位於 i18n/locales/ — 歡迎在 GitHub 上建立 PR 貢獻。",
   faq_q7: "需要額外安裝其他軟體嗎？",
   faq_a7:
     "不需要。yt-dlp 會在首次啟動時自動下載並快取到你的電腦上；ffmpeg 和 ffprobe 隨應用程式一起提供。之後無需任何額外設定。",
@@ -361,7 +361,7 @@ export const zhHant = {
     "可以，兩者都支援。貼上播放清單或頻道 URL（例如 `youtube.com/@handle`、`/channel/UC…`、`/c/Name`、`/user/Old`）；選擇要掃描的項目數量，然後將整個清單加入佇列或選擇特定影片。日期範圍篩選即將推出。",
   faq_q9: 'macOS 提示"應用已損壞" — 怎麼處理？',
   faq_a9:
-    "這是 macOS Gatekeeper 在攔截未簽名應用，並非真正損壞。請查看 [macOS first launch](#macos-first-launch)，其中有移除 quarantine 並啟動 Arroxy 的 Terminal 指令。",
+    "這是 macOS Gatekeeper 在攔截未簽名應用，並非真正損壞。請查看 [macOS first launch](#macos-first-launch)，其中有移除 quarantine 並啟動 FlickGrab 的 Terminal 指令。",
   faq_q10: "下載 YouTube 影片合法嗎？",
   faq_a10:
     "在大多數地區，個人私人使用一般被接受。你需要自行負責遵守 YouTube 的[服務條款](https://www.youtube.com/t/terms)及當地版權法律。",
@@ -383,11 +383,11 @@ export const zhHant = {
   plan_r9_desc: "在 Arch Linux 與 Omarchy 上以 `yay -S arroxy-bin` 安裝",
   plan_cta: "有想法？[提交請求](../../issues) — 社羣意見決定優先順序。",
   tech_content: TECH_CONTENT,
-  support_h2: "支援 Arroxy",
-  support_note: "Arroxy 完全免費並採用 MIT 授權條款 —— 沒有廣告、沒有遙測、沒有付費版本。如果它為你節省了時間，你可以透過 Bitcoin 或 Tron 支援它的開發：地址見 [DONATE.md](DONATE.md)，這是唯一的官方來源。Arroxy 絕不會透過電子郵件或私信向你傳送地址。給儲存庫點星、報告問題和改進翻譯同樣有幫助。",
+  support_h2: "支援 FlickGrab",
+  support_note: "FlickGrab 完全免費並採用 MIT 授權條款 —— 沒有廣告、沒有遙測、沒有付費版本。如果它為你節省了時間，你可以透過 Bitcoin 或 Tron 支援它的開發：地址見 [DONATE.md](DONATE.md)，這是唯一的官方來源。FlickGrab 絕不會透過電子郵件或私信向你傳送地址。給儲存庫點星、報告問題和改進翻譯同樣有幫助。",
   tos_h2: "使用條款",
   tos_note:
-    "Arroxy 僅供個人私人使用。你需要自行確保下載行為符合 YouTube 的[服務條款](https://www.youtube.com/t/terms)及你所在地區的版權法律。請勿使用 Arroxy 下載、複製或分發你不享有權利的內容。開發者對任何濫用行為不承擔責任。",
+    "FlickGrab 僅供個人私人使用。你需要自行確保下載行為符合 YouTube 的[服務條款](https://www.youtube.com/t/terms)及你所在地區的版權法律。請勿使用 FlickGrab 下載、複製或分發你不享有權利的內容。開發者對任何濫用行為不承擔責任。",
   footer_credit:
     'MIT 授權條款 · 由 <a href="https://x.com/OrionusAI">@OrionusAI</a> 用心打造',
 };

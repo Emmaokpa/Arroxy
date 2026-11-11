@@ -391,7 +391,7 @@ export class ExploreViewHost {
 
 	private createView(): WebContentsView {
 		const ses = this.deps.session.getSession()
-		// No Arroxy preload: the page gets nothing beyond what a plain browser tab
+		// No FlickGrab preload: the page gets nothing beyond what a plain browser tab
 		// has. The only script added is the ad blocker's cosmetic preload, set on
 		// the session (not here) while the user has the blocker on.
 		const view = new WebContentsView({webPreferences: {session: ses, sandbox: true, contextIsolation: true, nodeIntegration: false, devTools: !this.deps.isPackaged, backgroundThrottling: true}})

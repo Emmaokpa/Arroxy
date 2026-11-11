@@ -49,10 +49,8 @@ const COMMON_FLAT_KEYS = [
 	'writeThumbnail',
 	'lastSponsorBlockMode',
 	'lastSponsorBlockCategories',
-	'analyticsEnabled',
 	'firstRunCompleted',
 	'launchCount',
-	'lastHeartbeatDay',
 	'lastSubfolderEnabled',
 	'lastSubfolder'
 ] as const
@@ -381,13 +379,6 @@ export class SettingsStore {
 		this.persist()
 		await Promise.resolve()
 		return this.settings
-	}
-
-	// Internal field outside the renderer patch contract, so it bypasses update().
-	async recordHeartbeatDay(day: string): Promise<void> {
-		this.settings = {...this.settings, common: {...this.settings.common, lastHeartbeatDay: day}}
-		this.persist()
-		await Promise.resolve()
 	}
 
 	async recordLaunch(): Promise<{settings: AppSettings; isFirstRun: boolean; launchCount: number}> {

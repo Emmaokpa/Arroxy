@@ -176,7 +176,7 @@ function downloadMascotHelp({activeProfileName, hasActiveDownloads, hasInput, in
 	}
 
 	if (inputType === 'Mixed URL') {
-		return {key: 'mixed', title: 'Mixed URL', body: 'This link points at one video inside a collection. Arroxy will ask which one you want before probing.', points: ['Choose video or collection', 'No silent playlist choice'], image: hiImg}
+		return {key: 'mixed', title: 'Mixed URL', body: 'This link points at one video inside a collection. FlickGrab will ask which one you want before probing.', points: ['Choose video or collection', 'No silent playlist choice'], image: hiImg}
 	}
 
 	if (inputType === 'Single URL') {

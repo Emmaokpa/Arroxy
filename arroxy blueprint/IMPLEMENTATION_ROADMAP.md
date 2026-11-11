@@ -81,6 +81,32 @@ Acceptance:
 
 ## Phase 4 — Web proof of concept (before full web integration)
 
+**Prior constraint (Phase 4 entry):** Windows Electron builds are disabled until further notice; only the web app version runs. This is recorded in `DECISIONS.md` §X and the release workflows.
+
+Tasks:
+1. Inspect the Arena.ai prototype and map its components, design tokens, pages, assets, and interactions.
+2. Preserve the prototype's design and convert/integrate it into the repo's intended web structure.
+3. Test the five target sources individually for:
+   - URL classification.
+   - Browser-accessible metadata (if any).
+   - CORS and browser fetch behavior.
+   - Direct file download behavior, if claimed.
+   - Signed URL expiry/referer/auth restrictions.
+   - HLS/DASH or multi-file merge requirements.
+   - Failure UX.
+4. Do not create a server proxy to make a test pass.
+5. Decide web v1 scope based on observed results, not expectations.
+
+Acceptance:
+- A source-by-source capability matrix is written.
+- The UI communicates what works and what does not.
+- No server-side video fetch/proxy/processing is used.
+- Prototype visual identity is retained unless deviations are documented.
+
+## Phase 4 — Web proof of concept (before full web integration) — *Electron disabled*
+
+_See DECISIONS.md §X for Windows Electron disable decision; web app is the primary runner until further notice._
+
 Tasks:
 1. Inspect the Arena.ai prototype and map its components, design tokens, pages, assets, and interactions.
 2. Preserve the prototype's design and convert/integrate it into the repo's intended web structure.

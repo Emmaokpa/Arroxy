@@ -39,7 +39,7 @@ brew install mise
 xcode-select --install
 \`\`\`
 
-clone ပြီးနောက် checkout ထဲတွင် \`mise trust && mise install\` ကို run လုပ်ပါ။ သင့် shell က \`fnm\`, \`nvm\`, သို့မဟုတ် Homebrew Bun ကို အသုံးပြုနေပြီးသားဖြစ်ပါက Arroxy သည် Node.js 24.21.0 နှင့် Bun 1.4.2 ကို သုံးနိုင်ရန် \`~/.zshrc\` တွင် mise ကို activate လုပ်ပါ:
+clone ပြီးနောက် checkout ထဲတွင် \`mise trust && mise install\` ကို run လုပ်ပါ။ သင့် shell က \`fnm\`, \`nvm\`, သို့မဟုတ် Homebrew Bun ကို အသုံးပြုနေပြီးသားဖြစ်ပါက FlickGrab သည် Node.js 24.21.0 နှင့် Bun 1.4.2 ကို သုံးနိုင်ရန် \`~/.zshrc\` တွင် mise ကို activate လုပ်ပါ:
 
 \`\`\`bash
 printf '\n# mise\nif command -v mise >/dev/null 2>&1; then\n  eval "$(mise activate zsh)"\nfi\n' >> ~/.zshrc
@@ -61,8 +61,8 @@ sudo apt install -y xvfb
 ### Clone နှင့် run လုပ်ခြင်း
 
 \`\`\`bash
-git clone https://github.com/antonio-orionus/Arroxy
-cd Arroxy
+git clone https://github.com/antonio-orionus/FlickGrab
+cd FlickGrab
 mise trust
 mise install           # အကြံပြု; pinned tools ကို manual activate လုပ်ထားလျှင် ကျော်နိုင်သည်
 bun run bootstrap
@@ -78,14 +78,14 @@ bun run dist         # လက်ရှိ OS အတွက် package ထုတ�
 bun run dist:win     # supported host တွင် Windows targets package ထုတ်ရန်
 \`\`\`
 
-> \`bun run bootstrap\` သည် dependencies ကို install လုပ်ပြီး Electron app dependencies ကို rebuild လုပ်သည်၊ Electron ကို verify လုပ်သည်၊ development အတွက် embedded ffmpeg/ffprobe ကို ပြင်ဆင်သည်၊ Playwright Chromium ကို install လုပ်သည်။ yt-dlp ကို runtime တွင် app data folder ထဲ၌ manage လုပ်ပြီး ffmpeg နှင့် ffprobe သည် Arroxy release တိုင်းတွင် bundled ဖြစ်သည်။
+> \`bun run bootstrap\` သည် dependencies ကို install လုပ်ပြီး Electron app dependencies ကို rebuild လုပ်သည်၊ Electron ကို verify လုပ်သည်၊ development အတွက် embedded ffmpeg/ffprobe ကို ပြင်ဆင်သည်၊ Playwright Chromium ကို install လုပ်သည်။ yt-dlp ကို runtime တွင် app data folder ထဲ၌ manage လုပ်ပြီး ffmpeg နှင့် ffprobe သည် FlickGrab release တိုင်းတွင် bundled ဖြစ်သည်။
 
 </details>`;
 
 export const my = {
-  icon_alt: "Arroxy မုဒ်ကော့",
+  icon_alt: "FlickGrab မုဒ်ကော့",
   title:
-    "Arroxy — Windows, macOS နှင့် Linux အတွက် အခမဲ့ Open-Source YouTube (+ ၂၀၀၀ ဆိုဒ်) Downloader",
+    "FlickGrab — Windows, macOS နှင့် Linux အတွက် အခမဲ့ Open-Source YouTube (+ ၂၀၀၀ ဆိုဒ်) Downloader",
   read_in_label: "ဘာသာဖြင့် ဖတ်ရှုရန်:",
   badge_release_alt: "Release",
   badge_build_alt: "Build",
@@ -101,10 +101,10 @@ export const my = {
   cta_latest: "↓ နောက်ဆုံး Release ကို ဒေါင်းလုဒ်ဆွဲပါ",
   cta_website: "ဝဘ်ဆိုက်",
   star_cta:
-    "Arroxy သည် သင့်အချိန်ကို သက်သာစေပါက ⭐ တစ်ချက်က အခြားသူများ ရှာတွေ့ရန် ကူညီပါသည်။",
+    "FlickGrab သည် သင့်အချိန်ကို သက်သာစေပါက ⭐ တစ်ချက်က အခြားသူများ ရှာတွေ့ရန် ကူညီပါသည်။",
   ai_notice: "",
   toc_heading: "မာတိကာ",
-  why_h2: "Arroxy ဘာကြောင့်",
+  why_h2: "FlickGrab ဘာကြောင့်",
   features_h2: "လုပ်ဆောင်ချက်များ",
   dl_h2: "ထည့်သွင်းခြင်းနှင့် ပထမဆုံးဖွင့်ခြင်း",
   privacy_h2: "ကိုယ်ရေးကိုယ်တာ",
@@ -120,16 +120,16 @@ export const my = {
   why_r6: "Cross-platform desktop app",
   why_r7: "Subtitles + SponsorBlock",
   why_summary:
-    "Arroxy ကို တစ်ခုတည်းသောရည်ရွယ်ချက်ဖြင့် တည်ဆောက်ထားသည်: URL ကို paste လုပ်ပြီး ကောင်းမွန်သောသော local file ကိုရရှိပါ။ upsell မပါ၊ data ကောက်ခံမှုမပါ။",
-  feat_explore_h3: "Explore: Arroxy အတွင်းမှာပင် YouTube ကို ကြည့်ရှုပါ",
+    "FlickGrab ကို တစ်ခုတည်းသောရည်ရွယ်ချက်ဖြင့် တည်ဆောက်ထားသည်: URL ကို paste လုပ်ပြီး ကောင်းမွန်သောသော local file ကိုရရှိပါ။ upsell မပါ၊ data ကောက်ခံမှုမပါ။",
+  feat_explore_h3: "Explore: FlickGrab အတွင်းမှာပင် YouTube ကို ကြည့်ရှုပါ",
   feat_explore_1:
-    "**Explore tab** — Arroxy အတွင်းမှာပင် YouTube ကို ကြည့်ရှုပြီး လင့်ခ်မကူးဘဲ တွေ့သည့်အရာကို ဒေါင်းလုဒ်လုပ်ပါ။ **ဒေါင်းလုဒ် · *သင့်ပရိုဖိုင်*** သည် သင်ကြည့်နေသော ဗီဒီယို၊ playlist သို့မဟုတ် channel ကို စာရင်းထဲထည့်ပေးသည်၊ ဘေးရှိ မြှားက ပရိုဖိုင်ပြောင်းပေးပြီး မှော်လှံတံက format၊ subtitle စသည်တို့ကို ရွေးရန် အဆင့်ဆင့် ဒေါင်းလုဒ်ကို ဖွင့်ပေးသည်",
+    "**Explore tab** — FlickGrab အတွင်းမှာပင် YouTube ကို ကြည့်ရှုပြီး လင့်ခ်မကူးဘဲ တွေ့သည့်အရာကို ဒေါင်းလုဒ်လုပ်ပါ။ **ဒေါင်းလုဒ် · *သင့်ပရိုဖိုင်*** သည် သင်ကြည့်နေသော ဗီဒီယို၊ playlist သို့မဟုတ် channel ကို စာရင်းထဲထည့်ပေးသည်၊ ဘေးရှိ မြှားက ပရိုဖိုင်ပြောင်းပေးပြီး မှော်လှံတံက format၊ subtitle စသည်တို့ကို ရွေးရန် အဆင့်ဆင့် ဒေါင်းလုဒ်ကို ဖွင့်ပေးသည်",
   feat_explore_6: "**Right-click ဖြင့် ဒေါင်းလုဒ်** — Explore ရှိ မည်သည့် ဗီဒီယို၊ playlist သို့မဟုတ် channel လင့်ခ်ကိုမဆို right-click နှိပ်ပြီး သင့်ပရိုဖိုင်ဖြင့် ဒေါင်းလုဒ်လုပ်ပါ၊ **ပရိုဖိုင်ဖြင့် ဒေါင်းလုဒ်** မှ အခြားပရိုဖိုင်ကို ရွေးပါ၊ အဆင့်ဆင့် ဒေါင်းလုဒ်ကို ဖွင့်ပါ သို့မဟုတ် လင့်ခ်ကို ကူးယူပါ။ ဗီဒီယိုတစ်ခုချင်းစီကို အရင်ဖွင့်ရန် မလိုပါ",
-  feat_explore_7: "**ကျစ်လစ်သော အပြင်အဆင်** — Explore ၏ toolbar ရှိ တစ်ချက်နှိပ်ရုံဖြင့် Arroxy ၏ tab များကို ၎င်းထဲသို့ ရွှေ့ပေးပြီး စာမျက်နှာကို နေရာပိုပေးသည်",
+  feat_explore_7: "**ကျစ်လစ်သော အပြင်အဆင်** — Explore ၏ toolbar ရှိ တစ်ချက်နှိပ်ရုံဖြင့် FlickGrab ၏ tab များကို ၎င်းထဲသို့ ရွှေ့ပေးပြီး စာမျက်နှာကို နေရာပိုပေးသည်",
   feat_explore_2:
     "**လိပ်စာဘား** — YouTube တွင် ရှာဖွေရန် ရိုက်ထည့်ပါ သို့မဟုတ် YouTube လင့်ခ်ကို ကူးထည့်ပါ။ Explore သည် YouTube ကိုသာ ကြည့်ရှုနိုင်သဖြင့် အခြားဝက်ဘ်ဆိုက်မှ လင့်ခ်ကို ထိုနေရာတွင် မဖွင့်ပေးသော်လည်း တစ်ချက်နှိပ်ရုံဖြင့် ဒေါင်းလုဒ်လုပ်နိုင်သည်",
   feat_explore_3:
-    "**အကောင့်လိုသော ဒေါင်းလုဒ်များ** — Explore တွင် တစ်ကြိမ် sign in လုပ်ထားလျှင် Arroxy သည် သင့်အကောင့်ဖြင့် ကြည့်နိုင်သော private နှင့် member-only ဗီဒီယိုများ၊ အသက်အတည်ပြုထားသော အကောင့်ဖြစ်လျှင် အသက်ကန့်သတ်ဗီဒီယိုများ၊ သင်၏ Watch Later နှင့် Liked စာရင်းများကို ဒေါင်းလုဒ်လုပ်နိုင်သည်။ Arroxy သည် sign out အခြေအနေတွင်ပင် ဒေါင်းလုဒ်လုပ်ပြီး အကောင့်ဖြင့် ဖြေရှင်းနိုင်သော အကြောင်းရင်းကြောင့် ဒေါင်းလုဒ်မအောင်မြင်မှသာ သင်၏ Explore sign-in ကို အသုံးပြုသည်။ သင်သည် bot မဟုတ်ကြောင်း YouTube က အတည်ပြုခိုင်းသောအခါတွင်လည်း Arroxy က သင်၏ Explore sign-in ကို စမ်းကြည့်သည်",
+    "**အကောင့်လိုသော ဒေါင်းလုဒ်များ** — Explore တွင် တစ်ကြိမ် sign in လုပ်ထားလျှင် FlickGrab သည် သင့်အကောင့်ဖြင့် ကြည့်နိုင်သော private နှင့် member-only ဗီဒီယိုများ၊ အသက်အတည်ပြုထားသော အကောင့်ဖြစ်လျှင် အသက်ကန့်သတ်ဗီဒီယိုများ၊ သင်၏ Watch Later နှင့် Liked စာရင်းများကို ဒေါင်းလုဒ်လုပ်နိုင်သည်။ FlickGrab သည် sign out အခြေအနေတွင်ပင် ဒေါင်းလုဒ်လုပ်ပြီး အကောင့်ဖြင့် ဖြေရှင်းနိုင်သော အကြောင်းရင်းကြောင့် ဒေါင်းလုဒ်မအောင်မြင်မှသာ သင်၏ Explore sign-in ကို အသုံးပြုသည်။ သင်သည် bot မဟုတ်ကြောင်း YouTube က အတည်ပြုခိုင်းသောအခါတွင်လည်း FlickGrab က သင်၏ Explore sign-in ကို စမ်းကြည့်သည်",
   feat_explore_4:
     "**အရန်အကောင့် သုံးပါ** — Explore ၏ ပထမဆုံးမျက်နှာပြင်က အကြောင်းရင်းကို ရှင်းပြထားသည် - အကောင့်ဖြင့် ဒေါင်းလုဒ်လုပ်ခြင်းသည် ထိုအကောင့် ကန့်သတ်ခံရနိုင်သည့် အန္တရာယ် အနည်းငယ်ရှိသည်။ sign-in ကို မေ့စေလိုသည့်အခါ ဆက်တင်များမှ Explore ကို အချိန်မရွေး sign out လုပ်ပါ",
   feat_explore_5:
@@ -148,13 +148,13 @@ export const my = {
   feat_privacy_2: "Login မပါ၊ cookie မပါ၊ Google account ချိတ်ဆက်မှုမပါ",
   feat_privacy_3: "သင်ရွေးချယ်သောဖိုဒါတွင် ဖိုင်များကို တိုက်ရိုက်သိမ်းဆည်းသည်",
   feat_workflow_h3: "Workflow",
-  feat_workflow_12: "**စနစ်တစ်ခုလုံးအတွက် ဒေါင်းလုဒ် ဖြတ်လမ်းခလုတ်** — မည်သည့်အက်ပ်တွင်မဆို လင့်ခ်ကို ကူးယူပြီး `Ctrl+Shift+D` (macOS တွင် `Cmd+Shift+D`) ကိုနှိပ်ပါ။ Arroxy သည် ဝင်းဒိုးမဖွင့်ဘဲ သင့်လက်ရှိပရိုဖိုင်ဖြင့် စာရင်းထဲထည့်ပေးပြီး အသိပေးချက်ဖြင့် အတည်ပြုပါသည်။ မူရင်းအတိုင်း ဖွင့်ထားပြီး ပြန်သတ်မှတ်နိုင်သည်",
+  feat_workflow_12: "**စနစ်တစ်ခုလုံးအတွက် ဒေါင်းလုဒ် ဖြတ်လမ်းခလုတ်** — မည်သည့်အက်ပ်တွင်မဆို လင့်ခ်ကို ကူးယူပြီး `Ctrl+Shift+D` (macOS တွင် `Cmd+Shift+D`) ကိုနှိပ်ပါ။ FlickGrab သည် ဝင်းဒိုးမဖွင့်ဘဲ သင့်လက်ရှိပရိုဖိုင်ဖြင့် စာရင်းထဲထည့်ပေးပြီး အသိပေးချက်ဖြင့် အတည်ပြုပါသည်။ မူရင်းအတိုင်း ဖွင့်ထားပြီး ပြန်သတ်မှတ်နိုင်သည်",
   feat_workflow_1:
     "**ပြောင်းလွယ်ပြင်လွယ် စတင်မုဒ်များ** — လမ်းညွှန်ထားသော single download၊ playlist/channel picker၊ bulk URL paste၊ သိမ်းထားသော defaults ဖြင့် Quick Download၊ သို့မဟုတ် Explore တွင် ကြည့်ရှုပြီး ဒေါင်းလုဒ်လုပ်ခြင်းတို့ကို ရွေးပါ",
   feat_workflow_2:
     "**ဗဟို download queue** — single၊ playlist၊ bulk၊ quick job အားလုံးသည် progress၊ pause၊ resume၊ cancel၊ retry နှင့် priority control အတွက် တစ်နေရာတည်းသို့ ရောက်သည်",
   feat_workflow_3:
-    "**Clipboard watch** — YouTube link ကို copy လုပ်ပြီး app ကို refocus လုပ်သောအခါ Arroxy သည် URL ကို auto-fill လုပ်သည် (Advanced settings တွင် toggle နှိပ်ပါ)",
+    "**Clipboard watch** — YouTube link ကို copy လုပ်ပြီး app ကို refocus လုပ်သောအခါ FlickGrab သည် URL ကို auto-fill လုပ်သည် (Advanced settings တွင် toggle နှိပ်ပါ)",
   feat_workflow_4:
     "**Auto-clean URLs** — tracking params (`si`, `pp`, `utm_*`, `fbclid`, `gclid`) ကိုဖယ်ရှားပြီး `youtube.com/redirect` links ကိုဖြေရှင်းသည်",
   feat_workflow_5:
@@ -168,19 +168,19 @@ export const my = {
   feat_workflow_9:
     "**ဖိုင်အမည် ပုံစံခွက်များ** — `{title}`၊ `{uploader}`၊ `{id}`၊ `{date}`၊ `{resolution}` နှင့် `{playlist_index}` တို့ဖြင့် ဒေါင်းလုဒ်များကို သင်နှစ်သက်သလို အမည်ပေးပါ။ အထွေထွေ သို့မဟုတ် ဒေါင်းလုဒ်ပရိုဖိုင်တစ်ခုစီအလိုက် သတ်မှတ်နိုင်သည်",
   feat_workflow_10:
-    "**တစ်ပြိုင်နက် ဒေါင်းလုဒ်များ နှင့် အလိုအလျောက် ပြန်ကြိုးစားမှု** — တန်းစီထားသော ဒေါင်းလုဒ်မည်မျှကို တစ်ပြိုင်နက် လုပ်မည်ကို ရွေးပါ၊ ကွန်ရက် သို့မဟုတ် ဆာဗာ ပြဿနာ ကြုံရသော ဒေါင်းလုဒ်ကို Arroxy သည် ကြိုးစားမှုတိုင်းမတိုင်မီ ပိုကြာစွာ စောင့်ပြီး ပြန်ကြိုးစားပါမည်",
+    "**တစ်ပြိုင်နက် ဒေါင်းလုဒ်များ နှင့် အလိုအလျောက် ပြန်ကြိုးစားမှု** — တန်းစီထားသော ဒေါင်းလုဒ်မည်မျှကို တစ်ပြိုင်နက် လုပ်မည်ကို ရွေးပါ၊ ကွန်ရက် သို့မဟုတ် ဆာဗာ ပြဿနာ ကြုံရသော ဒေါင်းလုဒ်ကို FlickGrab သည် ကြိုးစားမှုတိုင်းမတိုင်မီ ပိုကြာစွာ စောင့်ပြီး ပြန်ကြိုးစားပါမည်",
   feat_workflow_11:
     "**Playlist ရှိ item တစ်ခုချင်းအတွက် ပရိုဖိုင်** — list တစ်ခုလုံးအတွက် setting တစ်ခုတည်း အသုံးပြုမည့်အစား၊ playlist ထဲက ဗီဒီယိုတစ်ခုစီကို ၎င်းတို့ ကိုယ်ပိုင် ဒေါင်းလုဒ်ပရိုဖိုင် သတ်မှတ်ပေးနိုင်သဖြင့် တစ်ကြိမ်တည်းတွင် အချို့ကို အရည်အသွေးအပြည့်ဖြင့် သိမ်းဆည်းပြီး ကျန်တာကို MP3 အနေနှင့် ရယူနိုင်သည်",
   feat_workflow_13:
     "**Quick Download သည် နောက်ခံတွင် အလုပ်လုပ်သည်** — လင့်ခ်သည် ဒေါင်းလုဒ်များထဲတွင် ချက်ချင်းပေါ်လာပြီး ထိုနေရာတွင်ပင် ပြင်ဆင်ပေးကာ **ကြည့်ရန်** ပါသော မှတ်စုက အတည်ပြုပေးပြီး နောက်လင့်ခ်အတွက် URL အကွက်ကို ရှင်းပေးသည်။ ယခင်ဟာများ ပြင်ဆင်နေစဉ်မှာပင် လိုသလောက် စတင်နိုင်သည်",
   feat_workflow_14:
-    "**ဒေါင်းလုဒ်များက သင့်အကူအညီလိုသည်ကို ပြောပြသည်** — Arroxy က လင့်ခ်ကို မဖတ်နိုင်ပါက ၎င်း၏အတန်းတွင် အကြောင်းရင်းကိုပြပြီး ဖြေရှင်းနည်းကို အကြံပြုသည် - ထပ်မံကြိုးစားမည်၊ cookie ဖွင့်ပါ သို့မဟုတ် Explore တွင် sign in ဝင်ပါ။ cookie ပိတ်ထားလျှင် သင် sign in ဝင်ပြီးနောက် **Explore ဖြင့် Sign in** က သင့်အတွက် ပြန်စမ်းပေးသည်။ load ကန့်သတ်ချက်ထက် ရှည်သော playlist သည် ၎င်း၏အတန်းပေါ်တွင် စောင့်နေပြီး အားလုံး၊ ပထမအနည်းငယ် သို့မဟုတ် ပြန်လည်စစ်ဆေးခြင်းကို သင်ရွေးရန် စောင့်သည်။ ဒေါင်းလုဒ်များ tab တွင် သင့်ကိုစောင့်နေသော အတန်းအရေအတွက်ကို ပြသည်",
+    "**ဒေါင်းလုဒ်များက သင့်အကူအညီလိုသည်ကို ပြောပြသည်** — FlickGrab က လင့်ခ်ကို မဖတ်နိုင်ပါက ၎င်း၏အတန်းတွင် အကြောင်းရင်းကိုပြပြီး ဖြေရှင်းနည်းကို အကြံပြုသည် - ထပ်မံကြိုးစားမည်၊ cookie ဖွင့်ပါ သို့မဟုတ် Explore တွင် sign in ဝင်ပါ။ cookie ပိတ်ထားလျှင် သင် sign in ဝင်ပြီးနောက် **Explore ဖြင့် Sign in** က သင့်အတွက် ပြန်စမ်းပေးသည်။ load ကန့်သတ်ချက်ထက် ရှည်သော playlist သည် ၎င်း၏အတန်းပေါ်တွင် စောင့်နေပြီး အားလုံး၊ ပထမအနည်းငယ် သို့မဟုတ် ပြန်လည်စစ်ဆေးခြင်းကို သင်ရွေးရန် စောင့်သည်။ ဒေါင်းလုဒ်များ tab တွင် သင့်ကိုစောင့်နေသော အတန်းအရေအတွက်ကို ပြသည်",
   feat_workflow_15:
-    "**ဗီဒီယိုတစ်ခု၏ အပိုင်းတစ်ခုကိုသာ ဒေါင်းလုဒ်လုပ်ပါ** — Format စခရင်တွင် စတင်ချိန်နှင့် ပြီးဆုံးချိန်၊ သို့မဟုတ် အခန်းကန့်တစ်ခုကို ရွေးပါက Arroxy သည် ထိုအပိုင်းကိုသာ သိမ်းပြီး ဗီဒီယို id နောက်တွင် အပိုင်းကို ထည့်၍ အမည်ပေးသည်။ ဖြတ်တောက်မှုများသည် အနီးဆုံး keyframe တွင် ကျသည်၊ တိကျစွာဖြတ်ခြင်းကို ဖွင့်ပါက ပြန်လည် encode လုပ်မည်",
+    "**ဗီဒီယိုတစ်ခု၏ အပိုင်းတစ်ခုကိုသာ ဒေါင်းလုဒ်လုပ်ပါ** — Format စခရင်တွင် စတင်ချိန်နှင့် ပြီးဆုံးချိန်၊ သို့မဟုတ် အခန်းကန့်တစ်ခုကို ရွေးပါက FlickGrab သည် ထိုအပိုင်းကိုသာ သိမ်းပြီး ဗီဒီယို id နောက်တွင် အပိုင်းကို ထည့်၍ အမည်ပေးသည်။ ဖြတ်တောက်မှုများသည် အနီးဆုံး keyframe တွင် ကျသည်၊ တိကျစွာဖြတ်ခြင်းကို ဖွင့်ပါက ပြန်လည် encode လုပ်မည်",
   feat_workflow_16:
     "**ပြီးဆုံးသော ဒေါင်းလုဒ်များကို အလိုအလျောက် ဖယ်ရှားရန်** — ရွေးချယ်နိုင်သည်- ပြီးဆုံးသော ဒေါင်းလုဒ်သည် 5 စက္ကန့်အကြာတွင် စာရင်းမှ ထွက်သွားသည်။ ၎င်း၏ ဖိုင်များ disk ပေါ်တွင် ကျန်ရှိပြီး မအောင်မြင်သော ဒေါင်းလုဒ်များ စာရင်းထဲတွင် ဆက်ရှိနေသည်",
   feat_workflow_17:
-    "**ဒေါင်းလုဒ်များရှိ အရွယ်အစားနှင့် မရှိပါ** — စီနိုင်သော **အရွယ်အစား** ကော်လံက ဒေါင်းလုဒ်တစ်ခုစီ နေရာမည်မျှယူသည်ကို ပြပြီး **မရှိပါ** က Arroxy အပြင်ဘက်တွင် ရွှေ့ထား သို့မဟုတ် ဖျက်ထားသော ဖိုင်များကို အမှတ်အသားပြုသည်",
+    "**ဒေါင်းလုဒ်များရှိ အရွယ်အစားနှင့် မရှိပါ** — စီနိုင်သော **အရွယ်အစား** ကော်လံက ဒေါင်းလုဒ်တစ်ခုစီ နေရာမည်မျှယူသည်ကို ပြပြီး **မရှိပါ** က FlickGrab အပြင်ဘက်တွင် ရွှေ့ထား သို့မဟုတ် ဖျက်ထားသော ဖိုင်များကို အမှတ်အသားပြုသည်",
   feat_workflow_18:
     "**အောရိုရာ သို့မဟုတ် ရိုးရှင်း၊ အမှောင် သို့မဟုတ် အလင်း** — ရွေ့လျားနေသော ကောင်းကင်ပေါ်ရှိ ဖန်သားပြားများ သို့မဟုတ် တိတ်ဆိတ်သော အစိုင်အခဲမျက်နှာပြင်များ၊ footer မှ ပြောင်းနိုင်သည်။ ဂရပ်ဖစ်အရှိန်မြှင့်မှု မရှိသော ကွန်ပျူတာများသည် ရိုးရှင်း ကို အလိုအလျောက် ရရှိသည်",
   feat_workflow_19:
@@ -204,7 +204,7 @@ export const my = {
   feat_sites_3:
     "**အသံသာနှင့် subtitle များ** ထောက်ပံ့သောဆိုဒ်တိုင်းတွင် အလုပ်လုပ်သည်၊ YouTube တွင်သာမဟုတ်",
   feat_sites_4:
-    "ဆိုဒ်တစ်ခု ပြောင်းလဲပါက yt-dlp သည် အပတ်တိုင်း fix များ ထုတ်ပြီး Arroxy သည် launch တွင် binary ကို auto-update လုပ်သည်",
+    "ဆိုဒ်တစ်ခု ပြောင်းလဲပါက yt-dlp သည် အပတ်တိုင်း fix များ ထုတ်ပြီး FlickGrab သည် launch တွင် binary ကို auto-update လုပ်သည်",
   shot1_cap:
     "<b>အမြန်ဒေါင်းလုဒ် ပင်မ</b><br/>URL ကို ကူးထည့်ပြီး သင့်လက်ရှိ ပရိုဖိုင်ဖြင့် ချက်ချင်းဒေါင်းလုဒ်လုပ်ပါ",
   shot2_cap:
@@ -217,17 +217,17 @@ export const my = {
     "<b>အစုလိုက် URL မုဒ်</b><br/>စာရင်းကူးထည့်ပါ၊ ပွားနေသည်များကို အလိုအလျောက်ဖယ်ရှားပါ၊ အားလုံးကို တစ်ပြိုင်နက်တန်းစီပါ",
   shot6_cap:
     "<b>ပြိုင်တူ ဒေါင်းလုဒ်တန်းစီ</b><br/>တိုက်ရိုက်တိုးတက်မှုဖြင့် တစ်ပြိုင်နက် ဒေါင်းလုဒ်များစွာ",
-  hotkey_fig_alt: "Arroxy ၏ စနစ်တစ်ခုလုံးအတွက် ဒေါင်းလုဒ် ဖြတ်လမ်းခလုတ် — Windows နှင့် Linux တွင် Ctrl+Shift+D၊ macOS တွင် Cmd+Shift+D ဖြင့် ကူးယူထားသောလင့်ခ်ကို ဒေါင်းလုဒ်စာရင်းသို့ တိုက်ရိုက်ပို့သည်",
+  hotkey_fig_alt: "FlickGrab ၏ စနစ်တစ်ခုလုံးအတွက် ဒေါင်းလုဒ် ဖြတ်လမ်းခလုတ် — Windows နှင့် Linux တွင် Ctrl+Shift+D၊ macOS တွင် Cmd+Shift+D ဖြင့် ကူးယူထားသောလင့်ခ်ကို ဒေါင်းလုဒ်စာရင်းသို့ တိုက်ရိုက်ပို့သည်",
   hotkey_fig_cap: "<b>စနစ်တစ်ခုလုံးအတွက် ဒေါင်းလုဒ် ဖြတ်လမ်းခလုတ်</b><br/>ဘယ်နေရာမှာမဆို လင့်ခ်ကူးပြီး တစ်ချက်နှိပ်လိုက်ရုံ — စာရင်းထဲရောက်ပြီး ဒေါင်းလုဒ်စတင်",
   shot7_cap: "<b>Playlist ရှိ item တစ်ခုချင်းအတွက် ပရိုဖိုင်</b><br/>ဗီဒီယိုတစ်ခုစီကို ကိုယ်ပိုင်ပရိုဖိုင် သတ်မှတ်ပါ — အချို့ကို 4K ဖြင့် သိမ်းပြီး ကျန်တာကို MP3 အဖြစ် ရယူပါ",
   shot8_cap:
-    "<b>Explore</b><br/>Arroxy အတွင်းမှာပင် YouTube ကို ကြည့်ရှုပြီး ကြည့်နေသော စာမျက်နှာကို လက်ရှိပရိုဖိုင်ဖြင့် ဒေါင်းလုဒ်လုပ်ပါ",
+    "<b>Explore</b><br/>FlickGrab အတွင်းမှာပင် YouTube ကို ကြည့်ရှုပြီး ကြည့်နေသော စာမျက်နှာကို လက်ရှိပရိုဖိုင်ဖြင့် ဒေါင်းလုဒ်လုပ်ပါ",
   shot9_cap:
     "<b>Explore ၏ ပထမဆုံးမျက်နှာပြင်</b><br/>Explore ကို အကျဉ်းချုပ်ကြည့်ခြင်းနှင့် အရန်အကောင့်က sign in ဝင်ရန် ပိုလုံခြုံသည့် အကြောင်းရင်း",
   shot10_cap:
     "<b>ဒေါင်းလုဒ်များက သင့်အကူအညီလိုသည်ကို ပြောပြသည်</b><br/>လင့်ခ်များကို နောက်ခံတွင် ပြင်ဆင်သည်၊ မအောင်မြင်သည့်လင့်ခ်က ဖြေရှင်းနည်းပေးပြီး ရှည်သော playlist က သင့်ရွေးချယ်မှုကို စောင့်သည်",
   shot11_cap:
-    "<b>ဗီဒီယိုရဲ့ တစ်စိတ်တစ်ပိုင်းကိုသာ ဒေါင်းလုဒ်လုပ်ပါ</b><br/>အစနဲ့ အဆုံး ဒါမှမဟုတ် အခန်းတစ်ခုကို ရွေးပါ — Arroxy က ထိုအပိုင်းကိုသာ သိမ်းပေးပါတယ်",
+    "<b>ဗီဒီယိုရဲ့ တစ်စိတ်တစ်ပိုင်းကိုသာ ဒေါင်းလုဒ်လုပ်ပါ</b><br/>အစနဲ့ အဆုံး ဒါမှမဟုတ် အခန်းတစ်ခုကို ရွေးပါ — FlickGrab က ထိုအပိုင်းကိုသာ သိမ်းပေးပါတယ်",
   shot12_cap:
     "<b>ပရိုဖိုင် တည်းဖြတ်ကိရိယာ</b><br/>ပရိုဖိုင်ကို ညှိပါ- ဖိုင်အမျိုးအစား၊ ရီဇိုလူးရှင်း၊ စာတန်းထိုး၊ သိမ်းဆည်းမည့်နေရာ၊ ဖိုင်အမည်ပုံစံနှင့် အခြားများ",
   shot13_cap:
@@ -264,25 +264,25 @@ export const my = {
     "**အကြံပြုချက်:** auto-update နှင့် ပိုမြန်သော startup အတွက် NSIS installer ကို အသုံးပြုပါ။ install မလုပ်ဘဲ registry မသုံးသောနည်းအတွက် portable `.exe` ကို အသုံးပြုပါ။",
   dl_win_smartscreen_h4: "Windows SmartScreen သတိပေးချက်",
   dl_win_smartscreen_intro:
-    'ပထမဆုံး ဖွင့်သောအခါ **"Windows protected your PC"** သို့မဟုတ် **"Unknown publisher."** ဟု မြင်ရနိုင်သည်။ ၎င်းသည် `Arroxy-win-x64-Setup.exe` နှင့် `Arroxy-win-x64-Portable.exe` နှစ်မျိုးစလုံးအတွက် သက်ဆိုင်သည်။ Arroxy သည် အခမဲ့ open-source ဖြစ်ပြီး Windows builds များကို ငွေပေးချေ certificate ဖြင့် code-sign မလုပ်ထားသောကြောင့် SmartScreen က flag လုပ်သည်။ ၎င်းသည် Arroxy မဘေးကင်းကြောင်း **အလိုအလျောက်** မဆိုလိုပါ။ ဆက်လုပ်ရန်:',
+    'ပထမဆုံး ဖွင့်သောအခါ **"Windows protected your PC"** သို့မဟုတ် **"Unknown publisher."** ဟု မြင်ရနိုင်သည်။ ၎င်းသည် `FlickGrab-win-x64-Setup.exe` နှင့် `FlickGrab-win-x64-Portable.exe` နှစ်မျိုးစလုံးအတွက် သက်ဆိုင်သည်။ FlickGrab သည် အခမဲ့ open-source ဖြစ်ပြီး Windows builds များကို ငွေပေးချေ certificate ဖြင့် code-sign မလုပ်ထားသောကြောင့် SmartScreen က flag လုပ်သည်။ ၎င်းသည် FlickGrab မဘေးကင်းကြောင်း **အလိုအလျောက်** မဆိုလိုပါ။ ဆက်လုပ်ရန်:',
   dl_win_smartscreen_step1: "**More info** ကို နှိပ်ပါ။",
   dl_win_smartscreen_step2: "**Run anyway** ကို နှိပ်ပါ။",
   dl_win_smartscreen_official:
-    "Arroxy ကို တရားဝင် GitHub Releases စာမျက်နှာမှသာ ဒေါင်းလုဒ်ဆွဲပါ။ ဖိုင်ကို အခြား website မှ ရရှိပါက သို့မဟုတ် တစ်ယောက်ယောက်က ပေးပို့ပါက ၎င်းကို ဖျက်ပြီး တရားဝင် source မှ အသစ် download ဆင်းပါ။ source code ကို public တင်ထားသောကြောင့် သင်ကြိုက်ပါက ကိုယ်တိုင် စစ်ဆေးနိုင်သည် သို့မဟုတ် Arroxy ကိုယ်တိုင် build လုပ်နိုင်သည်။",
+    "FlickGrab ကို တရားဝင် GitHub Releases စာမျက်နှာမှသာ ဒေါင်းလုဒ်ဆွဲပါ။ ဖိုင်ကို အခြား website မှ ရရှိပါက သို့မဟုတ် တစ်ယောက်ယောက်က ပေးပို့ပါက ၎င်းကို ဖျက်ပြီး တရားဝင် source မှ အသစ် download ဆင်းပါ။ source code ကို public တင်ထားသောကြောင့် သင်ကြိုက်ပါက ကိုယ်တိုင် စစ်ဆေးနိုင်သည် သို့မဟုတ် FlickGrab ကိုယ်တိုင် build လုပ်နိုင်သည်။",
   dl_macos_h3: "macOS တွင် ပထမဆုံး launch လုပ်ခြင်း",
   dl_macos_warning:
-    "Arroxy သည် code-sign မလုပ်ရသေးသောကြောင့် macOS Gatekeeper သည် ပထမဆုံးဖွင့်ချိန်တွင် damaged app သတိပေးချက် ပြသနိုင်သည်။ ဤသည်မှာ မျှော်လင့်ထားသည့်အရာဖြစ်ပြီး ဖိုင်များ တကယ်ပျက်စီးနေသည်ဟု မဆိုလိုပါ။",
+    "FlickGrab သည် code-sign မလုပ်ရသေးသောကြောင့် macOS Gatekeeper သည် ပထမဆုံးဖွင့်ချိန်တွင် damaged app သတိပေးချက် ပြသနိုင်သည်။ ဤသည်မှာ မျှော်လင့်ထားသည့်အရာဖြစ်ပြီး ဖိုင်များ တကယ်ပျက်စီးနေသည်ဟု မဆိုလိုပါ။",
   dl_macos_m1_h4: "Terminal နည်းလမ်း:",
-  dl_macos_step1: "ဖွင့်ထားသော DMG မှ `Arroxy.app` ကို `/Applications` သို့ ဆွဲထည့်ပါ။",
+  dl_macos_step1: "ဖွင့်ထားသော DMG မှ `FlickGrab.app` ကို `/Applications` သို့ ဆွဲထည့်ပါ။",
   dl_macos_step2:
-    "Terminal ကိုဖွင့်ပြီး `sudo xattr -dr com.apple.quarantine /Applications/Arroxy.app` ကို run ပါ။",
-  dl_macos_step3: "`open /Applications/Arroxy.app` ကို run ပါ။",
+    "Terminal ကိုဖွင့်ပြီး `sudo xattr -dr com.apple.quarantine /Applications/FlickGrab.app` ကို run ပါ။",
+  dl_macos_step3: "`open /Applications/FlickGrab.app` ကို run ပါ။",
   dl_macos_step4:
-    "app path မတူပါက `/Applications/Arroxy.app` ကို သင်ထည့်သွင်းထားသော path ဖြင့် အစားထိုးပါ။",
+    "app path မတူပါက `/Applications/FlickGrab.app` ကို သင်ထည့်သွင်းထားသော path ဖြင့် အစားထိုးပါ။",
   dl_macos_step5:
     "`sudo` က တောင်းပါက သင့် Mac password ကို ထည့်ပါ။",
   dl_macos_after:
-    "quarantine ဖယ်ရှားပြီးနောက် Arroxy သည် ပုံမှန်ဖွင့်ပါမည်။",
+    "quarantine ဖယ်ရှားပြီးနောက် FlickGrab သည် ပုံမှန်ဖွင့်ပါမည်။",
   dl_macos_m2_h4: "Terminal နည်းလမ်း:",
   dl_macos_note:
     "macOS builds များကို Apple Silicon နှင့် Intel runners တို့ပေါ်တွင် CI မှတဆင့် ထုတ်လုပ်သည်။ ပြဿနာများကြုံတွေ့ပါက [issue တင်ပါ](../../issues) — macOS သုံးစွဲသူများ၏ feedback သည် macOS testing cycle ကို တက်ကြွစွာ ပုံဖော်ပေသည်။",
@@ -298,9 +298,9 @@ export const my = {
   dl_linux_arch_note: "**ထုတ်ဝေမှုစာမျက်နှာရှိ Linux ဒေါင်းလုဒ်များသည် x86_64 သီးသန့်ဖြစ်သည်။** ARM64 စက်များ (Raspberry Pi, Asahi Linux) တွင် Flatpak install လုပ်၍ရသော်လည်း ဖွင့်သည့်အခါ `bwrap: execvp ldconfig: Exec format error` ဖြင့် ကျရှုံးသည်။",
   dl_warning_h3: "သတိပေးချက် ဘာကြောင့်မြင်ရနိုင်သနည်း",
   dl_warning_p1:
-    "Arroxy သည် open-source ဖြစ်ပြီး MIT-licensed ဖြစ်သည်။ Windows နှင့် macOS builds များသည် **code-sign မလုပ်ထားပါ** — Apple Developer ID နှင့် Windows EV code-signing certificates တို့သည် တစ်နှစ်လျှင် ဒေါ်လာ ရာနှင့်ချီ ကုန်ကျပြီး indie project တစ်ခုအတွက် ကိုယ်တိုင်ကျခံရသည်။ ထိုလက်မှတ်များမပါဘဲ Windows SmartScreen နှင့် macOS Gatekeeper တို့သည် ပထမဆုံး launch တွင် သတိပေးလိမ့်မည်။ သတိပေးချက်များ၏ အဓိပ္ပာယ်မှာ *သင့် OS က publisher ကို မသိသောကြောင့်ဖြစ်ပြီး* Arroxy malware ဖြစ်ကြောင်း မဆိုလိုပါ။",
+    "FlickGrab သည် open-source ဖြစ်ပြီး MIT-licensed ဖြစ်သည်။ Windows နှင့် macOS builds များသည် **code-sign မလုပ်ထားပါ** — Apple Developer ID နှင့် Windows EV code-signing certificates တို့သည် တစ်နှစ်လျှင် ဒေါ်လာ ရာနှင့်ချီ ကုန်ကျပြီး indie project တစ်ခုအတွက် ကိုယ်တိုင်ကျခံရသည်။ ထိုလက်မှတ်များမပါဘဲ Windows SmartScreen နှင့် macOS Gatekeeper တို့သည် ပထမဆုံး launch တွင် သတိပေးလိမ့်မည်။ သတိပေးချက်များ၏ အဓိပ္ပာယ်မှာ *သင့် OS က publisher ကို မသိသောကြောင့်ဖြစ်ပြီး* FlickGrab malware ဖြစ်ကြောင်း မဆိုလိုပါ။",
   dl_warning_p2:
-    "Arroxy ကိုယ်တိုင် စစ်ဆေးရန် နည်းလမ်းသုံးမျိုး၊ တဆင့်ပြင်းထန်လာသောစီစဉ်မှုဖြင့်:\n\n- **Source ကိုဖတ်ပါ။** မျဉ်းတိုင်းသည် [GitHub](https://github.com/antonio-orionus/Arroxy) တွင်ရှိပြီး [source မှ build](#tech) လုပ်နိုင်သည်။\n- **SHA256 စစ်ဆေးပါ။** သင့်ဖိုင်ကို ထုတ်ဝေထားသော [`SHA256SUMS`](../../releases/latest) နှင့် ကိုက်ညီမှုစစ်ဆေးပါ — အောက်တွင် [သင့်ဒေါင်းလုဒ်ကို အတည်ပြုပါ](#verify) ကိုကြည့်ပါ။\n- **Third-party scan ပြုလုပ်ပါ။** ဖိုင်ကို [VirusTotal](https://www.virustotal.com) တွင် upload ပြုလုပ်ပါ။",
+    "FlickGrab ကိုယ်တိုင် စစ်ဆေးရန် နည်းလမ်းသုံးမျိုး၊ တဆင့်ပြင်းထန်လာသောစီစဉ်မှုဖြင့်:\n\n- **Source ကိုဖတ်ပါ။** မျဉ်းတိုင်းသည် [GitHub](https://github.com/antonio-orionus/FlickGrab) တွင်ရှိပြီး [source မှ build](#tech) လုပ်နိုင်သည်။\n- **SHA256 စစ်ဆေးပါ။** သင့်ဖိုင်ကို ထုတ်ဝေထားသော [`SHA256SUMS`](../../releases/latest) နှင့် ကိုက်ညီမှုစစ်ဆေးပါ — အောက်တွင် [သင့်ဒေါင်းလုဒ်ကို အတည်ပြုပါ](#verify) ကိုကြည့်ပါ။\n- **Third-party scan ပြုလုပ်ပါ။** ဖိုင်ကို [VirusTotal](https://www.virustotal.com) တွင် upload ပြုလုပ်ပါ။",
 
   dl_win_first_h3: "Windows ပထမဆုံး launch",
   shot_smartscreen_more_alt:
@@ -310,33 +310,33 @@ export const my = {
   dl_win_defender_h4:
     "Windows Defender သည် ဖိုင်ကို flag လုပ်ခြင်း သို့မဟုတ် ဖယ်ရှားပါက",
   dl_win_defender_p:
-    "Defender heuristics သည် တစ်ခါတစ်ရံ unsigned NSIS installers နှင့် Electron portables ကို သံသယဖြစ်ဖွယ်ဟု flag လုပ်တတ်သည်။ Defender က `Arroxy-win-x64-Setup.exe` သို့မဟုတ် `Arroxy-win-x64-Portable.exe` ကို quarantine ထည့်ပါက **Windows Security → Virus & threat protection → Protection history** မှ ပြန်ယူပြီး Arroxy executable ကို **Manage settings → Add or remove exclusions** အောက်တွင် ခွင့်ပြုထားသောအရာအဖြစ် ထည့်သွင်းပါ။ SmartScreen ကဲ့သို့ပင် trigger သည် ပျောက်ဆုံးသော publisher signature ဖြစ်ပြီး malware တွေ့ရှိမှုမဟုတ်ပါ။",
+    "Defender heuristics သည် တစ်ခါတစ်ရံ unsigned NSIS installers နှင့် Electron portables ကို သံသယဖြစ်ဖွယ်ဟု flag လုပ်တတ်သည်။ Defender က `FlickGrab-win-x64-Setup.exe` သို့မဟုတ် `FlickGrab-win-x64-Portable.exe` ကို quarantine ထည့်ပါက **Windows Security → Virus & threat protection → Protection history** မှ ပြန်ယူပြီး FlickGrab executable ကို **Manage settings → Add or remove exclusions** အောက်တွင် ခွင့်ပြုထားသောအရာအဖြစ် ထည့်သွင်းပါ။ SmartScreen ကဲ့သို့ပင် trigger သည် ပျောက်ဆုံးသော publisher signature ဖြစ်ပြီး malware တွေ့ရှိမှုမဟုတ်ပါ။",
 
   dl_macos_first_h3: "macOS ပထမဆုံး launch",
   dl_macos_intro:
-    "Arroxy သည် macOS အတွက် code-sign မလုပ်ရသေးသောကြောင့် DMG မှ install လုပ်ပြီးနောက် Gatekeeper သည် ကြောက်စရာ *\"Arroxy.app is damaged and can't be opened\"* dialog ကို ပြသနိုင်သည်။ ထို message သည် macOS က unsigned app ကို quarantine လုပ်ထားသည်ဟု ဆိုလိုပြီး app files တကယ်ပျက်စီးနေသည်ဟု မဆိုလိုပါ။ လက်ရှိ macOS တွင် ယုံကြည်ရသော ဖြေရှင်းနည်းမှာ Terminal ဖြစ်သည်:",
+    "FlickGrab သည် macOS အတွက် code-sign မလုပ်ရသေးသောကြောင့် DMG မှ install လုပ်ပြီးနောက် Gatekeeper သည် ကြောက်စရာ *\"FlickGrab.app is damaged and can't be opened\"* dialog ကို ပြသနိုင်သည်။ ထို message သည် macOS က unsigned app ကို quarantine လုပ်ထားသည်ဟု ဆိုလိုပြီး app files တကယ်ပျက်စီးနေသည်ဟု မဆိုလိုပါ။ လက်ရှိ macOS တွင် ယုံကြည်ရသော ဖြေရှင်းနည်းမှာ Terminal ဖြစ်သည်:",
   dl_macos_sequoia_h4: "လက်ရှိ macOS အတွက် Terminal fix",
   dl_macos_sequoia_intro:
-    "Arroxy ကို Applications သို့ copy ပြီးနောက် Terminal ကို အသုံးပြုပါ:",
+    "FlickGrab ကို Applications သို့ copy ပြီးနောက် Terminal ကို အသုံးပြုပါ:",
   dl_macos_sequoia_step1:
-    "တပ်ဆင်ထားသော DMG မှ `Arroxy.app` ကို `/Applications` သို့ ဆွဲထည့်ပါ။",
+    "တပ်ဆင်ထားသော DMG မှ `FlickGrab.app` ကို `/Applications` သို့ ဆွဲထည့်ပါ။",
   dl_macos_sequoia_step2:
     "Terminal ကိုဖွင့်ပြီး ဤ command နှစ်ခုကို run ပါ:",
   dl_macos_sequoia_step3:
-    "Arroxy ကိုဖွင့်ရန် `open /Applications/Arroxy.app` ကို run ပါ။",
+    "FlickGrab ကိုဖွင့်ရန် `open /Applications/FlickGrab.app` ကို run ပါ။",
   dl_macos_sequoia_step4:
-    "app path မတူပါက `/Applications/Arroxy.app` ကို သင်ထည့်သွင်းထားသော path ဖြင့် အစားထိုးပါ။",
+    "app path မတူပါက `/Applications/FlickGrab.app` ကို သင်ထည့်သွင်းထားသော path ဖြင့် အစားထိုးပါ။",
   dl_macos_sonoma_h4: "macOS အဟောင်းများအတွက် Terminal fix",
   dl_macos_sonoma_step1:
-    "တပ်ဆင်ထားသော DMG မှ `Arroxy.app` ကို `/Applications` သို့ ဆွဲထည့်ပါ။",
+    "တပ်ဆင်ထားသော DMG မှ `FlickGrab.app` ကို `/Applications` သို့ ဆွဲထည့်ပါ။",
   dl_macos_sonoma_step2:
-    "Terminal ကိုဖွင့်ပြီး `/Applications/Arroxy.app` မှ quarantine ကို ဖယ်ရှားပါ။",
+    "Terminal ကိုဖွင့်ပြီး `/Applications/FlickGrab.app` မှ quarantine ကို ဖယ်ရှားပါ။",
   dl_macos_sonoma_step3:
-    "quarantine ဖယ်ရှားပြီးနောက် Arroxy ကို Terminal သို့မဟုတ် Finder မှ ဖွင့်ပါ။",
+    "quarantine ဖယ်ရှားပြီးနောက် FlickGrab ကို Terminal သို့မဟုတ် Finder မှ ဖွင့်ပါ။",
   dl_macos_damaged_h4:
     "Gatekeeper quarantine fix",
   dl_macos_damaged_p:
-    "ပထမ command သည် သင်ထည့်သွင်းထားသော Arroxy copy မှ quarantine attribute ကို ဖယ်ရှားသည်။ ဒုတိယ command သည် app ကို ဖွင့်သည်။ `sudo` သည် သင့် Mac password ကို တောင်းနိုင်သည်။ Terminal သည် password ရိုက်နေချိန်တွင် စာလုံးများကို မပြပါ။",
+    "ပထမ command သည် သင်ထည့်သွင်းထားသော FlickGrab copy မှ quarantine attribute ကို ဖယ်ရှားသည်။ ဒုတိယ command သည် app ကို ဖွင့်သည်။ `sudo` သည် သင့် Mac password ကို တောင်းနိုင်သည်။ Terminal သည် password ရိုက်နေချိန်တွင် စာလုံးများကို မပြပါ။",
   dl_macos_arch_note:
     "**Apple Silicon နှင့် Intel:** M-series Mac (M1 / M2 / M3 / M4) ပေါ်တွင် `arm64` DMG ကိုဒေါင်းလုဒ်ဆွဲပါ။ Intel Mac ပေါ်တွင် `x64` DMG ကိုဒေါင်းလုဒ်ဆွဲပါ။ မမှန်ကန်သော build ကိုဖွင့်ပါက Rosetta မှတစ်ဆင့် အလုပ်လုပ်သော်လည်း သိသာစွာ နှေးကွေးပါမည်။",
 
@@ -361,7 +361,7 @@ export const my = {
   privacy_p2:
     "Telemetry မရှိပါ — တစ်နေ့လျှင် anonymous signal တစ်ခုသာ ပို့သည်: app version, OS, ဘာသာစကား, install channel နှင့် နိုင်ငံ — active users အရေအတွက်ကို ရေတွက်နိုင်ရန်။ ID, URLs, video titles, file paths သို့မဟုတ် account info မပါဝင်ပါ။ Settings တွင် ပိတ်နိုင်သည်။",
   privacy_p3:
-    "Explore သည် သင့် browser နှင့် သီးခြားဖြစ်သော ကိုယ်ပိုင် sign-in ကို ထားရှိပြီး Arroxy က sign-in ဖောင်ကို ဘယ်တော့မှ မဖတ်ပါ၊ မဖြည့်ပါ — Google ၏ ကိုယ်ပိုင်စာမျက်နှာတွင် သင်ကိုယ်တိုင် ရိုက်ထည့်ရသည်။ ဒေါင်းလုဒ်များသည် sign out အခြေအနေတွင် လုပ်ဆောင်သည်၊ အကောင့်ဖြင့် ဖြေရှင်းနိုင်သော အကြောင်းရင်းကြောင့် ဒေါင်းလုဒ်မအောင်မြင်မှသာ Arroxy က sign-in ကို အသစ်ပြန်ဖတ်ပြီး ထိုဒေါင်းလုဒ်အတွက် ယာယီဖိုင်တွင်ထားကာ နောက်မှ ထိုဖိုင်ကို ဖျက်သည်။ ဆက်တင်များတွင် Explore မှ sign out လုပ်ပါက sign-in ကို မေ့သွားသည်။",
+    "Explore သည် သင့် browser နှင့် သီးခြားဖြစ်သော ကိုယ်ပိုင် sign-in ကို ထားရှိပြီး FlickGrab က sign-in ဖောင်ကို ဘယ်တော့မှ မဖတ်ပါ၊ မဖြည့်ပါ — Google ၏ ကိုယ်ပိုင်စာမျက်နှာတွင် သင်ကိုယ်တိုင် ရိုက်ထည့်ရသည်။ ဒေါင်းလုဒ်များသည် sign out အခြေအနေတွင် လုပ်ဆောင်သည်၊ အကောင့်ဖြင့် ဖြေရှင်းနိုင်သော အကြောင်းရင်းကြောင့် ဒေါင်းလုဒ်မအောင်မြင်မှသာ FlickGrab က sign-in ကို အသစ်ပြန်ဖတ်ပြီး ထိုဒေါင်းလုဒ်အတွက် ယာယီဖိုင်တွင်ထားကာ နောက်မှ ထိုဖိုင်ကို ဖျက်သည်။ ဆက်တင်များတွင် Explore မှ sign out လုပ်ပါက sign-in ကို မေ့သွားသည်။",
   faq_q1: "တကယ်ကို အခမဲ့လား?",
   faq_a1: "ဟုတ်သည် — MIT licensed၊ premium tier မပါ၊ feature gating မပါ။",
   faq_q2: "မည်သည့် ဗီဒီယိုအရည်အသွေးများ ဒေါင်းလုဒ်ဆွဲနိုင်သနည်း?",
@@ -372,13 +372,13 @@ export const my = {
     "ဟုတ်ပါတယ်။ format menu ထဲက *အသံသာ* ကိုရွေးပြီး MP3၊ M4A/AAC၊ Opus သို့မဟုတ် WAV ကိုရွေးပါ။",
   faq_q4: "YouTube account လိုအပ်သော ဗီဒီယိုများကို ဘယ်လို ဒေါင်းလုဒ်လုပ်ရမလဲ?",
   faq_a4:
-    "Explore tab တွင် တစ်ကြိမ် sign in ဝင်ပါ။ ထို့နောက် Arroxy သည် သင့်အကောင့်ဖြင့် ကြည့်နိုင်သော private နှင့် member-only ဗီဒီယိုများ၊ အသက်အတည်ပြုထားသော အကောင့်ဖြစ်လျှင် အသက်ကန့်သတ်ဗီဒီယိုများ၊ သင်၏ Watch Later နှင့် Liked စာရင်းများကို ဒေါင်းလုဒ်လုပ်နိုင်သည်။ အကောင့်ဖြင့် ဖြေရှင်းနိုင်သော အကြောင်းရင်းကြောင့် ဒေါင်းလုဒ်မအောင်မြင်မှသာ ထို sign-in ကို သုံးပြီး ကျန်အရာအားလုံးကို အရင်ကဲ့သို့ပင် ဒေါင်းလုဒ်လုပ်သည်။ ၎င်းမှာ cookie ဆက်တင်များတွင် ပထမဆုံးစာရင်းသွင်းထားပြီး \"အကြံပြု\" ဟု အမှတ်အသားပြထားသော **Explore sign-in** ရွေးချယ်မှုဖြစ်ပြီး Explore ကို ပထမဆုံးဖွင့်သောအခါ Arroxy က သင့်အတွက် ရွေးပေးသည်။ yt-dlp ၏ wiki က [sign in ဝင်ထားသော automation သည် Google account ကို flag လုပ်နိုင်ကြောင်း](https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies) သတိပေးထားသဖြင့် အရန် account တစ်ခုသည် ပိုပြီးဘေးကင်းသောရွေးချယ်မှုဖြစ်သည်။",
+    "Explore tab တွင် တစ်ကြိမ် sign in ဝင်ပါ။ ထို့နောက် FlickGrab သည် သင့်အကောင့်ဖြင့် ကြည့်နိုင်သော private နှင့် member-only ဗီဒီယိုများ၊ အသက်အတည်ပြုထားသော အကောင့်ဖြစ်လျှင် အသက်ကန့်သတ်ဗီဒီယိုများ၊ သင်၏ Watch Later နှင့် Liked စာရင်းများကို ဒေါင်းလုဒ်လုပ်နိုင်သည်။ အကောင့်ဖြင့် ဖြေရှင်းနိုင်သော အကြောင်းရင်းကြောင့် ဒေါင်းလုဒ်မအောင်မြင်မှသာ ထို sign-in ကို သုံးပြီး ကျန်အရာအားလုံးကို အရင်ကဲ့သို့ပင် ဒေါင်းလုဒ်လုပ်သည်။ ၎င်းမှာ cookie ဆက်တင်များတွင် ပထမဆုံးစာရင်းသွင်းထားပြီး \"အကြံပြု\" ဟု အမှတ်အသားပြထားသော **Explore sign-in** ရွေးချယ်မှုဖြစ်ပြီး Explore ကို ပထမဆုံးဖွင့်သောအခါ FlickGrab က သင့်အတွက် ရွေးပေးသည်။ yt-dlp ၏ wiki က [sign in ဝင်ထားသော automation သည် Google account ကို flag လုပ်နိုင်ကြောင်း](https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies) သတိပေးထားသဖြင့် အရန် account တစ်ခုသည် ပိုပြီးဘေးကင်းသောရွေးချယ်မှုဖြစ်သည်။",
   faq_q5: "YouTube တွင် တစ်ခုခုပြောင်းသောအခါ ဆက်လက်အလုပ်လုပ်မည်လား?",
   faq_a5:
-    "yt-dlp ကို launch တိုင်း အလိုအလျောက် update လုပ်ပြီး YouTube က တစ်ခုခု ပြောင်းလဲသောအခါ Arroxy က fix များကို လျင်မြန်စွာ ထုတ်ပေးသည်။ သင်သည် bot မဟုတ်ကြောင်း YouTube က အတည်ပြုခိုင်းသောအခါ Explore တွင် sign in ဝင်ထားလျှင် Arroxy က သင်၏ Explore sign-in ကိုလည်း စမ်းကြည့်ပြီး cookie ဆက်တင်များတွင် ဖိုင် သို့မဟုတ် browser မှ cookie များကိုလည်း သုံးနိုင်သည်။",
-  faq_q6: "Arroxy ကို မည်သည့်ဘာသာစကားများဖြင့် ရနိုင်သနည်း?",
+    "yt-dlp ကို launch တိုင်း အလိုအလျောက် update လုပ်ပြီး YouTube က တစ်ခုခု ပြောင်းလဲသောအခါ FlickGrab က fix များကို လျင်မြန်စွာ ထုတ်ပေးသည်။ သင်သည် bot မဟုတ်ကြောင်း YouTube က အတည်ပြုခိုင်းသောအခါ Explore တွင် sign in ဝင်ထားလျှင် FlickGrab က သင်၏ Explore sign-in ကိုလည်း စမ်းကြည့်ပြီး cookie ဆက်တင်များတွင် ဖိုင် သို့မဟုတ် browser မှ cookie များကိုလည်း သုံးနိုင်သည်။",
+  faq_q6: "FlickGrab ကို မည်သည့်ဘာသာစကားများဖြင့် ရနိုင်သနည်း?",
   faq_a6:
-    "ချက်ချင်းအသုံးပြုနိုင်သော {{LANG_COUNT}} ဘာသာစကားများ: {{LANG_NAME_LIST}}။ Arroxy သည် ပထမဆုံးစတင်ချိန်တွင် သင့် operating system ဘာသာစကားကို အလိုအလျောက်သိရှိပြီး toolbar ရှိ ဘာသာစကားရွေးချယ်စနစ်မှ အချိန်မရွေးပြောင်းနိုင်သည်။ Runtime locale JSON သည် src/shared/i18n/locales/ တွင်ရှိပြီး ဘာသာပြန်သူများအတွက် PO catalog များသည် i18n/locales/ တွင်ရှိသည် — ပါဝင်ရန် GitHub တွင် PR ဖွင့်ပါ။",
+    "ချက်ချင်းအသုံးပြုနိုင်သော {{LANG_COUNT}} ဘာသာစကားများ: {{LANG_NAME_LIST}}။ FlickGrab သည် ပထမဆုံးစတင်ချိန်တွင် သင့် operating system ဘာသာစကားကို အလိုအလျောက်သိရှိပြီး toolbar ရှိ ဘာသာစကားရွေးချယ်စနစ်မှ အချိန်မရွေးပြောင်းနိုင်သည်။ Runtime locale JSON သည် src/shared/i18n/locales/ တွင်ရှိပြီး ဘာသာပြန်သူများအတွက် PO catalog များသည် i18n/locales/ တွင်ရှိသည် — ပါဝင်ရန် GitHub တွင် PR ဖွင့်ပါ။",
   faq_q7: "အခြားအရာများ ထည့်သွင်းရန်လိုသလား?",
   faq_a7:
     "မလိုပါ။ yt-dlp သည် ပထမဆုံး ဖွင့်ချိန်တွင် အလိုအလျောက် ဒေါင်းလုဒ်လုပ်ပြီး သင့်စက်တွင် cache လုပ်သည်; ffmpeg နှင့် ffprobe သည် app နှင့်အတူ ပါလာသည်။ ထို့နောက် နောက်ထပ် setup မလိုအပ်ပါ။",
@@ -387,7 +387,7 @@ export const my = {
     "ရပါတယ် — နှစ်မျိုးလုံး။ playlist သို့မဟုတ် channel URL ကို paste လုပ်ပါ (ဥပမာ `youtube.com/@handle`, `/channel/UC…`, `/c/Name`, `/user/Old`); scan လုပ်မည့် entries အရေအတွက်ကိုရွေးပြီး စာရင်းတစ်ခုလုံးကို queue ထဲထည့်ပါ သို့မဟုတ် video များကို သီးသန့်ရွေးပါ။ date-range filters မကြာမီလာပါမည်။",
   faq_q9: 'macOS က "app ပျက်စီးနေသည်" ဟုဆိုသည် — ဘာလုပ်ရမည်နည်း?',
   faq_a9:
-    "၎င်းသည် macOS Gatekeeper က unsigned app ကို block လုပ်ခြင်းဖြစ်ပြီး တကယ်ပျက်စီးမှုမဟုတ်ပါ။ quarantine ကိုဖယ်ရှားပြီး Arroxy ကိုဖွင့်ရန် Terminal commands များကို [macOS first launch](#macos-first-launch) တွင် ကြည့်ပါ။",
+    "၎င်းသည် macOS Gatekeeper က unsigned app ကို block လုပ်ခြင်းဖြစ်ပြီး တကယ်ပျက်စီးမှုမဟုတ်ပါ။ quarantine ကိုဖယ်ရှားပြီး FlickGrab ကိုဖွင့်ရန် Terminal commands များကို [macOS first launch](#macos-first-launch) တွင် ကြည့်ပါ။",
   faq_q10: "YouTube ဗီဒီယိုများ ဒေါင်းလုဒ်ဆွဲခြင်း တရားဝင်ပါသလား?",
   faq_a10:
     "ကိုယ်ရေးကိုယ်တာ သုံးစွဲမှုအတွက် ကိုယ်ရေးကိုယ်တာ purposes အတွက် နိုင်ငံအများစုတွင် ယေဘုယျအားဖြင့် လက်ခံသည်။ YouTube ၏ [Terms of Service](https://www.youtube.com/t/terms) နှင့် သင့်ဒေသခံ copyright ဥပဒေများနှင့် ကိုက်ညီသည်ကို သင်ကိုယ်တိုင် တာဝန်ယူရသည်။",
@@ -413,11 +413,11 @@ export const my = {
   plan_cta:
     "လုပ်ဆောင်ချက်တစ်ခု ကြံဆထားပါသလား? [Request တင်ပါ](../../issues) — community input က ဦးစားပေးမှုကို ပုံဖော်သည်။",
   tech_content: TECH_CONTENT,
-  support_h2: "Arroxy ကို ပံ့ပိုးရန်",
-  support_note: "Arroxy သည် အခမဲ့ဖြစ်ပြီး MIT လိုင်စင်ဖြင့် ဖြန့်ဝေသည် — ကြော်ငြာမပါ၊ telemetry မပါ၊ ငွေပေးရသည့် ဗားရှင်းလည်း မရှိပါ။ သင့်အချိန်ကို သက်သာစေပါက Bitcoin သို့မဟုတ် Tron ဖြင့် ဖွံ့ဖြိုးတိုးတက်မှုကို ပံ့ပိုးနိုင်ပါသည် — လိပ်စာများကို [DONATE.md](DONATE.md) တွင် ကြည့်ပါ၊ ၎င်းသည် လိပ်စာများ၏ တစ်ခုတည်းသော တရားဝင် အရင်းအမြစ် ဖြစ်ပါသည်။ Arroxy သည် သင့်ထံသို့ အီးမေးလ် သို့မဟုတ် တိုက်ရိုက်မက်ဆေ့ချ်ဖြင့် လိပ်စာ ဘယ်တော့မျှ ပို့မည်မဟုတ်ပါ။ repo ကို ကြယ်ပွင့်ပေးခြင်း၊ bug များ အစီရင်ခံခြင်းနှင့် ဘာသာပြန်များ တိုးတက်အောင် ကူညီခြင်းတို့သည်လည်း အလားတူ အထောက်အကူဖြစ်ပါသည်။",
+  support_h2: "FlickGrab ကို ပံ့ပိုးရန်",
+  support_note: "FlickGrab သည် အခမဲ့ဖြစ်ပြီး MIT လိုင်စင်ဖြင့် ဖြန့်ဝေသည် — ကြော်ငြာမပါ၊ telemetry မပါ၊ ငွေပေးရသည့် ဗားရှင်းလည်း မရှိပါ။ သင့်အချိန်ကို သက်သာစေပါက Bitcoin သို့မဟုတ် Tron ဖြင့် ဖွံ့ဖြိုးတိုးတက်မှုကို ပံ့ပိုးနိုင်ပါသည် — လိပ်စာများကို [DONATE.md](DONATE.md) တွင် ကြည့်ပါ၊ ၎င်းသည် လိပ်စာများ၏ တစ်ခုတည်းသော တရားဝင် အရင်းအမြစ် ဖြစ်ပါသည်။ FlickGrab သည် သင့်ထံသို့ အီးမေးလ် သို့မဟုတ် တိုက်ရိုက်မက်ဆေ့ချ်ဖြင့် လိပ်စာ ဘယ်တော့မျှ ပို့မည်မဟုတ်ပါ။ repo ကို ကြယ်ပွင့်ပေးခြင်း၊ bug များ အစီရင်ခံခြင်းနှင့် ဘာသာပြန်များ တိုးတက်အောင် ကူညီခြင်းတို့သည်လည်း အလားတူ အထောက်အကူဖြစ်ပါသည်။",
   tos_h2: "အသုံးပြုမှုသဘောတူညီချက်",
   tos_note:
-    "Arroxy သည် ကိုယ်ရေးကိုယ်တာ သုံးစွဲမှုအတွက်သာ tool ဖြစ်သည်။ သင့် downloads သည် YouTube ၏ [Terms of Service](https://www.youtube.com/t/terms) နှင့် သင့်နိုင်ငံ၏ copyright ဥပဒေများနှင့် ကိုက်ညီကြောင်း သေချာစေရန် တာဝန်သည် သင့်ကိုယ်သင်တွင်သာ ရှိသည်။ သင့်တွင် အသုံးပြုခွင့်မရှိသောကြောင့် content ကို ဒေါင်းလုဒ်ဆွဲ၊ ထပ်ဆင့်ဖြန့်ဝေ သို့မဟုတ် ဖြန့်ဖြူးရန် Arroxy ကို မသုံးပါနှင့်။ Developer များသည် မည်သည့် အလွဲသုံးမှုမဆိုအတွက် တာဝန်ကင်းသည်။",
+    "FlickGrab သည် ကိုယ်ရေးကိုယ်တာ သုံးစွဲမှုအတွက်သာ tool ဖြစ်သည်။ သင့် downloads သည် YouTube ၏ [Terms of Service](https://www.youtube.com/t/terms) နှင့် သင့်နိုင်ငံ၏ copyright ဥပဒေများနှင့် ကိုက်ညီကြောင်း သေချာစေရန် တာဝန်သည် သင့်ကိုယ်သင်တွင်သာ ရှိသည်။ သင့်တွင် အသုံးပြုခွင့်မရှိသောကြောင့် content ကို ဒေါင်းလုဒ်ဆွဲ၊ ထပ်ဆင့်ဖြန့်ဝေ သို့မဟုတ် ဖြန့်ဖြူးရန် FlickGrab ကို မသုံးပါနှင့်။ Developer များသည် မည်သည့် အလွဲသုံးမှုမဆိုအတွက် တာဝန်ကင်းသည်။",
   footer_credit:
     'MIT License · <a href="https://x.com/OrionusAI">@OrionusAI</a> မှ ဂရုတစိုက်ဖန်တီးထားသည်',
 };

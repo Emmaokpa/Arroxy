@@ -6,7 +6,7 @@ import log from 'electron-log/main.js'
 import {IPC_CHANNELS} from '@shared/ipc.js'
 import {detectInstallChannel} from '@main/installChannel.js'
 import {resolveUpdateFeed} from '@main/updateFeed.js'
-import {canMoveUnderHomebrew, installArroxyWithHomebrew, upgradeArroxyWithHomebrew} from '@main/services/binary/HomebrewRepair.js'
+import {canMoveUnderHomebrew, installFlickGrabWithHomebrew, upgradeFlickGrabWithHomebrew} from '@main/services/binary/HomebrewRepair.js'
 import type {InstallChannel, UpdateAvailablePayload, UpdateInstallResult} from '@shared/types.js'
 
 // Channels where the in-app installer should not run — either because an
@@ -36,7 +36,7 @@ function resolveUpdateChannel(version: string): {channel: string; allowPrereleas
 export function registerUpdaterHandlers(mainWindow: BrowserWindow): void {
 	const installChannel = detectInstallChannel(app.getName())
 
-	// Flatpak installs update from Arroxy's own Flatpak repo (`flatpak update`,
+	// Flatpak installs update from FlickGrab's own Flatpak repo (`flatpak update`,
 	// GNOME Software). The banner still matters: many users never open a software
 	// centre, and a terminal-only user would otherwise never hear of an update.
 	// On Linux electron-updater only checks inside an AppImage ($APPIMAGE set);
@@ -141,8 +141,8 @@ export function registerUpdaterHandlers(mainWindow: BrowserWindow): void {
 			return {ok: false, error: `install not supported for channel: ${installChannel}`}
 		}
 
-		if (installChannel === 'homebrew') return updateWithHomebrew(upgradeArroxyWithHomebrew)
-		if (installChannel === 'direct' && homebrewOnMac) return updateWithHomebrew(installArroxyWithHomebrew)
+		if (installChannel === 'homebrew') return updateWithHomebrew(upgradeFlickGrabWithHomebrew)
+		if (installChannel === 'direct' && homebrewOnMac) return updateWithHomebrew(installFlickGrabWithHomebrew)
 
 		const {promise, resolve} = Promise.withResolvers<UpdateInstallResult>()
 		pendingInstall = resolve

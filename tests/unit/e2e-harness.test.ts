@@ -27,7 +27,6 @@ describe('resolveE2eHarnessMode', () => {
 		const mode = resolveE2eHarnessMode({ARROXY_E2E_YTDLP_PLUGIN_DIR: '/tmp/anything'}, {isPackaged: false})
 
 		expect(mode.enabled).toBe(false)
-		expect(mode.disableAnalytics).toBe(false)
 		expect(mode.disableUpdater).toBe(false)
 		expect(mode.allowClipboardWatch).toBe(true)
 		expect(mode.useMockTokenProvider).toBe(false)
@@ -69,13 +68,11 @@ describe('resolveE2eHarnessMode', () => {
 		const spawnEnv = mode.applySpawnEnv({PATH: '/bin'})
 
 		expect(mode.enabled).toBe(true)
-		expect(mode.disableAnalytics).toBe(true)
 		expect(mode.disableUpdater).toBe(true)
 		expect(mode.allowClipboardWatch).toBe(false)
 		expect(mode.useMockTokenProvider).toBe(true)
 		expect(mode.commandLineSwitches).toEqual(['disable-background-networking', 'disable-component-update', 'disable-domain-reliability', 'no-pings'])
 		expect(defaults.common.clipboardWatchEnabled).toBe(false)
-		expect(defaults.common.analyticsEnabled).toBe(false)
 		expect(defaults.common.defaultOutputDir).toBe('/downloads')
 		expect(spawnEnv.HTTP_PROXY).toBe('http://127.0.0.1:1234')
 		expect(spawnEnv.NO_PROXY).toBe('127.0.0.1,localhost,::1')

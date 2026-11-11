@@ -43,7 +43,7 @@
 	--text-label--font-weight: 600;
 	--text-caption: 0.6875rem;
 	--text-caption--line-height: 1.3;
-	/* Arroxy Blue — the One Voice, identical in both skies. `--primary` (per sky,
+	/* FlickGrab Blue — the One Voice, identical in both skies. `--primary` (per sky,
 	   below) is the source; `--brand*` are aliases kept only until every call site
 	   speaks `primary`. `--brand-dim` equals `primary/12`. */
 	--brand: var(--primary);

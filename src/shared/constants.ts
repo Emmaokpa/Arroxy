@@ -8,7 +8,7 @@ export const DISCORD_URL = 'https://discord.gg/ueGvXwQH8y'
 // earlier releases keep working.
 export const WEBSITE_URL = 'https://orionus.dev/arroxy/'
 
-// The cask lives in Arroxy's own tap, not in Homebrew's official one. The fully
+// The cask lives in FlickGrab's own tap, not in Homebrew's official one. The fully
 // qualified name lets `brew install` tap it on the fly; the short name `arroxy`
 // only resolves once the tap is already added.
 export const HOMEBREW_CASK = 'antonio-orionus/arroxy/arroxy'
@@ -80,7 +80,6 @@ export function defaultAppSettings(downloadsDir: string): AppSettings {
 			clipboardWatchEnabled: true,
 			hotkeyEnabled: DEFAULTS.hotkeyEnabled,
 			hotkeyAccelerator: DEFAULTS.hotkeyAccelerator,
-			analyticsEnabled: true,
 			filenameTemplate: DEFAULTS.filenameTemplate,
 			uiStyle: DEFAULTS.uiStyle,
 			nativeAudioPreference: DEFAULTS.nativeAudioPreference,

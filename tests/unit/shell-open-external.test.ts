@@ -46,6 +46,25 @@ describe('shell:openExternal IPC validation', () => {
 		expect(shell.openExternal).toHaveBeenCalled()
 	})
 
+	it('rejects a scheme that merely starts with "http"', async () => {
+		for (const payload of ['httpfoo://example.com', 'https-file://example.com', 'http.evil://example.com']) {
+			const result = (await openExternalHandler()(null, payload)) as {ok: boolean}
+			expect(result.ok).toBe(false)
+		}
+		expect(shell.openExternal).not.toHaveBeenCalled()
+	})
+
+	it('rejects non-web schemes that contain http later in the string', async () => {
+		const result = (await openExternalHandler()(null, 'devtools://devtools/bundled/http.html')) as {ok: boolean}
+		expect(result.ok).toBe(false)
+		expect(shell.openExternal).not.toHaveBeenCalled()
+	})
+
+	it('passes the parsed URL, not the raw payload', async () => {
+		await openExternalHandler()(null, 'https://example.com/a b')
+		expect(shell.openExternal).toHaveBeenCalledWith('https://example.com/a%20b')
+	})
+
 	it('rejects javascript: without calling openExternal', async () => {
 		const result = (await openExternalHandler()(null, 'javascript:alert(1)')) as {ok: boolean}
 		expect(result.ok).toBe(false)

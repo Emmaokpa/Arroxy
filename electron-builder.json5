@@ -1,6 +1,5 @@
-{
-  "appId": "com.arroxy.app",
-  "productName": "Arroxy",
+{"appId": "com.flickgrab.app",
+  "productName": "FlickGrab",
   "afterPack": "./build/afterPack.mjs",
   "beforeBuild": "./build/beforeBuild.mjs",
   "toolsets": {
@@ -67,7 +66,7 @@
     ],
     "target": [{ "target": "dmg", "arch": ["arm64", "x64"] }],
     "extendInfo": {
-      "NSBluetoothAlwaysUsageDescription": "Arroxy uses Bluetooth so you can sign in to Explore with a security key (passkey)."
+      "NSBluetoothAlwaysUsageDescription": "FlickGrab uses Bluetooth so you can sign in to Explore with a security key (passkey)."
     },
     "artifactName": "${productName}-mac-${arch}.${ext}"
   },
@@ -87,6 +86,6 @@
   "publish": {
     "provider": "github",
     "owner": "antonio-orionus",
-    "repo": "Arroxy"
+    "repo": "FlickGrab"
   }
 }

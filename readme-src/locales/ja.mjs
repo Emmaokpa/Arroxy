@@ -39,7 +39,7 @@ brew install mise
 xcode-select --install
 \`\`\`
 
-clone 後、checkout 内で \`mise trust && mise install\` を実行してください。shell がすでに \`fnm\`、\`nvm\`、または Homebrew の Bun を使っている場合は、Arroxy が Node.js 24.21.0 と Bun 1.4.2 を使うように \`~/.zshrc\` で mise を有効化してください：
+clone 後、checkout 内で \`mise trust && mise install\` を実行してください。shell がすでに \`fnm\`、\`nvm\`、または Homebrew の Bun を使っている場合は、FlickGrab が Node.js 24.21.0 と Bun 1.4.2 を使うように \`~/.zshrc\` で mise を有効化してください：
 
 \`\`\`bash
 printf '\n# mise\nif command -v mise >/dev/null 2>&1; then\n  eval "$(mise activate zsh)"\nfi\n' >> ~/.zshrc
@@ -61,8 +61,8 @@ sudo apt install -y xvfb
 ### クローンして実行
 
 \`\`\`bash
-git clone https://github.com/antonio-orionus/Arroxy
-cd Arroxy
+git clone https://github.com/antonio-orionus/FlickGrab
+cd FlickGrab
 mise trust
 mise install           # 推奨。固定バージョンのツールを手動で有効化済みならスキップ
 bun run bootstrap
@@ -78,14 +78,14 @@ bun run dist         # 現在の OS 向けパッケージ
 bun run dist:win     # 対応ホストで Windows ターゲットをパッケージ
 \`\`\`
 
-> \`bun run bootstrap\` は依存関係をインストールし、Electron アプリ依存を rebuild し、Electron を検証し、開発用の埋め込み ffmpeg/ffprobe を準備し、Playwright Chromium をインストールします。yt-dlp は実行時にアプリデータフォルダで管理され、ffmpeg と ffprobe はすべての Arroxy リリースに同梱されています。
+> \`bun run bootstrap\` は依存関係をインストールし、Electron アプリ依存を rebuild し、Electron を検証し、開発用の埋め込み ffmpeg/ffprobe を準備し、Playwright Chromium をインストールします。yt-dlp は実行時にアプリデータフォルダで管理され、ffmpeg と ffprobe はすべての FlickGrab リリースに同梱されています。
 
 </details>`;
 
 export const ja = {
-  icon_alt: "Arroxy マスコット",
+  icon_alt: "FlickGrab マスコット",
   title:
-    "Arroxy — Windows・macOS・Linux 向け無料オープンソース YouTube（+ 2000 サイト）ダウンローダー",
+    "FlickGrab — Windows・macOS・Linux 向け無料オープンソース YouTube（+ 2000 サイト）ダウンローダー",
   read_in_label: "言語：",
   badge_release_alt: "リリース",
   badge_build_alt: "ビルド",
@@ -101,11 +101,11 @@ export const ja = {
   cta_latest: "↓ 最新リリースをダウンロード",
   cta_website: "ウェブサイト",
   star_cta:
-    "Arroxy が役に立ったなら、⭐ で他のユーザーへの周知を助けてください。",
+    "FlickGrab が役に立ったなら、⭐ で他のユーザーへの周知を助けてください。",
   ai_notice:
     "> 🌐 これは AI 翻訳です。[英語版 README](README.md) が情報のソースです。誤りを見つけたら [PR を歓迎します](../../pulls)。",
   toc_heading: "目次",
-  why_h2: "なぜ Arroxy？",
+  why_h2: "なぜ FlickGrab？",
   features_h2: "機能",
   dl_h2: "インストールと初回起動",
   privacy_h2: "プライバシー",
@@ -120,16 +120,16 @@ export const ja = {
   why_r6: "クロスプラットフォームのデスクトップアプリ",
   why_r7: "字幕 + SponsorBlock",
   why_summary:
-    "Arroxy はひとつのことのために作られています：URL を貼って、クリーンなローカルファイルを得る。アップセルなし、データ収集なし。",
-  feat_explore_h3: "Explore：Arroxy の中で YouTube を閲覧",
+    "FlickGrab はひとつのことのために作られています：URL を貼って、クリーンなローカルファイルを得る。アップセルなし、データ収集なし。",
+  feat_explore_h3: "Explore：FlickGrab の中で YouTube を閲覧",
   feat_explore_1:
-    "**Explore タブ** — Arroxy の中で YouTube を閲覧し、見つけた動画をリンクをコピーせずにダウンロードできます。**ダウンロード · *プロファイル名*** は、表示中の動画・プレイリスト・チャンネルをキューに追加します。隣の矢印でプロファイルを切り替え、魔法の杖アイコンからは形式や字幕などを選べるステップ式のダウンロードを開けます",
+    "**Explore タブ** — FlickGrab の中で YouTube を閲覧し、見つけた動画をリンクをコピーせずにダウンロードできます。**ダウンロード · *プロファイル名*** は、表示中の動画・プレイリスト・チャンネルをキューに追加します。隣の矢印でプロファイルを切り替え、魔法の杖アイコンからは形式や字幕などを選べるステップ式のダウンロードを開けます",
   feat_explore_6: "**右クリックでダウンロード** — Explore で動画・プレイリスト・チャンネルのリンクを右クリックすると、プロファイルでそのままダウンロードしたり、**プロファイルでダウンロード** から別のプロファイルを選んだり、ステップ式のダウンロードを開いたり、リンクをコピーしたりできます。動画を一つずつ開く必要はありません",
-  feat_explore_7: "**コンパクト表示** — Explore のツールバーでワンクリックすると、Arroxy のタブがそこに移り、ページを広く使えます",
+  feat_explore_7: "**コンパクト表示** — Explore のツールバーでワンクリックすると、FlickGrab のタブがそこに移り、ページを広く使えます",
   feat_explore_2:
     "**アドレスバー** — 入力して YouTube を検索するか、YouTube のリンクを貼り付けます。Explore が閲覧できるのは YouTube だけなので、他サイトのリンクはここでは開きませんが、ワンクリックでダウンロードできます",
   feat_explore_3:
-    "**アカウントが必要なダウンロード** — Explore で一度サインインすれば、アカウントで視聴できる非公開動画やメンバー限定動画、年齢確認済みアカウントなら年齢制限付き動画、「後で見る」や「高く評価した動画」のリストもダウンロードできます。Arroxy は基本的にサインアウトの状態でダウンロードし、アカウントで解決できる理由でダウンロードに失敗したときだけ Explore のサインインを使います。YouTube からボットでないことの確認を求められた場合も、Arroxy は Explore のサインインを試します",
+    "**アカウントが必要なダウンロード** — Explore で一度サインインすれば、アカウントで視聴できる非公開動画やメンバー限定動画、年齢確認済みアカウントなら年齢制限付き動画、「後で見る」や「高く評価した動画」のリストもダウンロードできます。FlickGrab は基本的にサインアウトの状態でダウンロードし、アカウントで解決できる理由でダウンロードに失敗したときだけ Explore のサインインを使います。YouTube からボットでないことの確認を求められた場合も、FlickGrab は Explore のサインインを試します",
   feat_explore_4:
     "**サブアカウントの利用を推奨** — Explore の最初の画面で理由を説明しています。アカウントを使ってダウンロードすると、そのアカウントが制限される恐れが多少あります。サインインを消したいときは、設定から Explore をサインアウトしてください",
   feat_explore_5:
@@ -147,13 +147,13 @@ export const ja = {
   feat_privacy_2: "ログインなし、Cookie なし、Google アカウント連携なし",
   feat_privacy_3: "選択したフォルダに直接ファイルを保存",
   feat_workflow_h3: "ワークフロー",
-  feat_workflow_12: "**グローバルダウンロードホットキー** — どのアプリでもリンクをコピーして `Ctrl+Shift+D`（macOS では `Cmd+Shift+D`）を押すだけ。Arroxy はウィンドウを開かずにアクティブなプロファイルでキューに追加し、通知で結果を知らせます。既定で有効、キー割り当ては変更可能",
+  feat_workflow_12: "**グローバルダウンロードホットキー** — どのアプリでもリンクをコピーして `Ctrl+Shift+D`（macOS では `Cmd+Shift+D`）を押すだけ。FlickGrab はウィンドウを開かずにアクティブなプロファイルでキューに追加し、通知で結果を知らせます。既定で有効、キー割り当ては変更可能",
   feat_workflow_1:
     "**柔軟な開始モード** — ガイド付き単体ダウンロード、プレイリスト/チャンネル選択、URL一括貼り付け、保存済み既定値での Quick Download、または Explore での閲覧とダウンロードを選べます",
   feat_workflow_2:
     "**中央ダウンロードキュー** — 単体、プレイリスト、一括、クイックの各ジョブが一か所に入り、進行状況、一時停止、再開、キャンセル、再試行、優先度を管理できます",
   feat_workflow_3:
-    "**クリップボード監視** — YouTube リンクをコピーすると、アプリにフォーカスを戻したときに Arroxy が URL を自動入力（詳細設定でトグル切替可能）",
+    "**クリップボード監視** — YouTube リンクをコピーすると、アプリにフォーカスを戻したときに FlickGrab が URL を自動入力（詳細設定でトグル切替可能）",
   feat_workflow_4:
     "**URL 自動クリーンアップ** — トラッキングパラメータ（`si`、`pp`、`utm_*`、`fbclid`、`gclid`）を除去し、`youtube.com/redirect` リンクを展開",
   feat_workflow_5:
@@ -167,19 +167,19 @@ export const ja = {
   feat_workflow_9:
     "**ファイル名テンプレート** — `{title}`、`{uploader}`、`{id}`、`{date}`、`{resolution}`、`{playlist_index}` を使って好きな名前を付けられます。全体にもダウンロードプロファイルごとにも設定可能",
   feat_workflow_10:
-    "**同時ダウンロード数と自動再試行** — キューのダウンロードを同時に何件走らせるか選べます。ネットワークやサーバーの問題が起きたダウンロードは、試行ごとに待ち時間を延ばしながら Arroxy が再試行します",
+    "**同時ダウンロード数と自動再試行** — キューのダウンロードを同時に何件走らせるか選べます。ネットワークやサーバーの問題が起きたダウンロードは、試行ごとに待ち時間を延ばしながら FlickGrab が再試行します",
   feat_workflow_11:
     "**プレイリストの動画ごとにプロファイルを指定** — リスト全体に同じ設定を使う代わりに、プレイリスト内の各動画に個別のダウンロードプロファイルを割り当てられます。一度の処理で一部を最高画質で保存し、残りをMP3として取得できます",
   feat_workflow_13:
     "**Quick Download はバックグラウンドで動作** — リンクはすぐにダウンロードに表示されてそこで準備され、**表示**付きの通知で確認でき、URL 欄は次のリンクのために空になります。前のものを準備している間も、いくつでも開始できます",
   feat_workflow_14:
-    "**対応が必要なものをダウンロードが知らせます** — Arroxy がリンクを読み取れないと、その行に理由と対処法（再試行、Cookie をオン、Explore でサインイン）が表示されます。Cookie がオフのときは、サインイン後に **Explore でサインイン** が自動で再試行します。読み込み上限を超えるプレイリストは、その行で待機し、全件・先頭の数件・確認のいずれかを選べます。ダウンロードタブには、対応待ちの行数が表示されます",
+    "**対応が必要なものをダウンロードが知らせます** — FlickGrab がリンクを読み取れないと、その行に理由と対処法（再試行、Cookie をオン、Explore でサインイン）が表示されます。Cookie がオフのときは、サインイン後に **Explore でサインイン** が自動で再試行します。読み込み上限を超えるプレイリストは、その行で待機し、全件・先頭の数件・確認のいずれかを選べます。ダウンロードタブには、対応待ちの行数が表示されます",
   feat_workflow_15:
-    "**動画の一部だけをダウンロード** — 形式画面で開始と終了、またはチャプターを選ぶと、Arroxy はその範囲だけを保存し、動画 ID の後ろに範囲を付けた名前にします。カットは最も近いキーフレームで行われます。正確なカットをオンにすると、代わりに再エンコードします",
+    "**動画の一部だけをダウンロード** — 形式画面で開始と終了、またはチャプターを選ぶと、FlickGrab はその範囲だけを保存し、動画 ID の後ろに範囲を付けた名前にします。カットは最も近いキーフレームで行われます。正確なカットをオンにすると、代わりに再エンコードします",
   feat_workflow_16:
     "**完了したダウンロードを自動で削除** — オプション：完了したダウンロードは 5 秒後にリストから消えます。ファイルはディスクに残り、失敗したダウンロードはリストに残ります",
   feat_workflow_17:
-    "**ダウンロードの「サイズ」と「見つかりません」** — 並べ替えできる **サイズ** 列で各ダウンロードの容量が分かり、**見つかりません** は Arroxy の外で移動・削除されたファイルを示します",
+    "**ダウンロードの「サイズ」と「見つかりません」** — 並べ替えできる **サイズ** 列で各ダウンロードの容量が分かり、**見つかりません** は FlickGrab の外で移動・削除されたファイルを示します",
   feat_workflow_18:
     "**オーロラかミニマル、ダークかライト** — 動く空の上にガラスのパネルを重ねるか、静かなソリッドの面か。フッターから切り替えられます。グラフィックスアクセラレーションのないコンピューターでは自動的にミニマルになります",
   feat_workflow_19:
@@ -203,7 +203,7 @@ export const ja = {
   feat_sites_3:
     "**音声のみと字幕**は YouTube だけでなく、すべての対応サイトで機能します",
   feat_sites_4:
-    "サイトが変更されても、yt-dlp は毎週修正をリリースし、Arroxy は起動時にバイナリを自動更新します",
+    "サイトが変更されても、yt-dlp は毎週修正をリリースし、FlickGrab は起動時にバイナリを自動更新します",
   shot1_cap:
     "<b>クイックダウンロードのホーム</b><br/>URLを貼り付け、アクティブなプロファイルですぐにダウンロード",
   shot2_cap:
@@ -215,17 +215,17 @@ export const ja = {
     "<b>一括URLモード</b><br/>リストを貼り付け、自動で重複を除去し、まとめてキューに追加",
   shot6_cap:
     "<b>並列ダウンロードキュー</b><br/>複数のダウンロードを同時に、進捗をリアルタイム表示",
-  hotkey_fig_alt: "Arroxy のグローバルダウンロードホットキー — Windows と Linux では Ctrl+Shift+D、macOS では Cmd+Shift+D で、コピーしたリンクをそのままダウンロードキューへ送ります",
+  hotkey_fig_alt: "FlickGrab のグローバルダウンロードホットキー — Windows と Linux では Ctrl+Shift+D、macOS では Cmd+Shift+D で、コピーしたリンクをそのままダウンロードキューへ送ります",
   hotkey_fig_cap: "<b>グローバルダウンロードホットキー</b><br/>どこでもリンクをコピーして一度押すだけ——キューに入りダウンロードが始まります",
   shot7_cap: "<b>プレイリストの動画ごとのプロファイル</b><br/>各動画に個別のプロファイルを指定——一部は4Kで保存し、残りはMP3で取得",
   shot8_cap:
-    "<b>Explore</b><br/>Arroxy の中で YouTube を閲覧し、表示中のページをアクティブなプロファイルでダウンロード",
+    "<b>Explore</b><br/>FlickGrab の中で YouTube を閲覧し、表示中のページをアクティブなプロファイルでダウンロード",
   shot9_cap:
     "<b>Explore の最初の画面</b><br/>Explore の簡単な紹介と、サブアカウントのほうが安全なサインインである理由",
   shot10_cap:
     "<b>対応が必要なものをダウンロードが知らせます</b><br/>リンクはバックグラウンドで準備され、失敗したものは対処法を提示し、長いプレイリストは選択を待ちます",
   shot11_cap:
-    "<b>動画の一部だけをダウンロード</b><br/>開始と終了、またはチャプターを選ぶだけ — Arroxy はその範囲だけを保存します",
+    "<b>動画の一部だけをダウンロード</b><br/>開始と終了、またはチャプターを選ぶだけ — FlickGrab はその範囲だけを保存します",
   shot12_cap:
     "<b>プロファイルエディター</b><br/>プロファイルを細かく調整：ファイル形式、解像度、字幕、保存先、ファイル名テンプレートなど",
   shot13_cap:
@@ -262,25 +262,25 @@ export const ja = {
     "**おすすめ：** 自動アップデートと高速起動には NSIS インストーラを使用。インストール不要・レジストリ非変更のオプションにはポータブル `.exe` を使用。",
   dl_win_smartscreen_h4: "Windows SmartScreen の警告",
   dl_win_smartscreen_intro:
-    "初回起動時に **«Windows protected your PC»** または **«Unknown publisher»** が表示されることがあります。これは `Arroxy-win-x64-Setup.exe` と `Arroxy-win-x64-Portable.exe` の両方に該当します。Arroxy は無料のオープンソースソフトウェアであり、Windows ビルドには有料の証明書によるコード署名がないため、SmartScreen がフラグを立てます。これは Arroxy が危険であることを**自動的に**意味するわけではありません。続行するには：",
+    "初回起動時に **«Windows protected your PC»** または **«Unknown publisher»** が表示されることがあります。これは `FlickGrab-win-x64-Setup.exe` と `FlickGrab-win-x64-Portable.exe` の両方に該当します。FlickGrab は無料のオープンソースソフトウェアであり、Windows ビルドには有料の証明書によるコード署名がないため、SmartScreen がフラグを立てます。これは FlickGrab が危険であることを**自動的に**意味するわけではありません。続行するには：",
   dl_win_smartscreen_step1: "**More info** をクリック。",
   dl_win_smartscreen_step2: "**Run anyway** をクリック。",
   dl_win_smartscreen_official:
-    "Arroxy は必ず公式の GitHub Releases ページからダウンロードしてください。他のウェブサイトから入手したファイルや、誰かから送られてきたファイルは削除し、公式ソースから新しいコピーをダウンロードしてください。ソースコードは公開されているため、ご自身で確認したり、Arroxy をビルドしたりすることも可能です。",
+    "FlickGrab は必ず公式の GitHub Releases ページからダウンロードしてください。他のウェブサイトから入手したファイルや、誰かから送られてきたファイルは削除し、公式ソースから新しいコピーをダウンロードしてください。ソースコードは公開されているため、ご自身で確認したり、FlickGrab をビルドしたりすることも可能です。",
   dl_macos_h3: "macOS の初回起動",
   dl_macos_warning:
-    "Arroxy はまだコード署名されていないため、macOS Gatekeeper が初回起動時に damaged app の警告を表示することがあります。これは想定内であり、ファイルが実際に壊れているという意味ではありません。",
+    "FlickGrab はまだコード署名されていないため、macOS Gatekeeper が初回起動時に damaged app の警告を表示することがあります。これは想定内であり、ファイルが実際に壊れているという意味ではありません。",
   dl_macos_m1_h4: "Terminal を使う方法:",
-  dl_macos_step1: "マウントした DMG から `Arroxy.app` を `/Applications` にドラッグします。",
+  dl_macos_step1: "マウントした DMG から `FlickGrab.app` を `/Applications` にドラッグします。",
   dl_macos_step2:
-    "Terminal を開き、`sudo xattr -dr com.apple.quarantine /Applications/Arroxy.app` を実行します。",
-  dl_macos_step3: "`open /Applications/Arroxy.app` を実行します。",
+    "Terminal を開き、`sudo xattr -dr com.apple.quarantine /Applications/FlickGrab.app` を実行します。",
+  dl_macos_step3: "`open /Applications/FlickGrab.app` を実行します。",
   dl_macos_step4:
-    "アプリのパスが異なる場合は、`/Applications/Arroxy.app` を実際のインストール先に置き換えてください。",
+    "アプリのパスが異なる場合は、`/Applications/FlickGrab.app` を実際のインストール先に置き換えてください。",
   dl_macos_step5:
     "`sudo` が求めた場合は Mac のパスワードを入力します。",
   dl_macos_after:
-    "quarantine を削除すると、Arroxy は通常どおり開きます。",
+    "quarantine を削除すると、FlickGrab は通常どおり開きます。",
   dl_macos_m2_h4: "Terminal を使う方法:",
   dl_macos_note:
     "macOS ビルドは Apple Silicon と Intel の CI ランナーで生成されます。問題が発生した場合は [issue を開いて](../../issues) ください — macOS ユーザーからのフィードバックが macOS のテストサイクルを積極的に形成します。",
@@ -296,9 +296,9 @@ export const ja = {
   dl_linux_arch_note: "**リリースページの Linux ダウンロードは x86_64 のみです。** ARM64 マシン（Raspberry Pi、Asahi Linux）では Flatpak はインストールできますが、起動時に `bwrap: execvp ldconfig: Exec format error` で失敗します。",
   dl_warning_h3: "警告が表示される理由",
   dl_warning_p1:
-    "Arroxy はオープンソースで MIT ライセンスのソフトウェアです。Windows および macOS のビルドは**コード署名されていません** — Apple Developer ID と Windows EV のコード署名証明書はそれぞれ年間数百ドルかかり、個人プロジェクトでは自己負担になります。署名がない場合、Windows SmartScreen と macOS Gatekeeper は初回起動時に警告を表示します。これらの警告は*OS が発行元を認識していない*ことを意味するものであり、Arroxy がマルウェアであることを示すものではありません。",
+    "FlickGrab はオープンソースで MIT ライセンスのソフトウェアです。Windows および macOS のビルドは**コード署名されていません** — Apple Developer ID と Windows EV のコード署名証明書はそれぞれ年間数百ドルかかり、個人プロジェクトでは自己負担になります。署名がない場合、Windows SmartScreen と macOS Gatekeeper は初回起動時に警告を表示します。これらの警告は*OS が発行元を認識していない*ことを意味するものであり、FlickGrab がマルウェアであることを示すものではありません。",
   dl_warning_p2:
-    "自分で Arroxy を検証する 3 つの方法（厳密さの高い順）：\n\n- **ソースコードを読む。** すべての行は [GitHub](https://github.com/antonio-orionus/Arroxy) にあり、[ソースからビルド](#tech)することもできます。\n- **SHA256 を確認する。** ダウンロードしたファイルを公開済みの [`SHA256SUMS`](../../releases/latest) と照合してください — 下記の[ダウンロードの検証](#verify)を参照。\n- **サードパーティのスキャンを実行する。** [VirusTotal](https://www.virustotal.com) にファイルをアップロード。",
+    "自分で FlickGrab を検証する 3 つの方法（厳密さの高い順）：\n\n- **ソースコードを読む。** すべての行は [GitHub](https://github.com/antonio-orionus/FlickGrab) にあり、[ソースからビルド](#tech)することもできます。\n- **SHA256 を確認する。** ダウンロードしたファイルを公開済みの [`SHA256SUMS`](../../releases/latest) と照合してください — 下記の[ダウンロードの検証](#verify)を参照。\n- **サードパーティのスキャンを実行する。** [VirusTotal](https://www.virustotal.com) にファイルをアップロード。",
 
   dl_win_first_h3: "Windows 初回起動",
   shot_smartscreen_more_alt:
@@ -307,33 +307,33 @@ export const ja = {
     'SmartScreen dialog after expanding More info, showing the "Run anyway" button',
   dl_win_defender_h4: "Windows Defender がファイルをフラグまたは削除した場合",
   dl_win_defender_p:
-    "Defender のヒューリスティックは、署名されていない NSIS インストーラーや Electron のポータブル版を不審として検出することがあります。Defender が `Arroxy-win-x64-Setup.exe` または `Arroxy-win-x64-Portable.exe` を隔離した場合は、**Windows Security → Virus & threat protection → Protection history** から復元し、**Manage settings → Add or remove exclusions** で Arroxy の実行ファイルを許可リストに追加してください。SmartScreen と同様に、トリガーとなるのは発行元署名の欠如であり、マルウェアの検出ではありません。",
+    "Defender のヒューリスティックは、署名されていない NSIS インストーラーや Electron のポータブル版を不審として検出することがあります。Defender が `FlickGrab-win-x64-Setup.exe` または `FlickGrab-win-x64-Portable.exe` を隔離した場合は、**Windows Security → Virus & threat protection → Protection history** から復元し、**Manage settings → Add or remove exclusions** で FlickGrab の実行ファイルを許可リストに追加してください。SmartScreen と同様に、トリガーとなるのは発行元署名の欠如であり、マルウェアの検出ではありません。",
 
   dl_macos_first_h3: "macOS 初回起動",
   dl_macos_intro:
-    "Arroxy はまだ macOS 向けにコード署名されていないため、DMG からインストールした後に Gatekeeper が *\"Arroxy.app is damaged and can't be opened\"* という怖いダイアログを表示することがあります。これは macOS が未署名アプリを quarantine したという意味で、アプリのファイルが実際に壊れているわけではありません。現在の macOS では Terminal を使う方法が確実です:",
+    "FlickGrab はまだ macOS 向けにコード署名されていないため、DMG からインストールした後に Gatekeeper が *\"FlickGrab.app is damaged and can't be opened\"* という怖いダイアログを表示することがあります。これは macOS が未署名アプリを quarantine したという意味で、アプリのファイルが実際に壊れているわけではありません。現在の macOS では Terminal を使う方法が確実です:",
   dl_macos_sequoia_h4: "現在の macOS 向け Terminal 修正",
   dl_macos_sequoia_intro:
-    "Arroxy を Applications にコピーしたあと Terminal を使います:",
+    "FlickGrab を Applications にコピーしたあと Terminal を使います:",
   dl_macos_sequoia_step1:
-    "マウントした DMG から `Arroxy.app` を `/Applications` にドラッグ。",
+    "マウントした DMG から `FlickGrab.app` を `/Applications` にドラッグ。",
   dl_macos_sequoia_step2:
     "Terminal を開き、次の 2 つのコマンドを実行します:",
   dl_macos_sequoia_step3:
-    "Arroxy を起動するには `open /Applications/Arroxy.app` を実行します。",
+    "FlickGrab を起動するには `open /Applications/FlickGrab.app` を実行します。",
   dl_macos_sequoia_step4:
-    "アプリのパスが異なる場合は、`/Applications/Arroxy.app` を実際のインストール先に置き換えてください。",
+    "アプリのパスが異なる場合は、`/Applications/FlickGrab.app` を実際のインストール先に置き換えてください。",
   dl_macos_sonoma_h4: "古い macOS 向け Terminal 修正",
   dl_macos_sonoma_step1:
-    "マウントした DMG から `Arroxy.app` を `/Applications` にドラッグ。",
+    "マウントした DMG から `FlickGrab.app` を `/Applications` にドラッグ。",
   dl_macos_sonoma_step2:
-    "Terminal を開き、`/Applications/Arroxy.app` から quarantine を削除します。",
+    "Terminal を開き、`/Applications/FlickGrab.app` から quarantine を削除します。",
   dl_macos_sonoma_step3:
-    "quarantine を削除したら、Terminal または Finder から Arroxy を起動します。",
+    "quarantine を削除したら、Terminal または Finder から FlickGrab を起動します。",
   dl_macos_damaged_h4:
     "Gatekeeper quarantine の修正",
   dl_macos_damaged_p:
-    "最初のコマンドは、インストール済みの Arroxy から quarantine 属性を削除します。2 つ目はアプリを起動します。`sudo` は Mac のパスワードを求めることがあります。Terminal は入力中の文字を表示しません。",
+    "最初のコマンドは、インストール済みの FlickGrab から quarantine 属性を削除します。2 つ目はアプリを起動します。`sudo` は Mac のパスワードを求めることがあります。Terminal は入力中の文字を表示しません。",
   dl_macos_arch_note:
     "**Apple Silicon vs Intel：** M シリーズ Mac（M1 / M2 / M3 / M4）では `arm64` DMG をダウンロード。Intel Mac では `x64` DMG をダウンロード。誤ったビルドも Rosetta 経由で動作しますが、速度は明らかに遅くなります。",
 
@@ -358,7 +358,7 @@ export const ja = {
   privacy_p2:
     "テレメトリーはありません — 1日1回、匿名のハートビートを送るだけです：アプリバージョン、OS、言語、インストール方法、国。アクティブユーザー数を数えるためのものです。ID、URL、動画タイトル、ファイルパス、アカウント情報は含みません。設定でオフにできます。",
   privacy_p3:
-    "Explore は、ブラウザーとは別に独自のサインインを保持します。Arroxy がサインインフォームを読み取ったり入力したりすることはなく、入力するのは Google 自身のページです。ダウンロードはサインアウトの状態で実行され、アカウントで解決できる理由で失敗したときだけ、Arroxy はサインイン情報をその都度読み取り、そのダウンロード用の一時ファイルに保存して、終了後にファイルを削除します。設定で Explore をサインアウトすると、サインインは消去されます。",
+    "Explore は、ブラウザーとは別に独自のサインインを保持します。FlickGrab がサインインフォームを読み取ったり入力したりすることはなく、入力するのは Google 自身のページです。ダウンロードはサインアウトの状態で実行され、アカウントで解決できる理由で失敗したときだけ、FlickGrab はサインイン情報をその都度読み取り、そのダウンロード用の一時ファイルに保存して、終了後にファイルを削除します。設定で Explore をサインアウトすると、サインインは消去されます。",
   faq_q1: "本当に無料ですか？",
   faq_a1: "はい — MIT ライセンス、プレミアム層なし、機能ゲートなし。",
   faq_q2: "どの動画品質をダウンロードできますか？",
@@ -369,13 +369,13 @@ export const ja = {
     "はい。形式メニューで*音声のみ*を選び、MP3、M4A/AAC、Opus、WAV を選択できます。",
   faq_q4: "YouTube アカウントが必要な動画はどうやってダウンロードしますか？",
   faq_a4:
-    "Explore タブで一度サインインしてください。すると Arroxy は、アカウントで視聴できる非公開動画やメンバー限定動画、年齢確認済みアカウントなら年齢制限付き動画、「後で見る」や「高く評価した動画」のリストもダウンロードできます。サインインはアカウントで解決できる理由でダウンロードに失敗したときだけ使われ、それ以外は従来どおりダウンロードされます。これは Cookie 設定の **Explore サインイン** で、先頭に表示され「おすすめ」と示されており、初めて Explore を開いたときに Arroxy が自動で選択します。yt-dlp の wiki は [サインイン状態での自動化が Google アカウントにフラグを立てる可能性がある](https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies) と注意しているため、サブアカウントの利用が安全です。",
+    "Explore タブで一度サインインしてください。すると FlickGrab は、アカウントで視聴できる非公開動画やメンバー限定動画、年齢確認済みアカウントなら年齢制限付き動画、「後で見る」や「高く評価した動画」のリストもダウンロードできます。サインインはアカウントで解決できる理由でダウンロードに失敗したときだけ使われ、それ以外は従来どおりダウンロードされます。これは Cookie 設定の **Explore サインイン** で、先頭に表示され「おすすめ」と示されており、初めて Explore を開いたときに FlickGrab が自動で選択します。yt-dlp の wiki は [サインイン状態での自動化が Google アカウントにフラグを立てる可能性がある](https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies) と注意しているため、サブアカウントの利用が安全です。",
   faq_q5: "YouTube が変更したら使えなくなりますか？",
   faq_a5:
-    "yt-dlp は起動時に自動更新され、YouTube に変更があれば Arroxy も迅速に修正をリリースします。YouTube からボットでないことの確認を求められた場合は、Explore でサインインしていれば Arroxy がそのサインインも試し、Cookie 設定ではファイルやブラウザーの Cookie も利用できます。",
-  faq_q6: "Arroxy は何言語に対応していますか？",
+    "yt-dlp は起動時に自動更新され、YouTube に変更があれば FlickGrab も迅速に修正をリリースします。YouTube からボットでないことの確認を求められた場合は、Explore でサインインしていれば FlickGrab がそのサインインも試し、Cookie 設定ではファイルやブラウザーの Cookie も利用できます。",
+  faq_q6: "FlickGrab は何言語に対応していますか？",
   faq_a6:
-    "すぐに使える {{LANG_COUNT}} 言語: {{LANG_NAME_LIST}}。 Arroxy は初回起動時にオペレーティング システムの言語を自動検出し、ツールバーの言語ピッカーからいつでも切り替えられます。 Runtime locale JSON は src/shared/i18n/locales/ にあり、翻訳者向けの PO catalog は i18n/locales/ にあります。貢献するには GitHub で PR を開いてください。",
+    "すぐに使える {{LANG_COUNT}} 言語: {{LANG_NAME_LIST}}。 FlickGrab は初回起動時にオペレーティング システムの言語を自動検出し、ツールバーの言語ピッカーからいつでも切り替えられます。 Runtime locale JSON は src/shared/i18n/locales/ にあり、翻訳者向けの PO catalog は i18n/locales/ にあります。貢献するには GitHub で PR を開いてください。",
   faq_q7: "他に何かインストールが必要ですか？",
   faq_a7:
     "いいえ。yt-dlp は初回起動時に自動ダウンロードされてマシンにキャッシュされます。ffmpeg と ffprobe はアプリに同梱されています。それ以降は追加のセットアップ不要です。",
@@ -384,7 +384,7 @@ export const ja = {
     "はい、どちらも対応しています。プレイリストまたはチャンネルのURL（例: `youtube.com/@handle`, `/channel/UC…`, `/c/Name`, `/user/Old`）を貼り付け、スキャンする件数を選んでから、リスト全体をキューに入れるか特定の動画を選べます。日付範囲フィルターは近日対応予定です。",
   faq_q9: "macOS で「アプリが壊れている」と表示される — どうすれば？",
   faq_a9:
-    "これは macOS Gatekeeper が未署名のアプリをブロックしているだけで、実際の破損ではありません。quarantine を削除して Arroxy を起動する Terminal コマンドは [macOS first launch](#macos-first-launch) を参照してください。",
+    "これは macOS Gatekeeper が未署名のアプリをブロックしているだけで、実際の破損ではありません。quarantine を削除して FlickGrab を起動する Terminal コマンドは [macOS first launch](#macos-first-launch) を参照してください。",
   faq_q10: "YouTube の動画をダウンロードするのは合法ですか？",
   faq_a10:
     "個人的・私的利用については、ほとんどの法域で一般的に容認されています。YouTube の[利用規約](https://www.youtube.com/t/terms)およびあなたの地域の著作権法への準拠はあなた自身の責任です。",
@@ -409,11 +409,11 @@ export const ja = {
   plan_cta:
     "機能のアイデアがありますか？[リクエストを開いてください](../../issues) — コミュニティの意見が優先順位を決めます。",
   tech_content: TECH_CONTENT,
-  support_h2: "Arroxy を支援する",
-  support_note: "Arroxy は無料で MIT ライセンスです。広告もテレメトリも有料版もありません。時間の節約に役立っているなら、Bitcoin または Tron で開発を支援できます。アドレスは [DONATE.md](DONATE.md) に記載しており、これが唯一の公式な情報源です。Arroxy がメールやダイレクトメッセージでアドレスをお送りすることは決してありません。リポジトリへのスター、バグ報告、翻訳の改善も同じくらい助けになります。",
+  support_h2: "FlickGrab を支援する",
+  support_note: "FlickGrab は無料で MIT ライセンスです。広告もテレメトリも有料版もありません。時間の節約に役立っているなら、Bitcoin または Tron で開発を支援できます。アドレスは [DONATE.md](DONATE.md) に記載しており、これが唯一の公式な情報源です。FlickGrab がメールやダイレクトメッセージでアドレスをお送りすることは決してありません。リポジトリへのスター、バグ報告、翻訳の改善も同じくらい助けになります。",
   tos_h2: "利用規約",
   tos_note:
-    "Arroxy は個人的・私的利用のみを目的としたツールです。ダウンロードが YouTube の[利用規約](https://www.youtube.com/t/terms)およびあなたの法域の著作権法に準拠することはあなた自身の責任です。権利を持たないコンテンツのダウンロード・複製・配布に Arroxy を使用しないでください。開発者は誤用に対して一切の責任を負いません。",
+    "FlickGrab は個人的・私的利用のみを目的としたツールです。ダウンロードが YouTube の[利用規約](https://www.youtube.com/t/terms)およびあなたの法域の著作権法に準拠することはあなた自身の責任です。権利を持たないコンテンツのダウンロード・複製・配布に FlickGrab を使用しないでください。開発者は誤用に対して一切の責任を負いません。",
   footer_credit:
     'MIT ライセンス · <a href="https://x.com/OrionusAI">@OrionusAI</a> が心を込めて制作',
 };

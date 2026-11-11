@@ -1,6 +1,6 @@
 // Load-time check of finished rows' files against the disk: fills sizes for
 // files recorded before sizes were stored, marks files that were moved or
-// deleted outside Arroxy as missing, and clears that mark when a file is back
+// deleted outside FlickGrab as missing, and clears that mark when a file is back
 // (a reconnected drive, a file moved back).
 //
 // No queue state here: the caller applies the returned patches through its own

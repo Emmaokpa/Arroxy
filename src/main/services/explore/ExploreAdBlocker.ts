@@ -12,7 +12,7 @@ type DomFeatures = NonNullable<Parameters<ElectronBlocker['onInjectCosmeticFilte
 
 // What the engine's cosmetic handler reads off the IPC event: the frame, and
 // the page's insertCSS and executeJavaScript. The upstream tripwire test checks
-// the library reads nothing else, so Arroxy can hand it a contained event.
+// the library reads nothing else, so FlickGrab can hand it a contained event.
 export interface CosmeticEvent {
 	frameId: number
 	processId: number
@@ -20,7 +20,7 @@ export interface CosmeticEvent {
 }
 
 // What the Explore session calls on the engine: the library's own request,
-// header and cosmetic handlers. Arroxy wires them itself (see hook()). The
+// header and cosmetic handlers. FlickGrab wires them itself (see hook()). The
 // cosmetic handler is a method so the library's (which names the whole
 // IpcMainInvokeEvent) fits it; it reads only the CosmeticEvent part.
 export interface AdBlockEngine extends Pick<ElectronBlocker, 'onBeforeRequest' | 'onHeadersReceived' | 'onIsMutationObserverEnabled'> {

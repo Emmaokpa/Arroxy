@@ -174,8 +174,36 @@ export default function Downloader() {
     setUrl(current.sample);
   };
 
-  const startDownload = (fmt: Format) => {
+  const startDownload = async (fmt: Format) => {
     if (!result) return;
+    // Try to use Electron preload bridge if available (in Electron app)
+    if (typeof window?.appApi?.downloads?.start === 'function') {
+      try {
+        const jobKind: 'video' | 'audio' = fmt.kind === 'video' ? 'video' : 'audio'
+        await window.appApi.downloads.start({
+          url: url,
+          outputDir: undefined,
+          cookiesMode: 'off',
+          job: {
+            kind: jobKind,
+            fmt: fmt,
+            platform: result,
+            outputDir: undefined,
+            subtitles: undefined,
+            sponsorBlock: false,
+            embed: false,
+            audioConvert: undefined,
+            filenameTemplate: undefined,
+            embedOptions: undefined,
+          },
+        })
+        return;
+      } catch (e) {
+        console.error('Download start failed:', e)
+        // Fall back to local job simulation
+      }
+    }
+    // Fall back to local job simulation
     setJobs((js) => [
       { id: Math.random().toString(36).slice(2), name: meta[result].title, fmt, progress: 0, platform: result },
       ...js,

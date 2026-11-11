@@ -1,13 +1,13 @@
 {
-	"name": "arroxy",
+	"name": "flickgrab",
 	"version": "0.6.0",
 	"private": true,
-	"description": "Arroxy - YouTube downloader app",
+	"description": "FlickGrab - Free YouTube, Instagram & TikTok Video Downloader",
 	"license": "MIT",
 	"author": {
-		"name": "Antonio Orionus",
-		"email": "orionusAI@proton.me",
-		"url": "https://x.com/OrionusAI"
+		"name": "FlickGrab Team",
+		"email": "team@flickgrab.com",
+		"url": "https://flickgrab.com"
 	},
 	"workspaces": [
 		"packages/*"
@@ -115,7 +115,6 @@
 	},
 	"dependencies": {
 		"@base-ui/react": "1.8.0",
-		"@counterscale/tracker": "3.4.1",
 		"@fontsource/jetbrains-mono": "5.3.0",
 		"@fontsource/noto-sans-khmer": "5.3.0",
 		"@fontsource/poppins": "5.3.0",
@@ -145,7 +144,7 @@
 		"yauzl": "3.4.0",
 		"yt-dlp-bridge": "workspace:*",
 		"ytdlp-errors": "workspace:*",
-		"zod": "4.6.5",
+		"zod": "4.6.7",
 		"zustand": "5.0.15"
 	},
 	"devDependencies": {
@@ -170,7 +169,7 @@
 		"@vitejs/plugin-react": "6.1.2",
 		"acorn": "8.19.0",
 		"culori": "4.0.2",
-		"electron": "44.6.0",
+		"electron": "44.9.3",
 		"electron-builder": "26.17.0",
 		"electron-vite": "5.0.0",
 		"eslint-plugin-react": "7.37.5",
@@ -215,7 +214,7 @@
 		"qs": "6.15.3",
 		"tar": "7.5.22",
 		"tmp": "0.2.7",
-		"undici": "7.29.1",
+		"undici": "7.30.1",
 		"vite": "catalog:",
 		"vitest": "catalog:"
 	},

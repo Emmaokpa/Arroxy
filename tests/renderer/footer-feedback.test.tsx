@@ -11,7 +11,6 @@ function ok<T>(data: T) {
 const mockOpenExternal = vi.fn().mockResolvedValue(ok({opened: true}))
 const mockOpenLogsDir = vi.fn().mockResolvedValue(ok({opened: true}))
 const mockSaveDiagnostics = vi.fn().mockResolvedValue(ok({path: '/Users/me/Downloads/arroxy-diagnostics-20260914-102030.txt'}))
-const mockUploadFeedbackDiagnostic = vi.fn(async ({reportId}: {reportId: string}) => ok({reportId, diagnosticUrl: null, rawBytes: 42, compressedBytes: 31, truncated: false, sha256: 'a'.repeat(64)}))
 const mockTallyOpenPopup = vi.fn()
 
 const mockAppApi = {
@@ -35,7 +34,7 @@ const mockAppApi = {
 	settings: {get: vi.fn().mockResolvedValue(ok({defaultOutputDir: '/tmp', rememberLastOutputDir: true})), update: vi.fn()},
 	hotkey: {reportOutcome: vi.fn().mockResolvedValue(ok(undefined)), getState: vi.fn().mockResolvedValue({ok: true, data: {accelerator: 'CommandOrControl+Shift+D', registered: true}}), testPress: vi.fn().mockResolvedValue(ok(undefined)), rendererReady: vi.fn().mockResolvedValue(ok(undefined))},
 	shell: {openFolder: vi.fn().mockResolvedValue(ok({opened: true})), openExternal: mockOpenExternal, openBinariesDir: vi.fn().mockResolvedValue(ok({opened: true}))},
-	logs: {openDir: mockOpenLogsDir, uploadFeedbackDiagnostic: mockUploadFeedbackDiagnostic, saveDiagnostics: mockSaveDiagnostics},
+	logs: {openDir: mockOpenLogsDir, saveDiagnostics: mockSaveDiagnostics},
 	dialog: {chooseFolder: vi.fn().mockResolvedValue(ok({path: '/tmp'})), chooseFile: vi.fn().mockResolvedValue(ok({path: null})), chooseExecutable: vi.fn().mockResolvedValue(ok({path: null}))},
 	events: {
 		onStatus: vi.fn().mockReturnValue(() => undefined),
@@ -194,7 +193,6 @@ describe('Footer feedback controls', () => {
 			expect(mockTallyOpenPopup).toHaveBeenCalledOnce()
 		})
 		expect(mockOpenExternal).not.toHaveBeenCalled()
-		expect(mockUploadFeedbackDiagnostic).not.toHaveBeenCalled()
 		expect(mockTallyOpenPopup).toHaveBeenCalledWith(
 			'Ek6M8B',
 			expect.objectContaining({
@@ -217,22 +215,6 @@ describe('Footer feedback controls', () => {
 		expect(Object.values(hiddenFields)).not.toContain('')
 		expect(hiddenFields).not.toHaveProperty('diagnostic_upload_status')
 		expect(hiddenFields).not.toHaveProperty('diagnostic_raw_bytes')
-	})
-
-	it('uploads the diagnostic log after Tally submission using the same report id', async () => {
-		render(<App />)
-		fireEvent.click(await screen.findByTestId('btn-feedback'))
-
-		await waitFor(() => {
-			expect(mockTallyOpenPopup).toHaveBeenCalledOnce()
-		})
-		const options = mockTallyOpenPopup.mock.calls[0][1] as {hiddenFields: Record<string, string>; onSubmit: () => void}
-		const reportId = options.hiddenFields.report_id
-		options.onSubmit()
-
-		await waitFor(() => {
-			expect(mockUploadFeedbackDiagnostic).toHaveBeenCalledWith({reportId})
-		})
 	})
 
 	it('Settings Logs button opens the log directory', async () => {

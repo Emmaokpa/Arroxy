@@ -88,13 +88,6 @@ describe('invoke methods → correct IPC channel', () => {
 		expect(ipc.invoke).toHaveBeenCalledWith(IPC_CHANNELS.shellOpenExternal, 'https://example.com')
 	})
 
-	it('logs.uploadFeedbackDiagnostic', () => {
-		const api = createPreloadApi(ipc.ipcRenderer)
-		const input = {reportId: '11111111-1111-4111-8111-111111111111'}
-		void api.logs.uploadFeedbackDiagnostic(input)
-		expect(ipc.invoke).toHaveBeenCalledWith(IPC_CHANNELS.logsUploadFeedbackDiagnostic, input)
-	})
-
 	it('logs.saveDiagnostics', () => {
 		const api = createPreloadApi(ipc.ipcRenderer)
 		void api.logs.saveDiagnostics()

@@ -19,7 +19,7 @@ interface ThemeSourceHolder {
 }
 
 /**
- * Pins Chromium's colour scheme to Arroxy's own theme choice. The renderer
+ * Pins Chromium's colour scheme to FlickGrab's own theme choice. The renderer
  * resolves the theme with a CSS class, which no other web contents can see, so
  * without this the Explore view's page reads `prefers-color-scheme` from the OS
  * and can disagree with the app around it.

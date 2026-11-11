@@ -39,7 +39,7 @@ brew install mise
 xcode-select --install
 \`\`\`
 
-After cloning, run \`mise trust && mise install\` from the checkout. If your shell already uses \`fnm\`, \`nvm\`, or a Homebrew Bun, activate mise in \`~/.zshrc\` so Arroxy gets Node.js 24.21.0 and Bun 1.4.2:
+After cloning, run \`mise trust && mise install\` from the checkout. If your shell already uses \`fnm\`, \`nvm\`, or a Homebrew Bun, activate mise in \`~/.zshrc\` so FlickGrab gets Node.js 24.21.0 and Bun 1.4.2:
 
 \`\`\`bash
 printf '\n# mise\nif command -v mise >/dev/null 2>&1; then\n  eval "$(mise activate zsh)"\nfi\n' >> ~/.zshrc
@@ -61,8 +61,8 @@ sudo apt install -y xvfb
 ### Clone & run
 
 \`\`\`bash
-git clone https://github.com/antonio-orionus/Arroxy
-cd Arroxy
+git clone https://github.com/antonio-orionus/FlickGrab
+cd FlickGrab
 mise trust
 mise install           # recommended; skip if you manually activated the pinned tools
 bun run bootstrap
@@ -78,14 +78,14 @@ bun run dist         # package for current OS
 bun run dist:win     # package Windows targets when run on a supported host
 \`\`\`
 
-> \`bun run bootstrap\` installs dependencies, rebuilds Electron app dependencies, verifies Electron, prepares embedded ffmpeg/ffprobe for development, and installs Playwright Chromium. yt-dlp is managed at runtime in your app data folder; ffmpeg and ffprobe are bundled with every Arroxy release.
+> \`bun run bootstrap\` installs dependencies, rebuilds Electron app dependencies, verifies Electron, prepares embedded ffmpeg/ffprobe for development, and installs Playwright Chromium. yt-dlp is managed at runtime in your app data folder; ffmpeg and ffprobe are bundled with every FlickGrab release.
 
 </details>`;
 
 export const en = {
-  icon_alt: "Arroxy mascot",
+  icon_alt: "FlickGrab mascot",
   title:
-    "Arroxy — Free Open-Source YouTube (+ 2000 sites) Downloader for Windows, macOS & Linux",
+    "FlickGrab — Free Open-Source YouTube (+ 2000 sites) Downloader for Windows, macOS & Linux",
   read_in_label: "Read in:",
   badge_release_alt: "Release",
   badge_build_alt: "Build",
@@ -99,10 +99,10 @@ export const en = {
     "Download videos, Shorts, music, channels, podcasts, or audio tracks from **YouTube and 2000+ supported sites** — up to 4K HDR at 60 fps, or as MP3 / AAC / Opus. Runs locally on Windows, macOS, and Linux. **No ads, no bloat, no upsells.**",
   cta_latest: "↓ Install Latest Release",
   cta_website: "Website",
-  star_cta: "If Arroxy saves you time, a ⭐ helps others find it.",
+  star_cta: "If FlickGrab saves you time, a ⭐ helps others find it.",
   ai_notice: "",
   toc_heading: "Contents",
-  why_h2: "Why Arroxy",
+  why_h2: "Why FlickGrab",
   features_h2: "Features",
   dl_h2: "Install and first launch",
   privacy_h2: "Privacy",
@@ -117,18 +117,18 @@ export const en = {
   why_r6: "Cross-platform desktop app",
   why_r7: "Subtitles + SponsorBlock",
   why_summary:
-    "Arroxy is built for one thing: paste a URL, get a clean local file. No upsells, no data collection.",
-  feat_explore_h3: "Explore: browse YouTube inside Arroxy",
+    "FlickGrab is built for one thing: paste a URL, get a clean local file. No upsells, no data collection.",
+  feat_explore_h3: "Explore: browse YouTube inside FlickGrab",
   feat_explore_1:
-    "**Explore tab** — browse YouTube inside Arroxy and download what you find without copying links. **Download · *your profile*** queues the video, playlist, or channel you're looking at; the arrow next to it switches profiles, and the wand opens the step-by-step download for picking formats, subtitles, and more",
+    "**Explore tab** — browse YouTube inside FlickGrab and download what you find without copying links. **Download · *your profile*** queues the video, playlist, or channel you're looking at; the arrow next to it switches profiles, and the wand opens the step-by-step download for picking formats, subtitles, and more",
   feat_explore_6:
     "**Right-click to download** — right-click any video, playlist, or channel link in Explore to download it with your profile, pick another profile from **Download with**, open the step-by-step download, or copy the link. No need to open each video first",
   feat_explore_7:
-    "**Compact layout** — one click in Explore's toolbar moves Arroxy's tabs into it and gives the page more room",
+    "**Compact layout** — one click in Explore's toolbar moves FlickGrab's tabs into it and gives the page more room",
   feat_explore_2:
     "**Address bar** — type to search YouTube or paste a YouTube link. Explore only browses YouTube, so a link from another site isn't opened there, but you can download it with one click",
   feat_explore_3:
-    "**Downloads that need an account** — sign in once in Explore and Arroxy can download private and members-only videos your account can watch, age-restricted videos if the account is age-verified, and your Watch Later and Liked lists. Arroxy still downloads signed out and only uses your Explore sign-in when a download fails in a way an account can fix. When YouTube asks you to confirm you're not a bot, Arroxy also tries your Explore sign-in",
+    "**Downloads that need an account** — sign in once in Explore and FlickGrab can download private and members-only videos your account can watch, age-restricted videos if the account is age-verified, and your Watch Later and Liked lists. FlickGrab still downloads signed out and only uses your Explore sign-in when a download fails in a way an account can fix. When YouTube asks you to confirm you're not a bot, FlickGrab also tries your Explore sign-in",
   feat_explore_4:
     "**Use a secondary account** — Explore's first screen explains why: downloading with an account carries some risk of that account being restricted. Sign out of Explore from Settings whenever you want to forget the sign-in",
   feat_explore_5:
@@ -147,13 +147,13 @@ export const en = {
   feat_privacy_3: "Files saved straight to the folder you choose",
   feat_workflow_h3: "Workflow",
   feat_workflow_12:
-    "**Global download hotkey** — copy a link in any app and press `Ctrl+Shift+D` (`Cmd+Shift+D` on macOS); Arroxy queues it with your active profile without opening the window, and a notification confirms it. On by default, rebindable",
+    "**Global download hotkey** — copy a link in any app and press `Ctrl+Shift+D` (`Cmd+Shift+D` on macOS); FlickGrab queues it with your active profile without opening the window, and a notification confirms it. On by default, rebindable",
   feat_workflow_1:
     "**Flexible start modes** — choose a guided single download, playlist/channel picker, bulk URL paste, Quick Download with saved defaults, or browse and download from Explore",
   feat_workflow_2:
     "**Central download queue** — every single, playlist, bulk, or quick job lands in one place for progress, pause, resume, cancel, retry, and priority control",
   feat_workflow_3:
-    "**Clipboard watch** — copy a YouTube link and Arroxy auto-fills the URL when you refocus the app (toggle in Advanced settings)",
+    "**Clipboard watch** — copy a YouTube link and FlickGrab auto-fills the URL when you refocus the app (toggle in Advanced settings)",
   feat_workflow_4:
     "**Auto-clean URLs** — strips tracking params (`si`, `pp`, `utm_*`, `fbclid`, `gclid`) and unwraps `youtube.com/redirect` links",
   feat_workflow_5:
@@ -167,19 +167,19 @@ export const en = {
   feat_workflow_9:
     "**Filename templates** — name downloads your way with `{title}`, `{uploader}`, `{id}`, `{date}`, `{resolution}`, and `{playlist_index}`, globally or per download profile",
   feat_workflow_10:
-    "**Downloads at once and automatic retry** — choose how many queued downloads run at the same time, and let Arroxy retry a download that hit a network or server problem, waiting longer before each attempt",
+    "**Downloads at once and automatic retry** — choose how many queued downloads run at the same time, and let FlickGrab retry a download that hit a network or server problem, waiting longer before each attempt",
   feat_workflow_11:
     "**Per-item playlist profiles** — assign each video in a playlist its own download profile instead of one setting for the whole list, so a single pass can archive some at full quality and grab the rest as MP3",
   feat_workflow_13:
     "**Quick Download works in the background** — the link shows up in Downloads right away and prepares there, a note with **View** confirms it, and the URL field clears for the next link. Start as many as you like while earlier ones prepare",
   feat_workflow_14:
-    "**Downloads tells you what needs you** — if Arroxy can't read a link, its row says why and offers the fix: Retry, turn on cookies, or sign in in Explore. With cookies off, **Sign in with Explore** retries it for you once you're signed in. A playlist longer than your load limit waits on its row for you to pick all of it, the first ones, or a review. The Downloads tab counts the rows waiting for you",
+    "**Downloads tells you what needs you** — if FlickGrab can't read a link, its row says why and offers the fix: Retry, turn on cookies, or sign in in Explore. With cookies off, **Sign in with Explore** retries it for you once you're signed in. A playlist longer than your load limit waits on its row for you to pick all of it, the first ones, or a review. The Downloads tab counts the rows waiting for you",
   feat_workflow_15:
-    "**Download just part of a video** — pick a start and end, or a chapter, on the Format screen and Arroxy saves only that range, named with the range after the video id. Cuts land on the nearest keyframe; turn on exact cut to re-encode instead",
+    "**Download just part of a video** — pick a start and end, or a chapter, on the Format screen and FlickGrab saves only that range, named with the range after the video id. Cuts land on the nearest keyframe; turn on exact cut to re-encode instead",
   feat_workflow_16:
     "**Remove finished downloads** — optional: a finished download leaves the list 5 seconds later. Its files stay on disk, and failed downloads stay listed",
   feat_workflow_17:
-    "**Size and Missing in Downloads** — a sortable **Size** column shows how much space each download takes, and **Missing** flags files moved or deleted outside Arroxy",
+    "**Size and Missing in Downloads** — a sortable **Size** column shows how much space each download takes, and **Missing** flags files moved or deleted outside FlickGrab",
   feat_workflow_18:
     "**Aurora or Minimal, dark or light** — glass panels over a moving sky, or quiet solid surfaces; switch from the footer. Computers without graphics acceleration get Minimal automatically",
   feat_workflow_19:
@@ -203,7 +203,7 @@ export const en = {
   feat_sites_3:
     "**Audio-only and subtitles** work across every supported site, not just YouTube",
   feat_sites_4:
-    "If a site changes, yt-dlp ships fixes weekly and Arroxy auto-updates the binary on launch",
+    "If a site changes, yt-dlp ships fixes weekly and FlickGrab auto-updates the binary on launch",
   shot1_cap:
     "<b>Quick Download home</b><br/>Paste a URL and pull it instantly with your active profile",
   shot2_cap:
@@ -217,18 +217,18 @@ export const en = {
   shot6_cap:
     "<b>Parallel download queue</b><br/>Several downloads at once with live progress",
   hotkey_fig_alt:
-    "Arroxy global download hotkey — Ctrl+Shift+D on Windows and Linux, Cmd+Shift+D on macOS, sending the copied link straight into the download queue",
+    "FlickGrab global download hotkey — Ctrl+Shift+D on Windows and Linux, Cmd+Shift+D on macOS, sending the copied link straight into the download queue",
   hotkey_fig_cap:
     "<b>Global download hotkey</b><br/>Copy a link anywhere, press once — it lands in the queue and starts downloading",
   shot7_cap: "<b>Per-item playlist profiles</b><br/>Give each video its own profile — archive some in 4K, grab the rest as MP3",
   shot8_cap:
-    "<b>Explore</b><br/>Browse YouTube inside Arroxy and download the page you're on with your active profile",
+    "<b>Explore</b><br/>Browse YouTube inside FlickGrab and download the page you're on with your active profile",
   shot9_cap:
     "<b>Explore's first screen</b><br/>A quick look at Explore, and why a secondary account is the safer sign-in",
   shot10_cap:
     "<b>Downloads tells you what needs you</b><br/>Links prepare in the background; a failed one offers its fix, a long playlist waits for your choice",
   shot11_cap:
-    "<b>Download just part of a video</b><br/>Pick a start and end, or a chapter — Arroxy saves only that range",
+    "<b>Download just part of a video</b><br/>Pick a start and end, or a chapter — FlickGrab saves only that range",
   shot12_cap:
     "<b>Profile editor</b><br/>Tune a profile: file type, resolution, subtitles, destination, filename template and more",
   shot13_cap:
@@ -265,25 +265,25 @@ export const en = {
     "**Recommendation:** use the NSIS installer for auto-updates and faster startup. Use the portable `.exe` for a no-install, no-registry option.",
   dl_win_smartscreen_h4: "Windows SmartScreen warning",
   dl_win_smartscreen_intro:
-    'On first launch you may see **"Windows protected your PC"** or **"Unknown publisher."** This applies to both `Arroxy-win-x64-Setup.exe` and `Arroxy-win-x64-Portable.exe`. Arroxy is free and open-source and the Windows builds are not code-signed with a paid certificate, which is why SmartScreen flags them. It does **not** automatically mean Arroxy is unsafe. To continue:',
+    'On first launch you may see **"Windows protected your PC"** or **"Unknown publisher."** This applies to both `FlickGrab-win-x64-Setup.exe` and `FlickGrab-win-x64-Portable.exe`. FlickGrab is free and open-source and the Windows builds are not code-signed with a paid certificate, which is why SmartScreen flags them. It does **not** automatically mean FlickGrab is unsafe. To continue:',
   dl_win_smartscreen_step1: "Click **More info**.",
   dl_win_smartscreen_step2: "Click **Run anyway**.",
   dl_win_smartscreen_official:
-    "Only download Arroxy from the official GitHub Releases page. If you got the file from another website or someone sent it to you, delete it and download a fresh copy from the official source. The source code is public, so you can inspect it or build Arroxy yourself if you prefer.",
+    "Only download FlickGrab from the official GitHub Releases page. If you got the file from another website or someone sent it to you, delete it and download a fresh copy from the official source. The source code is public, so you can inspect it or build FlickGrab yourself if you prefer.",
   dl_macos_h3: "First-time launch on macOS",
   dl_macos_warning:
-    "Arroxy is not yet code-signed, so macOS Gatekeeper can show the damaged-app warning on first launch. This is expected — it's not a sign of actual file damage.",
+    "FlickGrab is not yet code-signed, so macOS Gatekeeper can show the damaged-app warning on first launch. This is expected — it's not a sign of actual file damage.",
   dl_macos_m1_h4: "Terminal method:",
-  dl_macos_step1: "Drag `Arroxy.app` from the mounted DMG into `/Applications`.",
+  dl_macos_step1: "Drag `FlickGrab.app` from the mounted DMG into `/Applications`.",
   dl_macos_step2:
-    "Open Terminal and run `sudo xattr -dr com.apple.quarantine /Applications/Arroxy.app`.",
-  dl_macos_step3: "Run `open /Applications/Arroxy.app`.",
+    "Open Terminal and run `sudo xattr -dr com.apple.quarantine /Applications/FlickGrab.app`.",
+  dl_macos_step3: "Run `open /Applications/FlickGrab.app`.",
   dl_macos_step4:
-    "If the app path is different, replace `/Applications/Arroxy.app` with the path you installed.",
+    "If the app path is different, replace `/Applications/FlickGrab.app` with the path you installed.",
   dl_macos_step5:
     "Enter your Mac password if `sudo` asks for it.",
   dl_macos_after:
-    "After quarantine is removed, Arroxy opens normally.",
+    "After quarantine is removed, FlickGrab opens normally.",
   dl_macos_m2_h4: "Terminal method:",
   dl_macos_note:
     "macOS builds are produced via CI on Apple Silicon and Intel runners. If you hit issues, please [open an issue](../../issues) — feedback from macOS users actively shapes the macOS testing cycle.",
@@ -299,9 +299,9 @@ export const en = {
   dl_linux_arch_note: "**The Linux downloads on the release page are x86_64 only.** On ARM64 machines (Raspberry Pi, Asahi Linux) the Flatpak still installs, then fails at launch with `bwrap: execvp ldconfig: Exec format error`.",
   dl_warning_h3: "Why you may see a warning",
   dl_warning_p1:
-    "Arroxy is open-source and MIT-licensed. The Windows and macOS builds are **not code-signed** — Apple Developer ID and Windows EV code-signing certificates each cost hundreds of dollars per year, which an indie project pays out of pocket. Without those signatures, Windows SmartScreen and macOS Gatekeeper will warn you on first launch. The warnings mean *your OS doesn't recognize the publisher* — they don't mean Arroxy is malware.",
+    "FlickGrab is open-source and MIT-licensed. The Windows and macOS builds are **not code-signed** — Apple Developer ID and Windows EV code-signing certificates each cost hundreds of dollars per year, which an indie project pays out of pocket. Without those signatures, Windows SmartScreen and macOS Gatekeeper will warn you on first launch. The warnings mean *your OS doesn't recognize the publisher* — they don't mean FlickGrab is malware.",
   dl_warning_p2:
-    "Three ways to verify Arroxy yourself, in increasing rigor:\n\n- **Read the source.** Every line is on [GitHub](https://github.com/antonio-orionus/Arroxy) and you can [build it from source](#tech).\n- **Check the SHA256.** Match your file against the published [`SHA256SUMS`](https://github.com/antonio-orionus/Arroxy/releases/latest/download/SHA256SUMS) — see [Verify your download](#verify) below.\n- **Run a third-party scan.** Upload the file to [VirusTotal](https://www.virustotal.com).",
+    "Three ways to verify FlickGrab yourself, in increasing rigor:\n\n- **Read the source.** Every line is on [GitHub](https://github.com/antonio-orionus/FlickGrab) and you can [build it from source](#tech).\n- **Check the SHA256.** Match your file against the published [`SHA256SUMS`](https://github.com/antonio-orionus/FlickGrab/releases/latest/download/SHA256SUMS) — see [Verify your download](#verify) below.\n- **Run a third-party scan.** Upload the file to [VirusTotal](https://www.virustotal.com).",
 
   dl_win_first_h3: "Windows first launch",
   shot_smartscreen_more_alt:
@@ -310,29 +310,29 @@ export const en = {
     'SmartScreen dialog after expanding More info, showing the "Run anyway" button',
   dl_win_defender_h4: "If Windows Defender flags or removes the file",
   dl_win_defender_p:
-    "Defender heuristics sometimes flag unsigned NSIS installers and Electron portables as suspicious. If Defender quarantines `Arroxy-win-x64-Setup.exe` or `Arroxy-win-x64-Portable.exe`, restore it from **Windows Security → Virus & threat protection → Protection history**, then add the Arroxy executable as an allowed item under **Manage settings → Add or remove exclusions**. As with SmartScreen, the trigger is the missing publisher signature, not detected malware.",
+    "Defender heuristics sometimes flag unsigned NSIS installers and Electron portables as suspicious. If Defender quarantines `FlickGrab-win-x64-Setup.exe` or `FlickGrab-win-x64-Portable.exe`, restore it from **Windows Security → Virus & threat protection → Protection history**, then add the FlickGrab executable as an allowed item under **Manage settings → Add or remove exclusions**. As with SmartScreen, the trigger is the missing publisher signature, not detected malware.",
 
   dl_macos_first_h3: "macOS first launch",
   dl_macos_intro:
-    "Arroxy's macOS builds are ad-hoc signed but not notarized by Apple, so Gatekeeper blocks the first launch with *\"Arroxy.app\" Not Opened — Apple could not verify \"Arroxy.app\" is free of malware*. That means macOS cannot check the app with Apple, not that anything is wrong with the files. Installing with Homebrew avoids this dialog entirely. If you used the DMG, one Terminal command clears it:",
+    "FlickGrab's macOS builds are ad-hoc signed but not notarized by Apple, so Gatekeeper blocks the first launch with *\"FlickGrab.app\" Not Opened — Apple could not verify \"FlickGrab.app\" is free of malware*. That means macOS cannot check the app with Apple, not that anything is wrong with the files. Installing with Homebrew avoids this dialog entirely. If you used the DMG, one Terminal command clears it:",
   dl_macos_sequoia_h4: "Terminal fix for current macOS",
   dl_macos_sequoia_intro:
-    "Use Terminal after copying Arroxy to Applications:",
+    "Use Terminal after copying FlickGrab to Applications:",
   dl_macos_sequoia_step1:
-    "Drag `Arroxy.app` from the mounted DMG into `/Applications`.",
+    "Drag `FlickGrab.app` from the mounted DMG into `/Applications`.",
   dl_macos_sequoia_step2:
     "Open Terminal and run these two commands:",
   dl_macos_sequoia_step3:
-    "Run `open /Applications/Arroxy.app` to launch Arroxy.",
+    "Run `open /Applications/FlickGrab.app` to launch FlickGrab.",
   dl_macos_sequoia_step4:
-    "If the app path is different, replace `/Applications/Arroxy.app` with the path you installed.",
+    "If the app path is different, replace `/Applications/FlickGrab.app` with the path you installed.",
   dl_macos_sonoma_h4: "Terminal fix for older macOS",
   dl_macos_sonoma_step1:
-    "Drag `Arroxy.app` from the mounted DMG into `/Applications`.",
+    "Drag `FlickGrab.app` from the mounted DMG into `/Applications`.",
   dl_macos_sonoma_step2:
-    "Open Terminal and remove quarantine from `/Applications/Arroxy.app`.",
+    "Open Terminal and remove quarantine from `/Applications/FlickGrab.app`.",
   dl_macos_sonoma_step3:
-    "Launch Arroxy from Terminal or Finder after quarantine is removed.",
+    "Launch FlickGrab from Terminal or Finder after quarantine is removed.",
   dl_macos_damaged_h4:
     "Gatekeeper quarantine fix",
   dl_macos_damaged_p:
@@ -361,7 +361,7 @@ export const en = {
   privacy_p2:
     "No telemetry — just one anonymous heartbeat a day: app version, OS, language, install channel and country, so we can count active users. No IDs, URLs, video titles, file paths or account info. You can turn it off in Settings.",
   privacy_p3:
-    "Explore keeps its own sign-in, separate from your browser, and Arroxy never reads or fills in the sign-in form — you type into Google's own page. Downloads run signed out; only when one fails in a way an account can fix does Arroxy read the sign-in fresh, keep it in a temporary file for that download, and delete the file afterwards. Signing out of Explore in Settings forgets it.",
+    "Explore keeps its own sign-in, separate from your browser, and FlickGrab never reads or fills in the sign-in form — you type into Google's own page. Downloads run signed out; only when one fails in a way an account can fix does FlickGrab read the sign-in fresh, keep it in a temporary file for that download, and delete the file afterwards. Signing out of Explore in Settings forgets it.",
   faq_q1: "Is it really free?",
   faq_a1: "Yes — MIT licensed, no premium tier, no feature gating.",
   faq_q2: "What video qualities can I download?",
@@ -372,13 +372,13 @@ export const en = {
     "Yes. Pick *audio-only* in the format menu and choose MP3, M4A/AAC, Opus, or WAV.",
   faq_q4: "How do I download videos that need a YouTube account?",
   faq_a4:
-    "Sign in once in the Explore tab. Arroxy can then download private and members-only videos your account can watch, age-restricted videos if the account is age-verified, and your Watch Later and Liked lists. It uses the sign-in only when a download fails in a way an account can fix; everything else downloads as before. This is the **Explore sign-in** choice, listed first and marked Recommended in the cookie settings, and Arroxy picks it for you the first time you open Explore. yt-dlp's wiki notes that [signed-in automation can flag a Google account](https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies), so a secondary account is the safer choice.",
+    "Sign in once in the Explore tab. FlickGrab can then download private and members-only videos your account can watch, age-restricted videos if the account is age-verified, and your Watch Later and Liked lists. It uses the sign-in only when a download fails in a way an account can fix; everything else downloads as before. This is the **Explore sign-in** choice, listed first and marked Recommended in the cookie settings, and FlickGrab picks it for you the first time you open Explore. yt-dlp's wiki notes that [signed-in automation can flag a Google account](https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies), so a secondary account is the safer choice.",
   faq_q5: "Will it keep working when YouTube changes something?",
   faq_a5:
-    "yt-dlp is updated automatically on launch, and Arroxy ships fixes promptly when YouTube changes something. When YouTube asks you to confirm you're not a bot, Arroxy also tries your Explore sign-in if you've signed in there, and cookies from a file or your browser are available in the cookie settings.",
-  faq_q6: "What languages is Arroxy available in?",
+    "yt-dlp is updated automatically on launch, and FlickGrab ships fixes promptly when YouTube changes something. When YouTube asks you to confirm you're not a bot, FlickGrab also tries your Explore sign-in if you've signed in there, and cookies from a file or your browser are available in the cookie settings.",
+  faq_q6: "What languages is FlickGrab available in?",
   faq_a6:
-    "{{LANG_COUNT}} languages, out of the box: {{LANG_NAME_LIST}}. Arroxy auto-detects your operating system's language on first launch and you can switch at any time from the language picker in the toolbar. Runtime locale JSON lives in src/shared/i18n/locales/, and translator-facing PO catalogs live in i18n/locales/ — open a PR on GitHub to contribute.",
+    "{{LANG_COUNT}} languages, out of the box: {{LANG_NAME_LIST}}. FlickGrab auto-detects your operating system's language on first launch and you can switch at any time from the language picker in the toolbar. Runtime locale JSON lives in src/shared/i18n/locales/, and translator-facing PO catalogs live in i18n/locales/ — open a PR on GitHub to contribute.",
   faq_q7: "Do I need to install anything else?",
   faq_a7:
     "No. yt-dlp is downloaded automatically on first launch and cached on your machine; ffmpeg and ffprobe ship with the app. After that, no extra setup is needed.",
@@ -387,7 +387,7 @@ export const en = {
     "Yes — both. Paste a playlist URL or a channel URL (e.g. `youtube.com/@handle`, `/channel/UC…`, `/c/Name`, `/user/Old`); choose how many entries to scan, then queue the whole list or pick specific videos. Date-range filters are coming soon.",
   faq_q9: 'macOS says "the app is damaged" — what do I do?',
   faq_a9:
-    'That\'s macOS Gatekeeper blocking an unsigned app, not actual damage. See [macOS first launch](#macos-first-launch) for the Terminal commands that clear quarantine and launch Arroxy.',
+    'That\'s macOS Gatekeeper blocking an unsigned app, not actual damage. See [macOS first launch](#macos-first-launch) for the Terminal commands that clear quarantine and launch FlickGrab.',
   faq_q10: "Is downloading YouTube videos legal?",
   faq_a10:
     "For personal, private use it is generally accepted in most jurisdictions. You are responsible for complying with YouTube's [Terms of Service](https://www.youtube.com/t/terms) and your local copyright laws.",
@@ -412,11 +412,11 @@ export const en = {
   plan_cta:
     "Have a feature in mind? [Open a request](../../issues) — community input shapes priority.",
   tech_content: TECH_CONTENT,
-  support_h2: "Support Arroxy",
-  support_note: "Arroxy is free and MIT-licensed — no ads, no telemetry, no paid tier. If it saves you time, you can support development with Bitcoin or Tron: the addresses are in [DONATE.md](DONATE.md), which is the only official source for them. Arroxy will never send you an address by email or direct message. Starring the repo, reporting bugs, and improving translations help just as much.",
+  support_h2: "Support FlickGrab",
+  support_note: "FlickGrab is free and MIT-licensed — no ads, no telemetry, no paid tier. If it saves you time, you can support development with Bitcoin or Tron: the addresses are in [DONATE.md](DONATE.md), which is the only official source for them. FlickGrab will never send you an address by email or direct message. Starring the repo, reporting bugs, and improving translations help just as much.",
   tos_h2: "Terms of use",
   tos_note:
-    "Arroxy is a tool for personal, private use only. You are solely responsible for ensuring your downloads comply with YouTube's [Terms of Service](https://www.youtube.com/t/terms) and the copyright laws of your jurisdiction. Do not use Arroxy to download, reproduce, or distribute content you do not have the right to use. The developers are not liable for any misuse.",
+    "FlickGrab is a tool for personal, private use only. You are solely responsible for ensuring your downloads comply with YouTube's [Terms of Service](https://www.youtube.com/t/terms) and the copyright laws of your jurisdiction. Do not use FlickGrab to download, reproduce, or distribute content you do not have the right to use. The developers are not liable for any misuse.",
   footer_credit:
     'MIT License · Made with care by <a href="https://x.com/OrionusAI">@OrionusAI</a>',
 };

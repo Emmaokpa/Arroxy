@@ -5,7 +5,7 @@
 		"logs": "Jurnallar",
 		"saveDiagnostics": "Diagnostika faylini saqlash",
 		"saveDiagnosticsDescription": "Jurnallar va ilova ma'lumotlarini Yuklanmalar jildidagi bitta faylga to'playdi, uni GitHub issue'ga biriktirish mumkin. Foydalanuvchi jildingiz nomi olib tashlanadi; video havolalari va sarlavhalari qoladi.",
-		"feedbackNudge": "Arroxy yoqdimi? Fikringizni bilmoqchiman! 💬",
+		"feedbackNudge": "FlickGrab yoqdimi? Fikringizni bilmoqchiman! 💬",
 		"zoomIn": "Kattalashtirish",
 		"zoomOut": "Kichraytirish",
 		"theme": "Mavzu",
@@ -13,7 +13,7 @@
 	},
 	"about": {
 		"button": "Dastur haqida",
-		"openTitle": "Arroxy haqida",
+		"openTitle": "FlickGrab haqida",
 		"tagline": "YouTube va 2000+ boshqa saytlar uchun tez va qulay yuklab oluvchi.",
 		"websiteLink": "Veb-sayt",
 		"githubLink": "GitHub",
@@ -139,7 +139,7 @@
 			"nestedPlaylistHint_other": "Bulardan {{count}} tasi video emas, ijro roʻyxati — ularni yuklab olish uchun havolalarini bittalab joylashtiring.",
 			"probeLimitAlertTitle": "Pleylist skaneri cheklangan",
 			"probeLimitAlertTitleGeneric": "Skanlash cheklangan",
-			"probeLimitAlertDesc": "Arroxy {{count}} tadan ortiq element topdi, shuning uchun joriy skaner chekovi qolganlarini yashirmoqda.",
+			"probeLimitAlertDesc": "FlickGrab {{count}} tadan ortiq element topdi, shuning uchun joriy skaner chekovi qolganlarini yashirmoqda.",
 			"multiProfileEntry": "Har bir element uchun profil belgilash",
 			"multiProfileEntryTooltip": "Sifat, SponsorBlock, Chiqish va Saqlashni oʻtkazib yuboradi — buning oʻrniga har bir element uchun yuklab olish profilini belgilaydi",
 			"removeFromListCount_one": "Ro'yxatdan {{count}} tasini o'chirish",
@@ -152,7 +152,7 @@
 		},
 		"bulk": {
 			"title": "Ommaviy URLlar",
-			"description": "Video, pleylist, kanal, qidiruv yoki audio URLlarini joylashtiring. Arroxy navbatga qo'shishdan oldin dublikatlarni tozalaydi.",
+			"description": "Video, pleylist, kanal, qidiruv yoki audio URLlarini joylashtiring. FlickGrab navbatga qo'shishdan oldin dublikatlarni tozalaydi.",
 			"textareaLabel": "URL ro‘yxati",
 			"textareaPlaceholder": "https://video.example/one\nhttps://video.example/two\nhttps://video.example/three",
 			"acceptedCount": "Tayyor",
@@ -172,11 +172,11 @@
 			"pickFromPlaylist": "Playlist dan tanlash",
 			"quickWholePlaylist": "Butun pleylistni yuklab olish",
 			"playlistLimit": "Pleylist tekshiruv chegarasi: {{count}} ta element",
-			"quickLimitDescription": "Pleylist, kanal yoki qidiruv natijasini navbatga qo‘yishdan oldin Arroxy skanerlaydigan eng ko‘p elementlar soni.",
+			"quickLimitDescription": "Pleylist, kanal yoki qidiruv natijasini navbatga qo‘yishdan oldin FlickGrab skanerlaydigan eng ko‘p elementlar soni.",
 			"singleTooltip": "Bu URLga ulangan pleylist e’tiborsiz qolishi uchun yt-dlp bitta video rejimidan foydalanadi.",
 			"quickSingleTooltip": "Bitta yuklab olishni navbatga qo‘yadi va bu URLga biriktirilgan pleylistni e’tiborsiz qoldiradi.",
 			"playlistTooltip": "Tanlagichni ko‘rsatishdan oldin yt-dlp pleylist rejimida belgilangan chegaragacha yuklaydi.",
-			"quickPlaylistTooltip": "Yuklangan har bir pleylist elementini faol Tez yuklab olish profili bilan navbatga qo‘yadi. Skanerlash limitingizga yetsa, Arroxy navbatga qo‘yishdan oldin so‘raydi."
+			"quickPlaylistTooltip": "Yuklangan har bir pleylist elementini faol Tez yuklab olish profili bilan navbatga qo‘yadi. Skanerlash limitingizga yetsa, FlickGrab navbatga qo‘yishdan oldin so‘raydi."
 		},
 		"url": {
 			"heading": "URL orqali yuklab olish",
@@ -222,12 +222,12 @@
 			"bulkButton": "Ommaviy URLlar",
 			"bulkTooltip": "Bir nechta URLni qo‘shing va navbatga qo‘ying.",
 			"features": {
-				"heading": "Arroxy nima yuklab olishi mumkin",
+				"heading": "FlickGrab nima yuklab olishi mumkin",
 				"youtube": {"heading": "YouTube", "video": "Videolar", "channel": "Kanallar", "playlist": "Ijro roʻyxatlari", "short": "Shortlar", "music": "Musiqa", "podcast": "Podkastlar"},
 				"anySite": {"heading": "2000+ sayt", "video": "Videolar", "videoPlaylist": "Video pleylistlar", "musicPlaylist": "Musiqa pleylistlar"},
 				"always": {"audioOnly": "Faqat audio", "subtitles": "Subtitrlar"}
 			},
-			"mascotIdle": "Havolani tashlang, Arroxy uni tortib olsin ✨",
+			"mascotIdle": "Havolani tashlang, FlickGrab uni tortib olsin ✨",
 			"mascotBusy": "Fonda yuklanmoqda… Men bir vaqtda ko'p ish qila olaman 😎",
 			"advanced": "Kengaytirilgan",
 			"settings": {"inputHeading": "Kiritish", "behaviorHeading": "Yuklash xatti-harakati", "behaviorDescription": "Profillar orqali boshqariladigan yuklamalarga ham taʼsir qiluvchi global xatti-harakat."},
@@ -244,7 +244,7 @@
 			},
 			"hotkey": {
 				"sectionTitle": "Global tez tugma",
-				"sectionDescription": "Nusxa olingan havolani, Arroxy ochmasdan, istalgan ilovadan yuklab oling.",
+				"sectionDescription": "Nusxa olingan havolani, FlickGrab ochmasdan, istalgan ilovadan yuklab oling.",
 				"toggle": "Global tez tugmani yoqish",
 				"toggleDescription": "Buferda video havolasi bo‘lganda tez tugmani bosing.",
 				"changeShortcut": "Tez tugmani o‘zgartirish",
@@ -252,7 +252,7 @@
 				"test": "Sinash",
 				"conflict": "Bu tez tugma boshqa ilova tomonidan band — boshqasini tanlang.",
 				"hintLabel": "Yoki bosing",
-				"hintTooltip": "Video havolasini istalgan joyda nusxalang, shu yorliqni bosing, Arroxy esa uni faol profilingiz bilan navbatga qo‘shadi — oynalarni almashtirish shart emas.",
+				"hintTooltip": "Video havolasini istalgan joyda nusxalang, shu yorliqni bosing, FlickGrab esa uni faol profilingiz bilan navbatga qo‘shadi — oynalarni almashtirish shart emas.",
 				"hintTooltipSettings": "Uni Sozlamalarda o‘zgartiring yoki o‘chirib qo‘ying.",
 				"reset": "Standartga qaytarish"
 			},
@@ -285,12 +285,12 @@
 			"proxy": {"label": "Proxy URL", "description": "Trafikni proksi orqali yo'naltirish — geo-cheklangan kontent uchun foydali.", "placeholder": "http://host:port", "clear": "Tozalash"},
 			"style": {
 				"panelTitle": "Ko'rinish",
-				"panelDescription": "Arroxy ko'rinishini sozlang. Yorug' va qorong'i rejim o'rtasida pastki qatorda almashtiring.",
+				"panelDescription": "FlickGrab ko'rinishini sozlang. Yorug' va qorong'i rejim o'rtasida pastki qatorda almashtiring.",
 				"modeLabel": "Uslub",
 				"modeDescription": "Ikkala uslub ham yorug' va qorong'i variantda mavjud.",
 				"aurora": {"label": "Aurora", "description": "Harakatlanuvchi osmon ustidagi shishasimon panellar. Grafik tezlatish kerak."},
 				"minimal": {"label": "Minimalistik", "description": "Zich, sokin yuzalar. Istalgan kompyuterda yengil ishlaydi."},
-				"unavailableNotice": "{{style}} uchun grafik tezlatish kerak, hozir u mavjud emas, shuning uchun Arroxy {{fallback}} uslubini ko'rsatmoqda."
+				"unavailableNotice": "{{style}} uchun grafik tezlatish kerak, hozir u mavjud emas, shuning uchun FlickGrab {{fallback}} uslubini ko'rsatmoqda."
 			},
 			"limitRate": {
 				"label": "Yuklab olish tezligi chegarasi",
@@ -303,7 +303,7 @@
 			},
 			"playlistProbeLimit": {
 				"label": "Skanerlash uchun pleylist elementlari",
-				"description": "Arroxy pleylist, kanal yoki qidiruv natijasi ochilganda yuklaydigan maksimal yozuvlar soni.",
+				"description": "FlickGrab pleylist, kanal yoki qidiruv natijasi ochilganda yuklaydigan maksimal yozuvlar soni.",
 				"option": "{{count}} ta element",
 				"current": "Joriy chegara: {{count}} ta element",
 				"customValue": "Maxsus: {{count}} ta element",
@@ -313,7 +313,7 @@
 				"customDialogCancel": "Bekor qilish",
 				"customDialogSave": "Chegarani saqlash",
 				"invalid": "1 dan 5000 gacha bo'lgan butun son kiriting",
-				"tooltip": "yt-dlp --playlist-end ga to'g'ri keladi: Arroxy tanlagichni qurishdan oldin faqat shu miqdordagi pleylist, kanal yoki qidiruv yozuvlarini so'raydi."
+				"tooltip": "yt-dlp --playlist-end ga to'g'ri keladi: FlickGrab tanlagichni qurishdan oldin faqat shu miqdordagi pleylist, kanal yoki qidiruv yozuvlarini so'raydi."
 			},
 			"nativeAudioPreference": {"label": "Asl audio afzalligi", "description": "Profil asl audioni tanlaganda stereo yoki surround. Profil buni o'zgartirishi mumkin.", "compatible": "Mos stereo", "surround": "Surround / Dolbyni afzal ko‘rish"},
 			"autoRetry": {"label": "Muvaffaqiyatsiz yuklamalarni qayta urinish", "description": "Tarmoq yoki server nosozligidan so'ng avtomatik qayta urinadi va har urinishdan oldin uzoqroq kutadi. Sayt tomonidan bloklangan yuklamalar hech qachon avtomatik qayta urinilmaydi.", "unit": "marta"},
@@ -322,13 +322,13 @@
 			"downloadConnections": {"label": "Yuklab olish ulanishlari", "description": "Videoning bir nechta qismini bir vaqtda olib, katta yuklamalarni tezlashtiradi. Yuqori qiymatlar sayt sizni cheklash ehtimolini oshiradi.", "unit": "ulanish"},
 			"networkPacing": {
 				"heading": "Yumshoq yuklamalar",
-				"description": "Arroxy saytga haddan tashqari agressiv murojaat qilmasligi uchun har bir yuklab olish paytida kichik kutish vaqtlari qo'shadi. Qiymatlar soniyalarda.",
-				"presetLabel": "Arroxy qanchalik ehtiyotkor bo‘lsin?",
+				"description": "FlickGrab saytga haddan tashqari agressiv murojaat qilmasligi uchun har bir yuklab olish paytida kichik kutish vaqtlari qo'shadi. Qiymatlar soniyalarda.",
+				"presetLabel": "FlickGrab qanchalik ehtiyotkor bo‘lsin?",
 				"tooltip": "Bu kutishlar har bir yuklama ichida sodir bo'ladi. Bir vaqtda qancha yuklama ishlashi «Bir vaqtda yuklamalar» bo'limida alohida belgilanadi.",
 				"summary": "Kutish: {{requests}} tekshiruvlar orasida, {{downloads}} media boshlanishidan oldin, {{subtitles}} subtitrl fayllaridan oldin.",
 				"presets": {"off": "O'chiriq", "balanced": "Muvozanatli", "careful": "Ehtiyotkor", "custom": "Maxsus"},
 				"tooltips": {
-					"off": "Arroxy media va subtitrlar uchun saqlaydigan kichik asosiy tanaffuslarnigina ishlatadi.",
+					"off": "FlickGrab media va subtitrlar uchun saqlaydigan kichik asosiy tanaffuslarnigina ishlatadi.",
 					"balanced": "Standart. So'rovlar orasida va media boshlanishidan oldin qisqa tanaffuslar qo'shadi.",
 					"careful": "Katta pleylistlar yoki tez-tez cheklovlarga duch keladigan tarmoqlar uchun uzunroq tanaffuslar qo'shadi.",
 					"custom": "Yuklab olish boshqaruvlarini o'zingiz sozlang."
@@ -341,9 +341,9 @@
 		},
 		"quickProgress": {
 			"title": "Tez yuklab olish tayyorlanmoqda",
-			"description": "Arroxy havolani o‘qiyapti va {{profileName}} profilini qo‘llayapti.",
+			"description": "FlickGrab havolani o‘qiyapti va {{profileName}} profilini qo‘llayapti.",
 			"currentFallback": "Joriy havola",
-			"waitHint": "Arroxy navbatni tayyorlayotganda buni ochiq qoldiring.",
+			"waitHint": "FlickGrab navbatni tayyorlayotganda buni ochiq qoldiring.",
 			"failedCount_one": "{{count}} ta muvaffaqiyatsiz",
 			"failedCount_other": "{{count}} ta muvaffaqiyatsiz",
 			"cancel": "Tayyorlashni bekor qilish",
@@ -437,9 +437,9 @@
 				"explanationFile": "Cookies faylingiz bo'sh, muddati o'tgan yoki noto'g'ri formatda bo'lishi mumkin (yt-dlp Netscape cookies.txt kutadi). Cookiesni qayta eksport qiling, boshqa fayl tanlang, Brauzer rejimiga o'ting yoki cookiesni o'chiring.",
 				"explanationBrowser": "Cookies to'g'ridan-to'g'ri brauzerdan o'qiladi. Agar brauzer hozir ochiq bo'lsa, uning cookie ma'lumotlar bazasi qulflangan bo'lishi mumkin (Chromium-family). Brauzer YouTube ga kirgan bo'lishi ham kerak. Brauzerni yoping, boshqa brauzer sinab ko'ring, Fayl rejimiga o'ting yoki cookiesni o'chiring.",
 				"openSettingsCta": "Cookies sozlamalarini ochish",
-				"exploreSignIn": {"heading": "Bu video YouTube hisobini talab qilishi mumkin", "body": "Agar bu video YouTube hisobini talab qilsa, Explore'ga kiring va qayta urinib ko'ring. Arroxy bu kirishdan faqat yuklab olish uchun kerak bo'lganda foydalanadi.", "cta": "Explore'ga kirish"},
-				"exploreSignedIn": {"heading": "Explore'ga kirilgan", "body": "Agar bu video hisob talab qilsa, Arroxy Explore orqali kirishingizdan avtomatik foydalanadi. U boshqa sababga ko'ra mavjud bo'lmasligi mumkin."},
-				"exploreOffer": {"heading": "Bu video uchun YouTube hisobi kerak bo'lishi mumkin", "body": "Explore orqali kiring, Arroxy qayta urinib ko'radi.", "cta": "Explore'ga kirish"},
+				"exploreSignIn": {"heading": "Bu video YouTube hisobini talab qilishi mumkin", "body": "Agar bu video YouTube hisobini talab qilsa, Explore'ga kiring va qayta urinib ko'ring. FlickGrab bu kirishdan faqat yuklab olish uchun kerak bo'lganda foydalanadi.", "cta": "Explore'ga kirish"},
+				"exploreSignedIn": {"heading": "Explore'ga kirilgan", "body": "Agar bu video hisob talab qilsa, FlickGrab Explore orqali kirishingizdan avtomatik foydalanadi. U boshqa sababga ko'ra mavjud bo'lmasligi mumkin."},
+				"exploreOffer": {"heading": "Bu video uchun YouTube hisobi kerak bo'lishi mumkin", "body": "Explore orqali kiring, FlickGrab qayta urinib ko'radi.", "cta": "Explore'ga kirish"},
 				"exploreReuse": {"heading": "Bu video uchun YouTube hisobi kerak bo'lishi mumkin", "body": "Siz Explore'ga kirgansiz, lekin yuklab olishlar hozir bu kirishdan foydalanmayapti.", "cta": "Explore orqali kirishimdan foydalanib, qayta urinish"},
 				"otherCookiesCta": "Buning o'rniga cookies fayli yoki brauzerdan foydalanish…",
 				"needsCookies": {"heading": "Bu sayt tizimga kirish talab qiladi", "body": "yt-dlp bu videoga autentifikatsiyasiz kira olmadi. Kengaytirilgan sozlamalarda cookiesni sozlang — allaqachon kirgan brauzeringizga yo'naltiring yoki cookies.txt faylini import qiling."},
@@ -708,11 +708,11 @@
 	},
 	"update": {
 		"message": {
-			"generic": "Arroxy {{version}} mavjud — sizda {{currentVersion}} bor.",
-			"homebrew": "Arroxy {{version}} mavjud — Homebrew orqali yangilang.",
-			"macosDirect": "Arroxy {{version}} mavjud — yangi DMG ni yuklab oling.",
-			"macosDirectHomebrew": "Arroxy {{version}} mavjud — DMG ni yuklab oling yoki Homebrew'ga o'ting.",
-			"portable": "Arroxy {{version}} mavjud — yangi build ni yuklab oling."
+			"generic": "FlickGrab {{version}} mavjud — sizda {{currentVersion}} bor.",
+			"homebrew": "FlickGrab {{version}} mavjud — Homebrew orqali yangilang.",
+			"macosDirect": "FlickGrab {{version}} mavjud — yangi DMG ni yuklab oling.",
+			"macosDirectHomebrew": "FlickGrab {{version}} mavjud — DMG ni yuklab oling yoki Homebrew'ga o'ting.",
+			"portable": "FlickGrab {{version}} mavjud — yangi build ni yuklab oling."
 		},
 		"install": "O'rnatish va qayta ishga tushirish",
 		"downloading": "Yuklanmoqda…",
@@ -726,7 +726,7 @@
 		"installFailed": "Yangilanish muvaffaqiyatsiz",
 		"retry": "Qayta urinish"
 	},
-	"releaseNotes": {"title": "Arroxy {{version}} dagi yangiliklar", "description": "Siz yangi yangilanishdan foydalanmoqdasiz. Asosiy yangiliklar quyida.", "fullNotes": "To'liq reliz qaydlari ↗", "continue": "Davom etish"},
+	"releaseNotes": {"title": "FlickGrab {{version}} dagi yangiliklar", "description": "Siz yangi yangilanishdan foydalanmoqdasiz. Asosiy yangiliklar quyida.", "fullNotes": "To'liq reliz qaydlari ↗", "continue": "Davom etish"},
 	"status": {
 		"preparingBinaries": "Ikkilik fayllar tayyorlanmoqda…",
 		"mintingToken": "YouTube tokeni yaratilmoqda…",
@@ -751,7 +751,7 @@
 		"downloadingBinary": "{{name}} ikkilik fayli yuklanmoqda…",
 		"unknownStartupFailure": "Noma'lum yuklama ishga tushirish xatosi",
 		"diskSpaceInsufficient": "Disk xotirasi yetarli emas — {{required}} kerak, faqat {{free}} mavjud",
-		"outputNotWritable": "{{dir}} ga saqlab bo'lmaydi — Arroxy'ga u yerga yozishga ruxsat berilmagan",
+		"outputNotWritable": "{{dir}} ga saqlab bo'lmaydi — FlickGrab'ga u yerga yozishga ruxsat berilmagan",
 		"fetchingSponsorBlock": "SponsorBlock bilan bog'lanilmoqda…",
 		"retryingSponsorBlock": "SponsorBlock mavjud emas, qayta urinilmoqda ({{attempt}}/{{total}})…",
 		"retryingTransfer": "Ulanish to'xtadi, qayta urinilmoqda ({{attempt}}/{{total}})…",
@@ -773,11 +773,11 @@
 			"queued": "Yuklab olish navbatga qo'shildi",
 			"alreadyQueued": "Allaqachon navbatda — nusxa qo'shilmadi",
 			"invalidClipboard": "Vaqtinchalik buferda havola yo'q — avval birini nusxalang",
-			"multipleUrls": "Bir nechta havola nusxalandi — Arroxyda “Ommaviy URLlar”dan foydalaning",
-			"needsReview": "Bu havola sizning tanlovingizni kutmoqda — Arroxy'dagi Yuklamalar bo'limiga qarang",
-			"cookiesSetup": "Arroxy'da cookie sozlamasini tugallang, so'ng qayta urinib ko'ring",
-			"busy": "Arroxy hali ishga tushmoqda — birozdan so'ng qayta urinib ko'ring",
-			"submissionFailed": "Bu havolani qo'shib bo'lmadi — Arroxyda qayta urinib ko'ring"
+			"multipleUrls": "Bir nechta havola nusxalandi — FlickGrabda “Ommaviy URLlar”dan foydalaning",
+			"needsReview": "Bu havola sizning tanlovingizni kutmoqda — FlickGrab'dagi Yuklamalar bo'limiga qarang",
+			"cookiesSetup": "FlickGrab'da cookie sozlamasini tugallang, so'ng qayta urinib ko'ring",
+			"busy": "FlickGrab hali ishga tushmoqda — birozdan so'ng qayta urinib ko'ring",
+			"submissionFailed": "Bu havolani qo'shib bo'lmadi — FlickGrabda qayta urinib ko'ring"
 		},
 		"queue": {"skippedAlreadyQueued_one": "{{count}} ta video allaqachon navbatda — o‘tkazib yuborildi", "skippedAlreadyQueued_other": "{{count}} ta video allaqachon navbatda — o‘tkazib yuborildi"},
 		"quickDownload": {
@@ -796,19 +796,19 @@
 	},
 	"errors": {
 		"ytdlp": {
-			"botBlock": "Bot himoyasi ishga tushdi. Siz foydalanayotgan IP manzil, ehtimol, bloklangan (ma'lumot markazi diapazoni yoki band VPN chiqish nuqtasi). IP manzilingizni o'zgartiring yoki boshqa VPN nuqtasini tanlang va qayta urinib ko'ring. Muammo davom etsa, bu YouTube tomonidan vaqtinchalik o'zgarish bo'lishi mumkin — Arroxy ishga tushganda yt-dlp ni avtomatik yangilaydi, shuning uchun tuzatish yuqori oqim chiqarilishi bilan avtomatik amalga oshiriladi.",
+			"botBlock": "Bot himoyasi ishga tushdi. Siz foydalanayotgan IP manzil, ehtimol, bloklangan (ma'lumot markazi diapazoni yoki band VPN chiqish nuqtasi). IP manzilingizni o'zgartiring yoki boshqa VPN nuqtasini tanlang va qayta urinib ko'ring. Muammo davom etsa, bu YouTube tomonidan vaqtinchalik o'zgarish bo'lishi mumkin — FlickGrab ishga tushganda yt-dlp ni avtomatik yangilaydi, shuning uchun tuzatish yuqori oqim chiqarilishi bilan avtomatik amalga oshiriladi.",
 			"ipBlock": "IP manzilingiz YouTube tomonidan bloklangan ko'rinadi. Keyinroq urinib ko'ring yoki VPN ishlating.",
 			"rateLimit": "YouTube so'rovlarni cheklayapti. Bir daqiqa kuting va qayta urinib ko'ring.",
 			"ageRestricted": "Bu video yosh cheklovli va tizimga kirgan hisob bo'lmasdan yuklab bo'lmaydi.",
 			"unavailable": "Bu video mavjud emas — u shaxsiy, o'chirilgan yoki mintaqa bilan cheklangan bo'lishi mumkin.",
 			"geoBlocked": "Bu video sizning mintaqangizda mavjud emas.",
 			"outOfDiskSpace": "Disk xotirasi yetarli emas. Bo'sh joy ajrating va qayta urinib ko'ring.",
-			"outputNotWritable": "Arroxy yuklab olish jildiga yoza olmayapti. Jild faqat o'qish uchun bo'lishi, qulflangan diskda turishi yoki tizimingizning maxfiylik sozlamalari tomonidan bloklangan bo'lishi mumkin. Boshqa jildni tanlang yoki kirishga ruxsat bering, so'ng qayta urinib ko'ring.",
+			"outputNotWritable": "FlickGrab yuklab olish jildiga yoza olmayapti. Jild faqat o'qish uchun bo'lishi, qulflangan diskda turishi yoki tizimingizning maxfiylik sozlamalari tomonidan bloklangan bo'lishi mumkin. Boshqa jildni tanlang yoki kirishga ruxsat bering, so'ng qayta urinib ko'ring.",
 			"unsupportedUrl": "Bu URL yt-dlp tomonidan qo'llab-quvvatlanmaydi. yt-dlp qo'llab-quvvatlaydigan saytlardan boshqa havolani sinab ko'ring.",
 			"chunkTransferFailure": "Server yuklab olishni o'rtasida uzib qo'ydi va yt-dlp qayta urinishlardan so'ng voz kechdi. Bu odatda eng katta video formatlarida (4K HDR / yuqori bitreytli VP9) uchraydi. Qayta urining, tarmoq/VPN almashtiring yoki pastroq ruxsat formatini tanlang.",
 			"missingDependency": "yt-dlp ffmpeg yoki ffprobe ni topa olmadi. Ichki binar fayllarni tuzating yoki FFmpeg joylashuvini belgilang, keyin qayta urinib ko'ring.",
 			"postprocessFailure": "yt-dlp yuklab olishni tugatdi, biroq keyingi qayta ishlash (birlashtirish / mux / o'girish) muvaffaqiyatsiz tugadi. Ko'pincha bu ffmpeg ning vaqtinchalik muammosi — qayta urining, agar davom etsa, boshqa format kombinatsiyasini sinab ko'ring.",
-			"parse": "Saytdan kelgan javobni tahlil qilib bo'lmadi. yt-dlp ekstraktori eskirib qolgan bo'lishi mumkin. Arroxy ishga tushganda yt-dlp ni avtomatik yangilaydi — bir necha daqiqadan so'ng tuzatish kelgach qayta urinib ko'ring.",
+			"parse": "Saytdan kelgan javobni tahlil qilib bo'lmadi. yt-dlp ekstraktori eskirib qolgan bo'lishi mumkin. FlickGrab ishga tushganda yt-dlp ni avtomatik yangilaydi — bir necha daqiqadan so'ng tuzatish kelgach qayta urinib ko'ring.",
 			"network": "Tarmoq xatosi. Aloqangizni tekshiring va qayta urining.",
 			"drmProtected": "Bu video DRM bilan himoyalangan. yt-dlp DRM ni olib tashlayolmaydi, shuning uchun fayl yuklab bo'lmaydi.",
 			"loginRequired": "Bu video uchun tizimga kirgan hisob kerak.",
@@ -845,7 +845,7 @@
 		"mp4Cap": "YouTube’da 1080p dan yuqori H.264 mavjud emas — avtomatik 1080p bilan cheklanadi"
 	},
 	"formatLabel": {"audioFallback": "Audio", "audioOnlyDot": "Faqat audio · {{audio}}", "videoDot": "{{resolution}} · {{audio}}"},
-	"tray": {"tooltip": "Arroxy", "menu": {"statusIdle": "Faoliyatsiz", "statusActive_one": "1 ta yuklanmoqda · {{percent}}%", "statusActive_other": "{{count}} ta yuklanmoqda · {{percent}}%", "downloadFromClipboard": "Vaqtinchalik buferdan yuklab olish", "open": "Arroxy ni ochish", "quit": "Arroxy dan chiqish"}},
+	"tray": {"tooltip": "FlickGrab", "menu": {"statusIdle": "Faoliyatsiz", "statusActive_one": "1 ta yuklanmoqda · {{percent}}%", "statusActive_other": "{{count}} ta yuklanmoqda · {{percent}}%", "downloadFromClipboard": "Vaqtinchalik buferdan yuklab olish", "open": "FlickGrab ni ochish", "quit": "FlickGrab dan chiqish"}},
 	"dialogs": {
 		"quitWithActiveDownloads": {
 			"message_one": "{{count}} ta yuklama jarayonda",
@@ -855,25 +855,25 @@
 			"pause": "Yuklab olishlarni pauzalab chiqish",
 			"keep": "Yuklab olishni davom ettirish"
 		},
-		"closeToTray": {"message": "Yopilganda Arroxy ni tizim soatiga yashirasizmi?", "detail": "Arroxy ishlashda davom etadi va faol yuklamalarni yakunlaydi. Buni keyinroq Kengaytirilgan sozlamalarda o'zgartiring.", "hide": "Tizim soatiga yashirish", "quit": "Chiqish", "remember": "Boshqa so'ramaslik"},
-		"rendererCrashed": {"message": "Arroxy muammo bilan duch keldi", "detail": "Renderlovchi jarayon ishdan chiqdi ({{reason}}). Qayta urinish uchun yangilang.", "reload": "Yangilash", "quit": "Chiqish"}
+		"closeToTray": {"message": "Yopilganda FlickGrab ni tizim soatiga yashirasizmi?", "detail": "FlickGrab ishlashda davom etadi va faol yuklamalarni yakunlaydi. Buni keyinroq Kengaytirilgan sozlamalarda o'zgartiring.", "hide": "Tizim soatiga yashirish", "quit": "Chiqish", "remember": "Boshqa so'ramaslik"},
+		"rendererCrashed": {"message": "FlickGrab muammo bilan duch keldi", "detail": "Renderlovchi jarayon ishdan chiqdi ({{reason}}). Qayta urinish uchun yangilang.", "reload": "Yangilash", "quit": "Chiqish"}
 	},
 	"share": {
-		"title": "Arroxy ni ulashing",
-		"description": "Arroxy bepul va ochiq manbali. Ulashish ko'proq odamlar uni topishiga yordam beradi.",
+		"title": "FlickGrab ni ulashing",
+		"description": "FlickGrab bepul va ochiq manbali. Ulashish ko'proq odamlar uni topishiga yordam beradi.",
 		"copyLink": "Havolani nusxalash",
 		"copied": "Nusxalandi!",
-		"defaultMessage": "Arroxy — Windows, macOS va Linux uchun bepul, ochiq manbali video yuklab oluvchi. YouTube, Vimeo, Twitch va 2000+ sayt bilan ishlaydi.\n4K · HDR · MP3 · Shorts · Subtitles · SponsorBlock",
-		"footerTooltip": "Arroxy ulashish",
+		"defaultMessage": "FlickGrab — Windows, macOS va Linux uchun bepul, ochiq manbali video yuklab oluvchi. YouTube, Vimeo, Twitch va 2000+ sayt bilan ishlaydi.\n4K · HDR · MP3 · Shorts · Subtitles · SponsorBlock",
+		"footerTooltip": "FlickGrab ulashish",
 		"footerLabel": "Ulashish",
-		"shareAction": "Arroxy ulashish"
+		"shareAction": "FlickGrab ulashish"
 	},
 	"filenameTemplate": {
 		"label": "Fayl nomi shabloni",
 		"description": "Yuklab olingan fayllar qanday nomlanishini tanlang. Qo'shish uchun tokenni bosing. Yuklamalarni papkalarga ajratish uchun / dan foydalaning.",
 		"profileOverrideLabel": "Fayl nomi shabloni",
 		"profileOverrideDescription": "Umumiy shablondan foydalanish uchun bo'sh qoldiring.",
-		"idWarning": "{id} bo'lmasa, Arroxy allaqachon yuklab olingan pleylist elementlarini aniqlay olmaydi va .m3u pleylistlar yarata olmaydi.",
+		"idWarning": "{id} bo'lmasa, FlickGrab allaqachon yuklab olingan pleylist elementlarini aniqlay olmaydi va .m3u pleylistlar yarata olmaydi.",
 		"m3uDisabled": "Mavjud emas, chunki fayl nomi shabloningizda {id} yo'q yoki u yuklamalarni papkalarga ajratadi.",
 		"previewSingle": "Yakka video",
 		"previewPlaylist": "Pleylistda",
@@ -893,7 +893,7 @@
 		"tabLabel": "Explore",
 		"newBadge": "Yangi",
 		"notice": {
-			"title": "YouTube'ni Arroxy ichida ko'ring",
+			"title": "YouTube'ni FlickGrab ichida ko'ring",
 			"body": "Video, pleylist yoki kanalni toping va shu yerdan yuklab oling — havolalarni nusxalamasdan. Hisob talab qiladigan videolarni yuklab olish uchun bu yerda YouTube'ga kiring.",
 			"riskTitle": "Qo'shimcha hisob bilan kiring",
 			"riskBody": "YouTube yt-dlp kabi yuklab olish vositalari bilan ishlatiladigan hisoblarni belgilashi va ba'zida taqiqlashi mumkin. Asosiy hisobingizni emas, yo'qotishga qodir bo'lgan hisobdan foydalaning.",
@@ -936,7 +936,7 @@
 		},
 		"settings": {
 			"title": "Explore",
-			"description": "YouTube'ni Arroxy ichida ko'ring va hisob talab qiladigan videolar uchun kiring.",
+			"description": "YouTube'ni FlickGrab ichida ko'ring va hisob talab qiladigan videolar uchun kiring.",
 			"showTab": "Explore yorlig'ini ko'rsatish",
 			"showTabDescription": "O'chirsangiz, yuklab olishlar ham Explore orqali kirishdan foydalanmaydi.",
 			"signOut": "Explore'dan chiqish",

@@ -141,7 +141,9 @@ The per-completed-item Share2 button was removed — beside a downloaded file th
 
 ## 5. Telemetry
 
-None. Share surfaces send no events; the app reports nothing but the daily anonymous heartbeat described in [`heartbeat.md`](heartbeat.md).
+None. Share surfaces send no events, and the app sends nothing: the heartbeat and the
+feedback diagnostics upload were removed for the branded product (see
+[`DECISIONS.md`](../DECISIONS.md)).
 
 ---
 

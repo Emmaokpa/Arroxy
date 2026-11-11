@@ -37,8 +37,9 @@ What this means for the plan:
 - **VPS: you need almost nothing.** There is no server code today. Static hosting + TLS + a tiny
   release-metadata endpoint covers everything. No database, no auth, no Redis, no job queue, no
   video workers.
-- **Monetization: greenfield.** No ad SDK exists anywhere. The only telemetry is a once-per-day
-  anonymous heartbeat (Counterscale), on by default, disclosed in the README and toggleable.
+- **Monetization: greenfield.** No ad SDK exists anywhere. The only telemetry that existed (a
+  once-per-day anonymous heartbeat) has been removed for the branded product — see
+  [`DECISIONS.md`](DECISIONS.md).
 
 **Top blockers before commercial work starts:** (1) 3 production dependency advisories
 (`electron <44.9.1`, `undici <7.30.1`, `zod <4.6.6`); (2) every identity in the release/update
@@ -237,18 +238,18 @@ the Playwright fixture E2E run here; **V-code** = implementation traced, not exe
    renderer is a trusted boundary under contextIsolation, but these are the only unvalidated holes.
    (29 `handleRaw` call sites across 7 modules; several of those do inline validation, e.g. the
    open-external one above.)
-4. **Daily heartbeat telemetry is ON by default** (`analyticsEnabled: true`,
-   `src/shared/constants.ts:83`): one HTTPS POST per install per UTC day to `stats.orionus.dev`
-   carrying app version, platform, arch, OS version, install channel, locales and Cloudflare-derived
-   country (`src/main/services/heartbeat.ts`). No IDs, no URLs, no titles, no paths. Disclosed in
-   the README and user-toggleable in Settings — but **it points at the upstream author's collector**;
-   a commercial fork must either disable it, re-host it, or disclose its own.
+4. **Daily heartbeat telemetry: removed.** The heartbeat module, its call site, the
+   `analyticsEnabled` / `lastHeartbeatDay` settings and the `@counterscale/tracker` dependency are
+   gone. A branded build sends no telemetry; a replacement needs the owner's decision and its own
+   disclosure first (`DECISIONS.md` §2).
 5. **Clipboard watch is ON by default** (`clipboardWatchEnabled: true`, `constants.ts:80`). It reads
    clipboard text only when the window gains focus/show and only fills the URL field — it never
    queues, never transmits. Fine, but worth restating in your own privacy policy.
-6. **Feedback diagnostics upload** (`workers/feedback-upload`, Cloudflare Worker → R2 bucket with
-   rate limits) sends a redacted diagnostics file when the user explicitly clicks send. Endpoint and
-   bucket belong to upstream — must be cut or re-implemented for your brand.
+6. **Feedback diagnostics upload: removed.** The Cloudflare Worker under `workers/feedback-upload`,
+   the `logs:uploadFeedbackDiagnostic` IPC channel, the preload method and the renderer upload call
+   are gone. Diagnostics stay local: the Settings "Save diagnostics" action writes a file to
+   Downloads. The remaining Tally feedback popup is user-initiated and still points at an upstream
+   form — `DECISIONS.md` §1.
 7. **`runAsNode` fuse must stay enabled** (yt-dlp's JS runtime = packaged Electron) — this is a
    deliberate design (ADR 0003) but it means a renderer escape would gain a Node runtime; the
    contextIsolation/sandbox posture above is what carries that risk.
@@ -451,8 +452,8 @@ as you specified. **Never** silently fall back to server-side fetching.
 | Landing site | separate `arroxy-web` repo (per `PRODUCT.md`) |
 | App releases & assets | GitHub Releases (`release.yml`), plus Scoop/Homebrew/Winget/Flatpak repos |
 | yt-dlp signed index | `antonio-orionus/arroxy-runtime-binaries` GitHub repo |
-| Daily heartbeat stats | Counterscale collector at `stats.orionus.dev` (`heartbeat.ts`) |
-| Feedback diagnostics | Cloudflare Worker (`workers/feedback-upload`, wrangler, R2 bucket + rate limits) |
+| Daily heartbeat stats | *removed for the branded product* |
+| Feedback diagnostics | *removed for the branded product* (local file only) |
 | CI | GitHub Actions |
 
 **What you actually need initially (minimal by design):**
@@ -478,9 +479,8 @@ server-side user state.
 
 - **Ads today: none.** No AdSense/ad-SDK/analytics SDK anywhere in `src/` (grep verified). The app
   even ships an *ad blocker* for its in-app browser. Monetization is a clean slate.
-- **Existing analytics:** the Counterscale heartbeat (§4.4) — daily DAU-style counting, anonymous,
-  opt-out in Settings, disclosed in README. It is the natural template for whatever you add later,
-  and it must be repointed or disabled for your brand.
+- **Existing analytics: none.** The Counterscale heartbeat (§4.4) was removed. Any replacement is a
+  fresh decision that needs a privacy disclosure before it is enabled (`DECISIONS.md` §2).
 - **Where ad slots could live architecturally (no provider chosen, none embedded):**
   - Desktop: one `<AdSlot>` primitive in `src/renderer/src/components/layout/` (e.g. footer/status
     strip, empty states, the settings/advanced page) — **never** adjacent to the Download button,
@@ -495,9 +495,9 @@ server-side user state.
   banner before non-essential cookies/IDs (GDPR/CCPA). Recommend: keep the ad slot component
   provider-agnostic, add a consent gate for the web shell, and document data flows in your own
   privacy policy before enabling any network.
-- **Data the architecture already collects:** heartbeat fields (§4.4), explicit feedback uploads
-  (redacted), and nothing else. No download history or URLs leave the device — that claim is real
-  (README Privacy section matches the code).
+- **Data the architecture collects today: none.** Heartbeat and feedback uploads are removed, so no
+  download history, URL, title, path or diagnostic file leaves the device. The README privacy section
+  is stale until the Phase 2 rewrite and must not be published as-is.
 
 ## 11. Technical debt and testing results
 
@@ -675,7 +675,7 @@ package; replace = rewrite for our stack; investigate = needs a spike/decision.
 | `src/main/services/binary/RuntimeBinaryTrust.ts` | index URLs + Ed25519 public key | hardcoded upstream URLs/key | **modify** | your own signed index | security-sensitive; rotate carefully |
 | `src/main/updateFeed.ts` | updater feed resolution | GitHub `antonio-orionus/Arroxy`; loopback override | **modify** | your release repo | breaks updates if missed |
 | `src/main/ipc/registerUpdaterHandlers.ts` | update check/install channels | `autoDownload=false`, channel logic | **keep** + minor modify | rebrand/channel names | `updaterInstall` raw site → validate |
-| `src/main/services/heartbeat.ts` | daily anonymous stats | Counterscale → `stats.orionus.dev` | **replace/disable** | upstream collector (P0.5) | privacy disclosure |
+| ~~`src/main/services/heartbeat.ts`~~ | daily anonymous stats | **removed** (P0.5) | — | — | — |
 | `src/main/services/ClipboardWatcher.ts` | focus-time clipboard fill | `clipboard-watcher` tests | **keep** | — | disclose in privacy policy |
 | `src/main/services/explore/*` | in-app browser + adblock + nav policy | ~25 unit tests | **keep** | differentiator | MPL-2.0 adblocker stays bundled |
 | `src/main/token/*` + `TokenService` | PoT minting (hidden window) | `hidden-window-token-provider` tests | **keep** | required for YouTube | ToS-sensitive — flag in legal review |

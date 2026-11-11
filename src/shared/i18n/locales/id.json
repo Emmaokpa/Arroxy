@@ -5,13 +5,13 @@
 		"logs": "Log",
 		"saveDiagnostics": "Simpan file diagnostik",
 		"saveDiagnosticsDescription": "Menggabungkan log dan detail aplikasi ke dalam satu file di folder Unduhan, siap dilampirkan ke issue GitHub. Nama folder pengguna dihapus; tautan dan judul video tetap ada.",
-		"feedbackNudge": "Menikmati Arroxy? Saya ingin mendengar pendapat Anda! 💬",
+		"feedbackNudge": "Menikmati FlickGrab? Saya ingin mendengar pendapat Anda! 💬",
 		"zoomIn": "Perbesar",
 		"zoomOut": "Perkecil",
 		"theme": "Tema",
 		"styleHint": "Baru: pilih Aurora atau Minimalis di sini"
 	},
-	"about": {"button": "Tentang", "openTitle": "Tentang Arroxy", "tagline": "Pengunduh yang cepat dan ramah untuk YouTube dan 2000+ situs lainnya.", "websiteLink": "Situs web", "githubLink": "GitHub", "licenseLine": "Lisensi MIT · oleh Antonio Orionus", "thirdPartyNotices": "Lihat pemberitahuan pihak ketiga"},
+	"about": {"button": "Tentang", "openTitle": "Tentang FlickGrab", "tagline": "Pengunduh yang cepat dan ramah untuk YouTube dan 2000+ situs lainnya.", "websiteLink": "Situs web", "githubLink": "GitHub", "licenseLine": "Lisensi MIT · oleh Antonio Orionus", "thirdPartyNotices": "Lihat pemberitahuan pihak ketiga"},
 	"titleBar": {"close": "Menutup", "minimize": "Memperkecil", "maximize": "Maksimalkan", "restore": "Memulihkan"},
 	"splash": {
 		"greeting": "Hei, selamat datang kembali!",
@@ -144,7 +144,7 @@
 		},
 		"bulk": {
 			"title": "URL massal",
-			"description": "Tempelkan URL video, daftar putar, saluran, penelusuran, atau audio. Arroxy akan membersihkan duplikat sebelum mengantri.",
+			"description": "Tempelkan URL video, daftar putar, saluran, penelusuran, atau audio. FlickGrab akan membersihkan duplikat sebelum mengantri.",
 			"textareaLabel": "Daftar URL",
 			"textareaPlaceholder": "https://contoh.id/video-1\nhttps://contoh.id/video-2\nhttps://contoh.id/video-3",
 			"acceptedCount": "Siap",
@@ -164,11 +164,11 @@
 			"pickFromPlaylist": "Pilih dari daftar putar",
 			"quickWholePlaylist": "Unduh seluruh daftar putar",
 			"playlistLimit": "Batas pemeriksaan daftar putar: item {{count}}",
-			"quickLimitDescription": "Entri maksimum yang dipindai Arroxy sebelum mengantri daftar putar, saluran, atau hasil pencarian.",
+			"quickLimitDescription": "Entri maksimum yang dipindai FlickGrab sebelum mengantri daftar putar, saluran, atau hasil pencarian.",
 			"singleTooltip": "Menggunakan mode video tunggal yt-dlp sehingga playlist yang dilampirkan ke URL ini diabaikan.",
 			"quickSingleTooltip": "Mengantri satu unduhan dan mengabaikan daftar putar yang terlampir pada URL ini.",
 			"playlistTooltip": "Menggunakan mode daftar putar yt-dlp dan mengambil hingga batas pemeriksaan daftar putar Anda sebelum menampilkan alat pilih.",
-			"quickPlaylistTooltip": "Mengantrekan setiap item daftar putar yang dimuat dengan profil Unduhan Cepat yang aktif. Jika pemindaian mencapai batas Anda, Arroxy bertanya sebelum mengantri."
+			"quickPlaylistTooltip": "Mengantrekan setiap item daftar putar yang dimuat dengan profil Unduhan Cepat yang aktif. Jika pemindaian mencapai batas Anda, FlickGrab bertanya sebelum mengantri."
 		},
 		"url": {
 			"heading": "Unduh dari URL",
@@ -214,12 +214,12 @@
 			"bulkButton": "URL massal",
 			"bulkTooltip": "Tambahkan dan antri beberapa URL.",
 			"features": {
-				"heading": "Apa yang bisa ditarik Arroxy",
+				"heading": "Apa yang bisa ditarik FlickGrab",
 				"youtube": {"heading": "YouTube", "video": "Video", "channel": "Saluran", "playlist": "Daftar Putar", "short": "Shorts", "music": "Musik", "podcast": "Podcast"},
 				"anySite": {"heading": "2000+ situs", "video": "Video", "videoPlaylist": "Daftar putar video", "musicPlaylist": "Daftar putar musik"},
 				"always": {"audioOnly": "Hanya audio", "subtitles": "Subtitle"}
 			},
-			"mascotIdle": "Letakkan tautan dan biarkan Arroxy menariknya ✨",
+			"mascotIdle": "Letakkan tautan dan biarkan FlickGrab menariknya ✨",
 			"mascotBusy": "Mengunduh di latar belakang… Saya bisa melakukan banyak tugas 😎",
 			"advanced": "Canggih",
 			"settings": {"inputHeading": "Masukan", "behaviorHeading": "Perilaku unduhan", "behaviorDescription": "Perilaku global yang juga memengaruhi unduhan yang digerakkan oleh profil."},
@@ -236,7 +236,7 @@
 			},
 			"hotkey": {
 				"sectionTitle": "Pintasan global",
-				"sectionDescription": "Unduh tautan apa pun yang Anda salin, dari aplikasi mana pun, tanpa membuka Arroxy.",
+				"sectionDescription": "Unduh tautan apa pun yang Anda salin, dari aplikasi mana pun, tanpa membuka FlickGrab.",
 				"toggle": "Aktifkan pintasan global",
 				"toggleDescription": "Tekan pintasan dengan tautan video di papan klip.",
 				"changeShortcut": "Ubah pintasan",
@@ -244,7 +244,7 @@
 				"test": "Uji",
 				"conflict": "Pintasan ini dipakai aplikasi lain — pilih yang lain.",
 				"hintLabel": "Atau tekan",
-				"hintTooltip": "Salin tautan video di mana saja, tekan pintasan ini, dan Arroxy akan memasukkannya ke antrean dengan profil aktif Anda — tidak perlu berpindah jendela.",
+				"hintTooltip": "Salin tautan video di mana saja, tekan pintasan ini, dan FlickGrab akan memasukkannya ke antrean dengan profil aktif Anda — tidak perlu berpindah jendela.",
 				"hintTooltipSettings": "Ubah atau nonaktifkan di Pengaturan.",
 				"reset": "Atur ulang ke default"
 			},
@@ -277,12 +277,12 @@
 			"proxy": {"label": "URL proksi", "description": "Rutekan lalu lintas melalui proxy — berguna untuk konten yang dibatasi secara geografis.", "placeholder": "http://host:port", "clear": "Jernih"},
 			"style": {
 				"panelTitle": "Tampilan",
-				"panelDescription": "Tampilan Arroxy. Beralih antara terang dan gelap di footer.",
+				"panelDescription": "Tampilan FlickGrab. Beralih antara terang dan gelap di footer.",
 				"modeLabel": "Gaya",
 				"modeDescription": "Kedua gaya tersedia dalam mode terang dan gelap.",
 				"aurora": {"label": "Aurora", "description": "Panel kaca di atas langit yang bergerak. Butuh akselerasi grafis."},
 				"minimal": {"label": "Minimalis", "description": "Permukaan polos yang tenang. Ringan dijalankan di komputer apa pun."},
-				"unavailableNotice": "{{style}} butuh akselerasi grafis, yang saat ini tidak tersedia, jadi Arroxy menampilkan {{fallback}}."
+				"unavailableNotice": "{{style}} butuh akselerasi grafis, yang saat ini tidak tersedia, jadi FlickGrab menampilkan {{fallback}}."
 			},
 			"limitRate": {
 				"label": "Batas kecepatan unduh",
@@ -295,7 +295,7 @@
 			},
 			"playlistProbeLimit": {
 				"label": "Item daftar putar untuk dipindai",
-				"description": "Entri maksimum Arroxy dimuat saat daftar putar, saluran, atau hasil pencarian dibuka.",
+				"description": "Entri maksimum FlickGrab dimuat saat daftar putar, saluran, atau hasil pencarian dibuka.",
 				"option": "item {{count}}",
 				"current": "Batas saat ini: item {{count}}",
 				"customValue": "Kustom: item {{count}}",
@@ -305,7 +305,7 @@
 				"customDialogCancel": "Membatalkan",
 				"customDialogSave": "Simpan batas",
 				"invalid": "Gunakan bilangan bulat dari 1 hingga 5000",
-				"tooltip": "Memetakan ke yt-dlp --playlist-end: Arroxy hanya meminta entri daftar putar, saluran, atau pencarian sebanyak ini saat membuat alat pilih."
+				"tooltip": "Memetakan ke yt-dlp --playlist-end: FlickGrab hanya meminta entri daftar putar, saluran, atau pencarian sebanyak ini saat membuat alat pilih."
 			},
 			"nativeAudioPreference": {"label": "Preferensi audio asli", "description": "Stereo atau surround saat profil memilih audio asli. Profil bisa menimpanya.", "compatible": "Stereo yang kompatibel", "surround": "Lebih suka surround / Dolby"},
 			"autoRetry": {"label": "Coba lagi unduhan yang gagal", "description": "Otomatis mencoba lagi setelah gangguan jaringan atau server, menunggu lebih lama sebelum tiap percobaan. Unduhan yang diblokir situs tidak pernah dicoba ulang otomatis.", "unit": "kali"},
@@ -314,13 +314,13 @@
 			"downloadConnections": {"label": "Koneksi unduhan", "description": "Mempercepat unduhan besar dengan mengambil beberapa bagian video sekaligus. Nilai lebih tinggi meningkatkan kemungkinan situs membatasi Anda.", "unit": "koneksi"},
 			"networkPacing": {
 				"heading": "Unduhan yang lembut",
-				"description": "Tambahkan sedikit waktu tunggu setiap kali mengunduh sehingga Arroxy tidak masuk ke situs terlalu agresif. Nilai dalam detik.",
-				"presetLabel": "Seberapa hati-hati Arroxy?",
+				"description": "Tambahkan sedikit waktu tunggu setiap kali mengunduh sehingga FlickGrab tidak masuk ke situs terlalu agresif. Nilai dalam detik.",
+				"presetLabel": "Seberapa hati-hati FlickGrab?",
 				"tooltip": "Waktu tunggu ini terjadi di dalam setiap unduhan. Berapa banyak unduhan yang berjalan bersamaan diatur terpisah, di «Unduhan sekaligus».",
 				"summary": "Menunggu: {{requests}} di antara pemeriksaan, {{downloads}} sebelum media dimulai, {{subtitles}} sebelum file subtitle.",
 				"presets": {"off": "Mati", "balanced": "Seimbang", "careful": "Hati-hati", "custom": "Kebiasaan"},
 				"tooltips": {
-					"off": "Hanya menggunakan jeda dasar kecil yang disimpan Arroxy untuk media dan subtitle.",
+					"off": "Hanya menggunakan jeda dasar kecil yang disimpan FlickGrab untuk media dan subtitle.",
 					"balanced": "Bawaan. Menambahkan jeda singkat antar permintaan dan sebelum media dimulai.",
 					"careful": "Menambahkan jeda lebih lama untuk daftar putar besar atau jaringan yang sering mencapai batas.",
 					"custom": "Sesuaikan sendiri kontrol per-unduhan tingkat lanjut."
@@ -333,9 +333,9 @@
 		},
 		"quickProgress": {
 			"title": "Mempersiapkan Unduhan Cepat",
-			"description": "Arroxy sedang membaca tautan dan menerapkan {{profileName}}.",
+			"description": "FlickGrab sedang membaca tautan dan menerapkan {{profileName}}.",
 			"currentFallback": "Tautan saat ini",
-			"waitHint": "Biarkan ini tetap terbuka sementara Arroxy menyiapkan antrian.",
+			"waitHint": "Biarkan ini tetap terbuka sementara FlickGrab menyiapkan antrian.",
 			"failedCount_one": "{{count}} gagal",
 			"failedCount_other": "{{count}} gagal",
 			"cancel": "Batalkan persiapan",
@@ -429,9 +429,9 @@
 				"explanationFile": "File cookie Anda mungkin kosong, kedaluwarsa, atau dalam format yang salah (yt-dlp mengharapkan Netscape cookies.txt). Coba ekspor ulang cookie, pilih file lain, alihkan ke mode Browser, atau matikan cookie.",
 				"explanationBrowser": "Cookie dibaca langsung dari browser. Jika browser sedang berjalan, database cookie-nya mungkin terkunci (keluarga Chromium). Browser juga harus masuk ke YouTube. Coba tutup browser, beralih ke browser lain, beralih ke mode File, atau matikan cookie.",
 				"openSettingsCta": "Buka pengaturan cookie",
-				"exploreSignIn": {"heading": "Video ini mungkin memerlukan akun YouTube", "body": "Jika video ini memerlukan akun YouTube, masuk di Explore lalu coba lagi. Arroxy hanya memakai login itu saat unduhan membutuhkannya.", "cta": "Masuk di Explore"},
-				"exploreSignedIn": {"heading": "Sudah masuk ke Explore", "body": "Jika video ini memerlukan akun, Arroxy otomatis memakai login Explore Anda. Video mungkin juga tidak tersedia karena alasan lain."},
-				"exploreOffer": {"heading": "Video ini mungkin memerlukan akun YouTube", "body": "Masuk di Explore dan Arroxy akan mencobanya lagi.", "cta": "Masuk di Explore"},
+				"exploreSignIn": {"heading": "Video ini mungkin memerlukan akun YouTube", "body": "Jika video ini memerlukan akun YouTube, masuk di Explore lalu coba lagi. FlickGrab hanya memakai login itu saat unduhan membutuhkannya.", "cta": "Masuk di Explore"},
+				"exploreSignedIn": {"heading": "Sudah masuk ke Explore", "body": "Jika video ini memerlukan akun, FlickGrab otomatis memakai login Explore Anda. Video mungkin juga tidak tersedia karena alasan lain."},
+				"exploreOffer": {"heading": "Video ini mungkin memerlukan akun YouTube", "body": "Masuk di Explore dan FlickGrab akan mencobanya lagi.", "cta": "Masuk di Explore"},
 				"exploreReuse": {"heading": "Video ini mungkin memerlukan akun YouTube", "body": "Anda sudah masuk di Explore, tetapi unduhan sedang tidak memakai login itu.", "cta": "Pakai login Explore saya dan coba lagi"},
 				"otherCookiesCta": "Gunakan file cookie atau peramban sebagai gantinya…",
 				"needsCookies": {"heading": "Situs ini memerlukan proses masuk", "body": "yt-dlp tidak dapat mengakses video ini tanpa autentikasi. Konfigurasikan cookie dalam pengaturan lanjutan — arahkan cookie ke browser yang sudah Anda masuki, atau impor file cookies.txt."},
@@ -700,11 +700,11 @@
 	},
 	"update": {
 		"message": {
-			"generic": "Arroxy {{version}} tersedia — Anda memiliki {{currentVersion}}.",
-			"homebrew": "Arroxy {{version}} tersedia — perbarui dengan Homebrew.",
-			"macosDirect": "Arroxy {{version}} tersedia — unduh DMG baru.",
-			"macosDirectHomebrew": "Arroxy {{version}} tersedia — unduh DMG atau beralih ke Homebrew.",
-			"portable": "Arroxy {{version}} tersedia — unduh build baru."
+			"generic": "FlickGrab {{version}} tersedia — Anda memiliki {{currentVersion}}.",
+			"homebrew": "FlickGrab {{version}} tersedia — perbarui dengan Homebrew.",
+			"macosDirect": "FlickGrab {{version}} tersedia — unduh DMG baru.",
+			"macosDirectHomebrew": "FlickGrab {{version}} tersedia — unduh DMG atau beralih ke Homebrew.",
+			"portable": "FlickGrab {{version}} tersedia — unduh build baru."
 		},
 		"install": "Instal & Mulai Ulang",
 		"downloading": "Mengunduh…",
@@ -718,7 +718,7 @@
 		"installFailed": "Pembaruan gagal",
 		"retry": "Mencoba kembali"
 	},
-	"releaseNotes": {"title": "Apa yang baru di Arroxy {{version}}", "description": "Anda menjalankan pembaruan baru. Berikut adalah hal-hal penting.", "fullNotes": "Catatan rilis lengkap ↗", "continue": "Melanjutkan"},
+	"releaseNotes": {"title": "Apa yang baru di FlickGrab {{version}}", "description": "Anda menjalankan pembaruan baru. Berikut adalah hal-hal penting.", "fullNotes": "Catatan rilis lengkap ↗", "continue": "Melanjutkan"},
 	"status": {
 		"preparingBinaries": "Mempersiapkan biner…",
 		"mintingToken": "Mencetak token YouTube…",
@@ -743,7 +743,7 @@
 		"downloadingBinary": "Mengunduh biner {{name}}…",
 		"unknownStartupFailure": "Kegagalan startup pengunduhan yang tidak diketahui",
 		"diskSpaceInsufficient": "Ruang disk tidak cukup — memerlukan {{required}}, hanya tersedia {{free}}",
-		"outputNotWritable": "Tidak dapat menyimpan ke {{dir}} — Arroxy tidak diizinkan menulis di sana",
+		"outputNotWritable": "Tidak dapat menyimpan ke {{dir}} — FlickGrab tidak diizinkan menulis di sana",
 		"fetchingSponsorBlock": "Menghubungi SponsorBlock…",
 		"retryingSponsorBlock": "SponsorBlock tidak tersedia, coba lagi ({{attempt}}/{{total}})…",
 		"retryingTransfer": "Koneksi macet, mencoba lagi ({{attempt}}/{{total}})…",
@@ -765,11 +765,11 @@
 			"queued": "Unduhan ditambahkan dari papan klip",
 			"alreadyQueued": "Sudah ada di antrean — tidak ada salinan ditambahkan",
 			"invalidClipboard": "Tidak ada tautan di papan klip — salin satu dulu",
-			"multipleUrls": "Beberapa tautan disalin — gunakan “URL massal” di Arroxy",
-			"needsReview": "Tautan itu perlu pilihan Anda — lihat Unduhan di Arroxy",
-			"cookiesSetup": "Selesaikan penyiapan cookie di Arroxy, lalu coba lagi",
-			"busy": "Arroxy masih memulai — coba lagi sebentar lagi",
-			"submissionFailed": "Tautan itu tidak bisa ditambahkan — coba lagi di Arroxy"
+			"multipleUrls": "Beberapa tautan disalin — gunakan “URL massal” di FlickGrab",
+			"needsReview": "Tautan itu perlu pilihan Anda — lihat Unduhan di FlickGrab",
+			"cookiesSetup": "Selesaikan penyiapan cookie di FlickGrab, lalu coba lagi",
+			"busy": "FlickGrab masih memulai — coba lagi sebentar lagi",
+			"submissionFailed": "Tautan itu tidak bisa ditambahkan — coba lagi di FlickGrab"
 		},
 		"queue": {"skippedAlreadyQueued_one": "{{count}} video sudah ada di antrean — dilewati", "skippedAlreadyQueued_other": "{{count}} video sudah ada di antrean — dilewati"},
 		"quickDownload": {
@@ -788,19 +788,19 @@
 	},
 	"errors": {
 		"ytdlp": {
-			"botBlock": "Perlindungan bot dipicu. IP yang Anda gunakan kemungkinan besar ditandai (rentang pusat data atau pintu keluar VPN yang sibuk). Ubah IP Anda atau pilih titik akhir VPN lain dan coba lagi. Jika terus gagal, ini mungkin merupakan perubahan sementara di sisi situs — Arroxy memperbarui yt-dlp secara otomatis saat peluncuran, sehingga perbaikan dilakukan secara otomatis setelah upstream mengirimkannya.",
+			"botBlock": "Perlindungan bot dipicu. IP yang Anda gunakan kemungkinan besar ditandai (rentang pusat data atau pintu keluar VPN yang sibuk). Ubah IP Anda atau pilih titik akhir VPN lain dan coba lagi. Jika terus gagal, ini mungkin merupakan perubahan sementara di sisi situs — FlickGrab memperbarui yt-dlp secara otomatis saat peluncuran, sehingga perbaikan dilakukan secara otomatis setelah upstream mengirimkannya.",
 			"ipBlock": "Alamat IP Anda tampaknya diblokir. Coba lagi nanti atau gunakan VPN.",
 			"rateLimit": "Situs membatasi permintaan. Tunggu sebentar, lalu coba lagi.",
 			"ageRestricted": "Video ini dikenai pembatasan usia dan tidak dapat diunduh tanpa akun yang masuk.",
 			"unavailable": "Video ini tidak tersedia — mungkin bersifat pribadi, dihapus, atau dikunci wilayahnya.",
 			"geoBlocked": "Video ini tidak tersedia di wilayah Anda.",
 			"outOfDiskSpace": "Ruang disk tidak cukup. Kosongkan ruang dan coba lagi.",
-			"outputNotWritable": "Arroxy tidak dapat menulis ke folder unduhan. Folder itu mungkin hanya-baca, berada di drive yang terkunci, atau diblokir oleh pengaturan privasi sistem Anda. Pilih folder lain atau izinkan akses, lalu coba lagi.",
+			"outputNotWritable": "FlickGrab tidak dapat menulis ke folder unduhan. Folder itu mungkin hanya-baca, berada di drive yang terkunci, atau diblokir oleh pengaturan privasi sistem Anda. Pilih folder lain atau izinkan akses, lalu coba lagi.",
 			"unsupportedUrl": "URL tersebut tidak didukung oleh yt-dlp. Coba tautan lain dari situs mana pun yang didukung yt-dlp.",
 			"chunkTransferFailure": "Server terus memotong unduhan di tengah-tengah streaming dan yt-dlp menyerah setelah mencoba lagi. Ini biasanya mengenai format video terbesar (4K HDR / VP9 dengan kecepatan bit tinggi). Coba lagi, ganti jaringan/VPN, atau pilih format resolusi lebih rendah.",
 			"missingDependency": "yt-dlp tidak dapat menemukan ffmpeg atau ffprobe. Perbaiki biner yang dibundel atau atur lokasi FFmpeg, lalu coba lagi.",
 			"postprocessFailure": "yt-dlp selesai diunduh tetapi pasca pemrosesan (penggabungan/mux/konversi) gagal. Seringkali ini merupakan masalah ffmpeg yang bersifat sementara — coba lagi, dan jika masalah terus berlanjut, coba kombinasi format lain.",
-			"parse": "Tidak dapat menguraikan respons dari situs. Ekstraktor yt-dlp mungkin melayang. Arroxy memperbarui secara otomatis yt-dlp saat peluncuran — coba lagi dalam beberapa menit setelah perbaikan dikirimkan.",
+			"parse": "Tidak dapat menguraikan respons dari situs. Ekstraktor yt-dlp mungkin melayang. FlickGrab memperbarui secara otomatis yt-dlp saat peluncuran — coba lagi dalam beberapa menit setelah perbaikan dikirimkan.",
 			"network": "Kesalahan jaringan. Periksa koneksi Anda dan coba lagi.",
 			"drmProtected": "Video ini dilindungi DRM. yt-dlp tidak dapat menghapus DRM, sehingga file tidak dapat diunduh.",
 			"loginRequired": "Video ini memerlukan akun yang sudah masuk.",
@@ -830,7 +830,7 @@
 		"mp4Cap": "H.264 di atas 1080p tidak tersedia di YouTube — dibatasi hingga 1080p secara otomatis"
 	},
 	"formatLabel": {"audioFallback": "Audio", "audioOnlyDot": "Audio saja · {{audio}}", "videoDot": "{{resolution}} · {{audio}}"},
-	"tray": {"tooltip": "Arroxy", "menu": {"statusIdle": "Menganggur", "statusActive_one": "1 pengunduhan · {{percent}}%", "statusActive_other": "Pengunduhan {{count}} · {{percent}}%", "downloadFromClipboard": "Unduh dari papan klip", "open": "Buka Arroxy", "quit": "Keluar dari Arroxy"}},
+	"tray": {"tooltip": "FlickGrab", "menu": {"statusIdle": "Menganggur", "statusActive_one": "1 pengunduhan · {{percent}}%", "statusActive_other": "Pengunduhan {{count}} · {{percent}}%", "downloadFromClipboard": "Unduh dari papan klip", "open": "Buka FlickGrab", "quit": "Keluar dari FlickGrab"}},
 	"dialogs": {
 		"quitWithActiveDownloads": {
 			"message_one": "Pengunduhan {{count}} sedang berlangsung",
@@ -840,25 +840,25 @@
 			"pause": "Jeda Unduhan & Keluar",
 			"keep": "Terus Mengunduh"
 		},
-		"closeToTray": {"message": "Sembunyikan Arroxy ke baki sistem saat menutup?", "detail": "Arroxy terus berjalan dan menyelesaikan pengunduhan aktif. Ubah ini nanti di Pengaturan lanjutan.", "hide": "Sembunyikan ke baki", "quit": "Berhenti", "remember": "Jangan bertanya lagi"},
-		"rendererCrashed": {"message": "Arroxy mengalami masalah", "detail": "Proses penyaji macet ({{reason}}). Muat ulang untuk mencoba lagi.", "reload": "Muat ulang", "quit": "Berhenti"}
+		"closeToTray": {"message": "Sembunyikan FlickGrab ke baki sistem saat menutup?", "detail": "FlickGrab terus berjalan dan menyelesaikan pengunduhan aktif. Ubah ini nanti di Pengaturan lanjutan.", "hide": "Sembunyikan ke baki", "quit": "Berhenti", "remember": "Jangan bertanya lagi"},
+		"rendererCrashed": {"message": "FlickGrab mengalami masalah", "detail": "Proses penyaji macet ({{reason}}). Muat ulang untuk mencoba lagi.", "reload": "Muat ulang", "quit": "Berhenti"}
 	},
 	"share": {
-		"title": "Bagikan Arroxy",
-		"description": "Arroxy gratis dan bersumber terbuka. Berbagi membantu lebih banyak orang menemukannya.",
+		"title": "Bagikan FlickGrab",
+		"description": "FlickGrab gratis dan bersumber terbuka. Berbagi membantu lebih banyak orang menemukannya.",
 		"copyLink": "Salin tautan",
 		"copied": "Disalin!",
-		"defaultMessage": "Arroxy — pengunduh video sumber terbuka gratis untuk Windows, macOS & Linux. Bekerja dengan situs YouTube, Vimeo, Twitch, dan 2000+.\n4K · HDR · MP3 · Shorts · Terjemahan · SponsorBlock",
-		"footerTooltip": "Bagikan Arroxy",
+		"defaultMessage": "FlickGrab — pengunduh video sumber terbuka gratis untuk Windows, macOS & Linux. Bekerja dengan situs YouTube, Vimeo, Twitch, dan 2000+.\n4K · HDR · MP3 · Shorts · Terjemahan · SponsorBlock",
+		"footerTooltip": "Bagikan FlickGrab",
 		"footerLabel": "Membagikan",
-		"shareAction": "Bagikan Arroxy"
+		"shareAction": "Bagikan FlickGrab"
 	},
 	"filenameTemplate": {
 		"label": "Templat nama berkas",
 		"description": "Pilih cara penamaan berkas yang diunduh. Klik token untuk menyisipkannya. Gunakan / untuk memilah unduhan ke dalam folder.",
 		"profileOverrideLabel": "Templat nama berkas",
 		"profileOverrideDescription": "Biarkan kosong untuk mengikuti templat global.",
-		"idWarning": "Tanpa {id}, Arroxy tidak dapat mendeteksi item playlist yang sudah diunduh atau membuat playlist .m3u.",
+		"idWarning": "Tanpa {id}, FlickGrab tidak dapat mendeteksi item playlist yang sudah diunduh atau membuat playlist .m3u.",
 		"m3uDisabled": "Tidak tersedia karena templat nama berkasmu tidak menyertakan {id} atau memilah unduhan ke dalam folder.",
 		"previewSingle": "Video tunggal",
 		"previewPlaylist": "Dalam playlist",
@@ -878,7 +878,7 @@
 		"tabLabel": "Explore",
 		"newBadge": "Baru",
 		"notice": {
-			"title": "Jelajahi YouTube langsung di dalam Arroxy",
+			"title": "Jelajahi YouTube langsung di dalam FlickGrab",
 			"body": "Temukan video, playlist, atau kanal dan unduh langsung dari sini — tanpa menyalin tautan. Masuk ke YouTube di sini untuk mengunduh video yang memerlukan akun.",
 			"riskTitle": "Masuk dengan akun sekunder",
 			"riskBody": "YouTube dapat menandai — dan terkadang memblokir — akun yang dipakai dengan alat pengunduh seperti yt-dlp. Gunakan akun yang rela Anda kehilangan, bukan akun utama.",
@@ -915,7 +915,7 @@
 		},
 		"settings": {
 			"title": "Explore",
-			"description": "Jelajahi YouTube di dalam Arroxy dan masuk untuk video yang memerlukan akun.",
+			"description": "Jelajahi YouTube di dalam FlickGrab dan masuk untuk video yang memerlukan akun.",
 			"showTab": "Tampilkan tab Explore",
 			"showTabDescription": "Menonaktifkannya juga menghentikan unduhan memakai login Explore Anda.",
 			"signOut": "Keluar dari Explore",

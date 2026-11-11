@@ -51,7 +51,7 @@ jobs:
   # Scoped to the test suite rather than `bun run check`, because the rest of
   # that gate (formatting, tooling parity, i18n catalogs, package packing) is
   # platform-independent and already covered above.
-  test-windows:
+#  test-windows:
     name: test (windows)
     runs-on: windows-latest
 

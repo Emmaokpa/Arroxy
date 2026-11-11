@@ -6,8 +6,17 @@ import {ok} from '@shared/result.js'
 import {DEPENDENCY_IDS, type DependencyId} from '@shared/types.js'
 import type {BinaryManager} from '@main/services/BinaryManager.js'
 import {writeDiagnosticsFile} from '@main/services/DiagnosticsFile.js'
-import {uploadFeedbackDiagnostic} from '@main/services/FeedbackDiagnostics.js'
 import {handleRaw, toIpcFailure, toUnknownFailure} from './utils.js'
+
+// Parsed, not prefix-matched: `httpfoo:`, `https-file://` and similar were
+// accepted by a `startsWith('http')` check and handed straight to the shell.
+const EXTERNAL_PROTOCOLS = new Set(['http:', 'https:'])
+
+function externalUrl(raw: string): string | null {
+	if (!URL.canParse(raw)) return null
+	const url = new URL(raw)
+	return EXTERNAL_PROTOCOLS.has(url.protocol) ? url.toString() : null
+}
 
 // `describeDiagnosticsContext` supplies the session context for the diagnostics
 // file, so these handlers never need to know which services it is built from.
@@ -53,10 +62,11 @@ export function registerFileHandlers(mainWindow: BrowserWindow, binaryManager: B
 
 	handleRaw(IPC_CHANNELS.shellOpenExternal, async (_, payload: unknown) => {
 		try {
-			if (typeof payload !== 'string' || !payload.startsWith('http')) {
+			const url = typeof payload === 'string' ? externalUrl(payload) : null
+			if (!url) {
 				return toIpcFailure('Invalid URL for openExternal')
 			}
-			await shell.openExternal(payload)
+			await shell.openExternal(url)
 			return ok({opened: true})
 		} catch (error) {
 			return toUnknownFailure(error)
@@ -74,18 +84,6 @@ export function registerFileHandlers(mainWindow: BrowserWindow, binaryManager: B
 			const response = await shell.openPath(logsDir)
 			if (response) return toIpcFailure(response)
 			return ok({opened: true})
-		} catch (error) {
-			return toUnknownFailure(error)
-		}
-	})
-
-	handleRaw(IPC_CHANNELS.logsUploadFeedbackDiagnostic, async (_, payload: unknown) => {
-		try {
-			const reportId = readReportId(payload)
-			if (!reportId) return toIpcFailure('Invalid feedback report id')
-			const logPath = log.transports.file.getFile().path
-			const upload = await uploadFeedbackDiagnostic({logPath, reportId})
-			return ok(upload)
 		} catch (error) {
 			return toUnknownFailure(error)
 		}
@@ -136,10 +134,4 @@ export function registerFileHandlers(mainWindow: BrowserWindow, binaryManager: B
 
 function isDependencyId(value: unknown): value is DependencyId {
 	return typeof value === 'string' && (DEPENDENCY_IDS as readonly string[]).includes(value)
-}
-
-function readReportId(payload: unknown): string | null {
-	if (typeof payload !== 'object' || payload === null || !('reportId' in payload)) return null
-	const reportId = (payload as {reportId?: unknown}).reportId
-	return typeof reportId === 'string' && reportId.trim().length > 0 ? reportId : null
 }

@@ -31,8 +31,7 @@ const mockAppApi = {
 	shell: {openFolder: vi.fn().mockResolvedValue(ok({opened: true})), openExternal: mockOpenExternal, openBinariesDir: vi.fn().mockResolvedValue(ok({opened: true}))},
 	logs: {
 		openDir: vi.fn().mockResolvedValue(ok({opened: true})),
-		saveDiagnostics: vi.fn().mockResolvedValue(ok({path: '/tmp/arroxy-diagnostics.txt'})),
-		uploadFeedbackDiagnostic: vi.fn(async ({reportId}: {reportId: string}) => ok({reportId, diagnosticUrl: null, rawBytes: 42, compressedBytes: 31, truncated: false, sha256: 'a'.repeat(64)}))
+		saveDiagnostics: vi.fn().mockResolvedValue(ok({path: '/tmp/arroxy-diagnostics.txt'}))
 	},
 	dialog: {chooseFolder: vi.fn().mockResolvedValue(ok({path: '/tmp'})), chooseFile: vi.fn().mockResolvedValue(ok({path: null})), chooseExecutable: vi.fn().mockResolvedValue(ok({path: null}))},
 	events: {

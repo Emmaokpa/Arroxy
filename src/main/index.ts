@@ -11,7 +11,6 @@ import {installAppMenu} from '@main/installAppMenu.js'
 import {pickLanguage} from '@shared/i18n/index.js'
 import {registerIpcHandlers} from '@main/ipc/registerIpcHandlers.js'
 import {registerUpdaterHandlers} from '@main/ipc/registerUpdaterHandlers.js'
-import {counterscaleSender, createHeartbeat, HEARTBEAT_SITE_ID, heartbeatUrl} from '@main/services/heartbeat.js'
 import {detectInstallChannel} from '@main/installChannel.js'
 import {BinaryManager} from '@main/services/BinaryManager.js'
 import {buildGraphicsPolicy, isGpuAccessDenied} from '@main/services/GraphicsPolicy.js'
@@ -170,7 +169,6 @@ if (!hasSingleInstanceLock) {
 }
 
 const GPU_INFO_BUDGET_MS = 2_500
-const HEARTBEAT_CHECK_INTERVAL_MS = 60 * 60 * 1000
 
 // Attach now so an early `gpu-info-update` cannot be missed; the budget only
 // starts at app-ready (see whenReady below) so it measures Chromium's reporting
@@ -199,7 +197,7 @@ function createMainWindow(backgroundColor: string): BrowserWindow {
 		height: winState.height,
 		minWidth: WINDOW_MIN_WIDTH,
 		minHeight: WINDOW_MIN_HEIGHT,
-		title: 'Arroxy',
+		title: 'FlickGrab',
 		frame: false,
 		titleBarStyle: 'hidden',
 		autoHideMenuBar: true,
@@ -277,8 +275,8 @@ if (hasSingleInstanceLock) {
 		const settingsStore = new SettingsStore(userDataPath, e2eMode.applyAppSettingsDefaults(baseSettings))
 		let initialSettings = await settingsStore.get()
 		const e2eShouldDisableClipboardWatch = e2eMode.enabled && !e2eMode.allowClipboardWatch && initialSettings.common.clipboardWatchEnabled
-		if (e2eMode.enabled && (e2eShouldDisableClipboardWatch || initialSettings.common.analyticsEnabled !== false)) {
-			initialSettings = await settingsStore.update({common: {clipboardWatchEnabled: e2eMode.allowClipboardWatch ? initialSettings.common.clipboardWatchEnabled : false, analyticsEnabled: false}})
+		if (e2eMode.enabled && e2eShouldDisableClipboardWatch) {
+			initialSettings = await settingsStore.update({common: {clipboardWatchEnabled: false}})
 		}
 		const isDev = !!process.env.ELECTRON_RENDERER_URL || isMockBackend || e2eMode.enabled || !!process.env.ARROXY_SMOKE_URL || readRuntimeSmokeEnabled()
 		const languageRef: {current: ReturnType<typeof pickLanguage>} = {current: pickLanguage(initialSettings.common.language ?? app.getLocale())}
@@ -358,22 +356,6 @@ if (hasSingleInstanceLock) {
 		}
 
 		await settingsStore.recordLaunch()
-		const collectorUrl = heartbeatUrl({isDev, envUrl: process.env.ARROXY_HEARTBEAT_URL})
-		if (collectorUrl && !e2eMode.disableAnalytics) {
-			const installChannel = detectInstallChannel(app.getName())
-			const heartbeat = createHeartbeat({
-				send: counterscaleSender(collectorUrl, HEARTBEAT_SITE_ID),
-				now: () => new Date(),
-				isEnabled: () => settingsStore.getSync().common.analyticsEnabled ?? true,
-				snapshot: () => ({appVersion: app.getVersion(), platform: process.platform, arch: process.arch, osVersion: process.getSystemVersion(), installChannel, appLocale: languageRef.current, osLocale: app.getLocale()}),
-				lastDay: () => settingsStore.getSync().common.lastHeartbeatDay,
-				recordDay: day => settingsStore.recordHeartbeatDay(day),
-				onError: error => log.warn('Heartbeat skipped for today', {error: error instanceof Error ? error.message : String(error)})
-			})
-			void heartbeat.maybeSend()
-			// Hourly re-check: a session left running in the tray is counted on each new UTC day.
-			setInterval(() => void heartbeat.maybeSend(), HEARTBEAT_CHECK_INTERVAL_MS).unref()
-		}
 
 		// Before the window exists, so the first paint and the Explore view agree with the saved theme.
 		applyNativeThemeSource(nativeTheme, initialSettings.common.uiTheme)

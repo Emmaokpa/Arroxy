@@ -668,7 +668,6 @@ export function writeE2eSettings(userDataDir: string, outputDir: string, configu
 	settings.common.clipboardWatchEnabled = false
 	// Keep unrelated product workflows from claiming the OS-level global chord.
 	settings.common.hotkeyEnabled = false
-	settings.common.analyticsEnabled = false
 	settings.common.networkPacingPreset = 'custom'
 	settings.common.embedChapters = false
 	settings.common.embedMetadata = false

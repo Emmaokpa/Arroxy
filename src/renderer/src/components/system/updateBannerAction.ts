@@ -28,10 +28,10 @@ export function resolveAction(channel: InstallChannel, platform: NodeJS.Platform
 		case 'direct':
 			if (platform !== 'darwin') return {kind: 'install'}
 			return homebrewAvailable ? {kind: 'download', homebrewCommand: `brew install --cask --force ${HOMEBREW_CASK}`} : {kind: 'download'}
-		// Arroxy's Flatpak repo serves updates; the sandboxed app cannot replace
+		// FlickGrab's Flatpak repo serves updates; the sandboxed app cannot replace
 		// its own files, so the user runs the update.
 		case 'flatpak':
-			return {kind: 'command', cmd: 'flatpak update io.github.antonio_orionus.Arroxy', runnable: false}
+			return {kind: 'command', cmd: 'flatpak update io.github.antonio_orionus.FlickGrab', runnable: false}
 		default: {
 			// Exhaustiveness check — adding a channel without handling here is a type error.
 			const _exhaustive: never = channel

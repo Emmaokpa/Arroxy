@@ -21,7 +21,6 @@ const COMMON_KEYS = new Set([
 	'writeThumbnail',
 	'lastSponsorBlockMode',
 	'lastSponsorBlockCategories',
-	'analyticsEnabled',
 	'firstRunCompleted',
 	'launchCount',
 	'lastReleaseNotesVersionShown',
