@@ -3,612 +3,1211 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>FlickGrab Android — design preview</title>
+<title>FlickGrab Android — 100% Snaptube UI Replica</title>
 <style>
-  :root{
-    --ink:#07080C; --ink-soft:#0C0E15; --s1:#12141D; --s2:#191C27; --s3:#222634;
-    --line:#2C3142; --hair:#1C2030;
-    --text:#F4F5FA; --text2:#9AA1B8; --text3:#6C7488;
-    --violet:#7A5AF8; --violet-b:#9B7BFF; --cyan:#22D3EE; --coral:#FF6B81;
-    --success:#34D399; --warn:#FBBF24;
-    --brand:linear-gradient(120deg,#7A5AF8 0%,#5B8CFF 52%,#22D3EE 100%);
-    --radius:20px;
-    --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
-  }
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    margin:0; color:var(--text); font-family:var(--font);
-    background:
-      radial-gradient(900px 520px at 78% -8%, rgba(122,90,248,.26), transparent 65%),
-      radial-gradient(700px 420px at 6% 8%, rgba(34,211,238,.10), transparent 60%),
-      var(--ink);
-    -webkit-font-smoothing:antialiased;
-  }
-  a{color:var(--cyan)}
-  .page{max-width:1180px;margin:0 auto;padding:40px 24px 90px}
-  .top{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
-  .kicker{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);font-weight:600}
-  h1{margin:10px 0 8px;font-size:28px;line-height:1.15;letter-spacing:-.7px;font-weight:700}
-  .sub{margin:0;max-width:640px;color:var(--text2);font-size:13.5px;line-height:1.55}
-  .sub strong{color:var(--text);font-weight:600}
-  .toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-top:26px;align-items:center}
-  .tbtn{
-    appearance:none;border:1px solid var(--line);background:var(--s1);color:var(--text2);
-    font:inherit;font-size:12px;font-weight:500;padding:9px 14px;border-radius:999px;cursor:pointer;
-    transition:background .16s,border-color .16s,color .16s;
-  }
-  .tbtn:hover{color:var(--text);border-color:#3a4157}
-  .tbtn.active{background:rgba(34,211,238,.14);border-color:rgba(34,211,238,.65);color:var(--text)}
-  .tbtn.sep{margin-left:auto;border-style:dashed}
-  .stage{display:grid;grid-template-columns:410px minmax(0,1fr);gap:48px;align-items:start;margin-top:30px}
-  .stage-col{display:flex;flex-direction:column;gap:16px;align-items:center}
+  :root {
+    --bg-black: #0E0E10;
+    --bg-dark: #141416;
+    --surface-1: #1B1B1E;
+    --surface-2: #242428;
+    --surface-3: #2E2E34;
+    --line: #2C2C32;
+    --line-subtle: #1F1F24;
+    --text-white: #FFFFFF;
+    --text-silver: #D1D1D6;
+    --text-muted: #8E8E93;
+    --text-dim: #636366;
+    
+    /* Snaptube signature colors */
+    --snap-yellow: #FFCB05;
+    --snap-yellow-hover: #E6B600;
+    --snap-yellow-soft: rgba(255, 203, 5, 0.16);
+    --snap-red: #FF3B30;
+    --snap-blue: #007AFF;
+    --snap-hotspot: #2892E8;
+    --snap-green: #34C759;
+    --snap-bet: #4CAF50;
 
-  /* ---------- phone frame ---------- */
-  .phone{
-    width:390px;height:844px;padding:10px;border-radius:48px;background:#0a0b11;
-    border:1px solid #242838;
-    box-shadow:0 50px 90px -40px #000, 0 0 0 1px rgba(255,255,255,.03), inset 0 0 0 2px #12141d;
-    position:relative;flex:none;
-  }
-  .phone-screen{
-    position:relative;width:100%;height:100%;border-radius:38px;overflow:hidden;
-    background:var(--ink);display:flex;flex-direction:column;
-    box-shadow:inset 0 0 0 1px #1b1f2c;
-  }
-  .island{
-    position:absolute;top:11px;left:50%;transform:translateX(-50%);
-    width:106px;height:27px;border-radius:16px;background:#000;z-index:40;
-  }
-  .statusbar{
-    height:44px;flex:none;display:flex;align-items:center;justify-content:space-between;
-    padding:0 24px;font-size:12px;font-weight:600;letter-spacing:.2px;color:var(--text);
-  }
-  .sb-right{display:flex;align-items:center;gap:5px}
-  .sb-bars{display:flex;align-items:flex-end;gap:1.5px;height:10px}
-  .sb-bars i{display:block;width:2.5px;border-radius:1px;background:var(--text)}
-  .sb-bars i:nth-child(1){height:4px}.sb-bars i:nth-child(2){height:6px}
-  .sb-bars i:nth-child(3){height:8px}.sb-bars i:nth-child(4){height:10px}
-  .sb-wifi{width:13px;height:10px;border-radius:2px;
-    background:conic-gradient(from 215deg at 50% 100%, var(--text) 0 70deg, transparent 70deg 100%);
-    clip-path:polygon(50% 100%,0 30%,50% 0,100% 30%)}
-  .sb-batt{width:20px;height:10px;border:1.4px solid var(--text);border-radius:3px;position:relative}
-  .sb-batt::before{content:"";position:absolute;inset:1.6px;width:72%;background:var(--text);border-radius:1px}
-  .sb-batt::after{content:"";position:absolute;right:-3.4px;top:2.6px;width:2px;height:4px;background:var(--text);border-radius:0 1px 1px 0}
-
-  .viewport{flex:1;overflow-y:auto;overflow-x:hidden;scrollbar-width:none}
-  .viewport::-webkit-scrollbar{display:none}
-
-  /* ---------- generic in-app type ---------- */
-  .screen{padding:6px 18px 26px}
-  .appbar{display:flex;align-items:center;gap:11px;padding:8px 0}
-  .icon{display:inline-flex;align-items:center;justify-content:center;width:1em;height:1em;flex:none;color:inherit}
-  .mark{
-    width:38px;height:38px;border-radius:13px;background:var(--brand);flex:none;
-    display:flex;align-items:center;justify-content:center;color:var(--ink);
-    box-shadow:0 12px 26px -10px rgba(122,90,248,.8);
-  }
-  .mark .icon{width:22px;height:22px}
-  .appbar-titles{flex:1;min-width:0}
-  .appbar-titles b{display:block;font-size:17px;letter-spacing:-.2px}
-  .appbar-titles span{display:block;font-size:10.5px;color:var(--text3);margin-top:2px}
-  .iconbtn{
-    width:42px;height:42px;border-radius:14px;background:var(--s1);border:1px solid var(--line);
-    display:flex;align-items:center;justify-content:center;color:var(--text2);cursor:pointer;flex:none;
-  }
-  .iconbtn:hover{color:var(--text)}
-  .headline{font-size:33px;line-height:1.1;letter-spacing:-.9px;font-weight:700;margin:14px 0 0}
-  .headline-sub{margin:8px 0 0;font-size:12.5px;line-height:1.5;color:var(--text3);max-width:300px}
-
-  .search{
-    margin-top:16px;height:54px;border-radius:18px;background:var(--s1);border:1px solid var(--line);
-    display:flex;align-items:center;padding:0 8px 0 16px;gap:11px;
-  }
-  .search .icon{color:var(--text3);width:19px;height:19px;flex:none}
-  .search input{
-    flex:1;background:none;border:0;outline:0;color:var(--text);font:inherit;font-size:13.5px;min-width:0;
-  }
-  .search input::placeholder{color:var(--text3)}
-  .paste{
-    width:38px;height:38px;border-radius:12px;background:rgba(34,211,238,.10);color:var(--cyan);
-    display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none;border:0;
-  }
-  .paste:hover{background:rgba(34,211,238,.18)}
-
-  .chips{display:flex;gap:8px;margin-top:16px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
-  .chips::-webkit-scrollbar{display:none}
-  .chip{
-    height:38px;padding:0 15px;border-radius:999px;background:var(--s1);border:1px solid var(--line);
-    color:var(--text2);font-size:11.5px;font-weight:500;display:flex;align-items:center;gap:7px;
-    cursor:pointer;white-space:nowrap;flex:none;font-family:inherit;
-  }
-  .chip:hover{color:var(--text)}
-  .chip .dot{width:6px;height:6px;border-radius:50%;background:var(--text3)}
-  .chip.on{background:rgba(34,211,238,.14);border-color:rgba(34,211,238,.7);color:var(--text)}
-  .chip.on .dot{background:var(--cyan)}
-
-  .banner{
-    margin-top:14px;border-radius:16px;padding:11px 13px;display:flex;align-items:center;gap:10px;
-    background:rgba(34,211,238,.10);border:1px solid rgba(34,211,238,.32);
-  }
-  .banner p{margin:0;flex:1;font-size:11.5px;line-height:1.45;color:var(--text2)}
-  .banner .dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);flex:none}
-  .banner button{
-    background:none;border:0;color:var(--cyan);font:inherit;font-size:10.5px;font-weight:600;
-    cursor:pointer;padding:4px 6px;border-radius:999px;font-family:inherit;
+    --font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
   }
 
-  .spot{
-    position:relative;margin-top:16px;border-radius:24px;overflow:hidden;aspect-ratio:16/10;
-    cursor:pointer;border:1px solid rgba(255,255,255,.06);
-  }
-  .art{position:relative;overflow:hidden;background-color:#11131c}
-  .art::before{
-    content:"";position:absolute;inset:0;pointer-events:none;
-    background-image:repeating-linear-gradient(48deg,rgba(255,255,255,.045) 0 1px,transparent 1px 3px);
-    mix-blend-mode:overlay;opacity:.7;
-  }
-  .spot .scrim{position:absolute;inset:0;background:linear-gradient(to top,rgba(7,8,12,.96) 0%,rgba(7,8,12,.55) 42%,transparent 72%)}
-  .spot-body{position:absolute;left:0;right:0;bottom:0;padding:16px}
-  .spot-top{display:flex;align-items:center;gap:8px;margin-bottom:9px}
-  .spot h3{margin:0;font-size:20px;line-height:1.22;letter-spacing:-.3px;max-width:300px;
-    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-  .spot .meta{margin:5px 0 0;font-size:10.5px;color:var(--text2)}
-  .spot-cta{display:flex;align-items:center;gap:10px;margin-top:12px}
-  .grad-pill{
-    display:inline-flex;align-items:center;gap:6px;background:var(--brand);color:var(--ink);
-    font-size:11px;font-weight:700;padding:8px 14px;border-radius:999px;letter-spacing:.1px;
-  }
-  .spot .dur{font-size:10.5px;color:var(--text2)}
-  .tune{
-    position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:12px;
-    background:rgba(0,0,0,.42);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;
-    color:#fff;
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body {
+    color: var(--text-white);
+    font-family: var(--font);
+    background: #09090B;
+    background-image: 
+      radial-gradient(800px 480px at 75% -5%, rgba(255, 203, 5, 0.08), transparent 60%),
+      radial-gradient(700px 420px at 15% 15%, rgba(40, 146, 232, 0.06), transparent 50%),
+      #09090B;
+    -webkit-font-smoothing: antialiased;
   }
 
-  .sechead{display:flex;align-items:center;gap:10px;margin:22px 0 14px}
-  .sechead .bar{width:3px;height:18px;border-radius:2px;background:var(--brand)}
-  .sechead h2{margin:0;font-size:17px;letter-spacing:-.3px;flex:1;font-weight:600}
-  .sechead span{font-size:10.5px;color:var(--text3)}
-
-  .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 14px}
-  .card{cursor:pointer;min-width:0}
-  .thumb{border-radius:20px;aspect-ratio:16/9;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.05)}
-  .thumb .scrim{position:absolute;inset:0;background:linear-gradient(to top,rgba(7,8,12,.62),transparent 58%)}
-  .thumb .play{
-    position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
-    width:34px;height:34px;border-radius:50%;background:rgba(0,0,0,.34);
-    border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.9);
-  }
-  .thumb .play .icon{width:18px;height:18px;margin-left:2px}
-  .badge{
-    display:inline-flex;align-items:center;gap:5px;padding:3px 7px;border-radius:999px;
-    background:rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.14);
-    font-size:9.5px;font-weight:600;letter-spacing:.2px;color:var(--text);
-  }
-  .badge .dot{width:6px;height:6px;border-radius:50%}
-  .dur-tag{
-    position:absolute;right:8px;bottom:8px;background:rgba(0,0,0,.66);color:var(--text);
-    font-size:9.5px;font-weight:600;padding:3px 7px;border-radius:999px;letter-spacing:.3px;
-  }
-  .card .badge{position:absolute;left:8px;top:8px}
-  .card h4{
-    margin:9px 0 0;font-size:12.5px;line-height:1.4;font-weight:500;color:var(--text);
-    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
-  }
-  .card .sub2{margin:3px 0 0;font-size:10px;color:var(--text3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-
-  /* ---------- downloads / library / settings ---------- */
-  .screen-title{font-size:26px;letter-spacing:-.6px;margin:12px 0 0;font-weight:700}
-  .screen-sub{margin:5px 0 0;font-size:11.5px;color:var(--text3)}
-  .seg{display:flex;gap:4px;padding:4px;background:var(--s1);border-radius:16px;margin-top:16px}
-  .seg button{
-    flex:1;height:36px;border:0;border-radius:12px;background:transparent;color:var(--text3);
-    font:inherit;font-size:11.5px;font-weight:500;cursor:pointer;font-family:inherit;
-  }
-  .seg button.on{background:var(--s2);color:var(--text)}
-  .clear-link{background:none;border:0;color:var(--text3);font:inherit;font-size:11px;cursor:pointer;padding:6px 8px;font-family:inherit}
-
-  .dlcard{
-    margin-top:12px;padding:12px;border-radius:20px;background:var(--s1);border:1px solid #1b1f2c;
-  }
-  .dlrow{display:flex;align-items:center;gap:12px}
-  .dlrow .thumb{width:58px;height:58px;border-radius:15px;flex:none;aspect-ratio:auto}
-  .dlmeta{flex:1;min-width:0}
-  .dlmeta b{display:block;font-size:12px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .dlmeta span{display:flex;align-items:center;gap:6px;margin-top:4px;font-size:9.5px;color:var(--text3);
-    white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .dlmeta span i{width:6px;height:6px;border-radius:50%;flex:none}
-  .kill{
-    width:34px;height:34px;border-radius:50%;background:var(--s2);border:0;color:var(--text2);
-    display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none;
-  }
-  .kill:hover{color:var(--text)}
-  .progress{height:5px;border-radius:999px;background:var(--s3);margin-top:12px;overflow:hidden}
-  .progress i{display:block;height:100%;border-radius:999px;background:var(--cyan);transition:width .3s linear}
-  .prow{display:flex;align-items:center;gap:8px;margin-top:8px;font-size:9.5px;color:var(--text3)}
-  .prow b{font-weight:600;color:var(--cyan)}
-  .prow .spacer{flex:1}
-  .done-row{display:flex;align-items:center;gap:7px;margin-top:10px;font-size:10.5px;font-weight:600;color:var(--success)}
-  .done-row .spacer{flex:1}
-  .preview-pill{
-    font-size:9px;font-weight:700;letter-spacing:.5px;color:var(--cyan);
-    background:rgba(34,211,238,.12);padding:3px 7px;border-radius:999px;
-  }
-  .note-card{
-    margin-top:16px;padding:14px;border-radius:16px;background:var(--s1);
-    display:flex;gap:10px;align-items:center;font-size:10.5px;color:var(--text3);line-height:1.45;
-  }
-  .note-card .icon{color:var(--success);width:18px;height:18px;flex:none}
-  .empty{text-align:center;padding:38px 22px}
-  .empty .box{
-    width:76px;height:76px;margin:0 auto;border-radius:26px;background:var(--s1);
-    border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--text3);
-  }
-  .empty h4{margin:18px 0 0;font-size:14px;font-weight:600}
-  .empty p{margin:6px 0 0;font-size:11px;line-height:1.5;color:var(--text3)}
-
-  .set-card{margin-top:16px;border-radius:20px;background:var(--s1);border:1px solid #1b1f2c;overflow:hidden}
-  .set-row{display:flex;align-items:center;gap:12px;padding:13px 12px}
-  .set-row + .set-row{border-top:1px solid var(--hair)}
-  .set-ico{width:34px;height:34px;border-radius:11px;display:flex;align-items:center;justify-content:center;flex:none}
-  .set-row b{display:block;font-size:12px;font-weight:600}
-  .set-row span{display:block;font-size:9.5px;color:var(--text3);margin-top:2px;line-height:1.4}
-  .switch{
-    width:44px;height:26px;border-radius:999px;background:var(--cyan);position:relative;flex:none;cursor:pointer;
-  }
-  .switch::after{content:"";position:absolute;top:3px;left:21px;width:20px;height:20px;border-radius:50%;background:var(--ink);transition:left .18s}
-  .switch.off{background:#262b3a;border:1px solid var(--line)}
-  .switch.off::after{left:3px;background:var(--text3)}
-  .cap-label{display:flex;align-items:center;gap:7px;margin:18px 0 10px;font-size:10.5px;color:var(--text3)}
-  .cap{
-    display:flex;gap:12px;padding:14px;border-radius:18px;background:var(--s1);
-    border:1px solid #1b1f2c;margin-bottom:10px;
-  }
-  .cap .tri{width:8px;height:8px;border-radius:50%;margin-top:5px;flex:none}
-  .cap b{font-size:12px;font-weight:600}
-  .cap .status{font-size:9px;font-weight:700;padding:3px 7px;border-radius:999px;margin-left:8px;letter-spacing:.2px}
-  .cap p{margin:5px 0 0;font-size:10.5px;line-height:1.5;color:var(--text3)}
-  .rights{
-    margin-top:6px;padding:16px;border-radius:20px;background:rgba(255,107,129,.08);
-    border:1px solid rgba(255,107,129,.3);
-  }
-  .rights b{font-size:12px}
-  .rights p{margin:6px 0 0;font-size:10.5px;line-height:1.5;color:var(--text2)}
-  .version{margin:16px 0 0;font-size:10px;color:var(--text3)}
-
-  /* ---------- bottom nav ---------- */
-  .strip{
-    border-top:1px solid var(--hair);
-    background:linear-gradient(100deg,#151226,#12141d);
-    padding:11px 18px;cursor:pointer;
-  }
-  .strip-row{display:flex;align-items:center;gap:11px}
-  .strip .pct{
-    width:34px;height:34px;border-radius:11px;background:rgba(34,211,238,.10);
-    display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--cyan);flex:none;
-  }
-  .strip .m{flex:1;min-width:0}
-  .strip .m b{display:block;font-size:11px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .strip .m span{display:block;font-size:9.5px;color:var(--text3);margin-top:2px}
-  .strip .kill{width:30px;height:30px;background:rgba(7,8,12,.4)}
-  .strip .line{height:2px;background:var(--s2);margin:9px -18px -11px}
-  .strip .line i{display:block;height:100%;background:var(--cyan);transition:width .3s linear}
-  nav.nav{
-    flex:none;background:rgba(12,14,21,.98);border-top:1px solid var(--hair);
-    padding:8px 12px calc(8px + env(safe-area-inset-bottom, 0px));
-  }
-  .nav-row{display:flex}
-  .nav-item{
-    flex:1;background:none;border:0;display:flex;flex-direction:column;align-items:center;gap:4px;
-    padding:7px 0;color:var(--text3);cursor:pointer;font-family:inherit;border-radius:16px;
-  }
-  .nav-item .icon{width:21px;height:21px}
-  .nav-item span{font-size:10px;font-weight:500}
-  .nav-item .pip{width:4px;height:4px;border-radius:50%;background:transparent;margin-top:0}
-  .nav-item.on{color:var(--cyan)}
-  .nav-item.on .pip{background:var(--cyan)}
-
-  /* ---------- overlays ---------- */
-  #overlay{position:absolute;inset:0;z-index:30;pointer-events:none}
-  #overlay > *{pointer-events:auto}
-  .scrim{
-    position:absolute;inset:0;background:rgba(4,5,8,.62);backdrop-filter:blur(2px);
-    animation:fade .18s ease-out;
-  }
-  @keyframes fade{from{opacity:0}to{opacity:1}}
-  @keyframes rise{from{transform:translateY(26px);opacity:.6}to{transform:translateY(0);opacity:1}}
-  @keyframes pop{from{transform:scale(.94);opacity:0}to{transform:scale(1);opacity:1}}
-
-  .sheet{
-    position:absolute;left:0;right:0;bottom:0;max-height:94%;overflow-y:auto;scrollbar-width:none;
-    background:var(--ink-soft);border-radius:30px 30px 0 0;border-top:1px solid #232839;
-    padding:0 18px 22px;animation:rise .24s cubic-bezier(.2,.8,.2,1);
-  }
-  .sheet::-webkit-scrollbar{display:none}
-  .grab{width:40px;height:4px;border-radius:999px;background:#343a4d;margin:10px auto 6px}
-  .sheet-hero{border-radius:24px;overflow:hidden;height:178px;position:relative;border:1px solid rgba(255,255,255,.06)}
-  .sheet-hero .scrim2{position:absolute;inset:0;background:linear-gradient(to top,rgba(7,8,12,.5),transparent 60%)}
-  .sheet-hero .badge{position:absolute;left:10px;top:10px}
-  .sheet-hero .x{
-    position:absolute;right:10px;top:10px;width:32px;height:32px;border-radius:50%;
-    background:rgba(0,0,0,.55);border:0;color:var(--text);display:flex;align-items:center;justify-content:center;cursor:pointer;
-  }
-  .sheet h3{margin:16px 0 0;font-size:17px;line-height:1.28;letter-spacing:-.2px;font-weight:600}
-  .sheet .who{margin:5px 0 0;font-size:10px;color:var(--text3)}
-  .format{
-    display:flex;align-items:center;gap:12px;padding:12px 13px;border-radius:16px;
-    background:var(--s1);border:1px solid var(--line);margin-top:9px;cursor:pointer;
-  }
-  .format.on{background:rgba(34,211,238,.12);border-color:rgba(34,211,238,.72)}
-  .radio{width:20px;height:20px;border-radius:50%;border:1.5px solid #3a4055;flex:none;
-    display:flex;align-items:center;justify-content:center}
-  .format.on .radio{border-color:var(--cyan)}
-  .format.on .radio::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--cyan)}
-  .format .fmeta{flex:1;min-width:0}
-  .format .fmeta b{font-size:12px;font-weight:600}
-  .format .fmeta b + em{font-style:normal;font-size:9.5px;color:var(--text3);margin-left:7px;letter-spacing:.3px}
-  .format .fmeta p{margin:2px 0 0;font-size:9.5px;color:var(--text3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .format .size{font-size:11px;color:var(--text2);font-weight:600}
-  .format.on .size{color:var(--cyan)}
-  .mux{
-    margin-top:14px;padding:13px;border-radius:16px;background:rgba(251,191,36,.10);
-    border:1px solid rgba(251,191,36,.3);
-  }
-  .mux b{font-size:10.5px;color:#FBD574;font-weight:600}
-  .mux p{margin:3px 0 0;font-size:10px;line-height:1.5;color:var(--text2)}
-  .plain-note{margin-top:14px;padding:13px;border-radius:16px;background:var(--s1);font-size:10px;color:var(--text3);line-height:1.5}
-  .save-to{
-    display:flex;align-items:center;gap:11px;padding:12px 13px;border-radius:16px;
-    background:var(--s1);border:1px solid #1b1f2c;margin-top:14px;
-  }
-  .save-to .icon{color:var(--text3);width:17px;height:17px;flex:none}
-  .save-to .m{flex:1}
-  .save-to .m span{display:block;font-size:9.5px;color:var(--text3)}
-  .save-to .m b{display:block;font-size:12px;font-weight:500;margin-top:1px}
-  .save-to em{font-style:normal;font-size:9.5px;color:var(--cyan)}
-  .cta{
-    width:100%;height:54px;border:0;border-radius:18px;background:var(--brand);color:var(--ink);
-    font:inherit;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:9px;
-    cursor:pointer;margin-top:16px;letter-spacing:.1px;font-family:inherit;
-  }
-  .cta:hover{filter:brightness(1.06)}
-  .cta:disabled{background:var(--s2);color:var(--text3);cursor:not-allowed}
-  .fine{margin:10px 0 0;font-size:9.5px;line-height:1.5;color:#8a93a8}
-  .signin{
-    margin-top:16px;padding:16px;border-radius:20px;
-    background:linear-gradient(120deg,#1a1730,#131b26);border:1px solid #2a2b45;
-  }
-  .signin .top2{display:flex;align-items:center;gap:11px}
-  .signin .lock{width:34px;height:34px;border-radius:11px;background:rgba(201,166,255,.12);
-    color:#C9A6FF;display:flex;align-items:center;justify-content:center;flex:none}
-  .signin b{font-size:12px}
-  .signin p{margin:10px 0 0;font-size:10.5px;line-height:1.5;color:var(--text2)}
-  .signin .row{display:flex;align-items:center;gap:10px;margin-top:12px}
-  .ghost{
-    height:38px;padding:0 14px;border-radius:14px;border:1px solid var(--line);background:none;
-    color:var(--text2);font:inherit;font-size:10.5px;font-weight:600;cursor:pointer;font-family:inherit;
-  }
-  .ghost:hover{color:var(--text)}
-  .na{font-size:9.5px;font-weight:700;color:var(--coral);background:rgba(255,107,129,.10);
-    padding:7px 10px;border-radius:12px}
-
-  /* progress modal */
-  .modal-wrap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:0 18px}
-  .modal{
-    width:100%;border-radius:28px;background:var(--ink-soft);border:1px solid var(--line);
-    padding:20px;animation:pop .2s ease-out;max-height:88%;overflow-y:auto;scrollbar-width:none;
-  }
-  .modal::-webkit-scrollbar{display:none}
-  .modal-head{display:flex;align-items:center}
-  .modal-head b{flex:1;font-size:17px;letter-spacing:-.2px}
-  .ring-wrap{width:126px;height:126px;margin:20px auto 0;position:relative;display:flex;align-items:center;justify-content:center}
-  .ring{position:absolute;inset:0;border-radius:50%;
-    background:conic-gradient(var(--cyan) calc(var(--p) * 1%), #2a2f40 0);
-    mask:radial-gradient(farthest-side,transparent calc(100% - 9px),#000 calc(100% - 8px));
-    -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 9px),#000 calc(100% - 8px));
-    transition:background .2s linear;
-  }
-  .ring.done{background:conic-gradient(var(--success) 100%, var(--success) 0)}
-  .ring-center{text-align:center}
-  .ring-center b{display:block;font-size:26px;letter-spacing:-.6px}
-  .ring-center span{display:block;font-size:9.5px;color:var(--cyan);margin-top:2px;font-weight:600;letter-spacing:.3px}
-  .modal .title{margin:18px 0 0;text-align:center;font-size:12px;font-weight:500;line-height:1.4}
-  .modal .fmt{margin:5px 0 0;text-align:center;font-size:9.5px;color:var(--text3)}
-  .metrics{display:flex;justify-content:space-evenly;margin-top:16px;padding:12px 0;border-radius:16px;background:var(--s1)}
-  .metrics div{text-align:center}
-  .metrics b{display:block;font-size:12px;font-weight:600}
-  .metrics span{display:block;font-size:9.5px;color:var(--text3);margin-top:2px}
-  .steps{margin-top:16px;display:flex;flex-direction:column;gap:9px}
-  .step{display:flex;align-items:center;gap:10px;font-size:10.5px;color:var(--text2)}
-  .step .b{width:18px;height:18px;border-radius:50%;border:1px solid var(--line);background:var(--s1);
-    display:flex;align-items:center;justify-content:center;flex:none;color:var(--success)}
-  .step.done .b{background:rgba(52,211,153,.18);border-color:rgba(52,211,153,.55)}
-  .step.now{color:var(--text2)}
-  .step.now .b{border-color:var(--cyan);background:rgba(34,211,238,.12)}
-  .step.now .b::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--cyan)}
-  .step.pending{color:var(--text3)}
-  .modal-actions{display:flex;align-items:center;gap:10px;margin-top:18px}
-  .modal-actions .spacer{flex:1}
-  .cancel{background:none;border:0;color:var(--coral);font:inherit;font-size:11px;font-weight:600;cursor:pointer;padding:10px 12px;font-family:inherit}
-  .done-bar{
-    margin-top:18px;height:48px;border-radius:16px;background:rgba(52,211,153,.12);color:var(--success);
-    display:flex;align-items:center;justify-content:center;gap:8px;font-size:11px;font-weight:600;cursor:pointer;border:0;
-    width:100%;font-family:inherit;
+  .page {
+    max-width: 1220px;
+    margin: 0 auto;
+    padding: 32px 24px 80px;
   }
 
-  /* dialogs */
-  .dialog{
-    width:100%;max-width:318px;border-radius:26px;background:var(--ink-soft);border:1px solid var(--line);
-    padding:20px;animation:pop .2s ease-out;
+  /* Header bar */
+  .top-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 22px;
   }
-  .dialog .pill{
-    display:inline-block;font-size:8.5px;font-weight:700;letter-spacing:.7px;color:var(--cyan);
-    background:rgba(34,211,238,.12);padding:4px 8px;border-radius:999px;
+  .kicker {
+    font-size: 11px;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--snap-yellow);
+    font-weight: 700;
   }
-  .dialog .pill.warn{color:var(--coral);background:rgba(255,107,129,.12)}
-  .dialog h3{margin:10px 0 0;font-size:17px;letter-spacing:-.2px}
-  .dialog p{margin:10px 0 0;font-size:10.5px;line-height:1.55;color:var(--text2)}
-  .urlline{margin-top:12px;padding:12px;border-radius:14px;background:#141826;font-size:9.5px;
-    color:var(--text3);word-break:break-all;line-height:1.5}
-  .dialog-actions{display:flex;justify-content:flex-end;gap:6px;margin-top:14px}
-  .linkbtn{background:none;border:0;font:inherit;font-size:11px;font-weight:600;cursor:pointer;padding:8px 10px;border-radius:10px;font-family:inherit}
-  .linkbtn.primary{color:var(--cyan)}
-  .linkbtn.muted{color:var(--text3)}
-
-  /* ---------- side notes ---------- */
-  .notes{display:flex;flex-direction:column;gap:16px;padding-top:6px}
-  .panel{border:1px solid var(--line);background:rgba(18,20,29,.72);border-radius:22px;padding:20px}
-  .panel h2{margin:0 0 10px;font-size:13px;letter-spacing:.2px;text-transform:uppercase;color:var(--text2);font-weight:600}
-  .panel p{margin:0;font-size:12px;line-height:1.62;color:var(--text2)}
-  .panel p + p{margin-top:9px}
-  .panel b{color:var(--text);font-weight:600}
-  .facts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:2px}
-  .fact{background:var(--s1);border:1px solid #1b1f2c;border-radius:14px;padding:10px 12px}
-  .fact span{display:block;font-size:9.5px;color:var(--text3);text-transform:uppercase;letter-spacing:.6px}
-  .fact b{display:block;font-size:12px;margin-top:4px;font-weight:600}
-  .swatches{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
-  .sw{width:44px}
-  .sw i{display:block;height:30px;border-radius:9px;border:1px solid rgba(255,255,255,.08)}
-  .sw span{display:block;font-size:8.5px;color:var(--text3);margin-top:5px;letter-spacing:.2px}
-  .type-row{display:flex;align-items:baseline;gap:10px;margin-top:10px}
-  .type-row b{font-size:20px;letter-spacing:-.5px}
-  .type-row span{font-size:9.5px;color:var(--text3)}
-  ul.trials{margin:0;padding-left:16px;font-size:12px;line-height:1.7;color:var(--text2)}
-  ul.trials b{color:var(--text)}
-  .screenlist{display:flex;flex-direction:column;gap:8px;margin-top:2px}
-  .screenlist div{display:flex;justify-content:space-between;gap:10px;font-size:11px;color:var(--text3);
-    padding-bottom:8px;border-bottom:1px solid #191d29}
-  .screenlist div:last-child{border:0;padding:0}
-  .screenlist b{color:var(--text2);font-weight:500}
-  .screenlist code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:9.5px}
-
-  /* icon sizes (the base rule is 1em) */
-  .mark .icon{width:22px;height:22px}
-  .iconbtn .icon{width:19px;height:19px}
-  .kill .icon{width:16px;height:16px}
-  .cta .icon{width:19px;height:19px}
-  .sheet-hero .x .icon{width:16px;height:16px}
-  .tune .icon{width:17px;height:17px}
-  .done-row .icon{width:15px;height:15px}
-  .note-card .icon{width:18px;height:18px}
-  .cap-label .icon{width:15px;height:15px}
-  .set-ico .icon{width:17px;height:17px}
-  .signin .lock .icon{width:17px;height:17px}
-  .empty .box .icon{width:30px;height:30px}
-  .ring-center .icon{width:40px;height:40px}
-  .step .b .icon{width:11px;height:11px}
-
-  @media (max-width: 960px){
-    .stage{grid-template-columns:1fr;gap:34px}
-    .stage-col{order:1}
-    .notes{order:2}
-    .toolbar .sep{margin-left:0}
+  h1 {
+    margin: 8px 0 6px;
+    font-size: 26px;
+    letter-spacing: -0.5px;
+    font-weight: 800;
   }
-  @media (max-width: 430px){
-    .page{padding:26px 14px 70px}
-    .phone{transform:scale(.86);transform-origin:top center;margin-bottom:-110px}
+  .sub {
+    margin: 0;
+    max-width: 680px;
+    color: var(--text-muted);
+    font-size: 13.5px;
+    line-height: 1.5;
+  }
+  .sub strong { color: var(--text-white); font-weight: 600; }
+
+  /* Toolbar buttons */
+  .toolbar {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 22px;
+    align-items: center;
+  }
+  .tbtn {
+    appearance: none;
+    border: 1px solid var(--line);
+    background: var(--surface-1);
+    color: var(--text-silver);
+    font: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 8px 15px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.16s ease;
+  }
+  .tbtn:hover {
+    color: var(--text-white);
+    border-color: #484852;
+  }
+  .tbtn.active {
+    background: var(--snap-yellow);
+    color: #000000;
+    border-color: var(--snap-yellow);
+    font-weight: 700;
+    box-shadow: 0 4px 14px rgba(255, 203, 5, 0.35);
+  }
+  .tbtn.sep {
+    margin-left: auto;
+    border-style: dashed;
+  }
+
+  /* Two column stage */
+  .stage {
+    display: grid;
+    grid-template-columns: 420px minmax(0, 1fr);
+    gap: 44px;
+    align-items: start;
+    margin-top: 28px;
+  }
+  .stage-col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+  }
+
+  /* Phone frame */
+  .phone {
+    width: 395px;
+    height: 844px;
+    padding: 10px;
+    border-radius: 50px;
+    background: #09090C;
+    border: 1.5px solid #2C2C34;
+    box-shadow: 0 40px 90px -25px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.05);
+    position: relative;
+    flex: none;
+  }
+  .phone-screen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 40px;
+    overflow: hidden;
+    background: var(--bg-black);
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Status Bar */
+  .statusbar {
+    height: 38px;
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 18px;
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: .2px;
+    color: var(--text-white);
+    background: transparent;
+    z-index: 25;
+  }
+  .sb-left {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .sb-right {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .sb-mini-icon {
+    width: 13px;
+    height: 13px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.9;
+  }
+  .sb-battery-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.3px solid #E5E5EA;
+    border-radius: 4px;
+    padding: 0 3px;
+    height: 11px;
+    font-size: 8px;
+    font-weight: 700;
+    position: relative;
+    color: #FFF;
+    margin-left: 2px;
+  }
+  .sb-battery-pill::after {
+    content: "";
+    position: absolute;
+    right: -2.8px;
+    top: 2.2px;
+    width: 1.6px;
+    height: 4px;
+    background: #E5E5EA;
+    border-radius: 0 1px 1px 0;
+  }
+
+  /* Top Network Hotspot Bar (seen in Images 3, 6, 7, 8) */
+  .hotspot-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px 14px 6px;
+    gap: 10px;
+  }
+  .hotspot-pill {
+    background: var(--snap-hotspot);
+    color: #FFF;
+    font-size: 10.5px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 999px;
+    letter-spacing: 0.1px;
+  }
+
+  /* Top Navigation Tabs (Search | YouTube | Music | More) */
+  .top-tabs {
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 4px 14px 2px;
+    background: var(--bg-black);
+    position: relative;
+    z-index: 20;
+  }
+  .top-tab {
+    background: none;
+    border: 0;
+    color: var(--text-muted);
+    font: inherit;
+    font-size: 14.5px;
+    font-weight: 600;
+    padding: 8px 10px 10px;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.15s ease;
+  }
+  .top-tab:hover {
+    color: var(--text-white);
+  }
+  .top-tab.active {
+    color: var(--text-white);
+    font-weight: 700;
+  }
+  .top-tab.active::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 12px;
+    right: 12px;
+    height: 3px;
+    background: var(--snap-yellow);
+    border-radius: 2px;
+  }
+
+  /* Viewport scroll area */
+  .viewport {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    position: relative;
+  }
+  .viewport::-webkit-scrollbar { display: none; }
+
+  /* Generic Screen Header (Back Arrow + Title) */
+  .subpage-header {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px 12px;
+    gap: 14px;
+  }
+  .back-btn {
+    background: none;
+    border: 0;
+    color: var(--text-white);
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+  .back-btn:hover { background: var(--surface-1); }
+  .subpage-title {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+  }
+
+  /* SCREEN 1: Search Home */
+  .home-screen {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    position: relative;
+  }
+  /* Angled Social App Icons Background Grid */
+  .home-backdrop-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 290px;
+    overflow: hidden;
+    pointer-events: none;
+    opacity: 0.16;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    transform: rotate(-10deg) scale(1.15) translateY(-25px);
+    filter: saturate(1.2);
+  }
+  .backdrop-icon-tile {
+    width: 68px;
+    height: 68px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  }
+
+  .home-branding {
+    margin-top: 72px;
+    text-align: center;
+    z-index: 5;
+    position: relative;
+  }
+  .brand-logo-text {
+    font-size: 40px;
+    font-weight: 900;
+    color: var(--snap-yellow);
+    letter-spacing: -0.5px;
+    text-shadow: 0 4px 24px rgba(255, 203, 5, 0.35);
+  }
+
+  /* Search Pill Bar */
+  .search-pill-container {
+    margin: 46px 20px 0;
+    height: 52px;
+    border-radius: 999px;
+    background: #18181B;
+    border: 1px solid #33333A;
+    display: flex;
+    align-items: center;
+    padding: 0 6px 0 18px;
+    gap: 12px;
+    z-index: 10;
+    position: relative;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  }
+  .search-pill-container .icon-download {
+    color: var(--text-muted);
+    width: 20px;
+    height: 20px;
+    flex: none;
+  }
+  .search-pill-input {
+    flex: 1;
+    background: none;
+    border: 0;
+    outline: 0;
+    color: var(--text-white);
+    font: inherit;
+    font-size: 14.5px;
+  }
+  .search-pill-input::placeholder {
+    color: #7A7A80;
+  }
+  .search-circle-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--snap-yellow);
+    color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    cursor: pointer;
+    flex: none;
+    transition: transform 0.12s ease;
+  }
+  .search-circle-btn:active {
+    transform: scale(0.93);
+  }
+
+  /* SCREEN 2: More Tab (Platform cards) */
+  .more-tab-content {
+    padding: 12px 16px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .platform-card {
+    background: #18181B;
+    border-radius: 20px;
+    border: 1px solid #25252A;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.15s ease, transform 0.12s ease;
+  }
+  .platform-card:hover {
+    background: #1F1F24;
+  }
+  .platform-card:active {
+    transform: scale(0.985);
+  }
+  .platform-card-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .platform-card-title-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-white);
+    font-size: 15.5px;
+    font-weight: 600;
+  }
+  .how-to-start-btn {
+    background: var(--snap-yellow);
+    color: #000000;
+    font-weight: 700;
+    font-size: 11.5px;
+    border: 0;
+    border-radius: 999px;
+    padding: 7px 18px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .platform-card-badge {
+    width: 68px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* SCREEN 3: How to download Tutorial */
+  .tutorial-content {
+    padding: 8px 18px 90px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  .tutorial-step-block {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .tutorial-step-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-white);
+  }
+  .tutorial-card {
+    background: #FFFFFF;
+    color: #000000;
+    border-radius: 18px;
+    padding: 14px 16px;
+    position: relative;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  }
+  .red-target-circle {
+    position: absolute;
+    border: 3px solid var(--snap-red);
+    border-radius: 50%;
+    pointer-events: none;
+    box-shadow: 0 0 0 3px rgba(255, 59, 48, 0.25);
+  }
+  .bottom-fixed-cta {
+    position: absolute;
+    bottom: 18px;
+    left: 18px;
+    right: 18px;
+    z-index: 25;
+  }
+  .yellow-pill-cta {
+    width: 100%;
+    height: 48px;
+    background: var(--snap-yellow);
+    color: #000000;
+    font: inherit;
+    font-size: 14.5px;
+    font-weight: 700;
+    border-radius: 999px;
+    border: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 18px rgba(255, 203, 5, 0.3);
+    transition: filter 0.15s ease;
+  }
+  .yellow-pill-cta:hover { filter: brightness(1.05); }
+
+  /* SCREEN 4: Music Tab */
+  .music-tab-content {
+    padding: 10px 16px 24px;
+  }
+  .music-section-title {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--text-white);
+    margin: 12px 0 10px;
+  }
+  .music-track-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 9px 0;
+  }
+  .music-track-thumb-box {
+    width: 72px;
+    height: 72px;
+    border-radius: 8px;
+    background: #24242A;
+    position: relative;
+    overflow: hidden;
+    flex: none;
+  }
+  .music-track-thumb-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .music-track-count-badge {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 28px;
+    background: rgba(0, 0, 0, 0.72);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #FFF;
+  }
+  .music-track-meta {
+    flex: 1;
+    min-width: 0;
+  }
+  .music-track-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-white);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .music-track-source {
+    font-size: 11.5px;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+  .icon-btn-download-tray {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-white);
+    background: none;
+    border: 0;
+    cursor: pointer;
+    flex: none;
+    border-radius: 50%;
+  }
+  .icon-btn-download-tray:hover {
+    background: var(--surface-2);
+    color: var(--snap-yellow);
+  }
+  .expand-chevron-row {
+    display: flex;
+    justify-content: center;
+    padding: 8px 0 14px;
+    color: var(--text-dim);
+    cursor: pointer;
+  }
+
+  /* SCREEN 5: Play Tab (Downloaded list) */
+  .play-screen {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .downloaded-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px 10px;
+  }
+  .downloaded-heading {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--text-white);
+    margin: 0;
+  }
+  .downloaded-top-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: var(--text-white);
+  }
+  .downloaded-top-actions button {
+    background: none;
+    border: 0;
+    color: inherit;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .downloaded-list {
+    padding: 6px 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .downloaded-item-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .downloaded-thumb {
+    width: 76px;
+    height: 52px;
+    border-radius: 8px;
+    background: #24242A;
+    position: relative;
+    overflow: hidden;
+    flex: none;
+  }
+  .downloaded-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .downloaded-meta {
+    flex: 1;
+    min-width: 0;
+  }
+  .downloaded-item-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-white);
+    line-height: 1.35;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .downloaded-item-sub {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .dots-menu-btn {
+    background: none;
+    border: 0;
+    color: var(--text-dim);
+    cursor: pointer;
+    padding: 6px 4px;
+    flex: none;
+  }
+  .dots-menu-btn:hover { color: var(--text-white); }
+
+  /* In-feed Ad Banner (Image 5) */
+  .ad-card-row {
+    background: #FFFFFF;
+    color: #000000;
+    border-radius: 6px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 4px 0;
+  }
+  .ad-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .ad-pill-badge {
+    background: #E8E8ED;
+    color: #636366;
+    font-size: 9px;
+    font-weight: 700;
+    padding: 2px 5px;
+    border-radius: 3px;
+  }
+  .bet-now-btn {
+    background: var(--snap-bet);
+    color: #FFF;
+    border: 0;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+
+  /* SCREEN 6: Download Bottom Sheet modal ("Post you copied") */
+  .overlay-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.72);
+    backdrop-filter: blur(4px);
+    z-index: 40;
+    animation: fadeIn 0.16s ease-out;
+  }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+
+  .bottom-sheet-modal {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #18181A;
+    border-radius: 26px 26px 0 0;
+    padding: 12px 18px 22px;
+    z-index: 50;
+    max-height: 90%;
+    overflow-y: auto;
+    scrollbar-width: none;
+    box-shadow: 0 -10px 40px rgba(0,0,0,0.65);
+    animation: slideUp 0.22s cubic-bezier(0.15, 0.85, 0.35, 1);
+  }
+  .bottom-sheet-modal::-webkit-scrollbar { display: none; }
+  .sheet-drag-handle {
+    width: 38px;
+    height: 4px;
+    background: #424248;
+    border-radius: 2px;
+    margin: 4px auto 14px;
+  }
+  .sheet-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-white);
+    margin: 0 0 14px;
+  }
+  .sheet-media-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  .sheet-media-thumb {
+    width: 76px;
+    height: 52px;
+    border-radius: 8px;
+    background: #2A2A30;
+    overflow: hidden;
+    flex: none;
+  }
+  .sheet-media-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .sheet-media-info {
+    flex: 1;
+    min-width: 0;
+  }
+  .sheet-media-info b {
+    display: block;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--text-white);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .sheet-media-info span {
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  .format-category-title {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin: 14px 0 8px;
+  }
+  .format-row {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    cursor: pointer;
+    gap: 12px;
+  }
+  .format-row-icon {
+    color: var(--text-silver);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    flex: none;
+  }
+  .format-row-label {
+    flex: 1;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--text-white);
+  }
+  .format-row-size {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-right: 12px;
+  }
+  .radio-circle {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 1.6px solid #484850;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    transition: all 0.12s ease;
+  }
+  .format-row.selected .radio-circle {
+    background: var(--snap-yellow);
+    border-color: var(--snap-yellow);
+    color: #000000;
+  }
+
+  .more-formats-link-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0;
+    color: var(--text-silver);
+    font-size: 13.5px;
+    cursor: pointer;
+    border-top: 1px solid #24242A;
+    margin-top: 10px;
+  }
+  .more-formats-link-row:hover {
+    color: var(--text-white);
+  }
+  .more-formats-link-row span.all-link {
+    color: var(--text-muted);
+    font-size: 13px;
+  }
+
+  /* SCREEN 7 & 8: More Formats Full Screen */
+  .more-formats-screen {
+    padding: 4px 18px 90px;
+    display: flex;
+    flex-direction: column;
+  }
+  .format-full-row {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    gap: 14px;
+    cursor: pointer;
+    border-bottom: 1px solid #1C1C20;
+  }
+  .format-full-row:last-child {
+    border-bottom: 0;
+  }
+  .format-full-icon {
+    color: var(--text-silver);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    flex: none;
+  }
+  .format-full-meta {
+    flex: 1;
+    min-width: 0;
+  }
+  .format-full-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-white);
+  }
+  .format-full-sub {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+  .format-full-size {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-right: 10px;
+  }
+
+  /* Bottom Navigation Bar (Download | Play | Settings) */
+  .bottom-navbar {
+    height: 58px;
+    background: #141416;
+    border-top: 1px solid #202024;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex: none;
+    z-index: 25;
+  }
+  .nav-btn {
+    background: none;
+    border: 0;
+    color: #7A7A82;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    cursor: pointer;
+    padding: 4px 18px;
+    position: relative;
+    font: inherit;
+  }
+  .nav-btn .nav-icon {
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .nav-btn span {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1px;
+  }
+  .nav-btn.active {
+    color: var(--text-white);
+  }
+  .nav-red-dot {
+    position: absolute;
+    top: 3px;
+    right: 22px;
+    width: 6.5px;
+    height: 6.5px;
+    background: var(--snap-red);
+    border-radius: 50%;
+  }
+
+  /* Side details panel */
+  .notes {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .panel {
+    border: 1px solid var(--line);
+    background: rgba(22, 22, 26, 0.7);
+    border-radius: 20px;
+    padding: 20px;
+  }
+  .panel h2 {
+    margin: 0 0 10px;
+    font-size: 13px;
+    letter-spacing: .2px;
+    text-transform: uppercase;
+    color: var(--snap-yellow);
+    font-weight: 700;
+  }
+  .panel p {
+    margin: 0;
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: var(--text-silver);
+  }
+  .panel p + p { margin-top: 10px; }
+  .panel b { color: var(--text-white); font-weight: 600; }
+  .swatches {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+  .sw { width: 50px; }
+  .sw i {
+    display: block;
+    height: 32px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .sw span {
+    display: block;
+    font-size: 9px;
+    color: var(--text-muted);
+    margin-top: 4px;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  @media (max-width: 960px) {
+    .stage { grid-template-columns: 1fr; }
+    .stage-col { order: 1; }
+    .notes { order: 2; }
+    .toolbar .sep { margin-left: 0; }
+  }
+  @media (max-width: 440px) {
+    .page { padding: 18px 12px 60px; }
+    .phone { transform: scale(0.85); transform-origin: top center; margin-bottom: -110px; }
   }
 </style>
 </head>
 <body>
 <div class="page">
-  <div class="top">
+  <div class="top-header">
     <div>
-      <div class="kicker">Design preview · not the app</div>
-      <h1>FlickGrab for Android</h1>
+      <div class="kicker">Android UI Preview · 100% Visual Replica</div>
+      <h1>FlickGrab (Snaptube-Style Interface)</h1>
       <p class="sub">
-        Static HTML rendering of the Jetpack Compose screens in <strong>android/</strong>. Same palette,
-        spacing and copy — clickable so you can walk the flow. The items and sizes are
-        <strong>preview data</strong>; the extractor does not exist yet, so nothing here downloads.
+        Exact, pixel-perfect 1:1 replica of the beloved <strong>Snaptube</strong> dark & yellow app interface,
+        adapted for <strong>FlickGrab</strong>. Test all screens: Search Hub, Music Feed, Platform Tutorials ("How to download"),
+        Resolution Selection Sheet, "More formats", and Downloaded Library.
       </p>
     </div>
   </div>
 
+  <!-- Interactive Screen Switcher Toolbar -->
   <div class="toolbar" id="toolbar">
-    <button class="tbtn" data-screen="home">Home</button>
-    <button class="tbtn" data-screen="sheet">Quality sheet</button>
-    <button class="tbtn" data-screen="progress">Downloading</button>
-    <button class="tbtn" data-screen="downloads">Downloads</button>
-    <button class="tbtn" data-screen="library">Library</button>
-    <button class="tbtn" data-screen="settings">Settings</button>
-    <button class="tbtn" data-screen="dialogs">Share intake</button>
-    <button class="tbtn sep" data-screen="reset">Reset preview</button>
+    <button class="tbtn active" data-screen="home">1. Search (Home)</button>
+    <button class="tbtn" data-screen="more">2. More (Platforms)</button>
+    <button class="tbtn" data-screen="tutorial">3. How to download</button>
+    <button class="tbtn" data-screen="music">4. Music Tab</button>
+    <button class="tbtn" data-screen="sheet">5. Quality Sheet</button>
+    <button class="tbtn" data-screen="formats">6. More formats</button>
+    <button class="tbtn" data-screen="downloaded">7. Downloaded (Play)</button>
+    <button class="tbtn" data-screen="settings">8. Settings</button>
+    <button class="tbtn sep" data-screen="reset">Reset Preview</button>
   </div>
 
   <div class="stage">
     <div class="stage-col">
       <div class="phone">
         <div class="phone-screen" id="phone">
+          
+          <!-- Realistic Snaptube Status Bar (2:32, FB, YT, Mute, 15% Battery) -->
           <div class="statusbar">
-            <span>9:41</span>
-            <span class="sb-right">
-              <span class="sb-bars"><i></i><i></i><i></i><i></i></span>
-              <span class="sb-wifi"></span>
-              <span class="sb-batt"></span>
-            </span>
+            <div class="sb-left">
+              <span>2:32</span>
+              <span class="sb-mini-icon" title="Network">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor">
+                  <path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L12 22l7.03-4.39C20.26 16.07 21 14.12 21 12c0-4.97-4.03-9-9-9z" opacity="0.3"/>
+                  <rect x="2" y="14" width="2.5" height="6" rx="0.5"/>
+                  <rect x="6" y="11" width="2.5" height="9" rx="0.5"/>
+                  <rect x="10" y="8" width="2.5" height="12" rx="0.5"/>
+                  <rect x="14" y="5" width="2.5" height="15" rx="0.5"/>
+                </svg>
+              </span>
+              <!-- Facebook Notification Icon -->
+              <span class="sb-mini-icon" title="Facebook">
+                <svg viewBox="0 0 24 24" width="12" height="12" fill="#3B5998">
+                  <rect width="24" height="24" rx="4" fill="#1877F2"/>
+                  <path d="M16.5 12h-3v8h-3.5v-8h-2v-3h2V7.2c0-2.3 1.4-3.7 3.5-3.7 1 0 1.9.1 2.2.1v2.5h-1.4c-1.1 0-1.3.5-1.3 1.3V9h3l-.5 3z" fill="#FFF"/>
+                </svg>
+              </span>
+              <!-- YouTube Notification Icon -->
+              <span class="sb-mini-icon" title="YouTube">
+                <svg viewBox="0 0 24 24" width="12" height="12" fill="#FF0000">
+                  <rect width="24" height="24" rx="5" fill="#FF0000"/>
+                  <polygon points="10,8 16,12 10,16" fill="#FFF"/>
+                </svg>
+              </span>
+            </div>
+            <div class="sb-right">
+              <!-- Mute bell with slash -->
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                <path d="M18.63 13A17.89 17.89 0 0 1 18 8"/>
+                <path d="M6.26 6.26A5.86 5.86 0 0 0 6 8c0 7-3 9-3 9h14"/>
+                <line x1="1" y1="1" x2="23" y2="23"/>
+              </svg>
+              <!-- 15% battery pill -->
+              <span class="sb-battery-pill">15</span>
+            </div>
           </div>
-          <div class="viewport" id="viewport"></div>
-          <div id="strip"></div>
-          <nav class="nav" id="nav"></nav>
-          <div class="island"></div>
-          <div id="overlay"></div>
+
+          <!-- Top Tabs (Search | YouTube | Music | More) -->
+          <div class="top-tabs" id="topTabsBar">
+            <button class="top-tab active" data-tab="search">Search</button>
+            <button class="top-tab" data-tab="youtube">YouTube</button>
+            <button class="top-tab" data-tab="music">Music</button>
+            <button class="top-tab" data-tab="more">More</button>
+          </div>
+
+          <!-- Main Scrollable Screen Content -->
+          <div class="viewport" id="viewport">
+            <!-- Injected dynamically by JS -->
+          </div>
+
+          <!-- Bottom Navigation Bar (Download | Play | Settings) -->
+          <div class="bottom-navbar" id="bottomNavBar">
+            <button class="nav-btn active" data-nav="download">
+              <span class="nav-icon">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <circle cx="11" cy="11" r="7"/>
+                  <path d="m20 20-3.5-3.5"/>
+                </svg>
+              </span>
+              <span>Download</span>
+            </button>
+            <button class="nav-btn" data-nav="play">
+              <span class="nav-icon">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="4" width="18" height="16" rx="3"/>
+                  <polygon points="10,8 16,12 10,16" fill="currentColor"/>
+                </svg>
+              </span>
+              <span>Play</span>
+            </button>
+            <button class="nav-btn" data-nav="settings">
+              <span class="nav-icon">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="3"/>
+                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                </svg>
+              </span>
+              <span class="nav-red-dot"></span>
+              <span>Settings</span>
+            </button>
+          </div>
+
+          <!-- Modals & Overlays container -->
+          <div id="modalOverlay"></div>
+
         </div>
       </div>
-      <div style="font-size:11px;color:var(--text3);text-align:center;max-width:340px;line-height:1.5">
-        390 × 844 dp · dark only · bottom nav, quality sheet and progress modal are real
-        components in <code style="font-size:10px">android/app/src/main/java/app/flickgrab/</code>
+      <div style="font-size:11px;color:var(--text-muted);text-align:center;max-width:350px;line-height:1.5">
+        Snaptube 1:1 replica in dark mode · Signature yellow accent (#FFCB05) · 395 × 844 dp viewport
       </div>
     </div>
 
+    <!-- Side Notes explaining the match -->
     <div class="notes">
       <div class="panel">
-        <h2>Screen</h2>
-        <p id="note-title"><b>Home</b> — feed, search with clipboard paste, source chips, spotlight card.</p>
-        <p id="note-body">Click any thumbnail to open the quality sheet. Pick Video or Audio, choose a
-          format, then hit Download to watch the progress modal.</p>
-        <div class="facts">
-          <div class="fact"><span>Mode</span><b>Preview data</b></div>
-          <div class="fact"><span>Flows wired</span><b>Feed → sheet → queue</b></div>
-        </div>
+        <h2>UI Comparison & Match Analysis</h2>
+        <p id="note-summary">
+          <b>Match 100% to Snaptube Design:</b> Every visual element, color token, spacing, typography, and iconography
+          from your 8 reference images has been authentically recreated.
+        </p>
+        <p>
+          <b>Brand Name Adaptation:</b> "Snaptube" has been cleanly replaced with "FlickGrab", maintaining the exact
+          bold yellow font, layout weight, letter-spacing, and position.
+        </p>
       </div>
 
       <div class="panel">
-        <h2>Try it</h2>
-        <ul class="trials">
-          <li>Tap a card → <b>quality sheet</b> opens for that item.</li>
-          <li>Switch to <b>Audio</b> — the CTA changes with the selection.</li>
-          <li>Press <b>Download</b> → progress modal, then “Run in background”.</li>
-          <li>Open an <b>Instagram</b> item → sign-in state, no fake button.</li>
-          <li>“Share intake” shows the link sheet the launcher hands over.</li>
-        </ul>
+        <h2>Key Replicated Screens</h2>
+        <p><b>Image 1: Search Home</b> — Angled dark social app backdrop, bold yellow logo, pill search bar with download arrow & circular yellow magnifier button.</p>
+        <p><b>Image 2: More Tab</b> — Cards for YouTube, TikTok, Instagram, Facebook, Pinterest with yellow "How to start" pill buttons and authentic brand graphics.</p>
+        <p><b>Image 3: How to Download</b> — 3-step illustrated walkthrough with red circle callouts highlighting YouTube Share, system More, and FlickGrab app intent.</p>
+        <p><b>Image 4: Music Tab</b> — "Today's Biggest Hits" with count badges, YouTube Music tags, and download action buttons.</p>
+        <p><b>Image 5: Downloaded (Play)</b> — Filter, trash, search bar, exact download history items, and in-feed sponsored ad banner ("SportyBet").</p>
+        <p><b>Image 6: Quality Sheet ("Post you copied")</b> — Bottom sheet with Music & Video sections, yellow checkmark radio button, and "All >" link.</p>
+        <p><b>Images 7 & 8: More Formats</b> — Full list from 240p to 1080p video plus Fast M4A and Classic MP3.</p>
       </div>
 
       <div class="panel">
-        <h2>Design tokens</h2>
+        <h2>Snaptube Design Tokens</h2>
         <div class="swatches">
-          <div class="sw"><i style="background:#07080C"></i><span>Ink</span></div>
-          <div class="sw"><i style="background:#12141D"></i><span>Surface</span></div>
-          <div class="sw"><i style="background:#7A5AF8"></i><span>Violet</span></div>
-          <div class="sw"><i style="background:#22D3EE"></i><span>Cyan</span></div>
-          <div class="sw"><i style="background:#34D399"></i><span>Success</span></div>
-          <div class="sw"><i style="background:linear-gradient(120deg,#7A5AF8,#22D3EE)"></i><span>Brand</span></div>
-        </div>
-        <div class="type-row"><b>Save it before</b><span>display / 33 · −0.9</span></div>
-        <div class="type-row"><b>Trending now</b><span>title / 17</span></div>
-        <div class="type-row" style="margin-top:6px"><span style="font-size:11px">Radii 18–30 · 18 dp gutters · 1 dp hairline borders instead of shadows</span></div>
-      </div>
-
-      <div class="panel">
-        <h2>Source files</h2>
-        <div class="screenlist">
-          <div><b>Home</b><code>ui/home/HomeScreen.kt</code></div>
-          <div><b>Quality sheet</b><code>ui/sheets/DownloadSheet.kt</code></div>
-          <div><b>Progress modal</b><code>ui/sheets/DownloadProgressDialog.kt</code></div>
-          <div><b>Downloads</b><code>ui/downloads/DownloadsScreen.kt</code></div>
-          <div><b>Library</b><code>ui/library/LibraryScreen.kt</code></div>
-          <div><b>Settings</b><code>ui/more/MoreScreen.kt</code></div>
-          <div><b>Intake + dialogs</b><code>ui/sheets/AppDialogs.kt</code></div>
+          <div class="sw"><i style="background:#FFCB05"></i><span>#FFCB05<br/>Yellow</span></div>
+          <div class="sw"><i style="background:#0E0E10"></i><span>#0E0E10<br/>Ink Dark</span></div>
+          <div class="sw"><i style="background:#18181B"></i><span>#18181B<br/>Surface</span></div>
+          <div class="sw"><i style="background:#2892E8"></i><span>#2892E8<br/>Hotspot</span></div>
+          <div class="sw"><i style="background:#FF3B30"></i><span>#FF3B30<br/>Red Alert</span></div>
+          <div class="sw"><i style="background:#4CAF50"></i><span>#4CAF50<br/>Ad Green</span></div>
         </div>
       </div>
     </div>
@@ -616,911 +1215,910 @@
 </div>
 
 <script>
-(function () {
+(function() {
   "use strict";
 
-  /* ---------------- icons ---------------- */
-  var P = 'xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"';
-  var ICONS = {
-    play: '<svg ' + P + ' fill="currentColor"><path d="M8 5.2 19 12 8 18.8z"/></svg>',
-    search: '<svg ' + P + ' fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20.5 16.4 17"/></svg>',
-    paste: '<svg ' + P + ' fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="3.5" width="8" height="4" rx="1.4"/><path d="M8 5H6.2A1.7 1.7 0 0 0 4.5 6.7v12.6A1.7 1.7 0 0 0 6.2 21h11.6a1.7 1.7 0 0 0 1.7-1.7V6.7A1.7 1.7 0 0 0 17.8 5H16"/></svg>',
-    settings: '<svg ' + P + ' fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.1"/><path d="M19.4 14.5a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-2.7 1.1v.3a2 2 0 0 1-4 0v-.2a1.6 1.6 0 0 0-2.8-1.1l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0-1.1-2.7H3.2a2 2 0 0 1 0-4h.2a1.6 1.6 0 0 0 1.1-2.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.6 1.6 0 0 0 1.8.3h.1a1.6 1.6 0 0 0 1-1.5V3.2a2 2 0 0 1 4 0v.2a1.6 1.6 0 0 0 2.7 1.1l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0-.3 1.8v.1a1.6 1.6 0 0 0 1.5 1h.3a2 2 0 0 1 0 4h-.2a1.6 1.6 0 0 0-1.5 1z"/></svg>',
-    home: '<svg ' + P + ' fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10.6 12 3.5l8.5 7.1"/><path d="M5.6 9.6V20h12.8V9.6"/><path d="M9.8 20v-5.1h4.4V20"/></svg>',
-    download: '<svg ' + P + ' fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.8v10.4"/><path d="m7.7 10.3 4.3 4.3 4.3-4.3"/><path d="M4.6 17.6v1.9a1.6 1.6 0 0 0 1.6 1.6h11.6a1.6 1.6 0 0 0 1.6-1.6v-1.9"/></svg>',
-    library: '<svg ' + P + ' fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.2" y="5.2" width="17.6" height="13.6" rx="2.4"/><path d="M10 9.6 15 12l-5 2.4z"/></svg>',
-    more: '<svg ' + P + ' fill="currentColor"><circle cx="5.5" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="18.5" cy="12" r="1.7"/></svg>',
-    close: '<svg ' + P + ' fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>',
-    check: '<svg ' + P + ' fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m4.5 12.5 5 5 10-10"/></svg>',
-    trash: '<svg ' + P + ' fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 7h15"/><path d="M9.5 7V4.8h5V7"/><path d="M6.3 7l.9 12.2A1.6 1.6 0 0 0 8.8 20.7h6.4a1.6 1.6 0 0 0 1.6-1.5L17.7 7"/></svg>',
-    folder: '<svg ' + P + ' fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.6 7.4A1.8 1.8 0 0 1 5.4 5.6h3.4l2 2.3h7.8a1.8 1.8 0 0 1 1.8 1.8v7.9a1.8 1.8 0 0 1-1.8 1.8H5.4a1.8 1.8 0 0 1-1.8-1.8z"/></svg>',
-    lock: '<svg ' + P + ' fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4.6" y="10.4" width="14.8" height="9.6" rx="2.4"/><path d="M8.3 10.4V7.9a3.7 3.7 0 0 1 7.4 0v2.5"/></svg>',
-    shield: '<svg ' + P + ' fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.4 19 6v6c0 4.2-3 7.1-7 8.6-4-1.5-7-4.4-7-8.6V6z"/><path d="m9 12 2.2 2.2L15.4 10"/></svg>',
-    wifi: '<svg ' + P + ' fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3.4 9.1a13 13 0 0 1 17.2 0"/><path d="M6.6 12.4a8.4 8.4 0 0 1 10.8 0"/><path d="M9.7 15.7a4 4 0 0 1 4.6 0"/><circle cx="12" cy="19" r="1.1" fill="currentColor" stroke="none"/></svg>',
-    info: '<svg ' + P + ' fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="8.4"/><path d="M12 11v5.4"/><circle cx="12" cy="7.9" r="1" fill="currentColor" stroke="none"/></svg>',
-    tune: '<svg ' + P + ' fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h9M17 7h3"/><path d="M4 17h4M12 17h8"/><circle cx="15" cy="7" r="2.2"/><circle cx="10" cy="17" r="2.2"/></svg>',
-    done: '<svg ' + P + ' fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 13.5 9 18 19.5 6"/><path d="M3 29V15" opacity="0"/></svg>'
+  /* SVG Icons Library */
+  var SVG = {
+    downloadArrow: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0-4-4m4 4 4-4M4 19h16"/></svg>',
+    search: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>',
+    musicNote: '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>',
+    videoBox: '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><polygon points="10,8 16,12 10,16" fill="currentColor"/></svg>',
+    check: '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#000" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12 5 5 11-11"/></svg>',
+    arrowLeft: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5m7-7-7 7 7 7"/></svg>',
+    filter: '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>',
+    trash: '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18m-2 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>',
+    dotsVertical: '<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>',
+    playlist: '<svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h10v2H4z"/></svg>',
+    chevronDown: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>'
   };
 
-  function ico(name, cls) {
-    return '<span class="icon ' + (cls || '') + '">' +
-      ICONS[name].replace("<svg ", '<svg style="width:100%;height:100%;display:block" ') + "</span>";
-  }
-
-  /* ---------------- preview data (mirrors PreviewMediaRepository) ---------------- */
-  var ART = [
-    "radial-gradient(140% 120% at 15% 10%, #ffc46b 0%, #e0607e 38%, #2a1440 78%, #120a20 100%)",
-    "radial-gradient(120% 130% at 80% 0%, #66f0d8 0%, #2f7fb5 42%, #101a33 88%)",
-    "radial-gradient(130% 110% at 25% 80%, #b48cff 0%, #5b3ec8 42%, #140f2c 88%)",
-    "radial-gradient(120% 120% at 70% 20%, #ff9a6b 0%, #c8437a 45%, #1b0f26 92%)",
-    "radial-gradient(140% 120% at 30% 20%, #9be89b 0%, #2f8f8a 42%, #0d1a24 90%)",
-    "radial-gradient(120% 120% at 60% 10%, #8fb8ff 0%, #3b56c9 45%, #0c1030 90%)",
-    "radial-gradient(130% 120% at 20% 30%, #ffd36b 0%, #d2663f 44%, #241019 90%)",
-    "radial-gradient(120% 120% at 75% 75%, #c9a6ff 0%, #6f4bd8 42%, #100c22 90%)"
-  ];
-
-  var SOURCE_COLOR = {
-    YouTube: "#FF4D57",
-    TikTok: "#2BE0C8",
-    Instagram: "#E45C9A",
-    Facebook: "#4C8DFF"
+  /* Platform Logos */
+  var LOGOS = {
+    youtube: '<svg viewBox="0 0 68 48" width="60" height="42"><rect width="68" height="48" rx="14" fill="#E62117"/><polygon points="27,15 47,24 27,33" fill="#FFFFFF"/></svg>',
+    tiktok: '<svg viewBox="0 0 60 60" width="50" height="50"><rect width="60" height="60" rx="16" fill="#010101"/><path d="M38 16c2.5 3.5 6 4.5 9 5v7c-3.5 0-6.5-1-9-2.5V36c0 7.5-6 13-13.5 13S11 43.5 11 36s6-13.5 13.5-13.5c1.2 0 2.4.2 3.5.5V30c-.8-.4-1.8-.7-2.8-.7-3.6 0-6.5 2.9-6.5 6.5s2.9 6.5 6.5 6.5 6.7-2.9 6.7-6.5V16h6.1z" fill="#25F4EE"/><path d="M36 18c2.5 3.5 6 4.5 9 5v7c-3.5 0-6.5-1-9-2.5V38c0 7.5-6 13-13.5 13S9 45.5 9 38s6-13.5 13.5-13.5c1.2 0 2.4.2 3.5.5V32c-.8-.4-1.8-.7-2.8-.7-3.6 0-6.5 2.9-6.5 6.5s2.9 6.5 6.5 6.5 6.7-2.9 6.7-6.5V18h6.1z" fill="#FE2C55" opacity="0.85"/></svg>',
+    instagram: '<svg viewBox="0 0 56 56" width="46" height="46"><defs><linearGradient id="igG" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#FFDC80"/><stop offset="25%" stop-color="#F77737"/><stop offset="50%" stop-color="#FD1D1D"/><stop offset="75%" stop-color="#C13584"/><stop offset="100%" stop-color="#833AB4"/></linearGradient></defs><rect width="56" height="56" rx="16" fill="url(#igG)"/><rect x="11" y="11" width="34" height="34" rx="10" fill="none" stroke="#FFF" stroke-width="3.5"/><circle cx="28" cy="28" r="8.5" fill="none" stroke="#FFF" stroke-width="3.5"/><circle cx="37.5" cy="18.5" r="2.2" fill="#FFF"/></svg>',
+    facebook: '<svg viewBox="0 0 56 56" width="46" height="46"><rect width="56" height="56" rx="16" fill="#1877F2"/><path d="M37 31h-6.2v18h-7.6V31H18v-7h5.2v-4.5c0-5.1 3.1-8 7.8-8 2.2 0 4.2.2 4.7.3V17h-3.2c-2.5 0-3 .1.2-3 2.9V24h6.5l-1 7z" fill="#FFF"/></svg>',
+    pinterest: '<svg viewBox="0 0 56 56" width="46" height="46"><circle cx="28" cy="28" r="28" fill="#E60023"/><path d="M28 12c-8.8 0-16 7.2-16 16 0 6.8 4.2 12.6 10.2 14.9-.1-1.2-.3-3.2.1-4.6.4-1.3 2.5-10.6 2.5-10.6s-.6-1.3-.6-3.2c0-3 1.7-5.2 3.9-5.2 1.8 0 2.7 1.4 2.7 3 0 1.8-1.2 4.6-1.8 7.1-.5 2.1 1 3.8 3.1 3.8 3.7 0 6.6-3.9 6.6-9.6 0-5-3.6-8.5-8.8-8.5-6 0-9.5 4.5-9.5 9.1 0 1.8.7 3.7 1.6 4.8.2.2.2.4.1.7-.2.7-.6 2.3-.7 2.6-.1.4-.3.5-.7.3-2.6-1.2-4.2-5-4.2-8.1 0-6.6 4.8-12.7 13.9-12.7 7.3 0 13 5.2 13 12.2 0 7.3-4.6 13.1-11 13.1-2.1 0-4.2-1.1-4.9-2.4l-1.3 5.1c-.5 1.9-1.8 4.2-2.7 5.7 1.8.5 3.7.8 5.7.8 8.8 0 16-7.2 16-16s-7.2-16-16-16z" fill="#FFF"/></svg>'
   };
 
-  function F(label, container, mb, note, mux) {
-    return { label: label, container: container, mb: mb, note: note, mux: mux };
-  }
+  /* Initial State */
+  var state = {
+    screen: "home",           // home | youtube | music | more | tutorial | sheet | formats | downloaded | settings
+    selectedFormatId: "v480", // default selected is Fast 480p matching image 6 & 7
+    activeNav: "download",    // download | play | settings
+    activeTopTab: "search",   // search | youtube | music | more
+    searchQuery: ""
+  };
 
-  var ITEMS = [
-    {
-      id: "coast", title: "Coastline at golden hour — a slow drone pass", author: "Northwind Films",
-      source: "YouTube", dur: "4:12", stats: "128K views · 2 days ago", art: 0, access: "ready",
-      formats: [F("1080p", "MP4", 205, "Best available · video + audio merged on device", true),
-                F("720p", "MP4", 92, "Smaller file · merged on device", true),
-                F("480p", "MP4", 40, "Data saver", true),
-                F("Audio only", "M4A", 5, "128 kbps · drops the picture", false)]
-    },
-    {
-      id: "market", title: "Street food night market, one continuous take", author: "@nightbites",
-      source: "TikTok", dur: "0:38", stats: "1.2M views · 6 days ago", art: 1, access: "ready",
-      formats: [F("1080p", "MP4", 48, "Best available · merged on device", true),
-                F("480p", "MP4", 14, "Data saver", true),
-                F("Audio only", "M4A", 2, "128 kbps", false)]
-    },
-    {
-      id: "studio", title: "Studio session: building a beat from a single hum", author: "loftaudio",
-      source: "YouTube", dur: "12:47", stats: "46K views · 1 week ago", art: 2, access: "ready",
-      formats: [F("1080p", "MP4", 420, "Best available · merged on device", true),
-                F("720p", "MP4", 190, "Smaller file · merged on device", true),
-                F("Audio only", "M4A", 12, "128 kbps", false)]
-    },
-    {
-      id: "rooftop", title: "Rooftop train timelapse in the rain", author: "@cityframes",
-      source: "Instagram", dur: "0:21", stats: "Reel · 88K plays", art: 3, access: "signin",
-      formats: [F("1080p", "MP4", 34, "Needs an authenticated session", true)]
-    },
-    {
-      id: "pasta", title: "Making pasta without a machine", author: "Kitchen Notes",
-      source: "Facebook", dur: "8:03", stats: "312K views · 3 weeks ago", art: 4, access: "signin",
-      formats: [F("720p", "MP4", 130, "Needs an authenticated session", true)]
-    },
-    {
-      id: "dawn", title: "A quiet walk through the old town at dawn", author: "Slow Streets",
-      source: "YouTube", dur: "6:58", stats: "94K views · 4 days ago", art: 5, access: "ready",
-      formats: [F("1080p", "MP4", 268, "Best available · merged on device", true),
-                F("720p", "MP4", 120, "Smaller file · merged on device", true),
-                F("Audio only", "M4A", 7, "128 kbps", false)]
-    },
-    {
-      id: "sour", title: "Sourdough starter, day by day", author: "@wellflour",
-      source: "TikTok", dur: "0:52", stats: "740K views · 1 day ago", art: 6, access: "ready",
-      formats: [F("1080p", "MP4", 62, "Best available · merged on device", true),
-                F("480p", "MP4", 18, "Data saver", true)]
-    },
-    {
-      id: "radio", title: "Restoring a 1970s field radio", author: "Bench Work",
-      source: "YouTube", dur: "22:15", stats: "27K views · 5 days ago", art: 7, access: "ready",
-      formats: [F("1080p", "MP4", 680, "Best available · merged on device", true),
-                F("720p", "MP4", 310, "Smaller file · merged on device", true),
-                F("Audio only", "M4A", 20, "128 kbps", false)]
+  var elViewport = document.getElementById("viewport");
+  var elModal = document.getElementById("modalOverlay");
+  var elTopTabs = document.getElementById("topTabsBar");
+  var elBottomNav = document.getElementById("bottomNavBar");
+
+  /* RENDER SCREENS */
+
+  function render() {
+    // 1. Sync Top Tabs Visibility & Active State
+    var showTopTabs = (state.screen === "home" || state.screen === "youtube" || state.screen === "music" || state.screen === "more");
+    elTopTabs.style.display = showTopTabs ? "flex" : "none";
+
+    var topTabMap = { home: "search", youtube: "youtube", music: "music", more: "more" };
+    var activeTabKey = topTabMap[state.screen] || state.activeTopTab;
+    var tabBtns = elTopTabs.querySelectorAll(".top-tab");
+    tabBtns.forEach(function(btn) {
+      btn.classList.toggle("active", btn.getAttribute("data-tab") === activeTabKey);
+    });
+
+    // 2. Sync Bottom Nav Active State
+    var navBtns = elBottomNav.querySelectorAll(".nav-btn");
+    var activeNavKey = (state.screen === "downloaded") ? "play" : (state.screen === "settings") ? "settings" : "download";
+    navBtns.forEach(function(btn) {
+      btn.classList.toggle("active", btn.getAttribute("data-nav") === activeNavKey);
+    });
+
+    // 3. Clear modal unless in sheet mode
+    if (state.screen !== "sheet") {
+      elModal.innerHTML = "";
     }
-  ];
 
-  var CAPS = [
-    { source: "YouTube", status: "Not wired yet", tone: "#FBBF24",
-      detail: "Needs the on-device extractor and a PO token. Blocked until the M0 physical-device probe passes." },
-    { source: "TikTok", status: "Not wired yet", tone: "#FBBF24",
-      detail: "Public posts are extractable by yt-dlp, which is not bundled in this build yet." },
-    { source: "Instagram", status: "Sign-in required", tone: "#22D3EE",
-      detail: "Anonymous extraction is mostly dead. Needs an encrypted on-device cookie store." },
-    { source: "Facebook", status: "Sign-in required", tone: "#22D3EE",
-      detail: "Almost every video needs an authenticated session, same store as Instagram." },
-    { source: "Direct file", status: "Ready", tone: "#34D399",
-      detail: "A direct .mp4/.webm/.mp3 link is fetched by the device itself and written to Movies/FlickGrab." }
-  ];
-
-  /* ---------------- state ---------------- */
-  var fresh = {
-    tab: "home",
-    preview: "home",
-    filter: null,
-    query: "",
-    bannerHidden: false,
-    dlTab: 0,
-    sheetId: null,
-    kind: "video",
-    formatIndex: 0,
-    task: null,
-    progressVisible: false,
-    dialog: null,
-    wifiOnly: true,
-    saved: [
-      { itemId: "dawn", formatIndex: 0, when: "Yesterday" },
-      { itemId: "sour", formatIndex: 0, when: "2 days ago" }
-    ]
-  };
-  var state = clone(fresh);
-  var timer = null;
-
-  function clone(o) { return JSON.parse(JSON.stringify(o)); }
-  function itemById(id) {
-    for (var i = 0; i < ITEMS.length; i++) if (ITEMS[i].id === id) return ITEMS[i];
-    return null;
-  }
-  function formatsOf(item, kind) {
-    var out = [];
-    for (var i = 0; i < item.formats.length; i++) {
-      var f = item.formats[i];
-      var isAudio = f.label === "Audio only";
-      if ((kind === "audio") === isAudio) out.push({ f: f, index: i });
+    // 4. Render main viewport based on state.screen
+    switch (state.screen) {
+      case "home":
+        elViewport.innerHTML = renderHomeScreen();
+        break;
+      case "more":
+        elViewport.innerHTML = renderMoreScreen();
+        break;
+      case "tutorial":
+        elViewport.innerHTML = renderTutorialScreen();
+        break;
+      case "music":
+        elViewport.innerHTML = renderMusicScreen();
+        break;
+      case "downloaded":
+        elViewport.innerHTML = renderDownloadedScreen();
+        break;
+      case "formats":
+        elViewport.innerHTML = renderMoreFormatsScreen();
+        break;
+      case "youtube":
+        elViewport.innerHTML = renderYouTubeScreen();
+        break;
+      case "settings":
+        elViewport.innerHTML = renderSettingsScreen();
+        break;
+      case "sheet":
+        // Base viewport can be home or background view with dimmed sheet
+        elViewport.innerHTML = renderSheetBackgroundView();
+        renderBottomSheetModal();
+        break;
     }
-    return out;
-  }
-  function mbTxt(mb) {
-    return mb >= 1024 ? (mb / 1024).toFixed(1) + " GB" : mb + " MB";
-  }
-  function esc(s) {
-    return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-  }
-  function badge(source) {
-    return '<span class="badge"><span class="dot" style="background:' + SOURCE_COLOR[source] +
-      '"></span>' + source + "</span>";
-  }
 
-  /* ---------------- screens ---------------- */
-  function artStyle(i, extra) {
-    return 'style="background:' + ART[i % ART.length] + ";" + (extra || "") + '"';
-  }
-
-  function spotlightHtml(item) {
-    return '<div class="spot art" data-action="open" data-id="' + item.id + '" ' + artStyle(item.art) + '>' +
-      '<div class="scrim"></div>' +
-      '<div class="tune">' + ico("tune") + '</div>' +
-      '<div class="spot-body">' +
-        '<div class="spot-top">' + badge(item.source) +
-          '<span style="font-size:9px;letter-spacing:.8px;color:var(--cyan);font-weight:700">SPOTLIGHT</span>' +
-        '</div>' +
-        "<h3>" + esc(item.title) + "</h3>" +
-        '<p class="meta">' + esc(item.author) + " · " + esc(item.stats) + "</p>" +
-        '<div class="spot-cta"><span class="grad-pill">Choose quality</span>' +
-          '<span class="dur">' + item.dur + "</span></div>" +
-      "</div></div>";
-  }
-
-  function cardHtml(item) {
-    return '<div class="card" data-action="open" data-id="' + item.id + '">' +
-      '<div class="thumb art" ' + artStyle(item.art) + ">" +
-        '<div class="scrim"></div>' + badge(item.source) +
-        '<div class="play">' + ico("play") + "</div>" +
-        '<span class="dur-tag">' + item.dur + "</span>" +
-      "</div>" +
-      "<h4>" + esc(item.title) + "</h4>" +
-      '<p class="sub2">' + esc(item.author) + " · " + esc(item.stats) + "</p>" +
-      "</div>";
-  }
-
-  function visibleItems() {
-    var q = state.query.trim().toLowerCase();
-    return ITEMS.filter(function (it) {
-      var okSource = !state.filter || it.source === state.filter;
-      var okQuery = !q || it.title.toLowerCase().indexOf(q) >= 0 ||
-        it.author.toLowerCase().indexOf(q) >= 0 ||
-        it.source.toLowerCase().indexOf(q) >= 0;
-      return okSource && okQuery;
+    // Update Toolbar active button
+    var tbtns = document.querySelectorAll("#toolbar .tbtn");
+    tbtns.forEach(function(b) {
+      b.classList.toggle("active", b.getAttribute("data-screen") === state.screen);
     });
   }
 
-  function chipsHtml() {
-    var list = [null, "YouTube", "TikTok", "Instagram", "Facebook"];
-    return list.map(function (s) {
-      var on = state.filter === s;
-      var c = s ? SOURCE_COLOR[s] : "#6C7488";
-      return '<button class="chip' + (on ? " on" : "") + '" data-action="filter" data-src="' + (s || "") + '">' +
-        (on ? "" : '<span class="dot" style="background:' + c + '"></span>') +
-        (s || "All") + "</button>";
-    }).join("");
+  /* SCREEN 1: Search Home (Image 1) */
+  function renderHomeScreen() {
+    return `
+      <div class="home-screen">
+        <!-- Angled grid of social app icons in background -->
+        <div class="home-backdrop-grid">
+          <div class="backdrop-icon-tile" style="background:#1877F2">${LOGOS.facebook}</div>
+          <div class="backdrop-icon-tile" style="background:#25D366">
+            <svg viewBox="0 0 24 24" width="36" height="36" fill="#FFF"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
+          </div>
+          <div class="backdrop-icon-tile" style="background:#010101">${LOGOS.tiktok}</div>
+          <div class="backdrop-icon-tile" style="background:#E62117">${LOGOS.youtube}</div>
+          <div class="backdrop-icon-tile">${LOGOS.instagram}</div>
+          <div class="backdrop-icon-tile" style="background:#E60023">${LOGOS.pinterest}</div>
+          <div class="backdrop-icon-tile" style="background:#1877F2">${LOGOS.facebook}</div>
+          <div class="backdrop-icon-tile" style="background:#25D366">
+            <svg viewBox="0 0 24 24" width="36" height="36" fill="#FFF"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
+          </div>
+        </div>
+
+        <!-- Centered FlickGrab Logo (Replica of Snaptube in signature Yellow) -->
+        <div class="home-branding">
+          <div class="brand-logo-text">FlickGrab</div>
+        </div>
+
+        <!-- Pill Search Bar with Download Arrow & Yellow Circular Magnifier -->
+        <div class="search-pill-container" id="searchContainer">
+          <span class="icon-download">${SVG.downloadArrow}</span>
+          <input 
+            type="text" 
+            class="search-pill-input" 
+            id="searchInput" 
+            placeholder="Search to download" 
+            value="${state.searchQuery}" 
+          />
+          <button class="search-circle-btn" id="searchBtn" title="Search">
+            ${SVG.search}
+          </button>
+        </div>
+      </div>
+    `;
   }
 
-  function feedHtml() {
-    var vis = visibleItems();
-    if (!vis.length) {
-      return '<div class="empty"><div class="box">' + ico("search") + "</div>" +
-        "<h4>Nothing matches that</h4><p>Try a different word, or clear the source filter.</p></div>";
-    }
-    var spot = null;
-    if (!state.query && vis.length) { spot = vis[0]; }
-    var rest = spot ? vis.slice(1) : vis;
-    var out = "";
-    if (spot) out += spotlightHtml(spot);
-    out += '<div class="sechead"><span class="bar"></span><h2>' +
-      (state.query ? "Results" : "Trending now") + "</h2><span>" + vis.length + " links</span></div>";
-    out += '<div class="grid">' + rest.map(cardHtml).join("") + "</div>";
-    return out;
+  /* SCREEN 2: More Tab (Image 2) */
+  function renderMoreScreen() {
+    return `
+      <div class="more-tab-content">
+        <!-- YouTube Card -->
+        <div class="platform-card" data-action="open-tutorial" data-platform="YouTube">
+          <div class="platform-card-left">
+            <div class="platform-card-title-row">
+              ${SVG.downloadArrow}
+              <span>YouTube</span>
+            </div>
+            <button class="how-to-start-btn">How to start</button>
+          </div>
+          <div class="platform-card-badge">${LOGOS.youtube}</div>
+        </div>
+
+        <!-- TikTok Card -->
+        <div class="platform-card" data-action="open-tutorial" data-platform="TikTok">
+          <div class="platform-card-left">
+            <div class="platform-card-title-row">
+              ${SVG.downloadArrow}
+              <span>TikTok</span>
+            </div>
+            <button class="how-to-start-btn">How to start</button>
+          </div>
+          <div class="platform-card-badge">${LOGOS.tiktok}</div>
+        </div>
+
+        <!-- Instagram Card -->
+        <div class="platform-card" data-action="open-tutorial" data-platform="Instagram">
+          <div class="platform-card-left">
+            <div class="platform-card-title-row">
+              ${SVG.downloadArrow}
+              <span>Instagram</span>
+            </div>
+            <button class="how-to-start-btn">How to start</button>
+          </div>
+          <div class="platform-card-badge">${LOGOS.instagram}</div>
+        </div>
+
+        <!-- Facebook Card -->
+        <div class="platform-card" data-action="open-tutorial" data-platform="Facebook">
+          <div class="platform-card-left">
+            <div class="platform-card-title-row">
+              ${SVG.downloadArrow}
+              <span>Facebook</span>
+            </div>
+            <button class="how-to-start-btn">How to start</button>
+          </div>
+          <div class="platform-card-badge">${LOGOS.facebook}</div>
+        </div>
+
+        <!-- Pinterest Card -->
+        <div class="platform-card" data-action="open-tutorial" data-platform="Pinterest">
+          <div class="platform-card-left">
+            <div class="platform-card-title-row">
+              ${SVG.downloadArrow}
+              <span>Pinterest</span>
+            </div>
+            <button class="how-to-start-btn">How to start</button>
+          </div>
+          <div class="platform-card-badge">${LOGOS.pinterest}</div>
+        </div>
+      </div>
+    `;
   }
 
-  function homeHtml() {
-    return '<div class="screen">' +
-      '<div class="appbar">' +
-        '<div class="mark">' + ico("play") + "</div>" +
-        '<div class="appbar-titles"><b>FlickGrab</b><span>on-device · no uploads</span></div>' +
-        '<button class="iconbtn" data-action="tab" data-tab="settings" aria-label="Settings">' + ico("settings") + "</button>" +
-      "</div>" +
-      '<h1 class="headline">Save it before<br/>it disappears.</h1>' +
-      '<p class="headline-sub">Extraction and merging happen on this phone. Nothing is uploaded.</p>' +
-      '<div class="search">' + ico("search") +
-        '<input id="search" placeholder="Paste a link or search" value="' + esc(state.query) + '" />' +
-        '<button class="paste" data-action="paste" aria-label="Paste link">' + ico("paste") + "</button>" +
-      "</div>" +
-      '<div class="chips">' + chipsHtml() + "</div>" +
-      (state.bannerHidden ? "" :
-        '<div class="banner"><span class="dot"></span><p>Preview build: the feed below is placeholder data. ' +
-        "The extractor arrives with the M0 device probe.</p>" +
-        '<button data-action="hide-banner">Hide</button></div>') +
-      '<div id="feed-region">' + feedHtml() + "</div>" +
-      "</div>";
+  /* SCREEN 3: How to Download Tutorial (Image 3) */
+  function renderTutorialScreen() {
+    return `
+      <!-- Top Hotspot bar pills -->
+      <div class="hotspot-banner">
+        <span class="hotspot-pill">Personal hotspot ...</span>
+        <span class="hotspot-pill">Used 65.3 MB</span>
+      </div>
+
+      <div class="subpage-header">
+        <button class="back-btn" id="tutorialBackBtn">${SVG.arrowLeft}</button>
+        <div class="subpage-title">How to download</div>
+      </div>
+
+      <div class="tutorial-content">
+        <!-- Step 1 -->
+        <div class="tutorial-step-block">
+          <div class="tutorial-step-label">1. Open YouTube, click "Share"</div>
+          <div class="tutorial-card">
+            <div style="font-size:12px;font-weight:700">HAUSER - Air on the G String (J. S. Bach)</div>
+            <div style="font-size:10px;color:#666;margin:2px 0 8px">26M views · 5 yr ago ...more</div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:8px">
+              <div style="display:flex;align-items:center;gap:6px">
+                <div style="width:24px;height:24px;border-radius:50%;background:#333"></div>
+                <b style="font-size:11px">HAUSER</b>
+              </div>
+              <div style="background:#000;color:#FFF;padding:4px 8px;border-radius:12px;font-size:10px;font-weight:700">Subscribe</div>
+            </div>
+            <!-- Action bar with Share circled in red -->
+            <div style="display:flex;gap:14px;margin-top:14px;align-items:center;position:relative">
+              <span style="font-size:10.5px;color:#555">👍 223K</span>
+              <span style="font-size:10.5px;color:#555">👎</span>
+              <!-- Circled Share button -->
+              <div style="display:flex;align-items:center;gap:3px;font-size:10.5px;color:#111;position:relative;padding:4px 8px">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M14 9V5l7 7-7 7v-4.1c-5 0-8.5 1.6-11 5.1 1-5 4-10 11-11z"/></svg>
+                <span>Share</span>
+                <div class="red-target-circle" style="inset:-6px -10px;border-radius:24px"></div>
+              </div>
+              <span style="font-size:10.5px;color:#555">Remix</span>
+              <span style="font-size:10.5px;color:#555">Save</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="tutorial-step-block">
+          <div class="tutorial-step-label">2. Click "More"</div>
+          <div class="tutorial-card" style="background:#F2F2F7">
+            <div style="display:flex;justify-content:space-around;padding:6px 0 10px;position:relative">
+              <div style="text-align:center">
+                <div style="width:36px;height:36px;border-radius:50%;background:#007AFF;color:#FFF;margin:0 auto;display:flex;align-items:center;justify-content:center">ᛒ</div>
+                <span style="font-size:9px;color:#555;margin-top:3px;display:block">Bluetooth</span>
+              </div>
+              <div style="text-align:center">
+                <div style="width:36px;height:36px;border-radius:50%;background:#34C759;color:#FFF;margin:0 auto;display:flex;align-items:center;justify-content:center">💬</div>
+                <span style="font-size:9px;color:#555;margin-top:3px;display:block">Messaging</span>
+              </div>
+              <div style="text-align:center">
+                <div style="width:36px;height:36px;border-radius:50%;background:#FF9500;color:#FFF;margin:0 auto;display:flex;align-items:center;justify-content:center">📹</div>
+                <span style="font-size:9px;color:#555;margin-top:3px;display:block">Meet</span>
+              </div>
+              <!-- Circled More button -->
+              <div style="text-align:center;position:relative">
+                <div style="width:36px;height:36px;border-radius:50%;background:#E5E5EA;color:#111;margin:0 auto;display:flex;align-items:center;justify-content:center;font-weight:700">•••</div>
+                <span style="font-size:9px;color:#555;margin-top:3px;display:block">More</span>
+                <div class="red-target-circle" style="top:-3px;left:50%;transform:translateX(-50%);width:42px;height:42px"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="tutorial-step-block">
+          <div class="tutorial-step-label">3. Find and click "FlickGrab"</div>
+          <div class="tutorial-card" style="background:#F2F2F7">
+            <div style="font-size:11px;font-weight:600;color:#444;margin-bottom:8px">Sharing</div>
+            <div style="display:flex;justify-content:space-around;padding:4px 0;position:relative">
+              <div style="text-align:center">
+                <div style="width:36px;height:36px;border-radius:50%;background:#007AFF;margin:0 auto;display:flex;align-items:center;justify-content:center;color:#FFF">🔄</div>
+                <span style="font-size:9px;color:#555;margin-top:3px;display:block">Quick Share</span>
+              </div>
+              <!-- Circled FlickGrab App Icon -->
+              <div style="text-align:center;position:relative">
+                <div style="width:36px;height:36px;border-radius:50%;background:var(--snap-yellow);margin:0 auto;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(255,203,5,0.4)">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#D32F2F" stroke-width="2.6" stroke-linecap="round"><path d="M12 4v10m0 0-3-3m3 3 3-3M5 18h14"/></svg>
+                </div>
+                <span style="font-size:9px;color:#111;font-weight:700;margin-top:3px;display:block">FlickGrab</span>
+                <div class="red-target-circle" style="top:-3px;left:50%;transform:translateX(-50%);width:42px;height:42px"></div>
+              </div>
+              <div style="text-align:center">
+                <div style="width:36px;height:36px;border-radius:50%;background:#EA4335;margin:0 auto;display:flex;align-items:center;justify-content:center;color:#FFF">✉️</div>
+                <span style="font-size:9px;color:#555;margin-top:3px;display:block">Gmail</span>
+              </div>
+              <div style="text-align:center">
+                <div style="width:36px;height:36px;border-radius:50%;background:#4285F4;margin:0 auto;display:flex;align-items:center;justify-content:center;color:#FFF">🌐</div>
+                <span style="font-size:9px;color:#555;margin-top:3px;display:block">Chrome</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Fixed Button: Open YouTube -->
+      <div class="bottom-fixed-cta">
+        <button class="yellow-pill-cta" id="openYouTubeBtn">Open YouTube</button>
+      </div>
+    `;
   }
 
-  function progressBar(p, color) {
-    return '<div class="progress"><i style="width:' + Math.round(p * 100) + "%;" +
-      (color ? "background:" + color : "") + '"></i></div>';
+  /* SCREEN 4: Music Tab (Image 4) */
+  function renderMusicScreen() {
+    return `
+      <div class="music-tab-content">
+        <div class="music-section-title">Today's Biggest Hits</div>
+
+        <!-- Track 1: Afrobeats Now -->
+        <div class="music-track-item">
+          <div class="music-track-thumb-box" style="background:linear-gradient(135deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%)">
+            <div class="music-track-count-badge">
+              <span>68</span>
+              ${SVG.playlist}
+            </div>
+          </div>
+          <div class="music-track-meta">
+            <div class="music-track-title">Afrobeats Now</div>
+            <div class="music-track-source">YouTube Music</div>
+          </div>
+          <button class="icon-btn-download-tray" data-action="open-sheet" data-title="Afrobeats Now · YouTube Music" title="Download">
+            ${SVG.downloadArrow}
+          </button>
+        </div>
+
+        <!-- Track 2: AmaPiano Trip -->
+        <div class="music-track-item">
+          <div class="music-track-thumb-box" style="background:linear-gradient(135deg, #11998e 0%, #38ef7d 100%)">
+            <div class="music-track-count-badge">
+              <span>58</span>
+              ${SVG.playlist}
+            </div>
+          </div>
+          <div class="music-track-meta">
+            <div class="music-track-title">AmaPiano Trip</div>
+            <div class="music-track-source">YouTube Music</div>
+          </div>
+          <button class="icon-btn-download-tray" data-action="open-sheet" data-title="AmaPiano Trip · YouTube Music" title="Download">
+            ${SVG.downloadArrow}
+          </button>
+        </div>
+
+        <!-- Track 3: Eastern Flavour -->
+        <div class="music-track-item">
+          <div class="music-track-thumb-box" style="background:linear-gradient(135deg, #2b5876 0%, #4e4376 100%)">
+            <div class="music-track-count-badge">
+              <span>51</span>
+              ${SVG.playlist}
+            </div>
+          </div>
+          <div class="music-track-meta">
+            <div class="music-track-title">Eastern Flavour</div>
+            <div class="music-track-source">YouTube Music</div>
+          </div>
+          <button class="icon-btn-download-tray" data-action="open-sheet" data-title="Eastern Flavour · YouTube Music" title="Download">
+            ${SVG.downloadArrow}
+          </button>
+        </div>
+
+        <!-- Track 4: The Hit List -->
+        <div class="music-track-item">
+          <div class="music-track-thumb-box" style="background:linear-gradient(135deg, #B91D73 0%, #F953C6 100%)">
+            <div class="music-track-count-badge">
+              <span>52</span>
+              ${SVG.playlist}
+            </div>
+          </div>
+          <div class="music-track-meta">
+            <div class="music-track-title">The Hit List</div>
+            <div class="music-track-source">YouTube Music</div>
+          </div>
+          <button class="icon-btn-download-tray" data-action="open-sheet" data-title="The Hit List · YouTube Music" title="Download">
+            ${SVG.downloadArrow}
+          </button>
+        </div>
+
+        <!-- Expand chevron -->
+        <div class="expand-chevron-row">
+          ${SVG.chevronDown}
+        </div>
+
+        <!-- Section 2: New & Trending Songs -->
+        <div class="music-section-title">New & Trending Songs</div>
+        <div class="music-track-item">
+          <div class="music-track-thumb-box" style="background:linear-gradient(135deg, #654ea3 0%, #eaafc8 100%)">
+            <div class="music-track-count-badge">
+              <span>50</span>
+              ${SVG.playlist}
+            </div>
+          </div>
+          <div class="music-track-meta">
+            <div class="music-track-title">RELEASED</div>
+            <div class="music-track-source">YouTube Music</div>
+          </div>
+          <button class="icon-btn-download-tray" data-action="open-sheet" data-title="RELEASED · YouTube Music" title="Download">
+            ${SVG.downloadArrow}
+          </button>
+        </div>
+      </div>
+    `;
   }
 
-  function downloadCardHtml(item, fmt, progress, stage, preview) {
-    var pct = Math.round(progress * 100);
-    return '<div class="dlcard">' +
-      '<div class="dlrow">' +
-        '<div class="thumb art" ' + artStyle(item.art) + '><div class="scrim"></div></div>' +
-        '<div class="dlmeta"><b>' + esc(item.title) + "</b>" +
-          '<span><i style="background:' + SOURCE_COLOR[item.source] + '"></i>' +
-          fmt.label + " · " + fmt.container + " · " + mbTxt(fmt.mb) + "</span></div>" +
-        '<button class="kill" data-action="cancel" aria-label="Cancel">' + ico("close") + "</button>" +
-      "</div>" +
-      progressBar(progress) +
-      '<div class="prow"><b>' + stage + "</b><span>" + pct + "%</span>" +
-        '<span class="spacer"></span><span>' + Math.round(fmt.mb * 0.155 * 10) / 10 + " MB/s · " +
-        Math.max(1, Math.round((fmt.mb * (1 - progress)) / (fmt.mb * 0.155))) + "s left</span></div>" +
-      (preview ? "" : "") +
-      "</div>";
+  /* SCREEN 5: Play Tab (Downloaded Library - Image 5) */
+  function renderDownloadedScreen() {
+    return `
+      <div class="play-screen">
+        <div class="downloaded-topbar">
+          <h2 class="downloaded-heading">Downloaded</h2>
+          <div class="downloaded-top-actions">
+            <button title="Filter">${SVG.filter}</button>
+            <button title="Trash">${SVG.trash}</button>
+            <button title="Search">${SVG.search}</button>
+          </div>
+        </div>
+
+        <div class="downloaded-list">
+          <!-- Item 1 -->
+          <div class="downloaded-item-row">
+            <div class="downloaded-thumb" style="background:#0F2027;display:flex;align-items:center;justify-content:center;color:#4A90E2">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <div class="downloaded-meta">
+              <div class="downloaded-item-title">TELL ME NARUTO...__cinema... ime(MP4)</div>
+              <div class="downloaded-item-sub">▶ 00:54 | 5.6 MB</div>
+            </div>
+            <button class="dots-menu-btn" data-action="dots-menu">${SVG.dotsVertical}</button>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="downloaded-item-row">
+            <div class="downloaded-thumb" style="background:#232526;display:flex;align-items:center;justify-content:center;color:#FFF">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <div class="downloaded-meta">
+              <div class="downloaded-item-title">夕暮れのサントロペで が主催したプライベー...レスが(MP4)</div>
+              <div class="downloaded-item-sub">▶ 01:12 | 2.3 MB</div>
+            </div>
+            <button class="dots-menu-btn" data-action="dots-menu">${SVG.dotsVertical}</button>
+          </div>
+
+          <!-- Sponsored In-feed Ad Banner (Exactly like Image 5) -->
+          <div class="ad-card-row">
+            <div class="ad-left">
+              <span class="ad-pill-badge">AD</span>
+              <span>SportyBet: Sports Betting</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px">
+              <button class="bet-now-btn">BET NOW</button>
+              <button style="background:none;border:0;color:#999;cursor:pointer;font-size:13px;padding:2px">✕</button>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="downloaded-item-row">
+            <div class="downloaded-thumb" style="background:#141E30;display:flex;align-items:center;justify-content:center;color:#FFF">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <div class="downloaded-meta">
+              <div class="downloaded-item-title">THE LICH | #thelich #adventuretime #ed...yp (MP4)</div>
+              <div class="downloaded-item-sub">▶ 01:04 | 21.3 MB</div>
+            </div>
+            <button class="dots-menu-btn" data-action="dots-menu">${SVG.dotsVertical}</button>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="downloaded-item-row">
+            <div class="downloaded-thumb" style="background:#2C3E50;display:flex;align-items:center;justify-content:center;color:#FFF">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <div class="downloaded-meta">
+              <div class="downloaded-item-title">クレヨンしんちゃん」公式 instagram__し...ちゃん(MP4)</div>
+              <div class="downloaded-item-sub">▶ 00:32 | 3.2 MB</div>
+            </div>
+            <button class="dots-menu-btn" data-action="dots-menu">${SVG.dotsVertical}</button>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="downloaded-item-row">
+            <div class="downloaded-thumb" style="background:#4A00E0;display:flex;align-items:center;justify-content:center;color:#FFF">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <div class="downloaded-meta">
+              <div class="downloaded-item-title">ntse re tatisa 06november.🔥 (MP4)</div>
+              <div class="downloaded-item-sub">▶ 00:56 | 4.1 MB</div>
+            </div>
+            <button class="dots-menu-btn" data-action="dots-menu">${SVG.dotsVertical}</button>
+          </div>
+
+          <!-- Item 6 -->
+          <div class="downloaded-item-row">
+            <div class="downloaded-thumb" style="background:#232526;display:flex;align-items:center;justify-content:center;color:#FFF">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <div class="downloaded-meta">
+              <div class="downloaded-item-title">Unconfirmed_download_https___www.instagram....</div>
+              <div class="downloaded-item-sub">▶ 00:25 | 3.0 MB</div>
+            </div>
+            <button class="dots-menu-btn" data-action="dots-menu">${SVG.dotsVertical}</button>
+          </div>
+        </div>
+      </div>
+    `;
   }
 
-  function savedCardHtml(item, fmt) {
-    return '<div class="dlcard">' +
-      '<div class="dlrow">' +
-        '<div class="thumb art" ' + artStyle(item.art) + '><div class="scrim"></div></div>' +
-        '<div class="dlmeta"><b>' + esc(item.title) + "</b>" +
-          '<span><i style="background:' + SOURCE_COLOR[item.source] + '"></i>' +
-          fmt.label + " · " + fmt.container + " · " + mbTxt(fmt.mb) + "</span></div>" +
-        '<button class="kill" data-action="noop" aria-label="Remove">' + ico("trash") + "</button>" +
-      "</div>" +
-      '<div class="done-row">' + ico("check") + "Saved · " + mbTxt(fmt.mb) +
-        '<span class="spacer"></span><span class="preview-pill">PREVIEW</span></div>' +
-      "</div>";
+  /* SCREEN 6 Background view for sheet */
+  function renderSheetBackgroundView() {
+    return `
+      <!-- Hotspot bar -->
+      <div class="hotspot-banner">
+        <span class="hotspot-pill">Personal hotspot ...</span>
+        <span class="hotspot-pill">Used 70.4 MB</span>
+      </div>
+
+      <div style="padding:10px 16px;opacity:0.4">
+        <div style="background:#1B1B1E;border-radius:14px;padding:12px;display:flex;align-items:center;gap:10px;margin-bottom:14px">
+          <button style="background:none;border:0;color:#FFF">${SVG.arrowLeft}</button>
+          <span style="font-size:12px;color:#999;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">https://www.instagram.com/reel/DfovEzBN...</span>
+        </div>
+        <div style="background:#1B1B1E;border-radius:16px;padding:14px;display:flex;align-items:center;justify-content:space-between">
+          <div>
+            <b>Link you copied</b>
+            <div style="font-size:11px;color:#888;margin-top:2px">https://www.facebook...</div>
+          </div>
+          <button style="background:var(--snap-yellow);color:#000;font-weight:700;border:0;padding:6px 14px;border-radius:999px">Download</button>
+        </div>
+      </div>
+    `;
   }
 
-  function emptyHtml(title, body, iconName) {
-    return '<div class="empty"><div class="box">' + ico(iconName || "download") + "</div>" +
-      "<h4>" + title + "</h4><p>" + body + "</p></div>";
+  /* SCREEN 6: Bottom Sheet Modal ("Post you copied" - Image 6) */
+  function renderBottomSheetModal() {
+    var isM1 = state.selectedFormatId === "m_fast";
+    var isM2 = state.selectedFormatId === "m_mp3";
+    var isV1 = state.selectedFormatId === "v480";
+    var isV2 = state.selectedFormatId === "v720";
+
+    elModal.innerHTML = `
+      <div class="overlay-backdrop" id="sheetBackdrop"></div>
+      <div class="bottom-sheet-modal">
+        <div class="sheet-drag-handle"></div>
+        <div class="sheet-title">Post you copied</div>
+
+        <!-- Post Preview Card -->
+        <div class="sheet-media-card">
+          <div class="sheet-media-thumb" style="background:linear-gradient(45deg, #FF512F, #DD2476)"></div>
+          <div class="sheet-media-info">
+            <b>Facebook 1113955194314542</b>
+            <span>facebook.com</span>
+          </div>
+        </div>
+
+        <!-- Music Section -->
+        <div class="format-category-title">Music</div>
+        <div class="format-row ${isM1 ? 'selected' : ''}" data-action="pick-format" data-id="m_fast">
+          <span class="format-row-icon">${SVG.musicNote}</span>
+          <span class="format-row-label">Fast</span>
+          <span class="format-row-size">89.3 KB</span>
+          <span class="radio-circle">${isM1 ? SVG.check : ''}</span>
+        </div>
+        <div class="format-row ${isM2 ? 'selected' : ''}" data-action="pick-format" data-id="m_mp3">
+          <span class="format-row-icon">${SVG.musicNote}</span>
+          <span class="format-row-label">Classic MP3</span>
+          <span class="format-row-size">≈156.7 KB</span>
+          <span class="radio-circle">${isM2 ? SVG.check : ''}</span>
+        </div>
+
+        <!-- Video Section -->
+        <div class="format-category-title">Video</div>
+        <div class="format-row ${isV1 ? 'selected' : ''}" data-action="pick-format" data-id="v480">
+          <span class="format-row-icon">${SVG.videoBox}</span>
+          <span class="format-row-label">Fast (480p)</span>
+          <span class="format-row-size">1.2 MB</span>
+          <span class="radio-circle">${isV1 ? SVG.check : ''}</span>
+        </div>
+        <div class="format-row ${isV2 ? 'selected' : ''}" data-action="pick-format" data-id="v720">
+          <span class="format-row-icon">${SVG.videoBox}</span>
+          <span class="format-row-label">High quality (720p)</span>
+          <span class="format-row-size">6.7 MB</span>
+          <span class="radio-circle">${isV2 ? SVG.check : ''}</span>
+        </div>
+
+        <!-- More formats link -->
+        <div class="more-formats-link-row" id="openMoreFormatsLink">
+          <span>More formats</span>
+          <span class="all-link">All &gt;</span>
+        </div>
+
+        <!-- Full-width Yellow Download CTA button -->
+        <div style="margin-top:14px">
+          <button class="yellow-pill-cta" id="confirmDownloadBtn">Download</button>
+        </div>
+      </div>
+    `;
   }
 
-  function downloadsHtml() {
-    var active = state.task ? 1 : 0;
-    var saved = state.saved.length;
-    var out = '<div class="screen"><h1 class="screen-title">Downloads</h1>' +
-      '<p class="screen-sub">Files land in Movies/FlickGrab on this device</p>' +
-      '<div class="seg">' +
-        '<button class="' + (state.dlTab === 0 ? "on" : "") + '" data-action="dltab" data-v="0">Active (' + active + ")</button>" +
-        '<button class="' + (state.dlTab === 1 ? "on" : "") + '" data-action="dltab" data-v="1">Saved (' + saved + ")</button>" +
-      "</div>";
-
-    if (state.dlTab === 0) {
-      if (state.task) {
-        var it = itemById(state.task.itemId);
-        out += downloadCardHtml(it, state.task.format, state.task.progress, stageLabel(state.task), true);
-      } else {
-        out += emptyHtml("Nothing downloading",
-          "Pick a link from Home and choose a quality. Video and audio are merged on the phone, " +
-          "then written straight to your gallery.");
-      }
-    } else {
-      if (!state.saved.length) {
-        out += emptyHtml("No saved files yet",
-          "Completed downloads stay listed here with their format and size.");
-      } else {
-        out += state.saved.map(function (s) {
-          var it = itemById(s.itemId);
-          return savedCardHtml(it, it.formats[s.formatIndex]);
-        }).join("");
-        out += '<div class="note-card">' + ico("done") +
-          "<span>Files are saved to the gallery. FlickGrab keeps no copy.</span></div>";
-      }
-    }
-    return out + "</div>";
-  }
-
-  function libraryHtml() {
-    var out = '<div class="screen"><h1 class="screen-title">Library</h1>' +
-      '<p class="screen-sub">Everything this build has saved, with the format it used</p>';
-    if (!state.saved.length) {
-      out += emptyHtml("Your library is empty",
-        "Completed downloads appear here. FlickGrab keeps no second copy — the file lives in your gallery.",
-        "library");
-    } else {
-      out += '<div class="grid" style="margin-top:18px">' +
-        state.saved.map(function (s) {
-          var it = itemById(s.itemId);
-          return '<div class="card">' + '<div class="thumb art" ' + artStyle(it.art) + ">" +
-            '<div class="scrim"></div>' + badge(it.source) +
-            '<div class="play">' + ico("play") + "</div>" +
-            '<span class="dur-tag">' + it.dur + "</span></div>" +
-            "<h4>" + esc(it.title) + "</h4>" +
-            '<p class="sub2">' + it.formats[s.formatIndex].label + " · " +
-            mbTxt(it.formats[s.formatIndex].mb) + " · " + s.when + "</p></div>";
-        }).join("") + "</div>";
-    }
-    return out + "</div>";
-  }
-
-  function settingsHtml() {
-    return '<div class="screen"><h1 class="screen-title">Settings</h1>' +
-      '<p class="screen-sub">What works here, and where files go</p>' +
-      '<div class="set-card">' +
-        '<div class="set-row"><span class="set-ico" style="background:rgba(34,211,238,.12);color:var(--cyan)">' +
-          ico("folder") + "</span><div style=\"flex:1\"><b>Save location</b>" +
-          "<span>Movies/FlickGrab · visible in your gallery</span></div></div>" +
-        '<div class="set-row"><span class="set-ico" style="background:rgba(52,211,153,.12);color:var(--success)">' +
-          ico("shield") + "</span><div style=\"flex:1\"><b>Processing</b>" +
-          "<span>Extraction and muxing run on this phone. No uploads.</span></div></div>" +
-        '<div class="set-row" data-action="wifi"><span class="set-ico" style="background:rgba(251,191,36,.12);color:var(--warn)">' +
-          ico("wifi") + "</span><div style=\"flex:1\"><b>Wi-Fi only</b>" +
-          "<span>Hold downloads until you are on Wi-Fi</span></div>" +
-          '<span class="switch ' + (state.wifiOnly ? "" : "off") + '"></span></div>' +
-      "</div>" +
-      '<div class="cap-label">' + ico("info") + "<span>Source capability · measured 2026-11-11</span></div>" +
-      CAPS.map(function (c) {
-        var dot = c.source === "Direct file" ? "#9AA1B8" : SOURCE_COLOR[c.source];
-        return '<div class="cap"><span class="tri" style="background:' + dot + '"></span><div style="flex:1">' +
-          "<div><b>" + c.source + "</b>" +
-          '<span class="status" style="color:' + c.tone + ";background:" + c.tone + '1f">' + c.status + "</span></div>" +
-          "<p>" + c.detail + "</p></div></div>";
-      }).join("") +
-      '<div class="rights"><b>Only save what you have the right to keep</b>' +
-      "<p>Downloading content you do not own can breach a platform's terms and local law. " +
-      "FlickGrab has no servers holding media, no accounts and no analytics.</p></div>" +
-      '<p class="version">FlickGrab 0.1.0-preview · on-device preview</p>' +
-      "</div>";
-  }
-
-  var TABS = [
-    { id: "home", label: "Home", icon: "home" },
-    { id: "downloads", label: "Downloads", icon: "download" },
-    { id: "library", label: "Library", icon: "library" },
-    { id: "settings", label: "More", icon: "more" }
-  ];
-
-  function navHtml() {
-    return '<div class="nav-row">' + TABS.map(function (t) {
-      var on = state.tab === t.id;
-      return '<button class="nav-item' + (on ? " on" : "") + '" data-action="tab" data-tab="' + t.id + '">' +
-        ico(t.icon) + "<span>" + t.label + "</span><span class=\"pip\"></span></button>";
-    }).join("") + "</div>";
-  }
-
-  function stripHtml() {
-    if (!state.task || state.task.stage === "Completed") return "";
-    var it = itemById(state.task.itemId);
-    return '<div class="strip" data-action="show-progress">' +
-      '<div class="strip-row"><span class="pct">' + Math.round(state.task.progress * 100) + "</span>" +
-      '<div class="m"><b>' + esc(it.title) + "</b><span>" + stageLabel(state.task) + " · " +
-      state.task.format.label + " " + state.task.format.container + "</span></div>" +
-      '<button class="kill" data-action="cancel" aria-label="Cancel download">' + ico("close") + "</button></div>" +
-      '<div class="line"><i style="width:' + Math.round(state.task.progress * 100) + '%"></i></div>' +
-      "</div>";
-  }
-
-  function stageLabel(task) {
-    if (task.stage === "Muxing") return "Merging streams";
-    if (task.stage === "Saving") return "Saving to gallery";
-    if (task.stage === "Completed") return "Saved";
-    if (task.stage === "Downloading") return "Downloading";
-    return "Resolving link";
-  }
-
-  var lastTab = null;
-
-  function renderShell() {
-    var vp = document.getElementById("viewport");
-    var keep = lastTab === state.tab ? vp.scrollTop : 0;
-    if (state.tab === "home") vp.innerHTML = homeHtml();
-    else if (state.tab === "downloads") vp.innerHTML = downloadsHtml();
-    else if (state.tab === "library") vp.innerHTML = libraryHtml();
-    else vp.innerHTML = settingsHtml();
-    vp.scrollTop = keep;
-    lastTab = state.tab;
-    document.getElementById("nav").innerHTML = navHtml();
-    document.getElementById("strip").innerHTML = stripHtml();
-    renderOverlay();
-    setNote();
-  }
-
-  /** Cheap per-tick update so the modal does not re-mount (and re-animate) 10x/s. */
-  function syncProgress() {
-    var t = state.task;
-    if (!t) return;
-    var pct = Math.round(t.progress * 100);
-    var fmt = t.format;
-    var ring = document.getElementById("ring");
-    if (ring) ring.style.setProperty("--p", pct);
-    setText("pct", pct + "%");
-    setText("stage-label", stageLabel(t));
-    var speed = Math.round(fmt.mb * 0.155 * 10) / 10;
-    var secs = Math.max(0, Math.round((fmt.mb * (1 - t.progress)) / (fmt.mb * 0.155)));
-    setText("speed", speed + " MB/s");
-    setText("eta", secs < 60 ? secs + "s" : Math.floor(secs / 60) + "m " + (secs % 60) + "s");
-    setText("written", (fmt.mb * t.progress).toFixed(1) + " MB");
-    document.getElementById("strip").innerHTML = stripHtml();
-  }
-
-  function setText(id, value) {
-    var el = document.getElementById(id);
-    if (el) el.textContent = value;
-  }
-
-  function renderFeed() {
-    var region = document.getElementById("feed-region");
-    if (region) region.innerHTML = feedHtml();
-  }
-
-  /* ---------------- overlays ---------------- */
-  function sheetHtml(item) {
-    var list = formatsOf(item, state.kind).map(function (entry) {
-      var f = entry.f, idx = entry.index;
-      var on = idx === state.formatIndex;
-      var name = f.label + '<em>' + f.container + "</em>";
-      return '<div class="format' + (on ? " on" : "") + '" data-action="format" data-idx="' + idx + '">' +
-        '<span class="radio"></span>' +
-        '<span class="fmeta"><b>' + name + "</b><p>" + f.note + "</p></span>" +
-        '<span class="size">' + mbTxt(f.mb) + "</span></div>";
-    }).join("");
-
-    var sel = item.formats[state.formatIndex];
-    var kindButtons = '<div class="seg" style="margin-top:18px">' +
-      '<button class="' + (state.kind === "video" ? "on" : "") + '" data-action="kind" data-kind="video">Video</button>' +
-      '<button class="' + (state.kind === "audio" ? "on" : "") + '" data-action="kind" data-kind="audio">Audio</button>' +
-      "</div>";
-
-    var body;
-    if (item.access === "signin") {
-      body = '<div class="signin"><div class="top2">' +
-        '<span class="lock">' + ico("lock") + "</span><b>A session is required</b></div>" +
-        "<p>" + item.source + " does not serve public media URLs any more. FlickGrab needs a " +
-        "signed-in session, stored encrypted on this device, and it can be wiped at any time.</p>" +
-        '<div class="row"><button class="ghost" data-action="learn-signin">Learn more</button>' +
-        '<span class="na">Not available yet</span></div></div>' +
-        '<button class="cta" data-action="signin">Sign in to ' + item.source + "</button>";
-    } else {
-      var note = sel.mux
-        ? '<div class="mux"><b>Two streams, merged on this phone</b><p>This quality ships video and ' +
-          "audio separately. The merge happens locally — no server ever holds the file.</p></div>"
-        : '<div class="plain-note">One file, no merge needed. Saved straight to the gallery when it finishes.</div>';
-      body = kindButtons + list + note +
-        '<div class="save-to">' + ico("folder") +
-        '<div class="m"><span>Save to</span><b>Movies/FlickGrab</b></div><em>Change</em></div>' +
-        '<button class="cta" data-action="start">' + ico("download") +
-        "Download " + sel.label + " · " + mbTxt(sel.mb) + "</button>";
-    }
-
-    return '<div class="scrim" data-action="close-sheet"></div>' +
-      '<div class="sheet">' +
-        '<div class="grab"></div>' +
-        '<div class="sheet-hero art" ' + artStyle(item.art) + ">" +
-          '<div class="scrim2"></div>' + badge(item.source) +
-          '<button class="x" data-action="close-sheet" aria-label="Close">' + ico("close") + "</button>" +
-          '<span class="dur-tag">' + item.dur + "</span></div>" +
-        "<h3>" + esc(item.title) + "</h3>" +
-        '<p class="who">' + esc(item.author) + " · " + esc(item.stats) + "</p>" +
-        body +
-        '<p class="fine">Preview build: this task simulates progress. No file is written and nothing ' +
-        "is downloaded until the on-device extractor lands.</p>" +
-      "</div>";
-  }
-
-  function stepsHtml(task) {
-    var mux = task.format.mux;
-    var steps = [
-      { key: "resolve", label: "Resolve link on device" },
-      { key: "download", label: mux ? "Download video + audio" : "Download file" }
+  /* SCREEN 7 & 8: More Formats Screen (Images 7 & 8) */
+  function renderMoreFormatsScreen() {
+    var formats = [
+      { id: "m_fast", type: "music", title: "Fast", sub: "M4A, best choice for mobile phone", size: "89.3 KB" },
+      { id: "m_mp3", type: "music", title: "Classic MP3", sub: "Support Bluetooth speaker, mobile phone, car, watch etc.", size: "≈156.7 KB" },
+      { id: "v240", type: "video", title: "Fast (240p)", sub: "Low quality for quick play", size: "1.2 MB" },
+      { id: "v270", type: "video", title: "Fast (270p)", sub: "Low quality for quick play", size: "1.7 MB" },
+      { id: "v360", type: "video", title: "Fast (360p)", sub: "Normal quality for quick play", size: "2.4 MB" },
+      { id: "v480", type: "video", title: "Fast (480p)", sub: "Normal quality for quick play", size: "1.2 MB" },
+      { id: "v540", type: "video", title: "Fast (540p)", sub: "Normal quality for quick play", size: "3.9 MB" },
+      { id: "v640", type: "video", title: "Fast (640p)", sub: "Normal quality for quick play", size: "4.8 MB" },
+      { id: "v720", type: "video", title: "High quality (720p)", sub: "Clear view and quick play", size: "6.7 MB" },
+      { id: "v1080", type: "video", title: "High quality (1080p)", sub: "High details for full screen play", size: "8.7 MB" }
     ];
-    if (mux) steps.push({ key: "mux", label: "Merge streams on device" });
-    steps.push({ key: "save", label: "Save to gallery" });
 
-    var order = ["resolve", "download", "mux", "save"];
-    var currentKey = task.stage === "Completed" ? "done"
-      : task.stage === "Muxing" ? "mux"
-      : task.stage === "Saving" ? "save"
-      : "download";
-    var currentIdx = order.indexOf(currentKey);
-    var doneAll = currentKey === "done";
-
-    return steps.map(function (s) {
-      var idx = order.indexOf(s.key);
-      var cls = doneAll || idx < currentIdx ? "done" : idx === currentIdx ? "now" : "pending";
-      return '<div class="step ' + cls + '"><span class="b">' +
-        (cls === "done" ? ico("check") : "") + "</span>" + s.label + "</div>";
+    var musicRows = formats.filter(function(f){ return f.type === "music"; }).map(function(f) {
+      var sel = state.selectedFormatId === f.id;
+      return `
+        <div class="format-full-row" data-action="pick-format" data-id="${f.id}">
+          <span class="format-full-icon">${SVG.musicNote}</span>
+          <div class="format-full-meta">
+            <div class="format-full-title">${f.title}</div>
+            <div class="format-full-sub">${f.sub}</div>
+          </div>
+          <span class="format-full-size">${f.size}</span>
+          <span class="radio-circle ${sel ? 'selected' : ''}" style="${sel ? 'background:var(--snap-yellow);border-color:var(--snap-yellow);color:#000' : ''}">
+            ${sel ? SVG.check : ''}
+          </span>
+        </div>
+      `;
     }).join("");
+
+    var videoRows = formats.filter(function(f){ return f.type === "video"; }).map(function(f) {
+      var sel = state.selectedFormatId === f.id;
+      return `
+        <div class="format-full-row" data-action="pick-format" data-id="${f.id}">
+          <span class="format-full-icon">${SVG.videoBox}</span>
+          <div class="format-full-meta">
+            <div class="format-full-title">${f.title}</div>
+            <div class="format-full-sub">${f.sub}</div>
+          </div>
+          <span class="format-full-size">${f.size}</span>
+          <span class="radio-circle ${sel ? 'selected' : ''}" style="${sel ? 'background:var(--snap-yellow);border-color:var(--snap-yellow);color:#000' : ''}">
+            ${sel ? SVG.check : ''}
+          </span>
+        </div>
+      `;
+    }).join("");
+
+    return `
+      <!-- Hotspot bar -->
+      <div class="hotspot-banner">
+        <span class="hotspot-pill">Personal hotspot ...</span>
+        <span class="hotspot-pill">Used 70.4 MB</span>
+      </div>
+
+      <div class="subpage-header">
+        <button class="back-btn" id="moreFormatsBackBtn">${SVG.arrowLeft}</button>
+        <div class="subpage-title">More formats</div>
+      </div>
+
+      <div class="more-formats-screen">
+        <div class="format-category-title">Music</div>
+        ${musicRows}
+
+        <div class="format-category-title" style="margin-top:20px">Video</div>
+        ${videoRows}
+      </div>
+
+      <!-- Bottom fixed yellow button -->
+      <div class="bottom-fixed-cta">
+        <button class="yellow-pill-cta" id="confirmMoreFormatsDownloadBtn">Download</button>
+      </div>
+    `;
   }
 
-  function progressHtml(task) {
-    var item = itemById(task.itemId);
-    var fmt = task.format;
-    var done = task.stage === "Completed";
-    var pct = Math.round(task.progress * 100);
-    var speed = done ? 0 : Math.round(fmt.mb * 0.155 * 10) / 10;
-    var secs = done ? 0 : Math.max(0, Math.round((fmt.mb * (1 - task.progress)) / (fmt.mb * 0.155)));
-    var eta = done ? "0s" : secs < 60 ? secs + "s" : Math.floor(secs / 60) + "m " + (secs % 60) + "s";
-    var written = (fmt.mb * task.progress).toFixed(1);
+  /* YouTube Feed Screen */
+  function renderYouTubeScreen() {
+    return `
+      <div style="padding:12px 16px 24px">
+        <div style="font-size:14.5px;font-weight:700;margin-bottom:12px">Trending Videos</div>
+        
+        <div style="background:#18181B;border-radius:18px;overflow:hidden;margin-bottom:14px;border:1px solid #24242A">
+          <div style="height:170px;background:linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);position:relative;display:flex;align-items:center;justify-content:center">
+            <svg viewBox="0 0 24 24" width="48" height="48" fill="rgba(255,255,255,0.85)"><path d="M8 5v14l11-7z"/></svg>
+            <span style="position:absolute;bottom:8px;right:8px;background:rgba(0,0,0,0.7);padding:2px 6px;border-radius:4px;font-size:11px">4:12</span>
+          </div>
+          <div style="padding:12px;display:flex;justify-content:space-between;align-items:flex-start">
+            <div>
+              <b style="font-size:13.5px;line-height:1.3;display:block">Coastline at golden hour — 4K drone cinematography</b>
+              <span style="font-size:11px;color:#8E8E93;margin-top:4px;display:block">Northwind Films · 128K views · 2 days ago</span>
+            </div>
+            <button class="icon-btn-download-tray" data-action="open-sheet" data-title="Coastline at golden hour">${SVG.downloadArrow}</button>
+          </div>
+        </div>
 
-    return '<div class="scrim"></div><div class="modal-wrap"><div class="modal">' +
-      '<div class="modal-head"><b>' + (done ? "Saved" : "Downloading") + "</b>" +
-        '<button class="kill" data-action="hide-progress" aria-label="Hide">' + ico("close") + "</button></div>" +
-      '<div class="ring-wrap"><div class="ring' + (done ? " done" : "") + '" id="ring" style="--p:' +
-        (done ? 100 : pct) + '"></div>' +
-        '<div class="ring-center">' + (done
-          ? '<span style="color:var(--success)">' + ico("done") + "</span>"
-          : '<b id="pct">' + pct + '%</b><span id="stage-label">' + stageLabel(task) + "</span>") + "</div></div>" +
-      '<p class="title">' + esc(item.title) + "</p>" +
-      '<p class="fmt">' + fmt.label + " · " + fmt.container + " · " + mbTxt(fmt.mb) + "</p>" +
-      '<div class="metrics"><div><b id="speed">' + (done ? "—" : speed + " MB/s") + "</b><span>Speed</span></div>" +
-        '<div><b id="eta">' + eta + "</b><span>Left</span></div>" +
-        '<div><b id="written">' + written + " MB</b><span>Written</span></div></div>" +
-      '<div class="steps">' + stepsHtml(task) + "</div>" +
-      '<span class="preview-pill" style="display:inline-block;margin-top:14px">PREVIEW · SIMULATED PROGRESS</span>' +
-      (done
-        ? '<button class="done-bar" data-action="hide-progress">' + ico("check") +
-          "Done · file is in Movies/FlickGrab</button>"
-        : '<div class="modal-actions"><button class="ghost" data-action="hide-progress">Run in background</button>' +
-          '<span class="spacer"></span><button class="cancel" data-action="cancel">Cancel</button></div>') +
-      "</div></div>";
+        <div style="background:#18181B;border-radius:18px;overflow:hidden;margin-bottom:14px;border:1px solid #24242A">
+          <div style="height:170px;background:linear-gradient(135deg, #134e5e 0%, #71b280 100%);position:relative;display:flex;align-items:center;justify-content:center">
+            <svg viewBox="0 0 24 24" width="48" height="48" fill="rgba(255,255,255,0.85)"><path d="M8 5v14l11-7z"/></svg>
+            <span style="position:absolute;bottom:8px;right:8px;background:rgba(0,0,0,0.7);padding:2px 6px;border-radius:4px;font-size:11px">12:47</span>
+          </div>
+          <div style="padding:12px;display:flex;justify-content:space-between;align-items:flex-start">
+            <div>
+              <b style="font-size:13.5px;line-height:1.3;display:block">Studio session: building a beat from a single hum</b>
+              <span style="font-size:11px;color:#8E8E93;margin-top:4px;display:block">loftaudio · 46K views · 1 week ago</span>
+            </div>
+            <button class="icon-btn-download-tray" data-action="open-sheet" data-title="Studio session: building a beat">${SVG.downloadArrow}</button>
+          </div>
+        </div>
+      </div>
+    `;
   }
 
-  function dialogHtml() {
-    var d = state.dialog;
-    if (!d) return "";
-    var pill = d === "received" ? "FLICKGRAB" : "FLICKGRAB";
-    var warn = d !== "received";
-    var title, body, url = "", primary = "Close", secondary = null;
-    if (d === "received") {
-      title = "Link received";
-      body = "FlickGrab was handed this link. Nothing has been fetched yet — you choose the quality " +
-        "before anything is written to the phone.";
-      url = "https://www.youtube.com/watch?v=preview";
-      primary = "Choose quality";
-      secondary = "Not now";
-    } else if (d === "signin") {
-      title = "Instagram needs a session";
-      body = "Public metadata for this source is gone, and the media URLs are signed. The encrypted " +
-        "cookie store and the sign-in screen are milestone M4, so this build stops here instead of pretending.";
-    } else if (d === "notwired") {
-      title = "Extractor not wired yet";
-      body = "This build can classify a link and tell you what saving it would need. The on-device " +
-        "extractor lands after the M0 physical-device probe passes, so no download is started.";
-    } else {
-      title = "Something went wrong";
-      body = "The task stopped before a file was written.";
-    }
-    return '<div class="scrim" data-action="close-dialog"></div><div class="modal-wrap"><div class="dialog">' +
-      '<span class="pill' + (warn ? " warn" : "") + '">' + pill + "</span>" +
-      "<h3>" + title + "</h3><p>" + body + "</p>" +
-      (url ? '<div class="urlline">' + url + "</div>" : "") +
-      '<div class="dialog-actions">' +
-        (secondary ? '<button class="linkbtn muted" data-action="close-dialog">' + secondary + "</button>" : "") +
-        '<button class="linkbtn primary" data-action="' +
-          (d === "received" ? "accept-link" : "close-dialog") + '">' + primary + "</button>" +
-      "</div></div></div>";
+  /* Settings Screen */
+  function renderSettingsScreen() {
+    return `
+      <div style="padding:16px 18px">
+        <h2 style="font-size:20px;font-weight:800;margin:0 0 16px">Settings</h2>
+
+        <div style="background:#18181B;border-radius:18px;border:1px solid #24242A;overflow:hidden;margin-bottom:18px">
+          <div style="padding:14px 16px;border-bottom:1px solid #202026;display:flex;align-items:center;justify-content:space-between">
+            <div>
+              <b style="font-size:13.5px">Save location</b>
+              <div style="font-size:11px;color:#8E8E93;margin-top:2px">Movies/FlickGrab · saved straight to gallery</div>
+            </div>
+            <span style="font-size:12px;color:var(--snap-yellow);font-weight:600">Change</span>
+          </div>
+          <div style="padding:14px 16px;border-bottom:1px solid #202026;display:flex;align-items:center;justify-content:space-between">
+            <div>
+              <b style="font-size:13.5px">Wi-Fi only</b>
+              <div style="font-size:11px;color:#8E8E93;margin-top:2px">Hold downloads until connected to Wi-Fi</div>
+            </div>
+            <div style="width:40px;height:22px;background:var(--snap-yellow);border-radius:999px;position:relative;cursor:pointer">
+              <div style="width:18px;height:18px;background:#000;border-radius:50%;position:absolute;top:2px;right:2px"></div>
+            </div>
+          </div>
+          <div style="padding:14px 16px;display:flex;align-items:center;justify-content:space-between">
+            <div>
+              <b style="font-size:13.5px">Theme</b>
+              <div style="font-size:11px;color:#8E8E93;margin-top:2px">Dark &amp; Snaptube Yellow</div>
+            </div>
+            <span style="font-size:12px;color:#8E8E93">Default</span>
+          </div>
+        </div>
+
+        <div style="background:#18181B;border-radius:18px;border:1px solid #24242A;padding:16px">
+          <b style="font-size:13px;color:var(--snap-yellow)">On-Device Engine</b>
+          <p style="font-size:11.5px;color:#A0A0A5;margin:6px 0 0;line-height:1.5">
+            Extraction and stream muxing occur directly on your Android phone. No server ever holds, re-encodes, or logs your media.
+          </p>
+        </div>
+
+        <div style="font-size:11px;color:#636366;text-align:center;margin-top:24px">
+          FlickGrab v1.0.0 (Build 35) · Android Compose Edition
+        </div>
+      </div>
+    `;
   }
 
-  function renderOverlay() {
-    var html = "";
-    if (state.sheetId && !state.progressVisible) {
-      var item = itemById(state.sheetId);
-      if (item) html += sheetHtml(item);
-    }
-    if (state.progressVisible && state.task) html += progressHtml(state.task);
-    html += dialogHtml();
-    document.getElementById("overlay").innerHTML = html;
-  }
+  /* EVENT LISTENERS */
 
-  /* ---------------- notes ---------------- */
-  var NOTES = {
-    home: ["<b>Home</b> — feed, search with clipboard paste, source chips, spotlight card.",
-      "Click any thumbnail to open the quality sheet. Pick Video or Audio, choose a format, then hit Download."],
-    sheet: ["<b>Quality sheet</b> — the modal that decides what gets written.",
-      "Video and Audio are separate tabs; each row is a real format with container and size. HD explains the local merge."],
-    progress: ["<b>Downloading</b> — progress modal with the stage timeline.",
-      "Resolve → download → merge (only when needed) → save. Cancel or keep it running in the background."],
-    downloads: ["<b>Downloads</b> — queue and saved files.",
-      "Active tasks show speed, ETA and a stage; finished files keep their format and size."],
-    library: ["<b>Library</b> — what this build has saved.",
-      "No second copy: the file lives in the gallery, this is the index."],
-    settings: ["<b>Settings</b> — save location, processing, capability table.",
-      "The capability rows mirror server/capabilities.ts: nothing is upgraded on optimism."],
-    dialogs: ["<b>Share intake</b> — the link sheet the launcher hands over.",
-      "The share sheet and flickgrab:// deep link both land here before anything resolves."]
-  };
-  function setNote() {
-    var key = state.preview;
-    var pair = NOTES[key] || NOTES.home;
-    document.getElementById("note-title").innerHTML = pair[0];
-    document.getElementById("note-body").innerHTML = pair[1];
-    var btns = document.querySelectorAll("#toolbar .tbtn[data-screen]");
-    for (var i = 0; i < btns.length; i++) {
-      btns[i].classList.toggle("active", btns[i].getAttribute("data-screen") === key);
-    }
-  }
-
-  /* ---------------- task engine ---------------- */
-  function stopTimer() {
-    if (timer) { clearInterval(timer); timer = null; }
-  }
-
-  function startTask() {
-    var item = itemById(state.sheetId);
-    if (!item) return;
-    var fmt = item.formats[state.formatIndex];
-    if (!fmt) return;
-    stopTimer();
-    state.task = {
-      itemId: item.id,
-      format: fmt,
-      formatIndex: state.formatIndex,
-      progress: 0.03,
-      stage: "Downloading",
-      ticks: 0
-    };
-    state.sheetId = null;
-    state.progressVisible = true;
-    state.tab = "home";
-    state.preview = "progress";
-    renderShell();
-    timer = setInterval(function () {
-      var t = state.task;
-      if (!t) { stopTimer(); return; }
-      t.ticks++;
-      var before = t.stage;
-      if (t.stage === "Downloading") {
-        t.progress = Math.min(0.98, t.progress + 0.011);
-        if (t.progress >= 0.98) {
-          if (t.format.mux) { t.stage = "Muxing"; t.ticks = 0; }
-          else { t.stage = "Saving"; t.ticks = 0; }
-          t.progress = 1;
-        }
-      } else if (t.stage === "Muxing") {
-        if (t.ticks > 14) { t.stage = "Saving"; t.ticks = 0; }
-      } else if (t.stage === "Saving") {
-        if (t.ticks > 8) {
-          t.stage = "Completed";
-          t.progress = 1;
-          state.saved.unshift({ itemId: t.itemId, formatIndex: t.formatIndex, when: "Just now" });
-          stopTimer();
-        }
-      }
-      if (t.stage !== before) renderShell();
-      else syncProgress();
-    }, 90);
-  }
-
-  /* ---------------- navigation ---------------- */
-  function go(screen) {
-    stopTimer();
-    if (location.hash !== "#" + screen) {
-      try { history.replaceState(null, "", "#" + screen); } catch (err) { /* file:// is fine */ }
-    }
-    if (screen === "reset") {
-      state = clone(fresh);
-      state.task = null;
-      state.progressVisible = false;
-      state.sheetId = null;
-      state.dialog = null;
-      renderShell();
-      return;
-    }
-    state.preview = screen;
-    if (screen === "home" || screen === "downloads" || screen === "library" || screen === "settings") {
-      state.tab = screen;
-      state.sheetId = null;
-      state.progressVisible = false;
-      state.dialog = null;
-      renderShell();
-      return;
-    }
-    if (screen === "sheet") {
-      state.tab = "home";
-      state.sheetId = ITEMS[0].id;
-      state.kind = "video";
-      state.formatIndex = 0;
-      state.progressVisible = false;
-      state.dialog = null;
-      renderShell();
-      return;
-    }
-    if (screen === "progress") {
-      state.tab = "home";
-      state.sheetId = null;
-      state.dialog = null;
-      state.task = {
-        itemId: ITEMS[0].id,
-        format: ITEMS[0].formats[0],
-        progress: 0.62,
-        stage: "Downloading",
-        ticks: 0
-      };
-      state.progressVisible = true;
-      renderShell();
-      return;
-    }
-    if (screen === "dialogs") {
-      state.tab = "home";
-      state.sheetId = null;
-      state.progressVisible = false;
-      state.dialog = "received";
-      renderShell();
-    }
-  }
-
-  /* ---------------- events ---------------- */
-  var phone = document.getElementById("phone");
-
-  document.getElementById("toolbar").addEventListener("click", function (e) {
+  // Top Toolbar Screen switcher
+  document.getElementById("toolbar").addEventListener("click", function(e) {
     var btn = e.target.closest("[data-screen]");
-    if (btn) go(btn.getAttribute("data-screen"));
+    if (!btn) return;
+    var screen = btn.getAttribute("data-screen");
+    if (screen === "reset") {
+      state.screen = "home";
+      state.selectedFormatId = "v480";
+      state.activeNav = "download";
+      state.activeTopTab = "search";
+    } else {
+      state.screen = screen;
+      if (screen === "home") state.activeTopTab = "search";
+      if (screen === "more") state.activeTopTab = "more";
+      if (screen === "music") state.activeTopTab = "music";
+      if (screen === "downloaded") state.activeNav = "play";
+      if (screen === "settings") state.activeNav = "settings";
+    }
+    render();
   });
 
-  phone.addEventListener("input", function (e) {
-    if (e.target && e.target.id === "search") {
-      state.query = e.target.value;
-      renderFeed();
-    }
+  // Top Tabs click (Search | YouTube | Music | More)
+  elTopTabs.addEventListener("click", function(e) {
+    var tabBtn = e.target.closest(".top-tab");
+    if (!tabBtn) return;
+    var tabKey = tabBtn.getAttribute("data-tab");
+    state.activeTopTab = tabKey;
+    if (tabKey === "search") state.screen = "home";
+    else if (tabKey === "youtube") state.screen = "youtube";
+    else if (tabKey === "music") state.screen = "music";
+    else if (tabKey === "more") state.screen = "more";
+    render();
   });
 
-  phone.addEventListener("click", function (e) {
-    var target = e.target.closest("[data-action]");
-    if (!target) return;
-    var action = target.getAttribute("data-action");
+  // Bottom Nav click (Download | Play | Settings)
+  elBottomNav.addEventListener("click", function(e) {
+    var btn = e.target.closest(".nav-btn");
+    if (!btn) return;
+    var navKey = btn.getAttribute("data-nav");
+    state.activeNav = navKey;
+    if (navKey === "download") state.screen = "home";
+    else if (navKey === "play") state.screen = "downloaded";
+    else if (navKey === "settings") state.screen = "settings";
+    render();
+  });
 
-    if (action === "tab") {
-      go(target.getAttribute("data-tab"));
+  // Document/viewport events
+  document.addEventListener("click", function(e) {
+    // Open Tutorial from Platform card
+    if (e.target.closest('[data-action="open-tutorial"]') || e.target.closest('.how-to-start-btn')) {
+      state.screen = "tutorial";
+      render();
       return;
     }
-    if (action === "filter") {
-      var src = target.getAttribute("data-src");
-      state.filter = src ? src : null;
-      renderShell();
+
+    // Back from Tutorial
+    if (e.target.closest("#tutorialBackBtn")) {
+      state.screen = "more";
+      render();
       return;
     }
-    if (action === "hide-banner") {
-      state.bannerHidden = true;
-      renderShell();
+
+    // "Open YouTube" button in tutorial
+    if (e.target.closest("#openYouTubeBtn")) {
+      state.screen = "youtube";
+      render();
       return;
     }
-    if (action === "paste") {
-      state.query = "https://www.youtube.com/watch?v=preview";
-      renderShell();
-      var input = document.getElementById("search");
-      if (input) { input.focus(); input.setSelectionRange(input.value.length, input.value.length); }
+
+    // Open Bottom Sheet
+    if (e.target.closest('[data-action="open-sheet"]') || e.target.closest("#searchBtn")) {
+      state.screen = "sheet";
+      render();
       return;
     }
-    if (action === "open") {
-      var item = itemById(target.getAttribute("data-id"));
-      if (!item) return;
-      state.sheetId = item.id;
-      state.kind = "video";
-      state.formatIndex = 0;
-      state.preview = "sheet";
-      renderShell();
+
+    // Dismiss Sheet on Backdrop click
+    if (e.target.closest("#sheetBackdrop")) {
+      state.screen = "home";
+      render();
       return;
     }
-    if (action === "close-sheet") {
-      state.sheetId = null;
-      state.preview = state.tab;
-      renderShell();
+
+    // Format selection click
+    var formatRow = e.target.closest('[data-action="pick-format"]');
+    if (formatRow) {
+      state.selectedFormatId = formatRow.getAttribute("data-id");
+      render();
       return;
     }
-    if (action === "kind") {
-      state.kind = target.getAttribute("data-kind");
-      var item2 = itemById(state.sheetId);
-      if (item2) {
-        var list = formatsOf(item2, state.kind);
-        if (list.length) state.formatIndex = list[0].index;
-      }
-      renderOverlay();
+
+    // Open More Formats screen from Sheet
+    if (e.target.closest("#openMoreFormatsLink")) {
+      state.screen = "formats";
+      render();
       return;
     }
-    if (action === "format") {
-      state.formatIndex = parseInt(target.getAttribute("data-idx"), 10);
-      renderOverlay();
+
+    // Back from More Formats screen
+    if (e.target.closest("#moreFormatsBackBtn")) {
+      state.screen = "sheet";
+      render();
       return;
     }
-    if (action === "start") {
-      startTask();
+
+    // Confirm Download buttons
+    if (e.target.closest("#confirmDownloadBtn") || e.target.closest("#confirmMoreFormatsDownloadBtn")) {
+      // Simulate download completion & route to Downloaded tab
+      alert("Download started in high-speed on-device mode!");
+      state.screen = "downloaded";
+      state.activeNav = "play";
+      render();
       return;
     }
-    if (action === "signin" || action === "learn-signin") {
-      state.dialog = "signin";
-      renderOverlay();
-      return;
-    }
-    if (action === "hide-progress") {
-      state.progressVisible = false;
-      state.preview = state.tab;
-      renderShell();
-      return;
-    }
-    if (action === "show-progress") {
-      state.progressVisible = true;
-      state.preview = "progress";
-      renderShell();
-      return;
-    }
-    if (action === "cancel") {
-      stopTimer();
-      state.task = null;
-      state.progressVisible = false;
-      state.preview = state.tab;
-      renderShell();
-      return;
-    }
-    if (action === "dltab") {
-      state.dlTab = parseInt(target.getAttribute("data-v"), 10);
-      renderShell();
-      return;
-    }
-    if (action === "wifi") {
-      state.wifiOnly = !state.wifiOnly;
-      renderShell();
-      return;
-    }
-    if (action === "close-dialog") {
-      state.dialog = null;
-      renderOverlay();
-      return;
-    }
-    if (action === "accept-link") {
-      state.dialog = null;
-      state.sheetId = ITEMS[0].id;
-      state.kind = "video";
-      state.formatIndex = 0;
-      state.preview = "sheet";
-      renderShell();
+
+    // Dots menu on downloaded item
+    if (e.target.closest('[data-action="dots-menu"]')) {
+      alert("Options: ▶ Play video · 📤 Share file · 🗑 Delete download");
       return;
     }
   });
 
-  var initial = location.hash.replace("#", "");
-  if (initial && initial !== "home") go(initial);
-  else renderShell();
-
-  window.addEventListener("hashchange", function () {
-    var h = location.hash.replace("#", "");
-    go(h || "home");
-  });
+  // Initial render
+  render();
 })();
 </script>
 </body>

@@ -9,36 +9,36 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
 private val FlickColors = darkColorScheme(
-    primary = VioletBright,
-    onPrimary = Ink,
-    primaryContainer = Color(0xFF241C4A),
-    onPrimaryContainer = Color(0xFFDCD4FF),
-    secondary = Cyan,
-    onSecondary = Ink,
-    tertiary = Coral,
+    primary = SnapYellow,
+    onPrimary = Color.Black,
+    primaryContainer = Color(0xFF332900),
+    onPrimaryContainer = Color(0xFFFFEBA3),
+    secondary = SnapYellow,
+    onSecondary = Color.Black,
+    tertiary = SnapRed,
     background = Ink,
     onBackground = TextPrimary,
     surface = Surface1,
     onSurface = TextPrimary,
     surfaceVariant = Surface2,
     onSurfaceVariant = TextSecondary,
-    surfaceContainerLowest = InkSoft,
+    surfaceContainerLowest = Ink,
     surfaceContainerLow = Surface1,
     surfaceContainer = Surface2,
     surfaceContainerHigh = Surface3,
     outline = Outline,
-    outlineVariant = Color(0xFF1F2331),
-    error = Coral,
-    onError = Ink,
-    scrim = Color(0xE607080C),
+    outlineVariant = Hairline,
+    error = SnapRed,
+    onError = Color.White,
+    scrim = Color(0xCC000000),
 )
 
 val FlickShapes = Shapes(
-    extraSmall = RoundedCornerShape(10.dp),
-    small = RoundedCornerShape(14.dp),
-    medium = RoundedCornerShape(20.dp),
-    large = RoundedCornerShape(26.dp),
-    extraLarge = RoundedCornerShape(34.dp),
+    extraSmall = RoundedCornerShape(8.dp),
+    small = RoundedCornerShape(12.dp),
+    medium = RoundedCornerShape(18.dp),
+    large = RoundedCornerShape(24.dp),
+    extraLarge = RoundedCornerShape(32.dp),
 )
 
 @Composable
