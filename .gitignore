@@ -24,3 +24,12 @@ opencode.jsonc
 .agents/skills/*
 !.agents/skills/remember/
 !.agents/skills/remember/**
+
+# Android build outputs and local SDK config
+.gradle/
+android/.gradle/
+android/local.properties
+android/**/build/
+android/app/release/
+*.jks
+*.keystore

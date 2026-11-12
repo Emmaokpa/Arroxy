@@ -1,7 +1,9 @@
 # Multi-surface plan — Android, desktop, extension (+ website as the shopfront)
 
-**Status:** paused 2026-11-11. Resume from this file. It is the source of truth for the next session.
-**Current repo state:** web app + media-free Express API pushed to `main` at `3bbb3ac2`.
+**Status:** resumed 2026-11-12. Android UI shell is in `android/` (see §0) and the
+next gate is M0, which needs a physical device and an Android SDK.
+**Current repo state:** web app + media-free Express API on `main` at `ceb63365`, plus
+the new `android/` Compose app (uncompiled — no SDK on the last machine).
 The previous server-side downloader still exists in history at `4e0a7044` if needed.
 
 ---
@@ -9,12 +11,63 @@ The previous server-side downloader still exists in history at `4e0a7044` if nee
 ## Decisions made (owner, 2026-11-11)
 
 1. **Downloads move to user-owned hardware.** No media ever passes through our servers.
-2. **Three product surfaces will be built:** Android app, desktop app, browser extension.
+2. **Two product surfaces will be built:** Android app, then desktop app. The browser
+   extension is dropped (2026-11-12, see §0).
 3. **All four platforms are in scope:** YouTube, TikTok, Instagram, Facebook.
 4. **The website is rebranded into an advertising shopfront** for the apps — see §3.
 5. **Backend runs on the owner's VPS via Coolify** (control plane only).
 6. **Owner will buy a residential proxy** — but see the correction below before spending.
-7. Order of work: **Android first** (the Snaptube-style core), then desktop, then extension.
+7. Order of work: **Android first** (the Snaptube-style core), then desktop.
+8. **Desktop means Electron, not Tauri** (owner, 2026-11-12). Faster path, and this
+   repository already shipped Electron once, so the packaging knowledge exists.
+
+---
+
+## 0. Session log — 2026-11-12
+
+**Built:** the Android UI shell at `android/` (Kotlin + Compose, Material 3, dark only).
+It covers the whole M2 surface without the extractor:
+
+- Bottom-nav shell: Home, Downloads, Library, Settings.
+- Home: greeting app bar, search with clipboard paste, source filter chips, animated
+  spotlight card, two-column feed.
+- Quality sheet: video/audio segment, per-format rows with container and size, mux
+  explanation, save-location row, gradient CTA.
+- Progress modal: circular progress, stage timeline (resolve → download → merge →
+  save), speed, ETA, bytes written, cancel and "run in background".
+- Downloads queue, active-download strip above the nav bar, Library grid.
+- Settings: save location, processing note, Wi-Fi-only toggle, and the measured
+  capability table copied from `server/capabilities.ts`.
+- Intake: share-sheet `ACTION_SEND` text and `flickgrab://inspect?url=…`, with a
+  "link received" dialog before anything is resolved.
+- Browser design preview at `android/preview/index.html` — one self-contained file,
+  no build or server, with clickable Home → quality sheet → progress → queue flow and
+  hash-addressable screens. Verified rendering all seven screens in headless Chrome;
+  it is a design artefact, not a second implementation.
+
+**Honesty rule used:** placeholder data lives behind `BuildConfig.PREVIEW_DATA`.
+Debug builds use `PreviewMediaRepository` and label every simulated task `PREVIEW`;
+release builds use `EmptyMediaRepository`, which renders the "no extractor wired
+ yet" state instead of a fake download. Details in `android/README.md`.
+
+**UI direction:** the owner asked for a Snaptube-like screen set. Implemented as the
+same *layout grammar* (feed → quality sheet → progress → downloads queue) with
+FlickGrab's own palette, type scale and components — not a copy of that app's
+artwork, icons or branding, which are not ours to reproduce.
+
+**Not verified:** the project has never been compiled. This machine has no JDK, no
+Gradle and no `ANDROID_HOME`, so the only checks run were a structural pass over the
+Kotlin sources. First sync in Android Studio is expected to surface a few API-level
+fixes.
+
+**Next actions, in order:**
+
+1. Install JDK 17 + Android SDK 35 (or open `android/` in Android Studio) and get a
+   green `assembleDebug`. Generate the wrapper JAR once: `gradle wrapper`.
+2. Run M0 on a physical phone. Do not build more Android UI before its gate passes.
+3. Replace the repository implementations with the real extractor behind the same
+   `MediaRepository` interface; no UI changes are needed.
+4. MediaStore write + share target, then delete `PREVIEW_DATA` and the demo list.
 
 ---
 
@@ -94,15 +147,19 @@ demote it to the "check a link" panel.
 
 ## 4. Surfaces and division of labour
 
-| | Android app | Desktop app | Browser extension |
-|---|---|---|---|
-| Primary job | Snaptube-style downloads on the phone | Same, for PC/Mac/Linux, plus queue + playlists | One-click download from the page you're on |
-| Extraction | yt-dlp (`youtubedl-android`) or NewPipe Extractor | Embedded yt-dlp binary | Shares the desktop helper's core |
-| Muxing | Native ffmpeg | Native ffmpeg | Native helper via messaging (WASM fallback) |
-| UI | Kotlin + Compose | See 4.2 | Popup + options page |
-| Intake | Share sheet + paste | Paste, clipboard watch, drag-drop | Context menu on the current tab |
-| Distribution | Signed APK, GitHub Releases + Obtainium | Signed installers, GitHub Releases | **Sideload only** (stores ban the category) |
-| Effort | Largest | Medium | Smallest, but needs the desktop helper |
+| | Android app | Desktop app (Electron) |
+|---|---|---|
+| Primary job | Snaptube-style downloads on the phone | Same, for PC/Mac/Linux, plus queue + playlists |
+| Extraction | yt-dlp (`youtubedl-android`) or NewPipe Extractor | Embedded yt-dlp binary |
+| Muxing | Media3 Transformer, ffmpeg binary as fallback | Native ffmpeg |
+| UI | Kotlin + Compose (built, see §0) | Electron renderer, shares the web design system |
+| Intake | Share sheet + paste | Paste, clipboard watch, drag-drop |
+| Distribution | Signed APK, GitHub Releases + Obtainium | Signed installers, GitHub Releases |
+| Effort | Largest | Medium |
+
+**Dropped:** the browser extension. It only ever worked as a thin client of the
+desktop helper, stores remove this category, and the desktop app already covers PC.
+Keeping it would add a third release pipeline for the smallest surface.
 
 ### 4.1 Android
 Stack: Kotlin + Compose, `youtubedl-android` for extractor parity with yt-dlp,
@@ -111,21 +168,20 @@ Media3 `Transformer` for muxing where possible, ffmpeg binary as fallback (note:
 MediaStore to `Movies/FlickGrab/`.
 
 ### 4.2 Desktop
-Two options, decide at spike:
-- **Tauri** — ~10 MB binary, uses the OS webview, Rust for the native side. Smaller,
-  better long-term; more setup.
-- **Electron** — heavier (~150 MB) but the fastest path, and this repo already
-  shipped an Electron app before, so the packaging knowledge exists.
+**Electron** (owner decision, 2026-11-12). Heavier than Tauri but the fastest path,
+and this repository already shipped an Electron app, so the packaging knowledge and
+an older renderer are both in history if we need them.
 
-Either way the desktop app is the **native-messaging host for the extension**, so
-building it first also unblocks surface 3.
+The app embeds yt-dlp + ffmpeg, keeps a queue with a folder picker, and reuses the
+palette and components from `android/` and the website so the three surfaces read as
+one product. No native-messaging host is needed any more, since the extension is
+dropped.
 
-### 4.3 Extension
-Works for three concrete reasons: `host_permissions` bypass CORS, it resolves *and*
-downloads from the user's own IP (satisfying the seal), and a native helper muxes.
-Watch out for: MV3 service workers dying after ~30 s (use an offscreen document or
-`chrome.downloads.download`), and `ffmpeg.wasm` being slow/heavy.
-**Chrome Web Store and AMO both remove YouTube downloaders** — plan for sideload.
+### 4.3 Extension — dropped
+No longer in scope (2026-11-12). The reasons it could ever have worked are also the
+reasons it was expensive: it needed the desktop helper for muxing, it could only be
+sideloaded because both stores remove this category, and it duplicated the desktop
+app's job on the same machine. Archived for the record in git history only.
 
 ---
 
@@ -165,13 +221,10 @@ progress.
 **M3 — TikTok.** `verify:` three public links, one watermark-free.
 
 **M4 — Instagram + Facebook.** Encrypted cookie store, "sign in required" state,
-logout wipes it. `verify:` one Reel and one Facebook video save and play.
-
-**M5 — Desktop app.** yt-dlp + ffmpeg embedded, queue, folder picker.
+logout wipes it. `verify:` one Reel and one Facebook video save and play.**M5 — Desktop app (Electron).** yt-dlp + ffmpeg embedded, queue, folder picker,
+shared design system with the Android app.
 `verify:` install on a clean machine, download 3 links from a playlist folder.
-
-**M6 — Extension.** Native messaging to the desktop helper, context-menu download.
-`verify:` one-click download from a YouTube tab, file appears complete and playable.
+**M6 — retired.** The browser extension is out of scope.
 
 **M7 — Website rebrand.** Shopfront with per-platform CTAs and deep-link handoff
 (`flickgrab://inspect?url=…`, `verify:` phone taps the button → app opens pre-filled).
@@ -179,8 +232,8 @@ logout wipes it. `verify:` one Reel and one Facebook video save and play.
 **M8 — Release.** Signed APK + installers on GitHub Releases, Obtainium-compatible,
 in-app update check against the VPS. No Play Store.
 
-Order rationale: M0 de-risks everything; M5 should land before M6 because the
-extension depends on the desktop helper; M7 can happen any time after M2.
+Order rationale: M0 de-risks everything; M2's UI is already built and waiting on it;
+M7 can happen any time after M2; M5 follows the Android release.
 
 ---
 
@@ -218,7 +271,11 @@ extension depends on the desktop helper; M7 can happen any time after M2.
 1. M0 gate: does the device's own IP pass, or does even the app need a proxy?
 2. `youtubedl-android` vs NewPipe Extractor — choose from M0 results.
 3. Mux path: Media3 Transformer reliable enough, or bundle ffmpeg?
-4. Desktop: Tauri or Electron?
+4. ~~Desktop: Tauri or Electron?~~ **Electron** (2026-11-12).
 5. Keep the website's direct-file download, or drop it once "Open in app" exists?
 6. Meta app registration for IG/FB metadata — willing to create one?
-7. Extension: worth building if it's sideload-only, given desktop already covers PC?
+7. ~~Extension: worth building if sideload-only?~~ **Dropped** (2026-11-12).
+8. Who has a JDK 17 + Android SDK machine? Nothing Android has been compiled yet, and
+   M0 needs a physical device on the owner's network.
+9. Does the Android quality sheet keep the "Change" save-location control, or is
+   `Movies/FlickGrab` fixed? It is currently rendered but inert.

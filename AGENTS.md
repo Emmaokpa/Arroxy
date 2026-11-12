@@ -1,13 +1,16 @@
 # AGENTS.md
 
-FlickGrab is a **Next.js 16 web app** plus a small **Express API**. There is no
-desktop app and no media pipeline anywhere in this repository.
+FlickGrab is a **Next.js 16 web app** plus a small **Express API**, and a Kotlin +
+Compose **Android app** under `android/`. The Android app is currently a UI shell: it
+has no extractor, muxer or download path yet (milestones M0–M2 in `android.md`). There
+is no media pipeline on any server anywhere in this repository.
 
 - `src/app` — page
 - `src/components` — UI
 - `src/lib` — shared contracts (zod) and URL classification, used by both sides
 - `server/` — Express API (config, app, inspect, metadata, links, capabilities)
 - `tests/server` — API tests
+- `android/` — Compose app; see `android/README.md` for its build and honesty rules
 
 ## Commands
 
@@ -18,6 +21,9 @@ npm test           # vitest + supertest
 npm run typecheck  # tsc --noEmit
 npm run lint       # eslint
 npm run build      # next build
+
+# Android (needs JDK 17, Android SDK 35, Gradle 8.9 — none are installed on every machine)
+cd android && ./gradlew :app:assembleDebug
 ```
 
 ## Hard invariants
@@ -49,6 +55,11 @@ npm run build      # next build
   `next.config.ts`. Keep the origin configurable with `FLICKGRAB_API_ORIGIN`.
 - **No new heavy dependencies.** The API needs no ORM, database, queue or
   template engine; adding one contradicts the product constraints.
+- **Android preview data stays fenced.** Placeholder items may only be served by
+  `PreviewMediaRepository` when `BuildConfig.PREVIEW_DATA` is true (debug builds),
+  and every task it produces must say `PREVIEW` in the UI. Release builds use
+  `EmptyMediaRepository` and show the not-wired state. Never ship a fake download
+  button, progress bar or quality list.
 
 ## Product constraints
 
